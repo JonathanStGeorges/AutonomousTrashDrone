@@ -610,6 +610,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 23.668, y: 0, z: 0}
+--- !u!1 &1540397118 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3608158740392703002, guid: 3bb01fb8200369fd3881d5d6a17856be, type: 3}
+  m_PrefabInstance: {fileID: 6724319499869144023}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1540397123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1540397118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92b84e5395d4eaf4e81218745682706e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Marus.Visualization::Marus.Visualization.PointCloudVisualizerHandler
+  pointColor: {r: 0, g: 1, b: 1, a: 1}
+  pointSize: 0.05
+  particleMaterial: {fileID: 0}
 --- !u!1 &1554291455
 GameObject:
   m_ObjectHideFlags: 0
@@ -1334,10 +1354,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6922700160510950460, guid: 3bb01fb8200369fd3881d5d6a17856be, type: 3}
+      propertyPath: Configs.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6922700160510950460, guid: 3bb01fb8200369fd3881d5d6a17856be, type: 3}
+      propertyPath: Configs.Array.data[0].FrameId
+      value: marus_boat/lidar_frame
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3608158740392703002, guid: 3bb01fb8200369fd3881d5d6a17856be, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1540397123}
   m_SourcePrefab: {fileID: 100100000, guid: 3bb01fb8200369fd3881d5d6a17856be, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
