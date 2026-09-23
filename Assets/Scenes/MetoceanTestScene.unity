@@ -515,7 +515,7 @@ MonoBehaviour:
   sunLightOverride: {fileID: 0}
   sunColor: {r: 1, g: 1, b: 1, a: 1}
   sunIntensity: 130000
-  moonPhase: 0.34172028
+  moonPhase: 0.33844683
   moonPhaseRotation: 0
   earthshine: 1
   flareSize: 0
@@ -605,7 +605,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 34599556}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0033222437, y: -0.64827085, z: 0.0028286332, w: 0.76139736}
+  m_LocalRotation: {x: 0.0026611565, y: -0.79247546, z: 0.0034578484, w: 0.60988826}
   m_LocalPosition: {x: -901.1062, y: 587.2091, z: -16.685593}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -663,7 +663,7 @@ MonoBehaviour:
   _windZone: {fileID: 0}
   _windZoneSpeedMultiplier: 1
   _timeMode: 3
-  _customTimeOfDayHours: 13.42
+  _customTimeOfDayHours: 11.1
   _useCustomDate: 1
   _customYear: 2026
   _customMonth: 10
@@ -1172,13 +1172,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1428979323}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.015736056, y: 0.9114479, z: -0.035014316, w: 0.4096209}
+  m_LocalRotation: {x: -0.038351297, y: -0.043587074, z: 0.0016744473, w: -0.9983119}
   m_LocalPosition: {x: 0, y: 4.68, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 4.4, y: 131.6, z: 0}
+  m_LocalEulerAnglesHint: {x: 4.4, y: 365, z: 0}
 --- !u!1 &1554291455
 GameObject:
   m_ObjectHideFlags: 0
@@ -1302,7 +1302,7 @@ Light:
   serializedVersion: 13
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 15.145478
+  m_Intensity: 14.625353
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 0
@@ -1352,7 +1352,7 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
   m_ShapeRadius: 0.025
-  m_ShadowAngle: 0.12
+  m_ShadowAngle: 0.6
   m_LightUnit: 2
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
@@ -1364,7 +1364,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1604674992}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2981188, y: 0.11050716, z: -0.034770675, w: 0.94747263}
+  m_LocalRotation: {x: 0.26550722, y: -0.230731, z: 0.06560435, w: 0.9337908}
   m_LocalPosition: {x: 2.2, y: 1000, z: -3.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1422,7 +1422,7 @@ MonoBehaviour:
   m_AreaLightShadowCone: 120
   m_UseScreenSpaceShadows: 0
   m_InteractsWithSky: 1
-  m_AngularDiameter: 0.12
+  m_AngularDiameter: 0.6
   diameterMultiplerMode: 1
   diameterMultiplier: 0.1
   diameterOverride: 4.33
@@ -1433,7 +1433,7 @@ MonoBehaviour:
   moonPhase: 0.2
   moonPhaseRotation: 0
   earthshine: 1
-  flareSize: 9.3
+  flareSize: 3.4
   flareTint: {r: 1, g: 1, b: 1, a: 1}
   flareFalloff: 4
   flareMultiplier: 1
