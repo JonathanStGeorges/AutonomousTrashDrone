@@ -25,3 +25,6 @@
 [submodule "Assets/marus2-modules/marus2-visualization-grpc"]
 	path = Assets/marus2-modules/marus2-visualization-grpc
 	url = https://github.com/MARUSimulator/marus2-visualization-grpc.git
+[submodule "Assets/marus2-modules/marus2-metocean"]
+	path = Assets/marus2-modules/marus2-metocean
+	url = https://github.com/MARUSimulator/marus2-metocean.git
