@@ -1,0 +1,904 @@
+{
+    "blend":  {
+                  "1k":  {
+                             "blend":  {
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/blend/1k/trashbag/trashbag_1k.blend",
+                                           "md5":  "58839d4bf2aafbcbcbd6222298d0fd68",
+                                           "size":  207523,
+                                           "include":  {
+                                                           "textures/trashbag_diff_1k.jpg":  {
+                                                                                                 "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/trashbag/trashbag_diff_1k.jpg",
+                                                                                                 "md5":  "255360a490bf3838f55e7f21c7ab57ab",
+                                                                                                 "size":  332301
+                                                                                             },
+                                                           "textures/trashbag_nor_gl_1k.exr":  {
+                                                                                                   "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/trashbag/trashbag_nor_gl_1k.exr",
+                                                                                                   "md5":  "81888d740e0838f66a8a55aa8cb1e2d7",
+                                                                                                   "size":  1159600
+                                                                                               },
+                                                           "textures/trashbag_rough_1k.exr":  {
+                                                                                                  "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/trashbag/trashbag_rough_1k.exr",
+                                                                                                  "md5":  "4ce859eca77321b9c72a9044fd94ff1b",
+                                                                                                  "size":  694395
+                                                                                              }
+                                                       }
+                                       }
+                         },
+                  "2k":  {
+                             "blend":  {
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/blend/2k/trashbag/trashbag_2k.blend",
+                                           "md5":  "5d34a0a8fa9ee017e25329d74110d268",
+                                           "size":  207523,
+                                           "include":  {
+                                                           "textures/trashbag_diff_2k.jpg":  {
+                                                                                                 "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/trashbag/trashbag_diff_2k.jpg",
+                                                                                                 "md5":  "efa87c9e8b6e15407387b0068bd09ea8",
+                                                                                                 "size":  1142564
+                                                                                             },
+                                                           "textures/trashbag_nor_gl_2k.exr":  {
+                                                                                                   "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/trashbag/trashbag_nor_gl_2k.exr",
+                                                                                                   "md5":  "b326437f7a3017a2daad3f70a85fc21a",
+                                                                                                   "size":  3132429
+                                                                                               },
+                                                           "textures/trashbag_rough_2k.exr":  {
+                                                                                                  "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/trashbag/trashbag_rough_2k.exr",
+                                                                                                  "md5":  "c7481a642f48f7d0476bdf5210558c9d",
+                                                                                                  "size":  2391380
+                                                                                              }
+                                                       }
+                                       }
+                         },
+                  "4k":  {
+                             "blend":  {
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/blend/4k/trashbag/trashbag_4k.blend",
+                                           "md5":  "2644da8c560ada31e1624b1a6aa46715",
+                                           "size":  207523,
+                                           "include":  {
+                                                           "textures/trashbag_diff_4k.jpg":  {
+                                                                                                 "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/trashbag/trashbag_diff_4k.jpg",
+                                                                                                 "md5":  "1f4465ff3bf5b92ceba21fae1a403ecc",
+                                                                                                 "size":  3865606
+                                                                                             },
+                                                           "textures/trashbag_nor_gl_4k.exr":  {
+                                                                                                   "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/4k/trashbag/trashbag_nor_gl_4k.exr",
+                                                                                                   "md5":  "c573d7eb564bbcdd552ef55b6a2d9ced",
+                                                                                                   "size":  8130605
+                                                                                               },
+                                                           "textures/trashbag_rough_4k.exr":  {
+                                                                                                  "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/4k/trashbag/trashbag_rough_4k.exr",
+                                                                                                  "md5":  "16eb966bab36753c1646fa0158b2f825",
+                                                                                                  "size":  8197817
+                                                                                              }
+                                                       }
+                                       }
+                         },
+                  "8k":  {
+                             "blend":  {
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/blend/8k/trashbag/trashbag_8k.blend",
+                                           "md5":  "c2b0c4ebe3a426b70fe3c15672f27768",
+                                           "size":  207523,
+                                           "include":  {
+                                                           "textures/trashbag_diff_8k.jpg":  {
+                                                                                                 "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/8k/trashbag/trashbag_diff_8k.jpg",
+                                                                                                 "md5":  "45790250e5fe2ca31e3179af1ac289a4",
+                                                                                                 "size":  13816426
+                                                                                             },
+                                                           "textures/trashbag_nor_gl_8k.exr":  {
+                                                                                                   "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/8k/trashbag/trashbag_nor_gl_8k.exr",
+                                                                                                   "md5":  "067405505e612472dbef61e3a66ef405",
+                                                                                                   "size":  22735921
+                                                                                               },
+                                                           "textures/trashbag_rough_8k.exr":  {
+                                                                                                  "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/8k/trashbag/trashbag_rough_8k.exr",
+                                                                                                  "md5":  "06058ce899e433093f7ee2e494e75aab",
+                                                                                                  "size":  29273691
+                                                                                              }
+                                                       }
+                                       }
+                         }
+              },
+    "AO":  {
+               "1k":  {
+                          "exr":  {
+                                      "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/trashbag/trashbag_ao_1k.exr",
+                                      "md5":  "e95a60df1b315e40ae4e7ec630f57ec2",
+                                      "size":  434740
+                                  },
+                          "jpg":  {
+                                      "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/trashbag/trashbag_ao_1k.jpg",
+                                      "md5":  "64e9ecce7ec163d939bca5dfdccf7f8a",
+                                      "size":  365887
+                                  },
+                          "png":  {
+                                      "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/trashbag/trashbag_ao_1k.png",
+                                      "md5":  "6c3b7e3b527205fd0dbe22b2cf8ad21c",
+                                      "size":  377293
+                                  }
+                      },
+               "2k":  {
+                          "exr":  {
+                                      "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/trashbag/trashbag_ao_2k.exr",
+                                      "md5":  "3b61f4308bd74eb7841669c8f48de704",
+                                      "size":  1154085
+                                  },
+                          "jpg":  {
+                                      "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/trashbag/trashbag_ao_2k.jpg",
+                                      "md5":  "76af9faf81171cfa760b726903c66a78",
+                                      "size":  1075998
+                                  },
+                          "png":  {
+                                      "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/trashbag/trashbag_ao_2k.png",
+                                      "md5":  "76ecf2dc3cd8c603422e0ef02243b1c4",
+                                      "size":  1224536
+                                  }
+                      },
+               "4k":  {
+                          "exr":  {
+                                      "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/4k/trashbag/trashbag_ao_4k.exr",
+                                      "md5":  "5528ace46dc8072b6a2357f47e8eb6b6",
+                                      "size":  3632644
+                                  },
+                          "jpg":  {
+                                      "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/trashbag/trashbag_ao_4k.jpg",
+                                      "md5":  "e66e11122f5b722cc36e77b16d8c756b",
+                                      "size":  3907320
+                                  },
+                          "png":  {
+                                      "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/4k/trashbag/trashbag_ao_4k.png",
+                                      "md5":  "08f1f8d5c7f7a92de3930e53314395bc",
+                                      "size":  4555229
+                                  }
+                      },
+               "8k":  {
+                          "exr":  {
+                                      "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/8k/trashbag/trashbag_ao_8k.exr",
+                                      "md5":  "b85118407f503c036a7d403b911d4501",
+                                      "size":  14152619
+                                  },
+                          "jpg":  {
+                                      "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/8k/trashbag/trashbag_ao_8k.jpg",
+                                      "md5":  "d295ffc9ca2101def0756e052a6c8d03",
+                                      "size":  15896684
+                                  },
+                          "png":  {
+                                      "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/8k/trashbag/trashbag_ao_8k.png",
+                                      "md5":  "19fc0855f8fc7ee8b3e6413802d62074",
+                                      "size":  17653838
+                                  }
+                      }
+           },
+    "arm":  {
+                "1k":  {
+                           "exr":  {
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/trashbag/trashbag_arm_1k.exr",
+                                       "md5":  "7b99a8b392fb283242e167e38afc70cc",
+                                       "size":  1703240
+                                   },
+                           "jpg":  {
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/trashbag/trashbag_arm_1k.jpg",
+                                       "md5":  "1efc021580dd12ef73a27b5d974056aa",
+                                       "size":  684660
+                                   },
+                           "png":  {
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/trashbag/trashbag_arm_1k.png",
+                                       "md5":  "9e8f1d69f07f346afbe61ca781ca8654",
+                                       "size":  1109252
+                                   }
+                       },
+                "2k":  {
+                           "exr":  {
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/trashbag/trashbag_arm_2k.exr",
+                                       "md5":  "c7f246dc623d26432055ed28d074c48c",
+                                       "size":  5961286
+                                   },
+                           "jpg":  {
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/trashbag/trashbag_arm_2k.jpg",
+                                       "md5":  "69cd2394f48c7308432616e406968dd6",
+                                       "size":  2362466
+                                   },
+                           "png":  {
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/trashbag/trashbag_arm_2k.png",
+                                       "md5":  "11778ff8830dee227460b50978e20149",
+                                       "size":  3856678
+                                   }
+                       },
+                "4k":  {
+                           "exr":  {
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/4k/trashbag/trashbag_arm_4k.exr",
+                                       "md5":  "bf74e724e9278524222cf454a8270a71",
+                                       "size":  20225524
+                                   },
+                           "jpg":  {
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/trashbag/trashbag_arm_4k.jpg",
+                                       "md5":  "3626582cabe55df0fb20b6e67956e4af",
+                                       "size":  7943005
+                                   },
+                           "png":  {
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/4k/trashbag/trashbag_arm_4k.png",
+                                       "md5":  "bac946936c3d9093569ab852af10b99c",
+                                       "size":  13740352
+                                   }
+                       },
+                "8k":  {
+                           "exr":  {
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/8k/trashbag/trashbag_arm_8k.exr",
+                                       "md5":  "d9abcd19747652489e640c665b438b7e",
+                                       "size":  71125481
+                                   },
+                           "jpg":  {
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/8k/trashbag/trashbag_arm_8k.jpg",
+                                       "md5":  "7400b25d4556f9e1a2133cb6fa454ace",
+                                       "size":  27057816
+                                   },
+                           "png":  {
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/8k/trashbag/trashbag_arm_8k.png",
+                                       "md5":  "52848ca7b336026d53ac7d5118d88162",
+                                       "size":  48536502
+                                   }
+                       }
+            },
+    "diff_02":  {
+                    "1k":  {
+                               "exr":  {
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/trashbag/trashbag_diff_02_1k.exr",
+                                           "md5":  "0bb03c568c0c4c0a3df814d800c3e3c2",
+                                           "size":  596055
+                                       },
+                               "jpg":  {
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/trashbag/trashbag_diff_02_1k.jpg",
+                                           "md5":  "1aa4ba564cfa409bed7676fdfab69e39",
+                                           "size":  304952
+                                       },
+                               "png":  {
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/trashbag/trashbag_diff_02_1k.png",
+                                           "md5":  "ab837c55455c57c10beabae0d82c7c07",
+                                           "size":  1707955
+                                       }
+                           },
+                    "2k":  {
+                               "exr":  {
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/trashbag/trashbag_diff_02_2k.exr",
+                                           "md5":  "42e4076cb95d87403b1d80b6465d7a23",
+                                           "size":  2047114
+                                       },
+                               "jpg":  {
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/trashbag/trashbag_diff_02_2k.jpg",
+                                           "md5":  "3cfebc26a77d905d1a718e2b589059ca",
+                                           "size":  1063890
+                                       },
+                               "png":  {
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/trashbag/trashbag_diff_02_2k.png",
+                                           "md5":  "0e412e3ce11dd98a9d34dc24005ae29b",
+                                           "size":  6621936
+                                       }
+                           },
+                    "4k":  {
+                               "exr":  {
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/4k/trashbag/trashbag_diff_02_4k.exr",
+                                           "md5":  "f89d61084625d9379216523143b38415",
+                                           "size":  7117845
+                                       },
+                               "jpg":  {
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/trashbag/trashbag_diff_02_4k.jpg",
+                                           "md5":  "050dab726510c8e1f309689e60b531c9",
+                                           "size":  3742518
+                                       },
+                               "png":  {
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/4k/trashbag/trashbag_diff_02_4k.png",
+                                           "md5":  "5fb5282a8bfc100d137895d98b01dafb",
+                                           "size":  25878682
+                                       }
+                           },
+                    "8k":  {
+                               "exr":  {
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/8k/trashbag/trashbag_diff_02_8k.exr",
+                                           "md5":  "50de6ae7204867db533e00b56cbe26b3",
+                                           "size":  26355374
+                                       },
+                               "jpg":  {
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/8k/trashbag/trashbag_diff_02_8k.jpg",
+                                           "md5":  "da7200a6400d4dda9455861875bd13ec",
+                                           "size":  13945105
+                                       },
+                               "png":  {
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/8k/trashbag/trashbag_diff_02_8k.png",
+                                           "md5":  "471f99ba0729bd4ee667b30547eda5c3",
+                                           "size":  112277540
+                                       }
+                           }
+                },
+    "Diffuse":  {
+                    "1k":  {
+                               "exr":  {
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/trashbag/trashbag_diff_1k.exr",
+                                           "md5":  "2557c82183c5f7ae84358ba8b859fe8f",
+                                           "size":  742494
+                                       },
+                               "jpg":  {
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/trashbag/trashbag_diff_1k.jpg",
+                                           "md5":  "255360a490bf3838f55e7f21c7ab57ab",
+                                           "size":  332301
+                                       },
+                               "png":  {
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/trashbag/trashbag_diff_1k.png",
+                                           "md5":  "40de0f2544ac11340b171b916f41d01c",
+                                           "size":  2533007
+                                       }
+                           },
+                    "2k":  {
+                               "exr":  {
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/trashbag/trashbag_diff_2k.exr",
+                                           "md5":  "37cc77e49cea4c3525431d26404bcaec",
+                                           "size":  2491900
+                                       },
+                               "jpg":  {
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/trashbag/trashbag_diff_2k.jpg",
+                                           "md5":  "efa87c9e8b6e15407387b0068bd09ea8",
+                                           "size":  1142564
+                                       },
+                               "png":  {
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/trashbag/trashbag_diff_2k.png",
+                                           "md5":  "8f211170486b4db02383d6d54fb15a6a",
+                                           "size":  9733540
+                                       }
+                           },
+                    "4k":  {
+                               "exr":  {
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/4k/trashbag/trashbag_diff_4k.exr",
+                                           "md5":  "e87fc299ad71367baf36f0a00b3dc5ac",
+                                           "size":  8370601
+                                       },
+                               "jpg":  {
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/trashbag/trashbag_diff_4k.jpg",
+                                           "md5":  "1f4465ff3bf5b92ceba21fae1a403ecc",
+                                           "size":  3865606
+                                       },
+                               "png":  {
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/4k/trashbag/trashbag_diff_4k.png",
+                                           "md5":  "02f888c2a13dd1c707fd982fe1009e1a",
+                                           "size":  37385916
+                                       }
+                           },
+                    "8k":  {
+                               "exr":  {
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/8k/trashbag/trashbag_diff_8k.exr",
+                                           "md5":  "6baf9892670408b7885db8ba050d8c99",
+                                           "size":  29649679
+                                       },
+                               "jpg":  {
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/8k/trashbag/trashbag_diff_8k.jpg",
+                                           "md5":  "45790250e5fe2ca31e3179af1ac289a4",
+                                           "size":  13816426
+                                       },
+                               "png":  {
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/8k/trashbag/trashbag_diff_8k.png",
+                                           "md5":  "c0be1347fee19d1cdaf699ccfdd009f6",
+                                           "size":  164147953
+                                       }
+                           }
+                },
+    "nor_dx":  {
+                   "1k":  {
+                              "exr":  {
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/trashbag/trashbag_nor_dx_1k.exr",
+                                          "md5":  "83810de6cab8e09c8302a1628e3f8a55",
+                                          "size":  1164724
+                                      },
+                              "jpg":  {
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/trashbag/trashbag_nor_dx_1k.jpg",
+                                          "md5":  "44db9260997d6a2bf97cb88030b05a6a",
+                                          "size":  564282
+                                      },
+                              "png":  {
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/trashbag/trashbag_nor_dx_1k.png",
+                                          "md5":  "1cee678aa6d78cbc19cdbf4e7805432f",
+                                          "size":  1206592
+                                      }
+                          },
+                   "2k":  {
+                              "exr":  {
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/trashbag/trashbag_nor_dx_2k.exr",
+                                          "md5":  "da0d8ec1bdacbfb476c662d951ab5068",
+                                          "size":  3163686
+                                      },
+                              "jpg":  {
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/trashbag/trashbag_nor_dx_2k.jpg",
+                                          "md5":  "59f2b458d757e275786231c4a8b07aeb",
+                                          "size":  1632616
+                                      },
+                              "png":  {
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/trashbag/trashbag_nor_dx_2k.png",
+                                          "md5":  "dd3eab93b0f7cfa6a804b063c88823a1",
+                                          "size":  3778742
+                                      }
+                          },
+                   "4k":  {
+                              "exr":  {
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/4k/trashbag/trashbag_nor_dx_4k.exr",
+                                          "md5":  "5aa6c99140a9f0c91950cf225540ca33",
+                                          "size":  8238377
+                                      },
+                              "jpg":  {
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/trashbag/trashbag_nor_dx_4k.jpg",
+                                          "md5":  "a0bd5be79e7dc80ebdb721c7bba8f3db",
+                                          "size":  4668012
+                                      },
+                              "png":  {
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/4k/trashbag/trashbag_nor_dx_4k.png",
+                                          "md5":  "395cd5daed5f8a1e220e643ada221de2",
+                                          "size":  11070911
+                                      }
+                          },
+                   "8k":  {
+                              "exr":  {
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/8k/trashbag/trashbag_nor_dx_8k.exr",
+                                          "md5":  "ac7981ec61d45b6c2c9533e7558a4ac2",
+                                          "size":  22623874
+                                      },
+                              "jpg":  {
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/8k/trashbag/trashbag_nor_dx_8k.jpg",
+                                          "md5":  "0f99e260d72e69ca5843d0c0eea4c3fa",
+                                          "size":  13808680
+                                      },
+                              "png":  {
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/8k/trashbag/trashbag_nor_dx_8k.png",
+                                          "md5":  "5db576c528eaa4c9de8e251bd7ea1b20",
+                                          "size":  31476782
+                                      }
+                          }
+               },
+    "nor_gl":  {
+                   "1k":  {
+                              "exr":  {
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/trashbag/trashbag_nor_gl_1k.exr",
+                                          "md5":  "81888d740e0838f66a8a55aa8cb1e2d7",
+                                          "size":  1159600
+                                      },
+                              "jpg":  {
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/trashbag/trashbag_nor_gl_1k.jpg",
+                                          "md5":  "e576356779a07ac478126012544ab7b7",
+                                          "size":  573449
+                                      },
+                              "png":  {
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/trashbag/trashbag_nor_gl_1k.png",
+                                          "md5":  "a24d1b2262c4d6f3b7245ca8618ab587",
+                                          "size":  3522700
+                                      }
+                          },
+                   "2k":  {
+                              "exr":  {
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/trashbag/trashbag_nor_gl_2k.exr",
+                                          "md5":  "b326437f7a3017a2daad3f70a85fc21a",
+                                          "size":  3132429
+                                      },
+                              "jpg":  {
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/trashbag/trashbag_nor_gl_2k.jpg",
+                                          "md5":  "5d03f2d7a91df0634e8222f3b9161545",
+                                          "size":  1659399
+                                      },
+                              "png":  {
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/trashbag/trashbag_nor_gl_2k.png",
+                                          "md5":  "26d5eeedcbef9d60520b600503fd88da",
+                                          "size":  12640512
+                                      }
+                          },
+                   "4k":  {
+                              "exr":  {
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/4k/trashbag/trashbag_nor_gl_4k.exr",
+                                          "md5":  "c573d7eb564bbcdd552ef55b6a2d9ced",
+                                          "size":  8130605
+                                      },
+                              "jpg":  {
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/trashbag/trashbag_nor_gl_4k.jpg",
+                                          "md5":  "c1a81ce640bd6ccbcd32754865077088",
+                                          "size":  4736794
+                                      },
+                              "png":  {
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/4k/trashbag/trashbag_nor_gl_4k.png",
+                                          "md5":  "64014d42ce919b0f832259688e64fe53",
+                                          "size":  34200718
+                                      }
+                          },
+                   "8k":  {
+                              "exr":  {
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/8k/trashbag/trashbag_nor_gl_8k.exr",
+                                          "md5":  "067405505e612472dbef61e3a66ef405",
+                                          "size":  22735921
+                                      },
+                              "jpg":  {
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/8k/trashbag/trashbag_nor_gl_8k.jpg",
+                                          "md5":  "6fe1a1d791e5352ba23d8a7a7ff01d19",
+                                          "size":  13978626
+                                      },
+                              "png":  {
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/8k/trashbag/trashbag_nor_gl_8k.png",
+                                          "md5":  "345008ec97c92c3e52de7e1228df3755",
+                                          "size":  50809235
+                                      }
+                          }
+               },
+    "Rough":  {
+                  "1k":  {
+                             "exr":  {
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/trashbag/trashbag_rough_1k.exr",
+                                         "md5":  "4ce859eca77321b9c72a9044fd94ff1b",
+                                         "size":  694395
+                                     },
+                             "jpg":  {
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/trashbag/trashbag_rough_1k.jpg",
+                                         "md5":  "4538ecffaef10ff274c2444fb92348f8",
+                                         "size":  537235
+                                     },
+                             "png":  {
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/trashbag/trashbag_rough_1k.png",
+                                         "md5":  "ace9244f3b84d2dcdee9ad2210bf2beb",
+                                         "size":  517573
+                                     }
+                         },
+                  "2k":  {
+                             "exr":  {
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/trashbag/trashbag_rough_2k.exr",
+                                         "md5":  "c7481a642f48f7d0476bdf5210558c9d",
+                                         "size":  2391380
+                                     },
+                             "jpg":  {
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/trashbag/trashbag_rough_2k.jpg",
+                                         "md5":  "6640751d498a09a1b04ba4217da49b8e",
+                                         "size":  1891974
+                                     },
+                             "png":  {
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/trashbag/trashbag_rough_2k.png",
+                                         "md5":  "4a23e55eb2d8b9474cb1ae8b48ff79de",
+                                         "size":  1907270
+                                     }
+                         },
+                  "4k":  {
+                             "exr":  {
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/4k/trashbag/trashbag_rough_4k.exr",
+                                         "md5":  "16eb966bab36753c1646fa0158b2f825",
+                                         "size":  8197817
+                                     },
+                             "jpg":  {
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/trashbag/trashbag_rough_4k.jpg",
+                                         "md5":  "57f4c461f3d31c54c07aaa979a92e000",
+                                         "size":  6456968
+                                     },
+                             "png":  {
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/4k/trashbag/trashbag_rough_4k.png",
+                                         "md5":  "eda19110bf6746cafa79ba06388ee264",
+                                         "size":  6851109
+                                     }
+                         },
+                  "8k":  {
+                             "exr":  {
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/8k/trashbag/trashbag_rough_8k.exr",
+                                         "md5":  "06058ce899e433093f7ee2e494e75aab",
+                                         "size":  29273691
+                                     },
+                             "jpg":  {
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/8k/trashbag/trashbag_rough_8k.jpg",
+                                         "md5":  "22c885342a95da855c90e99094a98ad3",
+                                         "size":  22785197
+                                     },
+                             "png":  {
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/8k/trashbag/trashbag_rough_8k.png",
+                                         "md5":  "ed29d5c711167799810837b77db672cb",
+                                         "size":  24588957
+                                     }
+                         }
+              },
+    "fbx":  {
+                "1k":  {
+                           "fbx":  {
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/fbx/1k/trashbag/trashbag_1k.fbx",
+                                       "md5":  "af499779032990f49ccf890e97dead0d",
+                                       "size":  151148,
+                                       "include":  {
+                                                       "textures/trashbag_diff_1k.jpg":  {
+                                                                                             "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/trashbag/trashbag_diff_1k.jpg",
+                                                                                             "md5":  "255360a490bf3838f55e7f21c7ab57ab",
+                                                                                             "size":  332301
+                                                                                         },
+                                                       "textures/trashbag_nor_gl_1k.exr":  {
+                                                                                               "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/trashbag/trashbag_nor_gl_1k.exr",
+                                                                                               "md5":  "81888d740e0838f66a8a55aa8cb1e2d7",
+                                                                                               "size":  1159600
+                                                                                           },
+                                                       "textures/trashbag_rough_1k.exr":  {
+                                                                                              "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/trashbag/trashbag_rough_1k.exr",
+                                                                                              "md5":  "4ce859eca77321b9c72a9044fd94ff1b",
+                                                                                              "size":  694395
+                                                                                          }
+                                                   }
+                                   }
+                       },
+                "2k":  {
+                           "fbx":  {
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/fbx/2k/trashbag/trashbag_2k.fbx",
+                                       "md5":  "403e8dec986addfd1df9ed1b4703a01d",
+                                       "size":  151148,
+                                       "include":  {
+                                                       "textures/trashbag_diff_2k.jpg":  {
+                                                                                             "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/trashbag/trashbag_diff_2k.jpg",
+                                                                                             "md5":  "efa87c9e8b6e15407387b0068bd09ea8",
+                                                                                             "size":  1142564
+                                                                                         },
+                                                       "textures/trashbag_nor_gl_2k.exr":  {
+                                                                                               "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/trashbag/trashbag_nor_gl_2k.exr",
+                                                                                               "md5":  "b326437f7a3017a2daad3f70a85fc21a",
+                                                                                               "size":  3132429
+                                                                                           },
+                                                       "textures/trashbag_rough_2k.exr":  {
+                                                                                              "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/trashbag/trashbag_rough_2k.exr",
+                                                                                              "md5":  "c7481a642f48f7d0476bdf5210558c9d",
+                                                                                              "size":  2391380
+                                                                                          }
+                                                   }
+                                   }
+                       },
+                "4k":  {
+                           "fbx":  {
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/fbx/4k/trashbag/trashbag_4k.fbx",
+                                       "md5":  "0b77383cade17ff4c425a597d4e8df00",
+                                       "size":  151148,
+                                       "include":  {
+                                                       "textures/trashbag_diff_4k.jpg":  {
+                                                                                             "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/trashbag/trashbag_diff_4k.jpg",
+                                                                                             "md5":  "1f4465ff3bf5b92ceba21fae1a403ecc",
+                                                                                             "size":  3865606
+                                                                                         },
+                                                       "textures/trashbag_nor_gl_4k.exr":  {
+                                                                                               "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/4k/trashbag/trashbag_nor_gl_4k.exr",
+                                                                                               "md5":  "c573d7eb564bbcdd552ef55b6a2d9ced",
+                                                                                               "size":  8130605
+                                                                                           },
+                                                       "textures/trashbag_rough_4k.exr":  {
+                                                                                              "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/4k/trashbag/trashbag_rough_4k.exr",
+                                                                                              "md5":  "16eb966bab36753c1646fa0158b2f825",
+                                                                                              "size":  8197817
+                                                                                          }
+                                                   }
+                                   }
+                       },
+                "8k":  {
+                           "fbx":  {
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/fbx/8k/trashbag/trashbag_8k.fbx",
+                                       "md5":  "2bdcf252f593df640ecf1c8317997b03",
+                                       "size":  151148,
+                                       "include":  {
+                                                       "textures/trashbag_diff_8k.jpg":  {
+                                                                                             "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/8k/trashbag/trashbag_diff_8k.jpg",
+                                                                                             "md5":  "45790250e5fe2ca31e3179af1ac289a4",
+                                                                                             "size":  13816426
+                                                                                         },
+                                                       "textures/trashbag_nor_gl_8k.exr":  {
+                                                                                               "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/8k/trashbag/trashbag_nor_gl_8k.exr",
+                                                                                               "md5":  "067405505e612472dbef61e3a66ef405",
+                                                                                               "size":  22735921
+                                                                                           },
+                                                       "textures/trashbag_rough_8k.exr":  {
+                                                                                              "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/8k/trashbag/trashbag_rough_8k.exr",
+                                                                                              "md5":  "06058ce899e433093f7ee2e494e75aab",
+                                                                                              "size":  29273691
+                                                                                          }
+                                                   }
+                                   }
+                       }
+            },
+    "gltf":  {
+                 "1k":  {
+                            "gltf":  {
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/gltf/1k/trashbag/trashbag_1k.gltf",
+                                         "md5":  "c29158e170beeeb6bb518fe8d4407fe5",
+                                         "size":  2738,
+                                         "include":  {
+                                                         "textures/trashbag_nor_gl_1k.jpg":  {
+                                                                                                 "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/trashbag/trashbag_nor_gl_1k.jpg",
+                                                                                                 "md5":  "e576356779a07ac478126012544ab7b7",
+                                                                                                 "size":  573449
+                                                                                             },
+                                                         "textures/trashbag_diff_1k.jpg":  {
+                                                                                               "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/trashbag/trashbag_diff_1k.jpg",
+                                                                                               "md5":  "255360a490bf3838f55e7f21c7ab57ab",
+                                                                                               "size":  332301
+                                                                                           },
+                                                         "textures/trashbag_arm_1k.jpg":  {
+                                                                                              "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/trashbag/trashbag_arm_1k.jpg",
+                                                                                              "md5":  "1efc021580dd12ef73a27b5d974056aa",
+                                                                                              "size":  684660
+                                                                                          },
+                                                         "trashbag.bin":  {
+                                                                              "url":  "https://dl.polyhaven.org/file/ph-assets/Models/gltf/8k/trashbag/trashbag.bin",
+                                                                              "md5":  "ad6ebbf5b9aa0179feeea87a4bd289a3",
+                                                                              "size":  106316
+                                                                          }
+                                                     }
+                                     }
+                        },
+                 "2k":  {
+                            "gltf":  {
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/gltf/2k/trashbag/trashbag_2k.gltf",
+                                         "md5":  "74556d1c64fd55ccf6c21e2ce84da73b",
+                                         "size":  2738,
+                                         "include":  {
+                                                         "textures/trashbag_nor_gl_2k.jpg":  {
+                                                                                                 "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/trashbag/trashbag_nor_gl_2k.jpg",
+                                                                                                 "md5":  "5d03f2d7a91df0634e8222f3b9161545",
+                                                                                                 "size":  1659399
+                                                                                             },
+                                                         "textures/trashbag_diff_2k.jpg":  {
+                                                                                               "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/trashbag/trashbag_diff_2k.jpg",
+                                                                                               "md5":  "efa87c9e8b6e15407387b0068bd09ea8",
+                                                                                               "size":  1142564
+                                                                                           },
+                                                         "textures/trashbag_arm_2k.jpg":  {
+                                                                                              "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/trashbag/trashbag_arm_2k.jpg",
+                                                                                              "md5":  "69cd2394f48c7308432616e406968dd6",
+                                                                                              "size":  2362466
+                                                                                          },
+                                                         "trashbag.bin":  {
+                                                                              "url":  "https://dl.polyhaven.org/file/ph-assets/Models/gltf/8k/trashbag/trashbag.bin",
+                                                                              "md5":  "ad6ebbf5b9aa0179feeea87a4bd289a3",
+                                                                              "size":  106316
+                                                                          }
+                                                     }
+                                     }
+                        },
+                 "4k":  {
+                            "gltf":  {
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/gltf/4k/trashbag/trashbag_4k.gltf",
+                                         "md5":  "14a2719b9d95c9d56687357137b00ad3",
+                                         "size":  2738,
+                                         "include":  {
+                                                         "textures/trashbag_nor_gl_4k.jpg":  {
+                                                                                                 "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/trashbag/trashbag_nor_gl_4k.jpg",
+                                                                                                 "md5":  "c1a81ce640bd6ccbcd32754865077088",
+                                                                                                 "size":  4736794
+                                                                                             },
+                                                         "textures/trashbag_diff_4k.jpg":  {
+                                                                                               "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/trashbag/trashbag_diff_4k.jpg",
+                                                                                               "md5":  "1f4465ff3bf5b92ceba21fae1a403ecc",
+                                                                                               "size":  3865606
+                                                                                           },
+                                                         "textures/trashbag_arm_4k.jpg":  {
+                                                                                              "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/trashbag/trashbag_arm_4k.jpg",
+                                                                                              "md5":  "3626582cabe55df0fb20b6e67956e4af",
+                                                                                              "size":  7943005
+                                                                                          },
+                                                         "trashbag.bin":  {
+                                                                              "url":  "https://dl.polyhaven.org/file/ph-assets/Models/gltf/8k/trashbag/trashbag.bin",
+                                                                              "md5":  "ad6ebbf5b9aa0179feeea87a4bd289a3",
+                                                                              "size":  106316
+                                                                          }
+                                                     }
+                                     }
+                        },
+                 "8k":  {
+                            "gltf":  {
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/gltf/8k/trashbag/trashbag_8k.gltf",
+                                         "md5":  "2c73e4269ed84e8bea648f53df9646e9",
+                                         "size":  2738,
+                                         "include":  {
+                                                         "textures/trashbag_nor_gl_8k.jpg":  {
+                                                                                                 "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/8k/trashbag/trashbag_nor_gl_8k.jpg",
+                                                                                                 "md5":  "6fe1a1d791e5352ba23d8a7a7ff01d19",
+                                                                                                 "size":  13978626
+                                                                                             },
+                                                         "textures/trashbag_diff_8k.jpg":  {
+                                                                                               "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/8k/trashbag/trashbag_diff_8k.jpg",
+                                                                                               "md5":  "45790250e5fe2ca31e3179af1ac289a4",
+                                                                                               "size":  13816426
+                                                                                           },
+                                                         "textures/trashbag_arm_8k.jpg":  {
+                                                                                              "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/8k/trashbag/trashbag_arm_8k.jpg",
+                                                                                              "md5":  "7400b25d4556f9e1a2133cb6fa454ace",
+                                                                                              "size":  27057816
+                                                                                          },
+                                                         "trashbag.bin":  {
+                                                                              "url":  "https://dl.polyhaven.org/file/ph-assets/Models/gltf/8k/trashbag/trashbag.bin",
+                                                                              "md5":  "ad6ebbf5b9aa0179feeea87a4bd289a3",
+                                                                              "size":  106316
+                                                                          }
+                                                     }
+                                     }
+                        }
+             },
+    "usd":  {
+                "1k":  {
+                           "usd":  {
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/usd/1k/trashbag/trashbag_1k.usdc",
+                                       "md5":  "4471a641e8707ecb304c1bc8ce4508e9",
+                                       "size":  72949,
+                                       "include":  {
+                                                       "textures/trashbag_diff_1k.jpg":  {
+                                                                                             "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/trashbag/trashbag_diff_1k.jpg",
+                                                                                             "md5":  "255360a490bf3838f55e7f21c7ab57ab",
+                                                                                             "size":  332301
+                                                                                         },
+                                                       "textures/trashbag_nor_gl_1k.exr":  {
+                                                                                               "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/trashbag/trashbag_nor_gl_1k.exr",
+                                                                                               "md5":  "81888d740e0838f66a8a55aa8cb1e2d7",
+                                                                                               "size":  1159600
+                                                                                           },
+                                                       "textures/trashbag_rough_1k.exr":  {
+                                                                                              "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/trashbag/trashbag_rough_1k.exr",
+                                                                                              "md5":  "4ce859eca77321b9c72a9044fd94ff1b",
+                                                                                              "size":  694395
+                                                                                          }
+                                                   }
+                                   }
+                       },
+                "2k":  {
+                           "usd":  {
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/usd/2k/trashbag/trashbag_2k.usdc",
+                                       "md5":  "5e87e1624d25f2c2f0fb16559fcbf8db",
+                                       "size":  72953,
+                                       "include":  {
+                                                       "textures/trashbag_diff_2k.jpg":  {
+                                                                                             "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/trashbag/trashbag_diff_2k.jpg",
+                                                                                             "md5":  "efa87c9e8b6e15407387b0068bd09ea8",
+                                                                                             "size":  1142564
+                                                                                         },
+                                                       "textures/trashbag_nor_gl_2k.exr":  {
+                                                                                               "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/trashbag/trashbag_nor_gl_2k.exr",
+                                                                                               "md5":  "b326437f7a3017a2daad3f70a85fc21a",
+                                                                                               "size":  3132429
+                                                                                           },
+                                                       "textures/trashbag_rough_2k.exr":  {
+                                                                                              "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/trashbag/trashbag_rough_2k.exr",
+                                                                                              "md5":  "c7481a642f48f7d0476bdf5210558c9d",
+                                                                                              "size":  2391380
+                                                                                          }
+                                                   }
+                                   }
+                       },
+                "4k":  {
+                           "usd":  {
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/usd/4k/trashbag/trashbag_4k.usdc",
+                                       "md5":  "0295ecfddf8b348b0086cca05efd3fef",
+                                       "size":  72935,
+                                       "include":  {
+                                                       "textures/trashbag_diff_4k.jpg":  {
+                                                                                             "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/trashbag/trashbag_diff_4k.jpg",
+                                                                                             "md5":  "1f4465ff3bf5b92ceba21fae1a403ecc",
+                                                                                             "size":  3865606
+                                                                                         },
+                                                       "textures/trashbag_nor_gl_4k.exr":  {
+                                                                                               "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/4k/trashbag/trashbag_nor_gl_4k.exr",
+                                                                                               "md5":  "c573d7eb564bbcdd552ef55b6a2d9ced",
+                                                                                               "size":  8130605
+                                                                                           },
+                                                       "textures/trashbag_rough_4k.exr":  {
+                                                                                              "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/4k/trashbag/trashbag_rough_4k.exr",
+                                                                                              "md5":  "16eb966bab36753c1646fa0158b2f825",
+                                                                                              "size":  8197817
+                                                                                          }
+                                                   }
+                                   }
+                       },
+                "8k":  {
+                           "usd":  {
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/usd/8k/trashbag/trashbag_8k.usdc",
+                                       "md5":  "da4cccb368212c309db632439c0c0faf",
+                                       "size":  72935,
+                                       "include":  {
+                                                       "textures/trashbag_diff_8k.jpg":  {
+                                                                                             "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/8k/trashbag/trashbag_diff_8k.jpg",
+                                                                                             "md5":  "45790250e5fe2ca31e3179af1ac289a4",
+                                                                                             "size":  13816426
+                                                                                         },
+                                                       "textures/trashbag_nor_gl_8k.exr":  {
+                                                                                               "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/8k/trashbag/trashbag_nor_gl_8k.exr",
+                                                                                               "md5":  "067405505e612472dbef61e3a66ef405",
+                                                                                               "size":  22735921
+                                                                                           },
+                                                       "textures/trashbag_rough_8k.exr":  {
+                                                                                              "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/8k/trashbag/trashbag_rough_8k.exr",
+                                                                                              "md5":  "06058ce899e433093f7ee2e494e75aab",
+                                                                                              "size":  29273691
+                                                                                          }
+                                                   }
+                                   }
+                       }
+            }
+}

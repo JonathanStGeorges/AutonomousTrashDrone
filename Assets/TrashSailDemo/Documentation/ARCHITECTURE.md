@@ -1,36 +1,39 @@
-# Architecture, audit and assumptions
+﻿# Production v2 architecture
 
-## Installation baseline
+## Baseline and historical boundary
 
-Host `marus2-example`, initial branch `main`, revision `0f9ec3f8a4a30126bcbed8ddbf90800fafa33f06`; development branch `feature/trash-sail-demo`. MARUS core submodule `747bcee11adfa0f4bbd60db698b24794ab5581c8`; sensors `c88714d750d0b0d99dcfde77694ec5f37d407ec5` plus the documented local sonar rotation repair. Exact ten-module revisions are in `Evidence/TrashSailDemo/submodule-revisions.txt`. Git LFS integrity checked. Existing modified HDRP/global project settings were snapshotted in `pre-existing-changes.patch` and not intentionally changed/staged. Unsaved ExampleScene was copied into `Assets/TrashSailDemo/LocalPreservation`.
+The functioning host is marus2-example, Unity 6000.5.11f1/HDRP17.5. Initial host revision was 0f9ec3f8a4a30126bcbed8ddbf90800fafa33f06. Checkpoint 7b2f197 preserves the earlier rendered collector prototype. Original project settings/user changes and scene preservation records remain under Evidence/TrashSailDemo and LocalPreservation. PRODUCTION_CONTRACTS.md supersedes v1 control/perception descriptions. Earlier CAMERA.md, DASHBOARD.md and REVIEW-VEHICLE-AGENT.md may describe prototype stages; current run guidance is README.md plus the v2 subsystem documents.
 
-Unity6000.5.11f1/HDRP17.5.0 and an NVIDIA RTX5070 Laptop GPU were present. Existing CameraSensor uses asynchronous GPU readback but lacks an exposed completed sequence/pose contract; SensorSampler also sets hasData prematurely. Existing Sonar3D exposes polar/Cartesian outputs and annotation-bearing SonarReading. The new operational boundary never reads annotation IDs. Existing transform/Target-based demonstration controllers were inspected and not used for autonomous drive. Calm-water height uses the installed MARUS WaterHeightSampler; forces use a replaceable DemoVessel actuator implementation. Docker/WSL commands exist but no external inference/ROS service was required or installed for this feature.
+## Operational path
 
-## Pipeline
+Actual onboard rendering -> immutable completed RGB frame with sequence/capture pose -> one bounded localhost inference request -> YOLOE and marine specialist results on the same PNG -> provenance-preserving visual tracks -> estimated mission model.
 
-Rendered camera → bounded completed RGB frame → connected colour components → water-plane range → persistent visual tracks.
+MARUS Sonar3D completed polar intensity -> seeded degradation/dropout/latency -> connected measured echo components -> unknown contact tracks -> the same estimated mission model. Preview and autonomy use the same degraded sonar representation; annotation class/instance IDs and collider references never enter operational tracking.
 
-MARUS Sonar3D CPU raycasts → completed polar texture → seeded intensity degradation/dropout/latency → connected range-bearing components → unknown temporal contacts.
+Estimated GNSS/IMU/wind state plus boundary-only CoveragePlanner and those sensor tracks -> DemoMission safety/state decisions -> signed port/starboard commands and collection state -> force-at-mount Rigidbody actuation and physical intake events.
 
-Those two streams + simulated own-state/wind observations → DemoMission state machine → bounded rudder/sail/motor/collector commands → Rigidbody forces/torques and physical intake trigger. Scenario actor identities/poses live exclusively in world generation, sensing physics and DemoEvaluation. Dashboard map uses estimated tracks. No simulator ground-truth detector overlays are enabled.
+World records, actor identities and collected flags are simulation truth. Only generation, streaming, physical simulation, evaluator and explicitly labelled observer overview read them. Coverage and planning never receive the population list. Observer cameras and render textures are separate from the onboard camera; display filters do not change active inference or safety inputs.
 
-## Operational assumptions
+## Inference and uncertainty
 
-- Metres/seconds; +Y up, +Z bow, +X starboard. Simulation timestamps use Time.timeAsDouble. Frame/track coordinate and buffer ownership details are in CONTRACTS.md.
-- Calm opaque water at y0, no waves/current in acceptance. Original primitive catamaran is provisional, 3m×2.2m, 110kg. Hull/intake dimensions enter safety and evaluation envelopes.
-- RGB controlled synthetic objects are saturated orange/red; muted candidates remain unknown. This is not a trained litter classifier. Fish below water are excluded from the onboard RGB visibility layer; no fish boxes are invented.
-- Camera pose is estimated own pose plus calibrated mount. Bottom/contact pixels intersect estimated water plane; horizon/invalid/cropped contact rays are rejected. The generated demo camera uses pitch38°, verticalFOV68° to observe near-intake water while retaining useful forward coverage.
-- Sonar is an approximate simultaneous multibeam fan, 96×9=864 rays, requested8Hz,128range bins,0.18–16m,110°horizontal/35°vertical. Its 2D projection does not resolve true contact elevation. Source timing is conservatively estimated from completed texture updates; exact acoustic travel time/refraction/multipath/scattering are not modelled. See SONAR.md.
-- Both sonar display and autonomy consume the identical degraded intensity representation. One missing range bin may join fragments within0.25m; measured combined extents are retained so merged objects are not secretly split using truth.
-- Own-state zero noise/latency mode is labelled IDEAL; configurable noise/latency are simulation approximations, not certified GNSS/IMU models.
-- Optional motor force and approximate true-wind sail polar are explicit. No velocity/Transform following is used in autonomous drive. Reset and post-capture storage relocation are labelled simulation operations, not navigation.
+No colour heuristic fallback remains in the production detector path. The service uses the actual cached models and class maps documented in MODELS.md; successful empty results differ from faults. Requests/results carry session, sequence, profile, image dimensions and capture time. Old sessions, mismatches, stale simulation frames and excessive wall latency are rejected for control. Reset invalidates callbacks and clears tracks.
 
-## Safety decisions
+Floating eligible categories use the lowest mask/box contact edge intersected with an estimated water plane, with horizon and cropping rejection. Wildlife/unknown observations retain bearing-only evidence without pretending they lie on the surface. Model conflicts remain separate evidence and inhibit collection. Network and inference latency are not hidden by new timestamps.
 
-Mission phases expose reasons. A unique persistent fresh sonar echo can be associated with a positive visual target only inside a narrow geometric gate, with compatible velocity and measured extent. Multiple/unmatched/merged conflicting contacts remain unknown hazards. Hull/intake width, current speed, processing delay and track uncertainty enlarge the prediction corridor. New narrow far target echoes may cause a collector-closed depowered assessment; genuine hazards cause finite-force steering. Lost tracks retain uncertainty/memory. Stale camera or sonar closes collection and depowers; stopping does not erase inertia.
+Sonar remains a coarse 2D multibeam approximation: no resolved true elevation, real acoustic propagation/scattering validation or certified fish classification. Completion timing and pose interpolation are approximate. Unknown/lost contacts persist with uncertainty. See SONAR.md for acquisition and noise details.
 
-Intake opening requires positive persistent RGB classification, fresh required sensors, alignment, speed, capacity and clearance. Counter increments require a body's centre entering the active capture volume. Any dynamic body can enter, including fish; overspeed ingress is recorded as unsafe rather than silently discarded. Only evaluation reads labels to distinguish correct capture/bycatch. A conservative oriented hull-plus-intake envelope, not centre distance, is used for minimum hazard separation.
+## Physics and mission
 
-## Upstream change
+Coordinates are metres/seconds, +Y up, +Z bow, +X starboard; heading is clockwise from world +Z. Simulated own state may be ideal or noisy/delayed. Twin signed thrusters apply bounded forces at configurable mounts with response lag, watchdog, inertia and drag. Legacy sail fields exist only for migration and exert no production authority. Wind/current are declared disturbances, not wind-routing constraints.
 
-`marus2-sensors/Runtime/Sonar/Sonar3D.cs` previously dotted sensor-local ray directions with world-space normals. It now caches sensor rotation on the main thread and rotates the ray before the intensity calculation inside the worker job. Dot product is clamped before acos. The small scheduling/rotation mismatch remains part of the declared sonar approximation. No other upstream subsystem is intentionally modified.
+Mission suspends coverage when selecting a persistent eligible visual target and resumes its saved waypoint after abandonment/capture. Freshness, model conflicts, relative motion, measured sonar extent, target association, hull/intake envelope, capacity and alignment gate collection. Bearing-only optical hazards close the intake without inventing a world range. Sensor failure closes collection and latches a depowered state until restart. Remaining actual safety outcomes require rendered acceptance, not source inspection.
+
+Physical capture requires an external body's centre entering the active volume; any body can be captured, including fish. Overspeed ingress is recorded as unsafe. Scoring truth distinguishes rubbish, bycatch and collisions independently of control. Capture storage relocation and seeded reset are explicit simulator operations, not navigation teleportation.
+
+## Rendering and assets
+
+Imported assets retain documented licences, hashes and textured materials (ASSETS.md). The imported boat visual is a proxy over a provisional conservative collision envelope. HDRP ocean rendering is configured by the dedicated scene/helper; physical buoyancy still uses the declared mean-water approximation. Presentation exposes a full-world observer and independent chase while retaining actual sensor views. Visual waves do not establish validated wave-coupled dynamics.
+
+## Integration status
+
+Current code is undergoing serialized lead-owned Unity verification. Source/fixture compilation is not rendered acceptance. GATES.md distinguishes historical results, provisional implementation and pending integrated tests. A small upstream sonar correction rotates local ray direction into world coordinates for the normal-incidence calculation; residual scheduling/pose approximation remains disclosed.

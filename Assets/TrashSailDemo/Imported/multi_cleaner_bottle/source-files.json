@@ -1,0 +1,904 @@
+{
+    "Diffuse":  {
+                    "8k":  {
+                               "jpg":  {
+                                           "size":  15460996,
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/8k/multi_cleaner_bottle/multi_cleaner_bottle_diff_8k.jpg",
+                                           "md5":  "ebebb52ce1cc9db2b776285452644059"
+                                       },
+                               "png":  {
+                                           "size":  71924700,
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/8k/multi_cleaner_bottle/multi_cleaner_bottle_diff_8k.png",
+                                           "md5":  "77835103193c252874f189bad60f0405"
+                                       },
+                               "exr":  {
+                                           "size":  20820335,
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/8k/multi_cleaner_bottle/multi_cleaner_bottle_diff_8k.exr",
+                                           "md5":  "a09b8a1cded6613c1989ec86a81b4bcf"
+                                       }
+                           },
+                    "4k":  {
+                               "jpg":  {
+                                           "size":  4349351,
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/multi_cleaner_bottle/multi_cleaner_bottle_diff_4k.jpg",
+                                           "md5":  "cbb8c54a2115206b9234911b3f926b53"
+                                       },
+                               "png":  {
+                                           "size":  36366003,
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/4k/multi_cleaner_bottle/multi_cleaner_bottle_diff_4k.png",
+                                           "md5":  "61d648190efc2bd560c223fb834df511"
+                                       },
+                               "exr":  {
+                                           "size":  5729890,
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/4k/multi_cleaner_bottle/multi_cleaner_bottle_diff_4k.exr",
+                                           "md5":  "3ee139010eaae7edb890dc8d3d3dce6f"
+                                       }
+                           },
+                    "2k":  {
+                               "jpg":  {
+                                           "size":  1267775,
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/multi_cleaner_bottle/multi_cleaner_bottle_diff_2k.jpg",
+                                           "md5":  "78cd0d6991d2cfdd555f47e611590c01"
+                                       },
+                               "png":  {
+                                           "size":  12591785,
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/multi_cleaner_bottle/multi_cleaner_bottle_diff_2k.png",
+                                           "md5":  "e9f67d0b50e9d45dd59eddbe522fa5c4"
+                                       },
+                               "exr":  {
+                                           "size":  1720501,
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/multi_cleaner_bottle/multi_cleaner_bottle_diff_2k.exr",
+                                           "md5":  "0079949eaa2627b788ceaeb06830368d"
+                                       }
+                           },
+                    "1k":  {
+                               "jpg":  {
+                                           "size":  376440,
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/multi_cleaner_bottle/multi_cleaner_bottle_diff_1k.jpg",
+                                           "md5":  "67ebca3e44b07a6b8532f84a06345fe8"
+                                       },
+                               "png":  {
+                                           "size":  3590563,
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/multi_cleaner_bottle/multi_cleaner_bottle_diff_1k.png",
+                                           "md5":  "4d0178e98a8da184c8e4494ce61fa981"
+                                       },
+                               "exr":  {
+                                           "size":  534465,
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/multi_cleaner_bottle/multi_cleaner_bottle_diff_1k.exr",
+                                           "md5":  "0edd78c461c4de0b2bd0eaf8e0c08dda"
+                                       }
+                           }
+                },
+    "mask01":  {
+                   "8k":  {
+                              "jpg":  {
+                                          "size":  958736,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/8k/multi_cleaner_bottle/multi_cleaner_bottle_mask01_8k.jpg",
+                                          "md5":  "04765fcb22d3d5d05e02eadd00525958"
+                                      },
+                              "png":  {
+                                          "size":  175474,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/8k/multi_cleaner_bottle/multi_cleaner_bottle_mask01_8k.png",
+                                          "md5":  "298edaa987135d80372eadfcb5ffe763"
+                                      },
+                              "exr":  {
+                                          "size":  202775,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/8k/multi_cleaner_bottle/multi_cleaner_bottle_mask01_8k.exr",
+                                          "md5":  "700e09c1764c1daca32b10bc3bc845fc"
+                                      }
+                          },
+                   "4k":  {
+                              "jpg":  {
+                                          "size":  275925,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/multi_cleaner_bottle/multi_cleaner_bottle_mask01_4k.jpg",
+                                          "md5":  "d34435222a141f14ba5a848c0a59bdd0"
+                                      },
+                              "png":  {
+                                          "size":  60685,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/4k/multi_cleaner_bottle/multi_cleaner_bottle_mask01_4k.png",
+                                          "md5":  "cea3bf8f1616c257ae5ce6dc81681163"
+                                      },
+                              "exr":  {
+                                          "size":  72700,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/4k/multi_cleaner_bottle/multi_cleaner_bottle_mask01_4k.exr",
+                                          "md5":  "af155c489e3ce8781e5b9dc29a371c88"
+                                      }
+                          },
+                   "2k":  {
+                              "jpg":  {
+                                          "size":  88477,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/multi_cleaner_bottle/multi_cleaner_bottle_mask01_2k.jpg",
+                                          "md5":  "9516361d496130ec3d13a397fe59222d"
+                                      },
+                              "png":  {
+                                          "size":  24386,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/multi_cleaner_bottle/multi_cleaner_bottle_mask01_2k.png",
+                                          "md5":  "04366a6099d6372d50f5dbd1c47fb55b"
+                                      },
+                              "exr":  {
+                                          "size":  32227,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/multi_cleaner_bottle/multi_cleaner_bottle_mask01_2k.exr",
+                                          "md5":  "47a97a7fd4d6ef11136726c20d4ca4e9"
+                                      }
+                          },
+                   "1k":  {
+                              "jpg":  {
+                                          "size":  32112,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/multi_cleaner_bottle/multi_cleaner_bottle_mask01_1k.jpg",
+                                          "md5":  "dd624566a29da2a2131117598e0fa406"
+                                      },
+                              "png":  {
+                                          "size":  11368,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/multi_cleaner_bottle/multi_cleaner_bottle_mask01_1k.png",
+                                          "md5":  "f25460050752f6f4acf290d4166fd942"
+                                      },
+                              "exr":  {
+                                          "size":  17369,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/multi_cleaner_bottle/multi_cleaner_bottle_mask01_1k.exr",
+                                          "md5":  "8499316d2953dd5e05cee41f60386c2b"
+                                      }
+                          }
+               },
+    "nor_dx":  {
+                   "8k":  {
+                              "jpg":  {
+                                          "size":  9421303,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/8k/multi_cleaner_bottle/multi_cleaner_bottle_nor_dx_8k.jpg",
+                                          "md5":  "0c801f1d8bbcab8d9fea99689d619671"
+                                      },
+                              "png":  {
+                                          "size":  136110820,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/8k/multi_cleaner_bottle/multi_cleaner_bottle_nor_dx_8k.png",
+                                          "md5":  "62ebfb3d7edb0f02b07189d304ca7a02"
+                                      },
+                              "exr":  {
+                                          "size":  15043369,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/8k/multi_cleaner_bottle/multi_cleaner_bottle_nor_dx_8k.exr",
+                                          "md5":  "4a8ae12883ad2bd9b0e8b0f5902058ab"
+                                      }
+                          },
+                   "4k":  {
+                              "jpg":  {
+                                          "size":  2957413,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/multi_cleaner_bottle/multi_cleaner_bottle_nor_dx_4k.jpg",
+                                          "md5":  "1d05d997ffca4668cd9b5686613013f2"
+                                      },
+                              "png":  {
+                                          "size":  41084075,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/4k/multi_cleaner_bottle/multi_cleaner_bottle_nor_dx_4k.png",
+                                          "md5":  "6ca2a37bcc27f460b0459cbc16e90966"
+                                      },
+                              "exr":  {
+                                          "size":  4916043,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/4k/multi_cleaner_bottle/multi_cleaner_bottle_nor_dx_4k.exr",
+                                          "md5":  "6e6c9cdbf5a87d3581916ca919b93b5b"
+                                      }
+                          },
+                   "2k":  {
+                              "jpg":  {
+                                          "size":  954753,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/multi_cleaner_bottle/multi_cleaner_bottle_nor_dx_2k.jpg",
+                                          "md5":  "25413563b99582bc7917c1e324c493b2"
+                                      },
+                              "png":  {
+                                          "size":  11971171,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/multi_cleaner_bottle/multi_cleaner_bottle_nor_dx_2k.png",
+                                          "md5":  "58db18b50d2f026f28907bf5da1c7366"
+                                      },
+                              "exr":  {
+                                          "size":  1663824,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/multi_cleaner_bottle/multi_cleaner_bottle_nor_dx_2k.exr",
+                                          "md5":  "b0de578ae85bda5a4f55f6e08cd9f9df"
+                                      }
+                          },
+                   "1k":  {
+                              "jpg":  {
+                                          "size":  312930,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/multi_cleaner_bottle/multi_cleaner_bottle_nor_dx_1k.jpg",
+                                          "md5":  "ceda6e686339f4836f4ba1caee5c5ea1"
+                                      },
+                              "png":  {
+                                          "size":  3371375,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/multi_cleaner_bottle/multi_cleaner_bottle_nor_dx_1k.png",
+                                          "md5":  "ef1b0bc46c7f0759b7e572a1733c7b45"
+                                      },
+                              "exr":  {
+                                          "size":  588604,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/multi_cleaner_bottle/multi_cleaner_bottle_nor_dx_1k.exr",
+                                          "md5":  "48b6a12c112213013ca5b2e130aa5a98"
+                                      }
+                          }
+               },
+    "nor_gl":  {
+                   "8k":  {
+                              "jpg":  {
+                                          "size":  9216603,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/8k/multi_cleaner_bottle/multi_cleaner_bottle_nor_gl_8k.jpg",
+                                          "md5":  "9fe9ac8a2c80bdb6e8424ef821f7ca59"
+                                      },
+                              "png":  {
+                                          "size":  136112347,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/8k/multi_cleaner_bottle/multi_cleaner_bottle_nor_gl_8k.png",
+                                          "md5":  "c0741e2beffbcf9ec2504817cf0e6e0a"
+                                      },
+                              "exr":  {
+                                          "size":  15191204,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/8k/multi_cleaner_bottle/multi_cleaner_bottle_nor_gl_8k.exr",
+                                          "md5":  "f785a1548d04b9cb8a48e55ad0ba9286"
+                                      }
+                          },
+                   "4k":  {
+                              "jpg":  {
+                                          "size":  2932972,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/multi_cleaner_bottle/multi_cleaner_bottle_nor_gl_4k.jpg",
+                                          "md5":  "6d54220780c69d9a881e05850493ca91"
+                                      },
+                              "png":  {
+                                          "size":  41079030,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/4k/multi_cleaner_bottle/multi_cleaner_bottle_nor_gl_4k.png",
+                                          "md5":  "71e0c3dc6433a3a466f135387f5401bc"
+                                      },
+                              "exr":  {
+                                          "size":  4959693,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/4k/multi_cleaner_bottle/multi_cleaner_bottle_nor_gl_4k.exr",
+                                          "md5":  "6c8307afed96caf493587240cc732154"
+                                      }
+                          },
+                   "2k":  {
+                              "jpg":  {
+                                          "size":  950577,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/multi_cleaner_bottle/multi_cleaner_bottle_nor_gl_2k.jpg",
+                                          "md5":  "cd49285e00136e8dc0c22a6ed3ab5d77"
+                                      },
+                              "png":  {
+                                          "size":  11969207,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/multi_cleaner_bottle/multi_cleaner_bottle_nor_gl_2k.png",
+                                          "md5":  "d539136d2cf1068539fcdac9daad2bd5"
+                                      },
+                              "exr":  {
+                                          "size":  1672498,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/multi_cleaner_bottle/multi_cleaner_bottle_nor_gl_2k.exr",
+                                          "md5":  "d00d5c22bb2859ebb05f2fd240c00b4a"
+                                      }
+                          },
+                   "1k":  {
+                              "jpg":  {
+                                          "size":  311193,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/multi_cleaner_bottle/multi_cleaner_bottle_nor_gl_1k.jpg",
+                                          "md5":  "d6f0cffc0f834947ebf3b990d6b811d1"
+                                      },
+                              "png":  {
+                                          "size":  3371155,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/multi_cleaner_bottle/multi_cleaner_bottle_nor_gl_1k.png",
+                                          "md5":  "f7f579471cc0aa3a780774384d6a276c"
+                                      },
+                              "exr":  {
+                                          "size":  592035,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/multi_cleaner_bottle/multi_cleaner_bottle_nor_gl_1k.exr",
+                                          "md5":  "5493d15f5250e4fe287a57da13b7b298"
+                                      }
+                          }
+               },
+    "blend":  {
+                  "8k":  {
+                             "blend":  {
+                                           "include":  {
+                                                           "textures/multi_cleaner_bottle_diff_8k.jpg":  {
+                                                                                                             "size":  15460996,
+                                                                                                             "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/8k/multi_cleaner_bottle/multi_cleaner_bottle_diff_8k.jpg",
+                                                                                                             "md5":  "ebebb52ce1cc9db2b776285452644059"
+                                                                                                         },
+                                                           "textures/multi_cleaner_bottle_rough_8k.exr":  {
+                                                                                                              "size":  26986014,
+                                                                                                              "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/8k/multi_cleaner_bottle/multi_cleaner_bottle_rough_8k.exr",
+                                                                                                              "md5":  "1862145ce4ccd3b7f224132db583313a"
+                                                                                                          },
+                                                           "textures/multi_cleaner_bottle_nor_gl_8k.exr":  {
+                                                                                                               "size":  15191204,
+                                                                                                               "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/8k/multi_cleaner_bottle/multi_cleaner_bottle_nor_gl_8k.exr",
+                                                                                                               "md5":  "f785a1548d04b9cb8a48e55ad0ba9286"
+                                                                                                           }
+                                                       },
+                                           "size":  258251,
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/blend/8k/multi_cleaner_bottle/multi_cleaner_bottle_8k.blend",
+                                           "md5":  "5c2d4abaacb7a5363e7f8f5950dc13df"
+                                       }
+                         },
+                  "4k":  {
+                             "blend":  {
+                                           "include":  {
+                                                           "textures/multi_cleaner_bottle_rough_4k.exr":  {
+                                                                                                              "size":  10141771,
+                                                                                                              "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/4k/multi_cleaner_bottle/multi_cleaner_bottle_rough_4k.exr",
+                                                                                                              "md5":  "9418769a357f69d2a13364f1ef692de0"
+                                                                                                          },
+                                                           "textures/multi_cleaner_bottle_nor_gl_4k.exr":  {
+                                                                                                               "size":  4959693,
+                                                                                                               "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/4k/multi_cleaner_bottle/multi_cleaner_bottle_nor_gl_4k.exr",
+                                                                                                               "md5":  "6c8307afed96caf493587240cc732154"
+                                                                                                           },
+                                                           "textures/multi_cleaner_bottle_diff_4k.jpg":  {
+                                                                                                             "size":  4349351,
+                                                                                                             "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/multi_cleaner_bottle/multi_cleaner_bottle_diff_4k.jpg",
+                                                                                                             "md5":  "cbb8c54a2115206b9234911b3f926b53"
+                                                                                                         }
+                                                       },
+                                           "size":  258381,
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/blend/4k/multi_cleaner_bottle/multi_cleaner_bottle_4k.blend",
+                                           "md5":  "86a7f2d43aa3c3c7b88473bae0554b12"
+                                       }
+                         },
+                  "2k":  {
+                             "blend":  {
+                                           "include":  {
+                                                           "textures/multi_cleaner_bottle_diff_2k.jpg":  {
+                                                                                                             "size":  1267775,
+                                                                                                             "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/multi_cleaner_bottle/multi_cleaner_bottle_diff_2k.jpg",
+                                                                                                             "md5":  "78cd0d6991d2cfdd555f47e611590c01"
+                                                                                                         },
+                                                           "textures/multi_cleaner_bottle_rough_2k.exr":  {
+                                                                                                              "size":  3381435,
+                                                                                                              "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/multi_cleaner_bottle/multi_cleaner_bottle_rough_2k.exr",
+                                                                                                              "md5":  "142cacb66ba4e55ca79af3cd0e2f7e2c"
+                                                                                                          },
+                                                           "textures/multi_cleaner_bottle_nor_gl_2k.exr":  {
+                                                                                                               "size":  1672498,
+                                                                                                               "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/multi_cleaner_bottle/multi_cleaner_bottle_nor_gl_2k.exr",
+                                                                                                               "md5":  "d00d5c22bb2859ebb05f2fd240c00b4a"
+                                                                                                           }
+                                                       },
+                                           "size":  258248,
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/blend/2k/multi_cleaner_bottle/multi_cleaner_bottle_2k.blend",
+                                           "md5":  "011d6700459b01241220841d522205f9"
+                                       }
+                         },
+                  "1k":  {
+                             "blend":  {
+                                           "include":  {
+                                                           "textures/multi_cleaner_bottle_nor_gl_1k.exr":  {
+                                                                                                               "size":  592035,
+                                                                                                               "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/multi_cleaner_bottle/multi_cleaner_bottle_nor_gl_1k.exr",
+                                                                                                               "md5":  "5493d15f5250e4fe287a57da13b7b298"
+                                                                                                           },
+                                                           "textures/multi_cleaner_bottle_rough_1k.exr":  {
+                                                                                                              "size":  944989,
+                                                                                                              "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/multi_cleaner_bottle/multi_cleaner_bottle_rough_1k.exr",
+                                                                                                              "md5":  "201007e68169c316376e87903842905b"
+                                                                                                          },
+                                                           "textures/multi_cleaner_bottle_diff_1k.jpg":  {
+                                                                                                             "size":  376440,
+                                                                                                             "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/multi_cleaner_bottle/multi_cleaner_bottle_diff_1k.jpg",
+                                                                                                             "md5":  "67ebca3e44b07a6b8532f84a06345fe8"
+                                                                                                         }
+                                                       },
+                                           "size":  258245,
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/blend/1k/multi_cleaner_bottle/multi_cleaner_bottle_1k.blend",
+                                           "md5":  "bb3b846630df5dab8cfaa9d2c7367c73"
+                                       }
+                         }
+              },
+    "gltf":  {
+                 "8k":  {
+                            "gltf":  {
+                                         "include":  {
+                                                         "textures/multi_cleaner_bottle_diff_8k.jpg":  {
+                                                                                                           "size":  15460996,
+                                                                                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/8k/multi_cleaner_bottle/multi_cleaner_bottle_diff_8k.jpg",
+                                                                                                           "md5":  "ebebb52ce1cc9db2b776285452644059"
+                                                                                                       },
+                                                         "multi_cleaner_bottle.bin":  {
+                                                                                          "size":  168848,
+                                                                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/gltf/8k/multi_cleaner_bottle/multi_cleaner_bottle.bin",
+                                                                                          "md5":  "6b1f06fdd8a785cc2df490836b1fe4b0"
+                                                                                      },
+                                                         "textures/multi_cleaner_bottle_nor_gl_8k.jpg":  {
+                                                                                                             "size":  9216603,
+                                                                                                             "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/8k/multi_cleaner_bottle/multi_cleaner_bottle_nor_gl_8k.jpg",
+                                                                                                             "md5":  "9fe9ac8a2c80bdb6e8424ef821f7ca59"
+                                                                                                         },
+                                                         "textures/multi_cleaner_bottle_arm_8k.jpg":  {
+                                                                                                          "size":  19757694,
+                                                                                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/8k/multi_cleaner_bottle/multi_cleaner_bottle_arm_8k.jpg",
+                                                                                                          "md5":  "021fafbc4bda1d0794c123ae881400d7"
+                                                                                                      }
+                                                     },
+                                         "size":  4289,
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/gltf/8k/multi_cleaner_bottle/multi_cleaner_bottle_8k.gltf",
+                                         "md5":  "eed5982f328b411e7c7d01f4b06e01c0"
+                                     }
+                        },
+                 "4k":  {
+                            "gltf":  {
+                                         "include":  {
+                                                         "textures/multi_cleaner_bottle_arm_4k.jpg":  {
+                                                                                                          "size":  5641575,
+                                                                                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/multi_cleaner_bottle/multi_cleaner_bottle_arm_4k.jpg",
+                                                                                                          "md5":  "e23eefa05f607459c862dcf31e0c677e"
+                                                                                                      },
+                                                         "multi_cleaner_bottle.bin":  {
+                                                                                          "size":  168848,
+                                                                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/gltf/8k/multi_cleaner_bottle/multi_cleaner_bottle.bin",
+                                                                                          "md5":  "6b1f06fdd8a785cc2df490836b1fe4b0"
+                                                                                      },
+                                                         "textures/multi_cleaner_bottle_nor_gl_4k.jpg":  {
+                                                                                                             "size":  2932972,
+                                                                                                             "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/multi_cleaner_bottle/multi_cleaner_bottle_nor_gl_4k.jpg",
+                                                                                                             "md5":  "6d54220780c69d9a881e05850493ca91"
+                                                                                                         },
+                                                         "textures/multi_cleaner_bottle_diff_4k.jpg":  {
+                                                                                                           "size":  4349351,
+                                                                                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/multi_cleaner_bottle/multi_cleaner_bottle_diff_4k.jpg",
+                                                                                                           "md5":  "cbb8c54a2115206b9234911b3f926b53"
+                                                                                                       }
+                                                     },
+                                         "size":  4289,
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/gltf/4k/multi_cleaner_bottle/multi_cleaner_bottle_4k.gltf",
+                                         "md5":  "ac698cec659269db61f515466238119b"
+                                     }
+                        },
+                 "2k":  {
+                            "gltf":  {
+                                         "include":  {
+                                                         "textures/multi_cleaner_bottle_diff_2k.jpg":  {
+                                                                                                           "size":  1267775,
+                                                                                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/multi_cleaner_bottle/multi_cleaner_bottle_diff_2k.jpg",
+                                                                                                           "md5":  "78cd0d6991d2cfdd555f47e611590c01"
+                                                                                                       },
+                                                         "multi_cleaner_bottle.bin":  {
+                                                                                          "size":  168848,
+                                                                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/gltf/8k/multi_cleaner_bottle/multi_cleaner_bottle.bin",
+                                                                                          "md5":  "6b1f06fdd8a785cc2df490836b1fe4b0"
+                                                                                      },
+                                                         "textures/multi_cleaner_bottle_arm_2k.jpg":  {
+                                                                                                          "size":  1717167,
+                                                                                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/multi_cleaner_bottle/multi_cleaner_bottle_arm_2k.jpg",
+                                                                                                          "md5":  "cc8b14355c921b8fb811b202a10d5f16"
+                                                                                                      },
+                                                         "textures/multi_cleaner_bottle_nor_gl_2k.jpg":  {
+                                                                                                             "size":  950577,
+                                                                                                             "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/multi_cleaner_bottle/multi_cleaner_bottle_nor_gl_2k.jpg",
+                                                                                                             "md5":  "cd49285e00136e8dc0c22a6ed3ab5d77"
+                                                                                                         }
+                                                     },
+                                         "size":  4289,
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/gltf/2k/multi_cleaner_bottle/multi_cleaner_bottle_2k.gltf",
+                                         "md5":  "c02cd946b2b68a0d58c41be01cf342e1"
+                                     }
+                        },
+                 "1k":  {
+                            "gltf":  {
+                                         "include":  {
+                                                         "textures/multi_cleaner_bottle_arm_1k.jpg":  {
+                                                                                                          "size":  519524,
+                                                                                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/multi_cleaner_bottle/multi_cleaner_bottle_arm_1k.jpg",
+                                                                                                          "md5":  "eeb08388d78c175394c8e0bfa0705fda"
+                                                                                                      },
+                                                         "textures/multi_cleaner_bottle_nor_gl_1k.jpg":  {
+                                                                                                             "size":  311193,
+                                                                                                             "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/multi_cleaner_bottle/multi_cleaner_bottle_nor_gl_1k.jpg",
+                                                                                                             "md5":  "d6f0cffc0f834947ebf3b990d6b811d1"
+                                                                                                         },
+                                                         "multi_cleaner_bottle.bin":  {
+                                                                                          "size":  168848,
+                                                                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/gltf/8k/multi_cleaner_bottle/multi_cleaner_bottle.bin",
+                                                                                          "md5":  "6b1f06fdd8a785cc2df490836b1fe4b0"
+                                                                                      },
+                                                         "textures/multi_cleaner_bottle_diff_1k.jpg":  {
+                                                                                                           "size":  376440,
+                                                                                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/multi_cleaner_bottle/multi_cleaner_bottle_diff_1k.jpg",
+                                                                                                           "md5":  "67ebca3e44b07a6b8532f84a06345fe8"
+                                                                                                       }
+                                                     },
+                                         "size":  4289,
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/gltf/1k/multi_cleaner_bottle/multi_cleaner_bottle_1k.gltf",
+                                         "md5":  "dd3d295d11354307b37de077aa0354c7"
+                                     }
+                        }
+             },
+    "usd":  {
+                "8k":  {
+                           "usd":  {
+                                       "include":  {
+                                                       "textures/multi_cleaner_bottle_diff_8k.jpg":  {
+                                                                                                         "size":  15460996,
+                                                                                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/8k/multi_cleaner_bottle/multi_cleaner_bottle_diff_8k.jpg",
+                                                                                                         "md5":  "ebebb52ce1cc9db2b776285452644059"
+                                                                                                     },
+                                                       "textures/multi_cleaner_bottle_rough_8k.exr":  {
+                                                                                                          "size":  26986014,
+                                                                                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/8k/multi_cleaner_bottle/multi_cleaner_bottle_rough_8k.exr",
+                                                                                                          "md5":  "1862145ce4ccd3b7f224132db583313a"
+                                                                                                      },
+                                                       "textures/multi_cleaner_bottle_nor_gl_8k.exr":  {
+                                                                                                           "size":  15191204,
+                                                                                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/8k/multi_cleaner_bottle/multi_cleaner_bottle_nor_gl_8k.exr",
+                                                                                                           "md5":  "f785a1548d04b9cb8a48e55ad0ba9286"
+                                                                                                       }
+                                                   },
+                                       "size":  335867,
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/usd/8k/multi_cleaner_bottle/multi_cleaner_bottle_8k.usdc",
+                                       "md5":  "f38bb2f18c7d82108273bb5a068e3f2d"
+                                   }
+                       },
+                "4k":  {
+                           "usd":  {
+                                       "include":  {
+                                                       "textures/multi_cleaner_bottle_rough_4k.exr":  {
+                                                                                                          "size":  10141771,
+                                                                                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/4k/multi_cleaner_bottle/multi_cleaner_bottle_rough_4k.exr",
+                                                                                                          "md5":  "9418769a357f69d2a13364f1ef692de0"
+                                                                                                      },
+                                                       "textures/multi_cleaner_bottle_nor_gl_4k.exr":  {
+                                                                                                           "size":  4959693,
+                                                                                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/4k/multi_cleaner_bottle/multi_cleaner_bottle_nor_gl_4k.exr",
+                                                                                                           "md5":  "6c8307afed96caf493587240cc732154"
+                                                                                                       },
+                                                       "textures/multi_cleaner_bottle_diff_4k.jpg":  {
+                                                                                                         "size":  4349351,
+                                                                                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/multi_cleaner_bottle/multi_cleaner_bottle_diff_4k.jpg",
+                                                                                                         "md5":  "cbb8c54a2115206b9234911b3f926b53"
+                                                                                                     }
+                                                   },
+                                       "size":  335887,
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/usd/4k/multi_cleaner_bottle/multi_cleaner_bottle_4k.usdc",
+                                       "md5":  "77dd8d0e54942e6403fc42001c313b55"
+                                   }
+                       },
+                "2k":  {
+                           "usd":  {
+                                       "include":  {
+                                                       "textures/multi_cleaner_bottle_diff_2k.jpg":  {
+                                                                                                         "size":  1267775,
+                                                                                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/multi_cleaner_bottle/multi_cleaner_bottle_diff_2k.jpg",
+                                                                                                         "md5":  "78cd0d6991d2cfdd555f47e611590c01"
+                                                                                                     },
+                                                       "textures/multi_cleaner_bottle_rough_2k.exr":  {
+                                                                                                          "size":  3381435,
+                                                                                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/multi_cleaner_bottle/multi_cleaner_bottle_rough_2k.exr",
+                                                                                                          "md5":  "142cacb66ba4e55ca79af3cd0e2f7e2c"
+                                                                                                      },
+                                                       "textures/multi_cleaner_bottle_nor_gl_2k.exr":  {
+                                                                                                           "size":  1672498,
+                                                                                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/multi_cleaner_bottle/multi_cleaner_bottle_nor_gl_2k.exr",
+                                                                                                           "md5":  "d00d5c22bb2859ebb05f2fd240c00b4a"
+                                                                                                       }
+                                                   },
+                                       "size":  335890,
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/usd/2k/multi_cleaner_bottle/multi_cleaner_bottle_2k.usdc",
+                                       "md5":  "16b632405c2fe4121a3f14bca875e7d2"
+                                   }
+                       },
+                "1k":  {
+                           "usd":  {
+                                       "include":  {
+                                                       "textures/multi_cleaner_bottle_nor_gl_1k.exr":  {
+                                                                                                           "size":  592035,
+                                                                                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/multi_cleaner_bottle/multi_cleaner_bottle_nor_gl_1k.exr",
+                                                                                                           "md5":  "5493d15f5250e4fe287a57da13b7b298"
+                                                                                                       },
+                                                       "textures/multi_cleaner_bottle_rough_1k.exr":  {
+                                                                                                          "size":  944989,
+                                                                                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/multi_cleaner_bottle/multi_cleaner_bottle_rough_1k.exr",
+                                                                                                          "md5":  "201007e68169c316376e87903842905b"
+                                                                                                      },
+                                                       "textures/multi_cleaner_bottle_diff_1k.jpg":  {
+                                                                                                         "size":  376440,
+                                                                                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/multi_cleaner_bottle/multi_cleaner_bottle_diff_1k.jpg",
+                                                                                                         "md5":  "67ebca3e44b07a6b8532f84a06345fe8"
+                                                                                                     }
+                                                   },
+                                       "size":  335866,
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/usd/1k/multi_cleaner_bottle/multi_cleaner_bottle_1k.usdc",
+                                       "md5":  "9e801aa2a8c412fa56fe729ca458d606"
+                                   }
+                       }
+            },
+    "fbx":  {
+                "8k":  {
+                           "fbx":  {
+                                       "include":  {
+                                                       "textures/multi_cleaner_bottle_diff_8k.jpg":  {
+                                                                                                         "size":  15460996,
+                                                                                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/8k/multi_cleaner_bottle/multi_cleaner_bottle_diff_8k.jpg",
+                                                                                                         "md5":  "ebebb52ce1cc9db2b776285452644059"
+                                                                                                     },
+                                                       "textures/multi_cleaner_bottle_rough_8k.exr":  {
+                                                                                                          "size":  26986014,
+                                                                                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/8k/multi_cleaner_bottle/multi_cleaner_bottle_rough_8k.exr",
+                                                                                                          "md5":  "1862145ce4ccd3b7f224132db583313a"
+                                                                                                      },
+                                                       "textures/multi_cleaner_bottle_nor_gl_8k.exr":  {
+                                                                                                           "size":  15191204,
+                                                                                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/8k/multi_cleaner_bottle/multi_cleaner_bottle_nor_gl_8k.exr",
+                                                                                                           "md5":  "f785a1548d04b9cb8a48e55ad0ba9286"
+                                                                                                       }
+                                                   },
+                                       "size":  209628,
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/fbx/8k/multi_cleaner_bottle/multi_cleaner_bottle_8k.fbx",
+                                       "md5":  "ca68335114b23bc8e6f719000293a215"
+                                   }
+                       },
+                "4k":  {
+                           "fbx":  {
+                                       "include":  {
+                                                       "textures/multi_cleaner_bottle_rough_4k.exr":  {
+                                                                                                          "size":  10141771,
+                                                                                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/4k/multi_cleaner_bottle/multi_cleaner_bottle_rough_4k.exr",
+                                                                                                          "md5":  "9418769a357f69d2a13364f1ef692de0"
+                                                                                                      },
+                                                       "textures/multi_cleaner_bottle_nor_gl_4k.exr":  {
+                                                                                                           "size":  4959693,
+                                                                                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/4k/multi_cleaner_bottle/multi_cleaner_bottle_nor_gl_4k.exr",
+                                                                                                           "md5":  "6c8307afed96caf493587240cc732154"
+                                                                                                       },
+                                                       "textures/multi_cleaner_bottle_diff_4k.jpg":  {
+                                                                                                         "size":  4349351,
+                                                                                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/multi_cleaner_bottle/multi_cleaner_bottle_diff_4k.jpg",
+                                                                                                         "md5":  "cbb8c54a2115206b9234911b3f926b53"
+                                                                                                     }
+                                                   },
+                                       "size":  209628,
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/fbx/4k/multi_cleaner_bottle/multi_cleaner_bottle_4k.fbx",
+                                       "md5":  "cbe9c26da23d65c1605497be1315ed32"
+                                   }
+                       },
+                "2k":  {
+                           "fbx":  {
+                                       "include":  {
+                                                       "textures/multi_cleaner_bottle_diff_2k.jpg":  {
+                                                                                                         "size":  1267775,
+                                                                                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/multi_cleaner_bottle/multi_cleaner_bottle_diff_2k.jpg",
+                                                                                                         "md5":  "78cd0d6991d2cfdd555f47e611590c01"
+                                                                                                     },
+                                                       "textures/multi_cleaner_bottle_rough_2k.exr":  {
+                                                                                                          "size":  3381435,
+                                                                                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/multi_cleaner_bottle/multi_cleaner_bottle_rough_2k.exr",
+                                                                                                          "md5":  "142cacb66ba4e55ca79af3cd0e2f7e2c"
+                                                                                                      },
+                                                       "textures/multi_cleaner_bottle_nor_gl_2k.exr":  {
+                                                                                                           "size":  1672498,
+                                                                                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/multi_cleaner_bottle/multi_cleaner_bottle_nor_gl_2k.exr",
+                                                                                                           "md5":  "d00d5c22bb2859ebb05f2fd240c00b4a"
+                                                                                                       }
+                                                   },
+                                       "size":  209628,
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/fbx/2k/multi_cleaner_bottle/multi_cleaner_bottle_2k.fbx",
+                                       "md5":  "d8e0eec12c1e823e84c90569629f1b3b"
+                                   }
+                       },
+                "1k":  {
+                           "fbx":  {
+                                       "include":  {
+                                                       "textures/multi_cleaner_bottle_nor_gl_1k.exr":  {
+                                                                                                           "size":  592035,
+                                                                                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/multi_cleaner_bottle/multi_cleaner_bottle_nor_gl_1k.exr",
+                                                                                                           "md5":  "5493d15f5250e4fe287a57da13b7b298"
+                                                                                                       },
+                                                       "textures/multi_cleaner_bottle_rough_1k.exr":  {
+                                                                                                          "size":  944989,
+                                                                                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/multi_cleaner_bottle/multi_cleaner_bottle_rough_1k.exr",
+                                                                                                          "md5":  "201007e68169c316376e87903842905b"
+                                                                                                      },
+                                                       "textures/multi_cleaner_bottle_diff_1k.jpg":  {
+                                                                                                         "size":  376440,
+                                                                                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/multi_cleaner_bottle/multi_cleaner_bottle_diff_1k.jpg",
+                                                                                                         "md5":  "67ebca3e44b07a6b8532f84a06345fe8"
+                                                                                                     }
+                                                   },
+                                       "size":  209628,
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/fbx/1k/multi_cleaner_bottle/multi_cleaner_bottle_1k.fbx",
+                                       "md5":  "560c10896f9d5a08165b8ad0c0f4661a"
+                                   }
+                       }
+            },
+    "arm":  {
+                "8k":  {
+                           "jpg":  {
+                                       "size":  19757694,
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/8k/multi_cleaner_bottle/multi_cleaner_bottle_arm_8k.jpg",
+                                       "md5":  "021fafbc4bda1d0794c123ae881400d7"
+                                   },
+                           "png":  {
+                                       "size":  90544261,
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/8k/multi_cleaner_bottle/multi_cleaner_bottle_arm_8k.png",
+                                       "md5":  "f7ffa7035182487584dd2cf225e26155"
+                                   },
+                           "exr":  {
+                                       "size":  40389025,
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/8k/multi_cleaner_bottle/multi_cleaner_bottle_arm_8k.exr",
+                                       "md5":  "3cd246a28e51419310ff0b5cf4aaec1d"
+                                   }
+                       },
+                "4k":  {
+                           "jpg":  {
+                                       "size":  5641575,
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/multi_cleaner_bottle/multi_cleaner_bottle_arm_4k.jpg",
+                                       "md5":  "e23eefa05f607459c862dcf31e0c677e"
+                                   },
+                           "png":  {
+                                       "size":  33434859,
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/4k/multi_cleaner_bottle/multi_cleaner_bottle_arm_4k.png",
+                                       "md5":  "dac797cfd55e684dc3b6f5c7d36f2f36"
+                                   },
+                           "exr":  {
+                                       "size":  10922083,
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/4k/multi_cleaner_bottle/multi_cleaner_bottle_arm_4k.exr",
+                                       "md5":  "d6e793f6e5b035f0abb6b8a11c3a400c"
+                                   }
+                       },
+                "2k":  {
+                           "jpg":  {
+                                       "size":  1717167,
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/multi_cleaner_bottle/multi_cleaner_bottle_arm_2k.jpg",
+                                       "md5":  "cc8b14355c921b8fb811b202a10d5f16"
+                                   },
+                           "png":  {
+                                       "size":  9885573,
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/multi_cleaner_bottle/multi_cleaner_bottle_arm_2k.png",
+                                       "md5":  "5a14329513ad3353b73525fafb165783"
+                                   },
+                           "exr":  {
+                                       "size":  3453590,
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/multi_cleaner_bottle/multi_cleaner_bottle_arm_2k.exr",
+                                       "md5":  "7130a309c42aa389718771705122e2b4"
+                                   }
+                       },
+                "1k":  {
+                           "jpg":  {
+                                       "size":  519524,
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/multi_cleaner_bottle/multi_cleaner_bottle_arm_1k.jpg",
+                                       "md5":  "eeb08388d78c175394c8e0bfa0705fda"
+                                   },
+                           "png":  {
+                                       "size":  2716399,
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/multi_cleaner_bottle/multi_cleaner_bottle_arm_1k.png",
+                                       "md5":  "6c6b1356d9afe6d7d4bf7cda6ca96595"
+                                   },
+                           "exr":  {
+                                       "size":  1118657,
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/multi_cleaner_bottle/multi_cleaner_bottle_arm_1k.exr",
+                                       "md5":  "f19e20890fc373bce604aa1baa16012c"
+                                   }
+                       }
+            },
+    "AO":  {
+               "8k":  {
+                          "jpg":  {
+                                      "size":  4315203,
+                                      "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/8k/multi_cleaner_bottle/multi_cleaner_bottle_ao_8k.jpg",
+                                      "md5":  "c919f9fc177fd03b917a982843589ced"
+                                  },
+                          "png":  {
+                                      "size":  45240361,
+                                      "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/8k/multi_cleaner_bottle/multi_cleaner_bottle_ao_8k.png",
+                                      "md5":  "15da8b729ad84c0f3e7b406a64ff0459"
+                                  },
+                          "exr":  {
+                                      "size":  15288388,
+                                      "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/8k/multi_cleaner_bottle/multi_cleaner_bottle_ao_8k.exr",
+                                      "md5":  "14b133003eff059f0d9c0452a897d292"
+                                  }
+                      },
+               "4k":  {
+                          "jpg":  {
+                                      "size":  1430546,
+                                      "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/multi_cleaner_bottle/multi_cleaner_bottle_ao_4k.jpg",
+                                      "md5":  "4b8f7a618acc49028cb69950dedc7605"
+                                  },
+                          "png":  {
+                                      "size":  14013261,
+                                      "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/4k/multi_cleaner_bottle/multi_cleaner_bottle_ao_4k.png",
+                                      "md5":  "b534336bd47cc79612c9176fc44120d3"
+                                  },
+                          "exr":  {
+                                      "size":  5113533,
+                                      "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/4k/multi_cleaner_bottle/multi_cleaner_bottle_ao_4k.exr",
+                                      "md5":  "7bc5a6134112ece3186320c048ae83e5"
+                                  }
+                      },
+               "2k":  {
+                          "jpg":  {
+                                      "size":  400479,
+                                      "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/multi_cleaner_bottle/multi_cleaner_bottle_ao_2k.jpg",
+                                      "md5":  "89bd560d6023544ace58158f5a3e185f"
+                                  },
+                          "png":  {
+                                      "size":  3439500,
+                                      "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/multi_cleaner_bottle/multi_cleaner_bottle_ao_2k.png",
+                                      "md5":  "e4bbadd8441ebcb711aed3dc9d991fbe"
+                                  },
+                          "exr":  {
+                                      "size":  1185495,
+                                      "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/multi_cleaner_bottle/multi_cleaner_bottle_ao_2k.exr",
+                                      "md5":  "c34921ecca6d65cada02002f5168d9ac"
+                                  }
+                      },
+               "1k":  {
+                          "jpg":  {
+                                      "size":  142139,
+                                      "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/multi_cleaner_bottle/multi_cleaner_bottle_ao_1k.jpg",
+                                      "md5":  "897357f3b42157ed899a768090d68be9"
+                                  },
+                          "png":  {
+                                      "size":  848136,
+                                      "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/multi_cleaner_bottle/multi_cleaner_bottle_ao_1k.png",
+                                      "md5":  "7eb25b29c9066a409c30f17e6f88e536"
+                                  },
+                          "exr":  {
+                                      "size":  294615,
+                                      "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/multi_cleaner_bottle/multi_cleaner_bottle_ao_1k.exr",
+                                      "md5":  "371d99b7e048ec14403134957a1a324c"
+                                  }
+                      }
+           },
+    "Rough":  {
+                  "8k":  {
+                             "jpg":  {
+                                         "size":  18233078,
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/8k/multi_cleaner_bottle/multi_cleaner_bottle_rough_8k.jpg",
+                                         "md5":  "94ff5fa91ab7e418f1f053e71c5d5f8a"
+                                     },
+                             "png":  {
+                                         "size":  24194010,
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/8k/multi_cleaner_bottle/multi_cleaner_bottle_rough_8k.png",
+                                         "md5":  "dc4c4f78db16548ff4f33ccb28e12403"
+                                     },
+                             "exr":  {
+                                         "size":  26986014,
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/8k/multi_cleaner_bottle/multi_cleaner_bottle_rough_8k.exr",
+                                         "md5":  "1862145ce4ccd3b7f224132db583313a"
+                                     }
+                         },
+                  "4k":  {
+                             "jpg":  {
+                                         "size":  4897188,
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/multi_cleaner_bottle/multi_cleaner_bottle_rough_4k.jpg",
+                                         "md5":  "63b13c639de089b15576184bfe93e62d"
+                                     },
+                             "png":  {
+                                         "size":  13356598,
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/4k/multi_cleaner_bottle/multi_cleaner_bottle_rough_4k.png",
+                                         "md5":  "e3956548526bf2920e38a719b8360450"
+                                     },
+                             "exr":  {
+                                         "size":  10141771,
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/4k/multi_cleaner_bottle/multi_cleaner_bottle_rough_4k.exr",
+                                         "md5":  "9418769a357f69d2a13364f1ef692de0"
+                                     }
+                         },
+                  "2k":  {
+                             "jpg":  {
+                                         "size":  1425712,
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/multi_cleaner_bottle/multi_cleaner_bottle_rough_2k.jpg",
+                                         "md5":  "4016233c3714c602e237413ec18cb2cc"
+                                     },
+                             "png":  {
+                                         "size":  4961588,
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/multi_cleaner_bottle/multi_cleaner_bottle_rough_2k.png",
+                                         "md5":  "39030b9a821d9bf189279a15cb65dd43"
+                                     },
+                             "exr":  {
+                                         "size":  3381435,
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/multi_cleaner_bottle/multi_cleaner_bottle_rough_2k.exr",
+                                         "md5":  "142cacb66ba4e55ca79af3cd0e2f7e2c"
+                                     }
+                         },
+                  "1k":  {
+                             "jpg":  {
+                                         "size":  421289,
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/multi_cleaner_bottle/multi_cleaner_bottle_rough_1k.jpg",
+                                         "md5":  "f51ab97ae933b63cae7a0a21283763d3"
+                                     },
+                             "png":  {
+                                         "size":  1434282,
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/multi_cleaner_bottle/multi_cleaner_bottle_rough_1k.png",
+                                         "md5":  "bcdabed3a7c914894c412e73d685c4da"
+                                     },
+                             "exr":  {
+                                         "size":  944989,
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/multi_cleaner_bottle/multi_cleaner_bottle_rough_1k.exr",
+                                         "md5":  "201007e68169c316376e87903842905b"
+                                     }
+                         }
+              }
+}

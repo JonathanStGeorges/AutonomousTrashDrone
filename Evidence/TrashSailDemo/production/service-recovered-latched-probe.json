@@ -1,0 +1,7 @@
+{
+    "command": "probe",
+    "status": "PASS",
+    "detail": "phase=SENSOR_DEGRADED; reason=Sensor fault latched: fresh feeds restored; remain depowered until Start mission; model=Inference pending: combined; camera=True; sonar=True; tracks=1; pose=(0.00, 0.00, 29.09); captures=0; fps=69.6173",
+    "id": "183ec5aa46a94c9bbbccc1861758b7dd",
+    "unity": "6000.5.11f1"
+}

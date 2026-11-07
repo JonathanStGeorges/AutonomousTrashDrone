@@ -1,0 +1,44 @@
+{
+  "frame": "C:\\Users\\jonat\\Documents\\projects\\marus2-example\\Evidence\\TrashSailDemo\\sourceframes\\bbcc7cfafacc4732a72505bcdb9d3b22\\000001.png",
+  "sameDetections": true,
+  "direct": {
+    "sessionId": "direct-service-comparison",
+    "cameraId": "onboard",
+    "sequence": 1,
+    "captureTime": 0,
+    "width": 640,
+    "height": 384,
+    "profile": "combined",
+    "ok": true,
+    "empty": true,
+    "detections": [],
+    "models": [
+      "YOLOE",
+      "TRASH"
+    ],
+    "device": "cpu",
+    "wallInferenceMs": 239.88850000023376,
+    "wallCompleted": 1794056105.8956246,
+    "imageSha256": "364d469f745d5b2c128ca3dcd1e8aebd939739094246927c2d4ad541bb2a98d6"
+  },
+  "service": {
+    "sessionId": "direct-service-comparison",
+    "cameraId": "onboard",
+    "sequence": 1,
+    "captureTime": 0,
+    "width": 640,
+    "height": 384,
+    "profile": "combined",
+    "ok": true,
+    "empty": true,
+    "detections": [],
+    "models": [
+      "YOLOE",
+      "TRASH"
+    ],
+    "device": "cpu",
+    "wallInferenceMs": 260.941599999569,
+    "wallCompleted": 1794056106.159698,
+    "imageSha256": "364d469f745d5b2c128ca3dcd1e8aebd939739094246927c2d4ad541bb2a98d6"
+  }
+}

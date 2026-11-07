@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,56 +13,37 @@ namespace TrashSailDemo
         public IReadOnlyList<VisualTrack> Tracks => tracks;
         public void Reset() { tracks.Clear(); matched.Clear(); nextId = 1; lastAgeUpdate = 0; }
 
-        public void Update(CameraFrame frame, IReadOnlyList<PixelDetection> detections, float waterLevel, float memory)
+        public void UpdateModels(CameraFrame frame, InferenceResult result, float waterLevel, float memory, double wallTime)
         {
             matched.Clear();
-            for (int d = 0; d < detections.Count; d++)
+            // One track per model/class: incompatible overlapping evidence is never suppressed.
+            foreach (ModelEvidence evidence in result.detections)
             {
-                PixelDetection detection = detections[d];
-                bool valid = DemoCameraGeometry.TryWaterIntersection(frame, detection.WaterContactPixel, waterLevel,
-                    out Vector3 measured, out float uncertainty);
-                VisualTrack best = null;
-                float bestDistance = float.PositiveInfinity;
-                foreach (VisualTrack old in tracks)
+                Rect box=DemoInferenceProtocol.BottomLeftBox(evidence,frame.Width,frame.Height);
+                if(box.width<=0 || box.height<=0) continue;
+                CanonicalCategory category;
+                if(!Enum.TryParse(evidence.category,out category)) category=CanonicalCategory.Unknown;
+                bool surface=category==CanonicalCategory.CollectableRubbish || category==CanonicalCategory.OtherRubbish;
+                Vector3 measured=Vector3.zero;float uncertainty=5;
+                bool valid=surface && DemoCameraGeometry.TryWaterIntersection(frame,DemoInferenceProtocol.WaterContact(evidence,box,frame.Height),waterLevel,out measured,out uncertainty);
+                VisualTrack best=null;float distance=100000;
+                foreach(VisualTrack old in tracks)
                 {
-                    if (matched.Contains(old.Id) || old.Age(frame.CaptureTime) > memory) continue;
-                    float separation;
-                    if (valid && old.RangeValid)
-                    {
-                        Vector3 predicted = old.Position + old.Velocity * (float)old.Age(frame.CaptureTime);
-                        separation = DemoMath.Flat(measured - predicted).magnitude;
-                        if (separation > Mathf.Clamp(old.Uncertainty + uncertainty + 0.5f, 0.6f, 2.5f)) continue;
-                    }
-                    else
-                    {
-                        separation = Vector2.Distance(old.PixelRect.center, detection.Bounds.center) / 30f;
-                        if (separation > 1 || old.Age(frame.CaptureTime) > 0.3f) continue;
-                    }
-                    if (separation < bestDistance) { bestDistance = separation; best = old; }
+                    if(matched.Contains(old.Id) || old.Provenance!=evidence.model || old.Label!=evidence.label || old.Age(frame.CaptureTime)>memory) continue;
+                    float d=valid && old.RangeValid ? DemoMath.Flat(measured-old.Position).magnitude : Vector2.Distance(box.center,old.PixelRect.center)/20;
+                    if(d<2 && d<distance) {best=old;distance=d;}
                 }
-                if (best == null)
-                {
-                    best = new VisualTrack { Id = nextId++, Position = measured, LastSeen = frame.CaptureTime };
-                    tracks.Add(best);
-                }
-                double elapsed = frame.CaptureTime - best.LastSeen;
-                if (valid && best.RangeValid && elapsed > 0.025 && elapsed < 1)
-                {
-                    Vector3 observedVelocity = (measured - best.Position) / (float)elapsed;
-                    best.Velocity = Vector3.Lerp(best.Velocity, Vector3.ClampMagnitude(observedVelocity, 1.5f), 0.15f);
-                }
-                else if (!valid) best.Velocity = Vector3.zero;
-                best.Position = measured;
-                best.RangeValid = valid;
-                best.PixelRect = detection.Bounds;
-                best.Label = detection.Label;
-                best.Score = detection.Score;
-                best.Uncertainty = valid ? uncertainty : 5f;
-                best.Hits++;
-                best.LastSeen = frame.CaptureTime;
-                matched.Add(best.Id);
+                if(best==null) {best=new VisualTrack {Id=nextId++};tracks.Add(best);}
+                double elapsed=frame.CaptureTime-best.LastSeen;
+                if(valid && best.RangeValid && elapsed>0.025 && elapsed<2)
+                    best.Velocity=Vector3.Lerp(best.Velocity,Vector3.ClampMagnitude((measured-best.Position)/(float)elapsed,1.5f),.15f);
+                best.Position=measured;best.RangeValid=valid;best.Uncertainty=valid?uncertainty:5;
+                best.PixelRect=box;best.Label=evidence.label;best.Score=evidence.score;
+                best.Category=category;best.Eligible=evidence.eligible && !evidence.conflict && category==CanonicalCategory.CollectableRubbish;
+                best.Conflict=evidence.conflict;best.Provenance=evidence.model;best.Profile=result.profile;
+                best.Evidence=new[]{evidence};best.ResultWallTime=wallTime;best.Hits++;best.LastSeen=frame.CaptureTime;matched.Add(best.Id);
             }
-            Age(frame.CompletionTime, memory);
+            Age(frame.CompletionTime,memory);
         }
 
         public void Age(double now, float memory)

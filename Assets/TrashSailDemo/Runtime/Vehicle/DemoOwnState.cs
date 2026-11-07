@@ -29,6 +29,7 @@ namespace TrashSailDemo
                 Position = pose.position + new Vector3(Noise(), 0, Noise()),
                 Rotation = Quaternion.AngleAxis(Noise(), Vector3.up) * pose.rotation,
                 Velocity = Vessel != null && Vessel.Body != null ? Vessel.Body.linearVelocity + new Vector3(Noise(), 0, Noise()) : Vector3.zero,
+                AngularVelocity=Vessel!=null && Vessel.Body!=null?Vessel.Body.angularVelocity+new Vector3(0,Noise(),0):Vector3.zero,
                 WindTo = Config != null ? Config.WindTo + new Vector3(Noise(), 0, Noise()) : Vector3.zero,
                 Timestamp = Time.timeAsDouble,
                 WaterLevel = 0,

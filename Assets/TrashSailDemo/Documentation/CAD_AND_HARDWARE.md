@@ -1,21 +1,17 @@
-# Replacing the placeholder and moving toward hardware
+﻿# CAD and hardware integration - production v2
 
-## CAD replacement
+Use [CAD_REPLACEMENT.md](CAD_REPLACEMENT.md) for the current step-by-step model replacement procedure. Keep the Rigidbody root, sensor/control contracts and collector boundary stable while replacing the imported visual proxy. Import in metres with bow +Z, up +Y and starboard +X; preserve existing metadata/GUIDs. Update geometry, mass, centre of mass, buoyancy/drag, collision/swept envelopes and calibrated sensor mounts before validating again. Save a custom prefab variant or update the factory intentionally so regeneration does not erase a CAD integration.
 
-Keep the `Trash Sail Drone — physics root` GameObject, Rigidbody, DemoVessel, own-state source, sensor adapters, collector and mission references stable. Replace only the contents of **Visual Model — replace with CAD** initially. Import FBX/OBJ at1 Unity unit=1metre; verify bow+Z/up+Y/starboard+X, model origin and measured overall dimensions. Remove imported drive scripts and colliders until deliberately configured.
+## Actuation
 
-Then rebuild the separate Collision Geometry using simple convex primitive/compound colliders suitable for a moving Rigidbody. Update vessel length/width/mass/centre of mass, buoyancy sampling points/force limits, drag, rudder authority and sail polar coefficients based on measured physical parameters. Reposition camera/sonar calibration mounts, gate/intake/capture volume and storage. Confirm the sonar origin remains ahead of hull colliders, submerged in calm water, with the intake inside coverage above minimum range. Re-run projection, own-hull/occlusion, capture, clearance, sailing and all acceptance scenarios after any geometry change.
+Production uses primary port/starboard thrusters. Replace IVehicleActuator with timestamped measured hardware interfaces, calibrated mount axes/moment arms, thrust-response curves, reverse limitations, saturation, watchdog feedback and an independently enforceable emergency stop. Validate surge/yaw mixer signs and stopping/turning envelopes under currents and disturbances. Legacy sail fields carry no production control authority; earlier sailing instructions are historical.
 
-The scene builder intentionally regenerates a known placeholder. Save a custom prefab variant or modify the factory/configuration to preserve a CAD variant when rerunning setup. Preserve .meta GUIDs for existing referenced assets. Do not change the physics root scale to compensate for a wrongly scaled mesh.
+## Perception and sensors
 
-## Real sensors and inference
+The production path already uses pretrained neural models, not a colour baseline. Existing weights are an engineering starting point, not a validated deployed rubbish/wildlife system. Preserve model/source provenance, licence obligations, meaningful negative results, disagreements and fail-closed stale/error handling. Train/evaluate with representative real rubbish, glare, fouling, weather and non-targets rather than treating synthetic rendered success as transfer validation.
 
-Replace ICameraFrameSource with a camera driver providing actual calibrated intrinsics, lens distortion correction, exposure/capture timestamp and immutable completed frames. Use hardware/monotonic clock synchronization and explicit latency/dropout health. Replace the synthetic colour detector with a trained detector/segmenter validated on local water, glare, rubbish and non-rubbish. Record model class coverage, licence, preprocessing and measured performance. Water-contact ranging needs real camera extrinsics, roll/pitch, water/wave estimates and uncertainty; consider stereo/depth/radar fusion where surface-plane intersection is inadequate.
+Real camera adapters require calibrated intrinsics/extrinsics, distortion correction, capture timestamps, synchronized attitude and explicit latency/health. Surface-plane ranging is approximate; use suitable additional ranging where it is inadequate. Real sonar needs beam/range calibration, acquisition timing, sound-speed correction, clutter/multipath handling and ego-motion compensation. Unknown contacts remain hazards; the demo has no validated acoustic fish classifier.
 
-Replace ISonarFrameSource with the actual sonar's polar intensity/calibration/timing representation. Validate mounting, beam pattern, minimum range, bottom/water-surface clutter, sound-speed assumptions, latency, multipath and ego-motion compensation. Unknown contacts must remain hazards. A fish classifier requires labelled acoustic training/evaluation; this demo supplies no validated fish classifier.
+The intake requires actual gate/deflector dynamics, storage sensing, jam/force detection, bycatch detection/release and independent interlocks. Simulation centre-in-trigger capture is deliberately simplified. Controlled water trials and hardware-in-loop testing must validate capture and failure behaviour before autonomy is deployed.
 
-## Real control and collection
-
-Replace IVehicleActuator with timestamped hardware commands plus watchdog, independently enforced emergency stop, verified feedback and safe gate state. Fit a measured sail polar/apparent-wind model, rudder hydrodynamics, leeway and wind/current estimation. Implement feasibility-aware path planning under currents, gusts and real turning/stopping limits. Test fail-safe recovery from no-go stalls and loss of positioning.
-
-The intake needs a physical gate/deflector design, storage sensing, jam/force detection, bycatch sensing/release and independent interlocks. Simulation trigger entry is an engineering simplification; safe real collection cannot be inferred from these runs. Perform controlled water trials and hardware-in-loop testing before autonomous deployment.
+The lead reports 36 current Unity Edit Mode tests passed; this does not validate physical hardware or establish the final rendered acceptance result. See GATES.md and the lead's evidence report.

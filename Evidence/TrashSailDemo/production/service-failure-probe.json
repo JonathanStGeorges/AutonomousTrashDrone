@@ -1,0 +1,7 @@
+{
+    "command": "probe",
+    "status": "PASS",
+    "detail": "phase=SENSOR_DEGRADED; reason=Camera stale/unavailable: close intake and depower; model=FAULT: Cannot connect to destination host; camera=False; sonar=True; tracks=0; pose=(0.00, 0.00, 28.16); captures=0; fps=73.49877",
+    "id": "c74883a667214780a6604bd0afe19a9c",
+    "unity": "6000.5.11f1"
+}

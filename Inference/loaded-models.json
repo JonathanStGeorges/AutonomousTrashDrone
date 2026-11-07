@@ -1,0 +1,54 @@
+{
+  "device": "cpu",
+  "imgsz": 416,
+  "torch": "2.15.0+cpu",
+  "ultralytics": "8.4.204",
+  "opencv": "5.0.0",
+  "revision": "a77dc9ce0e8ce6640b0c3800ec03cde9daa39fd3",
+  "classes": {
+    "YOLOE": {
+      "0": "plastic bottle",
+      "1": "plastic bag",
+      "2": "drink can",
+      "3": "food container",
+      "4": "paper cup",
+      "5": "cardboard",
+      "6": "fishing net",
+      "7": "rope",
+      "8": "styrofoam",
+      "9": "fish",
+      "10": "sea turtle",
+      "11": "jellyfish",
+      "12": "dolphin",
+      "13": "shark",
+      "14": "crab",
+      "15": "bird",
+      "16": "boat",
+      "17": "person",
+      "18": "buoy"
+    },
+    "TRASH": {
+      "0": "rov",
+      "1": "plant",
+      "2": "animal_fish",
+      "3": "animal_starfish",
+      "4": "animal_shells",
+      "5": "animal_crab",
+      "6": "animal_eel",
+      "7": "animal_etc",
+      "8": "trash_etc",
+      "9": "trash_fabric",
+      "10": "trash_fishing_gear",
+      "11": "trash_metal",
+      "12": "trash_paper",
+      "13": "trash_plastic",
+      "14": "trash_rubber",
+      "15": "trash_wood"
+    }
+  },
+  "weights": {
+    "C:\\Users\\jonat\\Downloads\\marineCam\\yoloe-26s-seg.pt": "48f24206bc8680d60cbbfa296b0140da849669b9515058b72f5a945142df0654",
+    "C:\\Users\\jonat\\.cache\\huggingface\\hub\\models--Krishna-Jaiswal--yolov8m-marine-trash\\snapshots\\a77dc9ce0e8ce6640b0c3800ec03cde9daa39fd3\\yolov8m_marine_best.pt": "f5afba16fcb65ad8c74512211b9ae023a878538e2015bc3e10fd00ba8823e037",
+    "C:\\Users\\jonat\\Downloads\\marineCam\\mobileclip2_b.ts": "35d7f213e4d75f38514e4656ad3cb91158bd33e3805d8ac349f23b186f66982f"
+  }
+}

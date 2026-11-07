@@ -1,0 +1,7 @@
+{
+    "command": "probe",
+    "status": "PASS",
+    "detail": "phase=AVOID_OR_REPLAN; reason=Optical wildlife/obstacle or model conflict: unknown range; sonar-scored manoeuvre retained and intake closed; model=Inference pending: combined; camera=True; sonar=True; tracks=4; pose=(0.00, 0.00, 30.89); captures=0; fps=67.3008",
+    "id": "d1ae8db88e254f0d9a540ebb6da0c711",
+    "unity": "6000.5.11f1"
+}

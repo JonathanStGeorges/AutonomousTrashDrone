@@ -6,7 +6,8 @@
 	url = https://github.com/MARUSimulator/marus2-core.git
 [submodule "Assets/marus2-modules/marus2-sensors"]
 	path = Assets/marus2-modules/marus2-sensors
-	url = https://github.com/MARUSimulator/marus2-sensors.git
+	url = https://github.com/JonathanStGeorges/AutonomousTrashDrone.git
+	branch = vendor/marus2-sensors
 [submodule "Assets/marus2-modules/marus2-sensors-grpc"]
 	path = Assets/marus2-modules/marus2-sensors-grpc
 	url = https://github.com/MARUSimulator/marus2-sensors-grpc.git

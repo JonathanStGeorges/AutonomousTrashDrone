@@ -12,6 +12,7 @@ namespace TrashSailDemo
         public DemoOwnState OwnState;
         public DemoCameraPerception CameraPerception;
         public DemoSonarPerception SonarPerception;
+        public CoveragePlanner Coverage;
         public MissionStatus Status = new MissionStatus();
         public bool Running, Manual;
         public event Action<string, string> Decision;
@@ -34,15 +35,16 @@ namespace TrashSailDemo
         {
             Running=false; Manual=false; retired.Clear(); SelectedTarget=null;
             Status=new MissionStatus(); previousCapture=0; searchWaypoint=0; clearSince=-1;
-            verifyUntil=0; tackStarted=Time.timeAsDouble; tackSign=1;
+            verifyUntil=0;
             home=OwnState != null ? OwnState.State.Position : Vector3.zero;
             CollectorPermitted=false; DesiredSpeed=0;
             associationHoldStarted=-1;
             previousAvoidDirection=Vector3.zero;
             sensorFailureLatched=false;
+            Coverage?.ResetCoverage();
         }
         public void StartMission() { sensorFailureLatched=false; Running=true; Manual=false; missionStarted=Time.timeAsDouble; Transition(MissionPhase.SEARCH,"Mission started: bounded coverage using sensor observations"); }
-        public void StopMission() { Running=false; CollectorPermitted=false;SelectedTarget=null;Status.TargetId=-1;if(CameraPerception!=null)CameraPerception.SelectedTrackId=-1; Transition(MissionPhase.IDLE,"Mission stopped: collector closed, sails depowered; residual motion remains"); if(Vessel!=null)Vessel.ApplyCommand(ActuatorCommand.Safe(Time.timeAsDouble)); }
+        public void StopMission() { Running=false; CollectorPermitted=false;SelectedTarget=null;Status.TargetId=-1;if(CameraPerception!=null)CameraPerception.SelectedTrackId=-1; Transition(MissionPhase.IDLE,"Mission stopped: collector closed, thrusters idle; residual motion remains"); if(Vessel!=null)Vessel.ApplyCommand(ActuatorCommand.Safe(Time.timeAsDouble)); }
         void Transition(MissionPhase phase,string reason)
         {
             if(Status.Phase==phase && Status.Reason==reason)return;
@@ -51,14 +53,9 @@ namespace TrashSailDemo
         public static bool MayCollect(VisualTrack target, bool cameraFresh, bool sonarFresh, bool clear, bool capacity,
             float speed, float maxSpeed, float bearing, double now)
         {
-            return target!=null && target.RangeValid && target.Label=="rubbish" && target.Hits>=3 && target.Score>=0.72f
-                && target.Age(now)<0.65 && cameraFresh && sonarFresh && clear && capacity && speed<=maxSpeed && Mathf.Abs(bearing)<13;
-        }
-        public static Vector3 SailingDirection(Vector3 wanted,Vector3 windTo,float noGo,float side,out bool tack)
-        {
-            wanted=DemoMath.Flat(wanted).normalized; Vector3 upwind=-DemoMath.Flat(windTo).normalized;
-            tack=windTo.magnitude>=0.5f && Vector3.Angle(wanted,upwind)<noGo+7;
-            return tack ? Quaternion.AngleAxis(side*(noGo+14),Vector3.up)*upwind : wanted;
+            return target!=null && target.RangeValid && target.Eligible && !target.Conflict && target.Category==CanonicalCategory.CollectableRubbish
+                && target.Evidence!=null && target.Evidence.Length>0 && target.Hits>=2 && target.Score>=.25f
+                && target.Age(now)<0.8 && cameraFresh && sonarFresh && clear && capacity && speed<=maxSpeed && Mathf.Abs(bearing)<13;
         }
         void FixedUpdate()
         {
@@ -71,19 +68,19 @@ namespace TrashSailDemo
                 if(Manual)
                 {
                     Transition(MissionPhase.MANUAL,"Manual actuators; collector remains interlocked closed");
-                    command.Rudder=Input.GetAxisRaw("Horizontal"); command.SailTrim=Input.GetKey(KeyCode.W)?0.7f:0;
-                    command.Motor=Input.GetKey(KeyCode.W)?0.35f:0;
+                    command=DemoVessel.AllocateConfigured(Input.GetAxisRaw("Vertical")*.5f,Input.GetAxisRaw("Horizontal")*.4f,Config,now);
                 }
                 Vessel.ApplyCommand(command); return;
             }
-            bool cameraFresh=CameraPerception.LatestFrame!=null && CameraPerception.LatestFrame.Valid && DemoMath.Fresh(now,CameraPerception.LatestFrame.CaptureTime,Config.CameraMaxAge);
+            Coverage?.UpdateProgress(state);
+            bool cameraFresh=CameraPerception.IsHealthy;
             bool sonarFresh=SonarPerception.LatestFrame!=null && SonarPerception.LatestFrame.Valid && DemoMath.Fresh(now,SonarPerception.LatestFrame.CaptureTime,Config.SonarMaxAge);
             if(!cameraFresh || !sonarFresh)
             {
                 sensorFailureLatched=true;
                 if(Status.Phase!=MissionPhase.SENSOR_DEGRADED) Status.DegradedCount++;
                 Transition(MissionPhase.SENSOR_DEGRADED,!cameraFresh ? "Camera stale/unavailable: close intake and depower" : "Sonar stale/unavailable: close intake and depower");
-                command.Rudder=0; Vessel.ApplyCommand(command); return;
+                Vessel.ApplyCommand(command); return;
             }
             if(sensorFailureLatched)
             {Transition(MissionPhase.SENSOR_DEGRADED,"Sensor fault latched: fresh feeds restored; remain depowered until Start mission");Vessel.ApplyCommand(command);return;}
@@ -94,28 +91,31 @@ namespace TrashSailDemo
                 SelectedTarget=null; verifyUntil=now+Config.TrackMemory+0.4;
                 Transition(MissionPhase.VERIFY,"Physical intake crossing recorded; depower and wait for retained sonar contact memory to clear");
             }
-            if(previousCapture>=TargetCaptures)
-            { Transition(MissionPhase.MISSION_COMPLETE,"Requested capture count reached; sails depowered and intake closed"); Running=false; Vessel.ApplyCommand(command); return; }
-            if(now<verifyUntil) { Vessel.ApplyCommand(command); return; }
-            if(SelectedTarget!=null && (SelectedTarget.Age(now)>0.75 || !SelectedTarget.RangeValid || retired.Contains(SelectedTarget.Id)))
-            { SelectedTarget=null; Transition(MissionPhase.SEARCH,"Target lost or uncertain; reacquire from fresh pixels"); }
-            if(SelectedTarget==null && Config.Scenario!=DemoScenario.Upwind && Config.Scenario!=DemoScenario.LowWind)
+            if(Config.StopAfterCaptures>0 && previousCapture>=Config.StopAfterCaptures)
+            { Transition(MissionPhase.MISSION_COMPLETE,"Requested capture count reached; thrusters idle and intake closed"); Running=false; Vessel.ApplyCommand(command); return; }
+            bool verifying=now<verifyUntil;
+            if(!verifying && SelectedTarget==null && Coverage!=null && Coverage.Suspended)Coverage.Resume();
+            if(SelectedTarget!=null && (SelectedTarget.Age(now)>Config.CameraMaxAge || !SelectedTarget.RangeValid || !SelectedTarget.Eligible || SelectedTarget.Conflict || retired.Contains(SelectedTarget.Id)))
+            { SelectedTarget=null;Coverage?.Resume(); Transition(MissionPhase.SEARCH,"Target lost, ineligible or conflicting; resume saved coverage progress"); }
+            if(SelectedTarget==null && !verifying)
             {
                 float best=float.PositiveInfinity;
                 foreach(var track in CameraPerception.Tracks)
                 {
-                    if(retired.Contains(track.Id) || track.Label!="rubbish" || track.Hits<3 || track.Score<0.72f || !track.RangeValid || track.Age(now)>0.4)continue;
+                    if(retired.Contains(track.Id) || !track.Eligible || track.Conflict || track.Evidence==null || track.Evidence.Length==0 || track.Hits<2 || track.Score<Config.ModelScoreThreshold || !track.RangeValid || track.Age(now)>Config.CameraMaxAge)continue;
                     float distance=DemoMath.Flat(track.Position-state.Position).magnitude;
                     if(distance<best && track.Uncertainty<2.2f){best=distance;SelectedTarget=track;}
                 }
-                if(SelectedTarget!=null)Transition(MissionPhase.TRACK_CANDIDATE,"Persistent positive RGB heuristic track selected");
+                if(SelectedTarget!=null){Coverage?.Suspend();Transition(MissionPhase.TRACK_CANDIDATE,"Persistent pretrained-model target confirmed; saved coverage progress before diversion");}
             }
             Status.TargetId=SelectedTarget!=null?SelectedTarget.Id:-1;
             CameraPerception.SelectedTrackId=Status.TargetId;
-            Vector3 goal=SelectedTarget!=null ? SelectedTarget.Position+SelectedTarget.Velocity*Mathf.Min((float)SelectedTarget.Age(now),0.5f) : SearchGoal(state);
-            bool returning=MissionDuration>Config.TimeBudget;
+            Vector3 goal=SelectedTarget!=null ? SelectedTarget.Position+SelectedTarget.Velocity*Mathf.Min((float)SelectedTarget.Age(now),0.5f) : verifying?state.Position+state.Forward*6:SearchGoal(state);
+            bool returning=MissionDuration>Config.TimeBudget || Vessel.Collector.Fill>=1 || (Coverage!=null && Coverage.Complete);
             if(returning){SelectedTarget=null;goal=home;Transition(MissionPhase.RETURN_HOME,"Mission time budget expired; target released and intake closed");}
             Vector3 delta=DemoMath.Flat(goal-state.Position); float distanceToGoal=delta.magnitude;
+            if(returning && distanceToGoal<1.5f)
+            {Running=false;Transition(MissionPhase.MISSION_COMPLETE,"Returned home: route complete, capacity reached or time budget expired; intake closed and thrusters idle");Vessel.ApplyCommand(command);return;}
             Vector3 direction=delta.sqrMagnitude>0.01f?delta.normalized:state.Forward;
             Status.Goal=goal;
             bool hazard=FindHazard(state,direction,distanceToGoal,now,out Vector3 avoidDirection,out string hazardReason);
@@ -125,7 +125,7 @@ namespace TrashSailDemo
                 if(Status.Phase!=MissionPhase.AVOID_OR_REPLAN)Status.AvoidanceCount++;
                 clearSince=-1; direction=avoidDirection;
                 Transition(MissionPhase.AVOID_OR_REPLAN,hazardReason+"; intake closed, steer clear with residual motion");
-                DesiredSpeed=pendingAssociation?0:0.7f;clearanceHold=pendingAssociation;
+                DesiredSpeed=pendingAssociation?0:Mathf.Min(.45f,Config.MaxSearchSpeed);clearanceHold=pendingAssociation;
             }
             else if(Status.Phase==MissionPhase.AVOID_OR_REPLAN && (clearSince<0 || now-clearSince<Config.ClearancePeriod))
             {
@@ -137,34 +137,34 @@ namespace TrashSailDemo
             else
             {
                 clearSince=-1;
-                DesiredSpeed=SelectedTarget!=null ? (distanceToGoal<5?0.72f:1.1f) : 1.1f;
+                DesiredSpeed=SelectedTarget!=null ? (distanceToGoal<5?Config.ApproachSpeed:Config.MaxSearchSpeed) : Config.MaxSearchSpeed;
+                if(SelectedTarget==null)foreach(var candidate in CameraPerception.Tracks)if(candidate.Eligible && candidate.RangeValid && candidate.Age(now)<Config.CameraMaxAge)DesiredSpeed=Mathf.Min(DesiredSpeed,.15f);
+                if(verifying)DesiredSpeed=0;
                 if(SelectedTarget!=null && !returning && (distanceToGoal>=4 || Status.Phase!=MissionPhase.COLLECT))Transition(distanceToGoal<4?MissionPhase.FINAL_CHECK:MissionPhase.APPROACH,distanceToGoal<4?"Align intake; require fresh camera, sonar, narrow association and clear swept path":"Approach estimated floating target with finite actuator limits");
+                else if(verifying)Transition(MissionPhase.VERIFY,"Capture verified physically; monitor hazards while retained contact memory clears");
                 else if(SelectedTarget==null && Status.Phase!=MissionPhase.RETURN_HOME)Transition(MissionPhase.SEARCH,"Bounded coverage: only pixel detections create rubbish targets");
             }
-            float halfWidth=Config.BoundaryHalfWidth-2.5f;
-            if(Mathf.Abs(state.Position.x)>halfWidth || state.Position.z>Config.BoundaryLength-2 || state.Position.z< -4)
-            {direction=DemoMath.Flat(new Vector3(0,0,Config.BoundaryLength*0.45f)-state.Position).normalized;hazard=true;Transition(MissionPhase.AVOID_OR_REPLAN,"Mission boundary margin reached; return inward");}
-            bool outwardAtBoundary=Mathf.Abs(state.Position.x)>10 && Mathf.Sign(state.Position.x)==tackSign && now-tackStarted>2;
-            if(now-tackStarted>10 || outwardAtBoundary)
-            {tackSign=-tackSign;tackStarted=now;}
-            bool tacking=false;
-            if(!Config.MotorAssistance)direction=SailingDirection(direction,state.WindTo,Config.NoGoAngle,tackSign,out tacking);
-            if(tacking && !Status.Tacking)Status.TackCount++;
-            // Record alternating tack legs even when no-go demand remains continuous.
-            if(tacking && now-tackStarted<Time.fixedDeltaTime*1.5)Status.TackCount++;
-            Status.Tacking=tacking;
-            if(!Config.MotorAssistance && state.WindTo.magnitude<0.5f)
-            {Transition(MissionPhase.SENSOR_DEGRADED,"Insufficient wind: propulsion stalled/deferred; no hidden motor");Vessel.ApplyCommand(command);return;}
-            float error=Vector3.SignedAngle(state.Forward,direction,Vector3.up);
-            command.Rudder=Mathf.Clamp(error/30f,-1,1);
-            float forward=Vector3.Dot(DemoMath.Flat(state.Velocity),state.Forward);
-            command.SailTrim=Mathf.Clamp01((DesiredSpeed-forward)*0.75f+0.2f);
-            command.Motor=Config.MotorAssistance?Mathf.Clamp01((DesiredSpeed-forward)*1.1f+0.15f):0;
-            if(Mathf.Abs(error)>55){command.SailTrim*=0.35f;command.Motor=Mathf.Min(command.Motor,0.24f);}
-            if(clearanceHold){command.SailTrim=0;command.Motor=0;}
+            float length=Config.LargeOcean?Config.MissionLength:Config.BoundaryLength,halfWidth=(Config.LargeOcean?Config.MissionWidth*.5f:Config.BoundaryHalfWidth)-2.5f;
+            if(Mathf.Abs(state.Position.x)>halfWidth || state.Position.z>length-2 || state.Position.z< -4)
+            {direction=DemoMath.Flat(new Vector3(0,0,length*.45f)-state.Position).normalized;hazard=true;Transition(MissionPhase.AVOID_OR_REPLAN,"Mission boundary margin reached; return inward");}
+            foreach(var optical in CameraPerception.Tracks)
+            {
+                if(optical.Age(now)>Config.CameraMaxAge || (!optical.Conflict && optical.Category!=CanonicalCategory.Wildlife && optical.Category!=CanonicalCategory.Obstacle))continue;
+                var image=CameraPerception.LatestFrame;if(image==null)continue;
+                float bearing=(optical.PixelRect.center.x/image.Width-.5f)*image.VerticalFov*image.Width/image.Height;
+                if(Mathf.Abs(bearing)<30 && optical.PixelRect.height>image.Height*.08f)
+                {
+                    // Keep the sonar-scored manoeuvre when both sensors report hazards.
+                    // Bearing-only optical evidence supplies no invented world position.
+                    if(!hazard)direction=ChooseAvoidance(state,Quaternion.AngleAxis(bearing>=0?-65:65,Vector3.up)*state.Forward,avoidanceContacts);
+                    hazard=true;DesiredSpeed=Mathf.Min(DesiredSpeed,.2f);Transition(MissionPhase.AVOID_OR_REPLAN,"Optical wildlife/obstacle or model conflict: unknown range; sonar-scored manoeuvre retained and intake closed");
+                }
+            }
+            command=clearanceHold?ActuatorCommand.Safe(now):DemoVessel.Control(state,DesiredSpeed,DemoMath.Heading(direction),Config,now);
             float targetBearing=SelectedTarget!=null?DemoMath.Bearing(SelectedTarget.Position-state.Position,state.Rotation):180;
-            CollectorPermitted=!returning && distanceToGoal<4 && MayCollect(SelectedTarget,cameraFresh,sonarFresh,!hazard,Vessel.Collector.Fill<1,
-                DemoMath.Flat(state.Velocity).magnitude,Config.MaxCollectionSpeed,targetBearing,now);
+            float relativeSpeed=DemoMath.Flat(state.Velocity-(SelectedTarget!=null?SelectedTarget.Velocity:Vector3.zero)).magnitude;
+            CollectorPermitted=!returning && !verifying && distanceToGoal<4 && MayCollect(SelectedTarget,cameraFresh,sonarFresh,!hazard,Vessel.Collector.Fill<1,
+                relativeSpeed,Config.MaxCollectionSpeed,targetBearing,now);
             command.CollectorEnabled=CollectorPermitted;
             if(CollectorPermitted)Transition(MissionPhase.COLLECT,"Positive track aligned; fresh sensors and measured corridor clear; awaiting physical intake entry");
             else if(!hazard && SelectedTarget!=null && distanceToGoal<4 && !returning)Transition(MissionPhase.FINAL_CHECK,"Intake interlocked until alignment, freshness, speed and clearance pass");
@@ -172,10 +172,8 @@ namespace TrashSailDemo
         }
         Vector3 SearchGoal(VehicleState state)
         {
-            if(Config.Scenario==DemoScenario.Upwind || Config.Scenario==DemoScenario.LowWind)return new Vector3(0,0,30);
-            Vector3[] waypoints={new Vector3(0,0,10),new Vector3(0,0,26),new Vector3(9,0,30),new Vector3(9,0,9),new Vector3(-9,0,9),new Vector3(-9,0,30)};
-            if(DemoMath.Flat(waypoints[searchWaypoint%waypoints.Length]-state.Position).magnitude<3)searchWaypoint++;
-            return waypoints[searchWaypoint%waypoints.Length];
+            if(Coverage!=null)return Coverage.CurrentGoal;
+            return new Vector3(0,0,(Config.LargeOcean?Config.MissionLength:Config.BoundaryLength)-3);
         }
         bool FindHazard(VehicleState state,Vector3 direction,float goalDistance,double now,out Vector3 avoid,out string reason)
         {
@@ -204,14 +202,14 @@ namespace TrashSailDemo
                 Vector3 relative=DemoMath.Flat(contact.Position+contact.Velocity*Mathf.Min(1.3f,contact.Range/Mathf.Max(speed,0.4f))-state.Position);
                 float ahead=Vector3.Dot(relative,direction), side=Vector3.Dot(relative,Vector3.Cross(Vector3.up,direction));
                 float extent=Mathf.Max(.35f,Mathf.Max(contact.LateralExtent,contact.RangeExtent));
-                float envelope=Config.VesselWidth*0.5f+Config.SafeMargin+contact.Uncertainty+extent+speed*(Config.SonarLatency+0.2f);
+                float envelope=Config.EnvelopeHalfWidth+Config.SafeMargin+contact.Uncertainty+extent+speed*(Config.SonarLatency+0.2f);
                 float clearance=relative.magnitude-(Config.VesselLength*0.5f+contact.Uncertainty);
                 if(!associated)Status.ClosestClearance=Mathf.Min(Status.ClosestClearance,clearance);
                 if(associated)continue;
                 avoidanceContacts.Add(contact);
                 Vector3 actualDirection=speed>0.15f?DemoMath.Flat(state.Velocity).normalized:state.Forward;
                 float actualAhead=Vector3.Dot(relative,actualDirection),actualSide=Vector3.Dot(relative,Vector3.Cross(Vector3.up,actualDirection));
-                float rear=-Config.VesselLength*.5f-Config.SafeMargin-contact.Uncertainty-extent;
+                float rear=Config.EnvelopeRear-Config.SafeMargin-contact.Uncertainty-extent;
                 bool actualThreat=actualAhead>rear && actualAhead<horizon+1.8f && Mathf.Abs(actualSide)<envelope;
                 if((ahead>rear && ahead<horizon+1.8f && Mathf.Abs(side)<envelope) || actualThreat)
                 {
@@ -231,6 +229,7 @@ namespace TrashSailDemo
         }
         Vector3 ChooseAvoidance(VehicleState state,Vector3 wanted,List<ContactTrack> contacts)
         {
+            if(contacts.Count==0)return wanted;
             float baseHeading=DemoMath.Heading(wanted),currentHeading=DemoMath.Heading(state.Forward);
             float best=float.NegativeInfinity;Vector3 selected=wanted;
             // Predict a finite 25deg/s turn and gradual speed response, including the
@@ -239,8 +238,11 @@ namespace TrashSailDemo
             foreach(float offset in new[]{40f,-40f,65f,-65f,90f,-90f,120f,-120f,160f,-160f})
             {
                 float target=baseHeading+offset;Vector3 headingDirection=Quaternion.Euler(0,target,0)*Vector3.forward;
-                if(!Config.MotorAssistance && Vector3.Angle(headingDirection,-state.WindTo)<Config.NoGoAngle+7)continue;
                 Vector3 position=DemoMath.Flat(state.Position),velocity=DemoMath.Flat(state.Velocity);float heading=currentHeading,minClear=float.PositiveInfinity,integral=0,endClear=0;
+                float yawRate=state.AngularVelocity.y,port=Vessel.PortAppliedForce/Mathf.Max(1,Config.MaxThrusterForce),starboard=Vessel.StarboardAppliedForce/Mathf.Max(1,Config.MaxThrusterForce);
+                Vector3 portDirection=Quaternion.Euler(Config.PortThrusterEuler)*Vector3.forward,starboardDirection=Quaternion.Euler(Config.StarboardThrusterEuler)*Vector3.forward;
+                float portMoment=Vector3.Cross(Config.PortThrusterPosition-Config.CentreOfMass,portDirection).y,starboardMoment=Vector3.Cross(Config.StarboardThrusterPosition-Config.CentreOfMass,starboardDirection).y;
+                float yawInertia=Mathf.Max(1,Vessel.Body.inertiaTensor.y); // configured own-plant parameter, never a world-object observation
                 for(float t=0;t<=6;t+=0.4f)
                 {
                     Quaternion rotation=Quaternion.Euler(0,heading,0);
@@ -249,8 +251,8 @@ namespace TrashSailDemo
                     {
                         Vector3 predicted=contact.Position+contact.Velocity*(t+(float)contact.Age(Time.timeAsDouble));
                         Vector3 local=Quaternion.Inverse(rotation)*DemoMath.Flat(predicted-position);
-                        float dx=Mathf.Max(0,Mathf.Abs(local.x)-Config.VesselWidth*.5f);
-                        float dz=Mathf.Max(0,Mathf.Max(-Config.VesselLength*.5f-local.z,local.z-(Config.VesselLength*.5f+.7f)));
+                        float dx=Mathf.Max(0,Mathf.Abs(local.x)-Config.EnvelopeHalfWidth);
+                        float dz=Mathf.Max(0,Mathf.Max(Config.EnvelopeRear-local.z,local.z-Config.EnvelopeFront));
                         float extent=Mathf.Max(.35f,Mathf.Max(contact.LateralExtent,contact.RangeExtent));
                         float clearance=Mathf.Sqrt(dx*dx+dz*dz)-contact.Uncertainty-extent-Config.SafeMargin-0.2f*t;
                         minClear=Mathf.Min(minClear,clearance);
@@ -259,13 +261,14 @@ namespace TrashSailDemo
                     integral+=Mathf.Clamp(stepClear,-4,4)*.4f;endClear=stepClear;
                     Vector3 forward=rotation*Vector3.forward,right=rotation*Vector3.right;
                     float longitudinal=Vector3.Dot(velocity,forward),lateral=Vector3.Dot(velocity,right);
-                    float sailTrim=Mathf.Clamp01((.7f-longitudinal)*.75f+.2f),motor=Config.MotorAssistance?Mathf.Clamp01((.7f-longitudinal)*1.1f+.15f):0;
-                    if(Mathf.Abs(Mathf.DeltaAngle(heading,target))>55){sailTrim*=.35f;motor=Mathf.Min(motor,.24f);}
-                    float wind=state.WindTo.magnitude;
-                    float drive=wind<.5f?0:Config.MaxSailForce*DemoVessel.SailPolar(Vector3.Angle(forward,-state.WindTo),Config.NoGoAngle)*Mathf.Clamp(wind*wind/25,0,2)*sailTrim;
-                    drive+=Config.MaxMotorForce*motor;
-                    velocity+=(forward*(drive-longitudinal*(18+24*Mathf.Abs(longitudinal)))-right*lateral*(95+40*Mathf.Abs(lateral)))/Config.VesselMass*.4f;
-                    heading=Mathf.MoveTowardsAngle(heading,target,25*Mathf.Clamp01(Mathf.Abs(longitudinal)/.7f)*.4f);
+                    var predictedState=new VehicleState{Position=position,Velocity=velocity,Rotation=rotation,AngularVelocity=new Vector3(0,yawRate,0)};
+                    var predictedCommand=DemoVessel.Control(predictedState,.4f,target,Config,Time.timeAsDouble);
+                    port=Mathf.MoveTowards(port,predictedCommand.PortThrust,Config.ThrusterResponseRate*.4f);starboard=Mathf.MoveTowards(starboard,predictedCommand.StarboardThrust,Config.ThrusterResponseRate*.4f);
+                    Vector3 localDrive=(portDirection*port+starboardDirection*starboard)*Config.MaxThrusterForce;
+                    velocity+=(DemoMath.Flat(rotation*localDrive)-forward*longitudinal*(18+24*Mathf.Abs(longitudinal))-right*lateral*(95+40*Mathf.Abs(lateral)))/Config.VesselMass*.4f;
+                    float torque=(portMoment*port+starboardMoment*starboard)*Config.MaxThrusterForce-yawRate*(110+50*Mathf.Abs(yawRate));
+                    yawRate=(yawRate+torque/yawInertia*.4f)*Mathf.Max(0,1-.3f*.4f);
+                    heading+=yawRate*Mathf.Rad2Deg*.4f;
                     position+=velocity*.4f;
                 }
                 float score=minClear*3+integral*.15f+endClear*.2f+Vector3.Dot(headingDirection,wanted)*.25f;

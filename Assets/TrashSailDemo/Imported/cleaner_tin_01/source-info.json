@@ -1,0 +1,58 @@
+{
+    "donated":  true,
+    "name":  "Cleaner Tin 01",
+    "type":  2,
+    "authors":  {
+                    "Tom Phillips":  "All"
+                },
+    "info":  null,
+    "date_published":  1678060800,
+    "staging":  null,
+    "sponsors":  [
+                     "4047949"
+                 ],
+    "categories":  [
+                       "containers",
+                       "tools",
+                       "industrial",
+                       "collection: the_shed"
+                   ],
+    "tags":  [
+                 "shed",
+                 "workshop",
+                 "metal",
+                 "lubricant",
+                 "oil",
+                 "construction",
+                 "garage"
+             ],
+    "max_resolution":  [
+                           4096,
+                           4096
+                       ],
+    "polycount":  3560,
+    "texel_density":  14923.105358194092,
+    "dimensions":  [
+                       87.5563956797123,
+                       87.54613995552063,
+                       130.41614861867856
+                   ],
+    "files_hash":  "abe05dc4e78a0c412f8f2d13442b34ba354ec704",
+    "description":  "Free 4K model of a weathered red metal cleaner tin with scratched paint, black band, warning text and a scuffed white screw-top lid, gritty workshop wear.",
+    "category_id":  "172481e8-dd09-5272-836c-77c7b688eb4c",
+    "category":  "Containers \u0026 Storage/Cans, Tins \u0026 Bottles/Tins",
+    "collections":  [
+                        "the_shed"
+                    ],
+    "attributes":  {
+                       "condition":  [
+                                         "weathered"
+                                     ],
+                       "material":  [
+                                        "metal"
+                                    ]
+                   },
+    "img_version":  "c405f7d1",
+    "download_count":  4006,
+    "thumbnail_url":  "https://cdn.polyhaven.com/asset_img/thumbs/cleaner_tin_01.png?width=256\u0026height=256\u0026format=webp\u0026v=c405f7d1"
+}

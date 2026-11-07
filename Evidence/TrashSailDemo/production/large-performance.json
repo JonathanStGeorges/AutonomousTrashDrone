@@ -1,0 +1,19 @@
+{
+    "scope":  "Unity Editor, large 1000x1000 m world, split overview/chase plus RGB/sonar, combined CPU models416, seed17; steady interval5-48simsec; telemetry sampled0.5s",
+    "source":  "Evidence\\TrashSailDemo\\production\\ClearCollection-17-20261107-131220255.jsonl",
+    "samples":  85,
+    "meanFPS":  70.326790888169228,
+    "minSampleFPS":  57.001800537109375,
+    "meanInferenceMs":  256.81660443474266,
+    "maxInferenceMs":  295.86358642578131,
+    "meanCameraAge":  0.50426978449713211,
+    "maxCameraAge":  0.70778530328797729,
+    "meanSonarAge":  0.28861257994864609,
+    "meanCameraHz":  2.925990878834444,
+    "meanSonarHz":  7.5494477608624626,
+    "maxRecordedFrameMs":  3144.57421875,
+    "frameSpikes50ms":  4,
+    "maxUnityAllocatedMB":  1126.0512742996216,
+    "activeActors":  13,
+    "actualDistanceAtEnd":  25.55528450012207
+}

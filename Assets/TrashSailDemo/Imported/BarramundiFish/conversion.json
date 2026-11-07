@@ -1,0 +1,36 @@
+{
+  "source": "BarramundiFish.glb",
+  "animations": 0,
+  "skins": 0,
+  "nodes": 1,
+  "blenderBoundsMin": [
+    -0.06906196475028992,
+    -0.3177383244037628,
+    -0.000878453254699707
+  ],
+  "blenderBoundsMax": [
+    0.0738416239619255,
+    0.3253729045391083,
+    0.2866283059120178
+  ],
+  "vertices": 2188,
+  "polygons": 3864,
+  "materials": [
+    {
+      "material": "7288_barramundi fish_col",
+      "role": "BaseColor",
+      "image": "BaseColor.png"
+    },
+    {
+      "material": "7288_barramundi fish_col",
+      "role": "Normal",
+      "image": "Normal.png"
+    },
+    {
+      "material": "7288_barramundi fish_col",
+      "role": "MetallicRoughness",
+      "image": "MetallicRoughness.png"
+    }
+  ],
+  "conversion": "Blender4.5.9 glTF import; FBX axis -Z forward/Y up; uniform scale1; textures max1024px"
+}

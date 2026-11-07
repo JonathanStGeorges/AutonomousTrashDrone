@@ -1,0 +1,61 @@
+{
+    "type":  2,
+    "date_published":  1681430400,
+    "name":  "Multi Cleaner Bottle",
+    "staging":  null,
+    "authors":  {
+                    "James Ray Cock":  "All"
+                },
+    "info":  null,
+    "categories":  [
+                       "containers",
+                       "props",
+                       "collection: the_shed"
+                   ],
+    "tags":  [
+                 "shed",
+                 "cleaning",
+                 "garage",
+                 "storage",
+                 "plastic",
+                 "bottle",
+                 "workshop",
+                 "clutter",
+                 "cleaning supplies",
+                 "janitorial",
+                 "sanitation",
+                 "plastic containers",
+                 "multipurpose",
+                 "allpurpose",
+                 "household"
+             ],
+    "max_resolution":  [
+                           8192,
+                           8192
+                       ],
+    "polycount":  6792,
+    "texel_density":  22669.360094466603,
+    "dimensions":  [
+                       88.47218751907349,
+                       89.751485735178,
+                       228.56293622158105
+                   ],
+    "files_hash":  "3b61ed457c757d6299b0656265b2a4588ad7025a",
+    "description":  "Free 8K model of a multipurpose plastic cleaner bottle with realistic wear, scuffed label and yellow cap - perfect for sheds, garages and janitorial props.",
+    "category_id":  "157ac4cd-8f91-5d87-846b-a1bdc1a1656f",
+    "category":  "Containers \u0026 Storage/Cans, Tins \u0026 Bottles/Cleaning \u0026 Chemical Bottles",
+    "collections":  [
+                        "the_shed"
+                    ],
+    "attributes":  {
+                       "condition":  [
+                                         "worn"
+                                     ],
+                       "material":  [
+                                        "plastic"
+                                    ]
+                   },
+    "img_version":  "a60ba6e3",
+    "download_count":  4854,
+    "thumbnail_url":  "https://cdn.polyhaven.com/asset_img/thumbs/multi_cleaner_bottle.png?width=256\u0026height=256\u0026format=webp\u0026v=a60ba6e3"
+}

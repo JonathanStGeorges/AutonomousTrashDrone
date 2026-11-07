@@ -1,0 +1,57 @@
+{
+    "donated":  true,
+    "name":  "Plastic Bottle Gallon",
+    "type":  2,
+    "info":  null,
+    "authors":  {
+                    "Rahul Chaudhary":  "All"
+                },
+    "date_published":  1675987200,
+    "staging":  null,
+    "categories":  [
+                       "containers",
+                       "collection: the_shed"
+                   ],
+    "tags":  [
+                 "rubbish",
+                 "dirty",
+                 "shed",
+                 "outdoor",
+                 "trash",
+                 "clutter",
+                 "garage",
+                 "old",
+                 "plastic",
+                 "carton",
+                 "milk"
+             ],
+    "max_resolution":  [
+                           8192,
+                           8192
+                       ],
+    "polycount":  13728,
+    "texel_density":  17176.361384739783,
+    "dimensions":  [
+                       166.28039628267288,
+                       126.3512596487999,
+                       274.4927511084825
+                   ],
+    "files_hash":  "8e579852c844aa8beea73397b4e05717a2303d93",
+    "description":  "Free 8K model of a weathered off-white plastic gallon jug with integrated handle, scuffs, dirt and rusty stains, scratched, dented and worn neck threads.",
+    "category_id":  "dcd43897-4493-506d-ade0-451fa381403f",
+    "category":  "Containers \u0026 Storage/Cans, Tins \u0026 Bottles/Jugs \u0026 Bottles",
+    "collections":  [
+                        "the_shed"
+                    ],
+    "attributes":  {
+                       "condition":  [
+                                         "weathered"
+                                     ],
+                       "material":  [
+                                        "plastic"
+                                    ]
+                   },
+    "img_version":  "78d42773",
+    "download_count":  5702,
+    "thumbnail_url":  "https://cdn.polyhaven.com/asset_img/thumbs/plastic_bottle_gallon.png?width=256\u0026height=256\u0026format=webp\u0026v=78d42773"
+}

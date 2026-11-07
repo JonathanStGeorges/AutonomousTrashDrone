@@ -1,5 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Collections;
+using System.IO;
+using System.Text;
+using UnityEngine.Networking;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.HighDefinition;
@@ -29,9 +33,47 @@ namespace TrashSailDemo
         public Texture2D PreviewTexture { get; private set; }
         public event Action<CameraFrame> FrameProcessed;
         public bool IsHealthy => LatestFrame != null && LatestFrame.Valid && Config != null &&
+            serverSuccess && !FreezeFeed && Time.realtimeSinceStartup-lastCaptureWall<=MaxResultWallAge &&
             DemoMath.Fresh(Time.timeAsDouble, LatestFrame.CaptureTime, Config.CameraMaxAge);
 
-        readonly DemoImageDetector detector = new DemoImageDetector();
+        public string ServiceUrl="http://127.0.0.1:8765";
+        public string ActiveProfile="combined";
+        public string DisplayFilter="combined";
+        public string ServiceStatus {get;private set;}="Waiting for inference service";
+        public string ModelStatus=>ServiceStatus;
+        public float InferenceLatencyMs=>InferenceMilliseconds;
+        public float MaxResultWallAge=3f;
+        public bool SaveSourceFrames=true;
+        string sessionId;
+        bool inferenceInFlight, serverSuccess;
+        UnityWebRequest activeRequest;
+        float lastCaptureWall, capturedWall;
+        int savedFrames, savedPositiveFrames;
+        float lastPositiveSaveWall=float.NegativeInfinity;
+        [Serializable] sealed class SourceCalibration
+        {
+            public string sessionId,cameraId,profile;
+            public long sequence;
+            public double captureTime,completionTime;
+            public float captureWallTime,waterLevel,verticalFov;
+            public int width,height;
+            public Matrix4x4 cameraToWorld;
+            public string pixelOrigin="bottom-left",resultOrigin="top-left";
+        }
+        string SaveSource(CameraFrame frame,byte[] png,string session,string profile,float water,float captureWall)
+        {
+            string directory=Path.Combine(Application.dataPath,"../Evidence/TrashSailDemo/sourceframes",session);
+            Directory.CreateDirectory(directory);
+            string path=Path.Combine(directory,frame.Sequence.ToString("D6"));
+            File.WriteAllBytes(path+".png",png);
+            File.WriteAllText(path+".calibration.json",JsonUtility.ToJson(new SourceCalibration {
+                sessionId=session,cameraId="onboard",profile=profile,sequence=frame.Sequence,
+                captureTime=frame.CaptureTime,completionTime=frame.CompletionTime,captureWallTime=captureWall,
+                waterLevel=water,verticalFov=frame.VerticalFov,width=frame.Width,height=frame.Height,cameraToWorld=frame.CameraToWorld
+            },true));
+            return path;
+        }
+
         readonly DemoVisualTracker tracker = new DemoVisualTracker();
         readonly List<VisualTrack> overlayTracks = new List<VisualTrack>();
         RenderTexture target;
@@ -67,16 +109,22 @@ namespace TrashSailDemo
             SensorCamera.allowMSAA = false;
             SensorCamera.nearClipPlane = 0.08f;
             SensorCamera.farClipPlane = 80;
-            SensorCamera.cullingMask &= ~((1 << 8) | (1 << 9));
+            SensorCamera.cullingMask = (SensorCamera.cullingMask | (1 << 9)) & ~((1 << 8) | (1 << 12) | (1 << 5));
             SensorCamera.enabled = false;
             HDAdditionalCameraData hd = SensorCamera.GetComponent<HDAdditionalCameraData>();
             if (hd == null) hd = SensorCamera.gameObject.AddComponent<HDAdditionalCameraData>();
             hd.antialiasing = HDAdditionalCameraData.AntialiasingMode.None;
-            hd.clearColorMode = HDAdditionalCameraData.ClearColorMode.Color;
+            hd.clearColorMode = HDAdditionalCameraData.ClearColorMode.Sky;
             hd.backgroundColorHDR = new Color(0.04f, 0.13f, 0.2f);
             hd.flipYMode = HDAdditionalCameraData.FlipYMode.Automatic;
             hd.customRenderingSettings = true;
-            hd.renderingPathCustomFrameSettings.SetEnabled(FrameSettingsField.Postprocess, false);
+            foreach(var field in new[]{FrameSettingsField.Water,FrameSettingsField.Refraction,FrameSettingsField.TransparentObjects})
+            {
+                hd.renderingPathCustomFrameSettings.SetEnabled(field,true);
+                hd.renderingPathCustomFrameSettingsOverrideMask.mask[(uint)field]=true;
+            }
+            hd.volumeLayerMask = 1;
+            hd.renderingPathCustomFrameSettings.SetEnabled(FrameSettingsField.Postprocess, true);
             hd.renderingPathCustomFrameSettingsOverrideMask.mask[(uint)FrameSettingsField.Postprocess] = true;
             ResetSensor(Config.Seed);
         }
@@ -92,8 +140,9 @@ namespace TrashSailDemo
                 Publish(frame);
             }
             if (!IsHealthy && LatestFrame != null) Health = "STALE — collection must be disabled";
-            if (FreezeFeed || Time.timeScale == 0 || inFlight || pending != null || armed || now < nextCapture) return;
+            if (FreezeFeed || Time.timeScale == 0 || inFlight || inferenceInFlight || pending != null || armed || now < nextCapture) return;
             nextCapture = now + 1.0 / Mathf.Max(0.1f, Config.CameraHz);
+            if (random == null) random = new System.Random(Config.Seed ^ 0x4167);
             if (random.NextDouble() < Config.CameraDropout) { DroppedFrames++; return; }
             armed = true;
             SensorCamera.enabled = true;
@@ -103,6 +152,7 @@ namespace TrashSailDemo
         {
             if (camera != SensorCamera || !armed) return;
             capturedAt = Time.timeAsDouble;
+            capturedWall=Time.realtimeSinceStartup;
             capturedFov = camera.fieldOfView;
             capturedWater = 0;
             capturedPose = Matrix4x4.TRS(camera.transform.position, camera.transform.rotation, Vector3.one);
@@ -151,9 +201,60 @@ namespace TrashSailDemo
 
         void Publish(CameraFrame frame)
         {
-            var watch = System.Diagnostics.Stopwatch.StartNew();
-            IReadOnlyList<PixelDetection> detections = detector.Detect(frame.Pixels, frame.Width, frame.Height);
-            tracker.Update(frame, detections, capturedWater, Config.TrackMemory);
+            StartCoroutine(Infer(frame,capturedWater,generation,capturedWall));
+        }
+
+        IEnumerator Infer(CameraFrame frame,float water,int requestGeneration,float captureWall)
+        {
+            inferenceInFlight=true;
+            string requestSession=sessionId, profile=ActiveProfile;
+            var texture=new Texture2D(frame.Width,frame.Height,TextureFormat.RGBA32,false,false);
+            texture.SetPixels32(frame.Pixels);texture.Apply(false,false);
+            byte[] png=texture.EncodeToPNG();Destroy(texture);
+            string evidencePath=null;
+            if(SaveSourceFrames && savedFrames<20)
+            {
+                evidencePath=SaveSource(frame,png,requestSession,profile,water,captureWall);savedFrames++;
+            }
+            var request=new InferenceRequest {sessionId=requestSession,cameraId="onboard",sequence=frame.Sequence,captureTime=frame.CaptureTime,
+                width=frame.Width,height=frame.Height,profile=profile,imageBase64=Convert.ToBase64String(png)};
+            var web=new UnityWebRequest(ServiceUrl+"/infer","POST");activeRequest=web;
+            web.uploadHandler=new UploadHandlerRaw(Encoding.UTF8.GetBytes(JsonUtility.ToJson(request)));
+            web.downloadHandler=new DownloadHandlerBuffer();web.SetRequestHeader("Content-Type","application/json");web.timeout=15;
+            ServiceStatus="Inference pending: "+profile;
+            yield return web.SendWebRequest();
+            if(requestGeneration!=generation) {web.Dispose();yield break;}
+            inferenceInFlight=false;activeRequest=null;
+            string responseBody=web.downloadHandler.text;
+            InferenceResult result=null;
+            string parseError=null;
+            try {result=JsonUtility.FromJson<InferenceResult>(responseBody);}
+            catch(Exception error) {parseError=error.Message;}
+            if(evidencePath!=null) File.WriteAllText(evidencePath+".json",responseBody);
+            if(web.result!=UnityWebRequest.Result.Success || result==null || !result.ok)
+            {
+                string detail=!string.IsNullOrWhiteSpace(result?.error) ? result.error : parseError ?? web.error ?? "Inference returned ok=false";
+                serverSuccess=false;ServiceStatus="FAULT: "+detail;Health=ServiceStatus;web.Dispose();yield break;
+            }
+            web.Dispose();
+            if(!DemoInferenceProtocol.Matches(result,requestSession,frame,profile) || profile!=ActiveProfile || FreezeFeed)
+            {
+                serverSuccess=false;ServiceStatus="FAULT: mismatched/session/profile result";Health=ServiceStatus;yield break;
+            }
+            if(SaveSourceFrames && evidencePath==null && result.detections.Length>0 && savedPositiveFrames<60 && Time.realtimeSinceStartup-lastPositiveSaveWall>=1f)
+            {
+                evidencePath=SaveSource(frame,png,requestSession,profile,water,captureWall);
+                File.WriteAllText(evidencePath+".json",responseBody);
+                savedPositiveFrames++;lastPositiveSaveWall=Time.realtimeSinceStartup;
+            }
+            InferenceMilliseconds=(float)result.wallInferenceMs;
+            lastCaptureWall=captureWall;
+            serverSuccess=true;
+            ServiceStatus=$"{result.device} / {profile}: {(result.empty ? "successful empty frame" : result.detections.Length+" model detections")}";
+            // Keep matched source pixels visible even when too old for control.
+            bool fresh=Time.realtimeSinceStartup-captureWall<=MaxResultWallAge && DemoMath.Fresh(Time.timeAsDouble,frame.CaptureTime,Config.CameraMaxAge);
+            if(fresh) tracker.UpdateModels(frame,result,water,Config.TrackMemory,Time.realtimeSinceStartupAsDouble);
+            else {serverSuccess=false;ServiceStatus="STALE result rejected for control / "+ServiceStatus;}
             LatestFrame = frame;
             if (PreviewTexture == null || PreviewTexture.width != frame.Width || PreviewTexture.height != frame.Height)
             {
@@ -167,20 +268,22 @@ namespace TrashSailDemo
             foreach (VisualTrack track in Tracks)
                 if (Math.Abs(track.LastSeen - frame.CaptureTime) < 0.0001)
                     overlayTracks.Add(new VisualTrack { Id = track.Id, Label = track.Label, PixelRect = track.PixelRect,
-                        Score = track.Score, LastSeen = track.LastSeen, Hits = track.Hits, RangeValid = track.RangeValid });
-            watch.Stop();
-            InferenceMilliseconds = (float)watch.Elapsed.TotalMilliseconds;
+                        Score = track.Score, LastSeen = track.LastSeen, Hits = track.Hits, RangeValid = track.RangeValid,
+                        Provenance=track.Provenance,Category=track.Category,Eligible=track.Eligible,Conflict=track.Conflict,Evidence=track.Evidence });
+
             if (previousPublishedAt > 0 && Time.timeAsDouble > previousPublishedAt)
                 ProcessingHz = Mathf.Lerp(ProcessingHz, 1f / (float)(Time.timeAsDouble - previousPublishedAt), 0.3f);
             previousPublishedAt = Time.timeAsDouble;
             lastPublishWallTime = Time.realtimeSinceStartup;
-            Health = OwnStateProvider == null ? "LIVE — ideal camera pose" : "LIVE — estimated own-state pose";
+            Health = IsHealthy ? "LIVE / "+ServiceStatus : "STALE result / "+ServiceStatus;
             FrameProcessed?.Invoke(frame);
         }
 
         public void ResetSensor(int seed)
         {
             generation++;
+            if(activeRequest!=null) {activeRequest.Abort();activeRequest.Dispose();activeRequest=null;}
+            StopAllCoroutines();inferenceInFlight=false;serverSuccess=false;sessionId=Guid.NewGuid().ToString("N");savedFrames=0;savedPositiveFrames=0;lastPositiveSaveWall=float.NegativeInfinity;
             random = new System.Random(seed ^ 0x4167);
             armed = false; inFlight = false; pending = null; LatestFrame = null;
             sequence = 0; nextCapture = 0; previousPublishedAt = 0;
@@ -209,11 +312,12 @@ namespace TrashSailDemo
             Color before = GUI.color;
             foreach (VisualTrack track in overlayTracks)
             {
+                if(DisplayFilter!="combined" && DisplayFilter!=track.Provenance) continue;
                 Rect box = DemoCameraGeometry.OverlayRect(panel, track.PixelRect, LatestFrame.Width, LatestFrame.Height);
-                GUI.color = track.Id == SelectedTrackId ? Color.yellow : track.Label == "rubbish" ? Color.green : Color.white;
+                GUI.color = track.Id == SelectedTrackId ? Color.yellow : track.Conflict ? Color.red : track.Eligible ? Color.green : Color.white;
                 DrawBorder(box, 2);
                 GUI.Label(new Rect(box.x, Mathf.Max(panel.y, box.y - 20), 230, 20),
-                    $"#{track.Id} {track.Label} H={track.Score:0.00}" + (track.Id == SelectedTrackId ? " [TARGET]" : ""));
+                    $"#{track.Id} {track.Label} [{track.Provenance} {track.Score:0.00}]"+(track.Conflict?" CONFLICT":"") + (track.Id == SelectedTrackId ? " [TARGET]" : "") + (!track.RangeValid ? " RANGE UNKNOWN" : ""));
             }
             GUI.color = Color.white;
             float wallAge = Time.realtimeSinceStartup - lastPublishWallTime;
@@ -235,6 +339,8 @@ namespace TrashSailDemo
         void OnDisable()
         {
             generation++;
+            if(activeRequest!=null) {activeRequest.Abort();activeRequest.Dispose();activeRequest=null;}
+            StopAllCoroutines();inferenceInFlight=false;serverSuccess=false;
             RenderPipelineManager.beginCameraRendering -= BeginCamera;
             RenderPipelineManager.endCameraRendering -= EndCamera;
             if (SensorCamera != null) SensorCamera.enabled = false;

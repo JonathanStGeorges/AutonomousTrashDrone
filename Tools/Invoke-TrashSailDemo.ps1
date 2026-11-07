@@ -1,5 +1,5 @@
 param(
-    [ValidateSet('status','baseline','preserve','setup','tests','play','stop','suite','build')][string]$Command='status',
+    [ValidateSet('status','baseline','preserve','setup','ocean','tests','play','stop','suite','build','capture','probe','startmission','stopmission','view')][string]$Command='status',
     [string]$Scenarios='',
     [int]$TimeoutSeconds=1800
 )

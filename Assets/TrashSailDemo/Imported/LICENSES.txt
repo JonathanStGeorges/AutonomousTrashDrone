@@ -1,0 +1,6 @@
+Downloaded Poly Haven asset files are CC0-1.0: https://polyhaven.com/license
+Creators and per-file SHA256 are recorded in asset-manifest.json. Source API responses are retained beside each model.
+BarramundiFish is Microsoft CC0-1.0: https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/BarramundiFish
+Its source README is retained in BarramundiFish/SOURCE.md.
+MARUS boat is reused from the installed MARUSimulator/marus2-example repository under its Apache-2.0 LICENSE, copied as MARUS-Apache-2.0.txt. No model-specific override was found in that model folder.
+No paid assets are required. Yamaha third-party model was not used because no sufficiently specific attribution was established.

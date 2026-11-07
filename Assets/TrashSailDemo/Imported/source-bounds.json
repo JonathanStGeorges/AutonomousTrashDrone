@@ -1,0 +1,128 @@
+[
+  {
+    "asset": "BarramundiFish",
+    "path": "Assets\\TrashSailDemo\\Imported\\BarramundiFish\\BarramundiFish.fbx",
+    "blenderZupMin": [
+      -0.0690620169043541,
+      -0.3177383244037628,
+      -0.0008785122772678733
+    ],
+    "blenderZupMax": [
+      0.0738416537642479,
+      0.32537296414375305,
+      0.2866283655166626
+    ],
+    "dimensions": [
+      0.142903670668602,
+      0.6431112885475159,
+      0.28750687779393047
+    ],
+    "vertices": 2188,
+    "polygons": 3864
+  },
+  {
+    "asset": "cleaner_tin_01",
+    "path": "Assets\\TrashSailDemo\\Imported\\cleaner_tin_01\\cleaner_tin_01.fbx",
+    "blenderZupMin": [
+      -0.043778195977211,
+      -0.043773069977760315,
+      4.5989312638994306e-05
+    ],
+    "blenderZupMax": [
+      0.0437781997025013,
+      0.04377307742834091,
+      0.1304621398448944
+    ],
+    "dimensions": [
+      0.0875563956797123,
+      0.08754614740610123,
+      0.13041615053225541
+    ],
+    "vertices": 1782,
+    "polygons": 1780
+  },
+  {
+    "asset": "multi_cleaner_bottle",
+    "path": "Assets\\TrashSailDemo\\Imported\\multi_cleaner_bottle\\multi_cleaner_bottle.fbx",
+    "blenderZupMin": [
+      -0.04423604533076286,
+      -0.04488615319132805,
+      -1.968411655894897e-09
+    ],
+    "blenderZupMax": [
+      0.04423614218831062,
+      0.04486533999443054,
+      0.22856293618679047
+    ],
+    "dimensions": [
+      0.08847218751907349,
+      0.08975149318575859,
+      0.22856293815520212
+    ],
+    "vertices": 3536,
+    "polygons": 3487
+  },
+  {
+    "asset": "plastic_bottle_gallon",
+    "path": "Assets\\TrashSailDemo\\Imported\\plastic_bottle_gallon\\plastic_bottle_gallon.fbx",
+    "blenderZupMin": [
+      -0.08785029500722885,
+      -0.06130744516849518,
+      -0.0001250340574188158
+    ],
+    "blenderZupMax": [
+      0.07843010127544403,
+      0.06504382938146591,
+      0.27436771988868713
+    ],
+    "dimensions": [
+      0.16628039628267288,
+      0.1263512745499611,
+      0.27449275394610595
+    ],
+    "vertices": 6864,
+    "polygons": 6864
+  },
+  {
+    "asset": "trashbag",
+    "path": "Assets\\TrashSailDemo\\Imported\\trashbag\\trashbag.fbx",
+    "blenderZupMin": [
+      -0.2604704797267914,
+      -0.22307318449020386,
+      -0.0014541775453835726
+    ],
+    "blenderZupMax": [
+      0.26759958267211914,
+      0.23981985449790955,
+      0.5735452175140381
+    ],
+    "dimensions": [
+      0.5280700623989105,
+      0.4628930389881134,
+      0.5749993950594217
+    ],
+    "vertices": 2243,
+    "polygons": 2258
+  },
+  {
+    "asset": "marus_boat_model",
+    "path": "Assets\\Models\\marus_boat\\marus_boat_model.fbx",
+    "blenderZupMin": [
+      -0.7419880032539368,
+      -2.998887538909912,
+      -0.01164073683321476
+    ],
+    "blenderZupMax": [
+      0.7493712306022644,
+      8.058878302108496e-05,
+      1.1478506326675415
+    ],
+    "dimensions": [
+      1.4913592338562012,
+      2.998968127692933,
+      1.1594913695007563
+    ],
+    "vertices": 1162,
+    "polygons": 2318
+  }
+]

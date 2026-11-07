@@ -1,0 +1,312 @@
+[
+    {
+        "asset":  "plastic_bottle_gallon",
+        "path":  "plastic_bottle_gallon/plastic_bottle_gallon.fbx",
+        "source":  "https://dl.polyhaven.org/file/ph-assets/Models/fbx/1k/plastic_bottle_gallon/plastic_bottle_gallon_1k.fbx",
+        "creator":  "Rahul Chaudhary",
+        "license":  "CC0-1.0",
+        "sha256":  "881B0C39A2FCE66385FE14EAF64B06F7FA85C4EFDC0B6AD17CDB93B316E52F67",
+        "bytes":  457116,
+        "sourceDimensionsMillimetres":  [
+                                            166.28039628267288,
+                                            126.3512596487999,
+                                            274.4927511084825
+                                        ]
+    },
+    {
+        "asset":  "plastic_bottle_gallon",
+        "path":  "plastic_bottle_gallon/textures/plastic_bottle_gallon_rough_1k.exr",
+        "source":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/plastic_bottle_gallon/plastic_bottle_gallon_rough_1k.exr",
+        "creator":  "Rahul Chaudhary",
+        "license":  "CC0-1.0",
+        "sha256":  "EE186941563DAC267CC4D7DA319DF282EEEAD96C5551A8D73473A88F27F89612",
+        "bytes":  731791,
+        "sourceDimensionsMillimetres":  [
+                                            166.28039628267288,
+                                            126.3512596487999,
+                                            274.4927511084825
+                                        ]
+    },
+    {
+        "asset":  "plastic_bottle_gallon",
+        "path":  "plastic_bottle_gallon/textures/plastic_bottle_gallon_diff_1k.jpg",
+        "source":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/plastic_bottle_gallon/plastic_bottle_gallon_diff_1k.jpg",
+        "creator":  "Rahul Chaudhary",
+        "license":  "CC0-1.0",
+        "sha256":  "B763C4DD071BAF9AA319EB3A94E8045614FA7F52404FDA9E61C660164F8444F2",
+        "bytes":  317396,
+        "sourceDimensionsMillimetres":  [
+                                            166.28039628267288,
+                                            126.3512596487999,
+                                            274.4927511084825
+                                        ]
+    },
+    {
+        "asset":  "plastic_bottle_gallon",
+        "path":  "plastic_bottle_gallon/textures/plastic_bottle_gallon_nor_gl_1k.exr",
+        "source":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/plastic_bottle_gallon/plastic_bottle_gallon_nor_gl_1k.exr",
+        "creator":  "Rahul Chaudhary",
+        "license":  "CC0-1.0",
+        "sha256":  "66949BBBE3E324DBDA4018FA9C92863246FA10DB5BAD1A95C04477F55E788CE1",
+        "bytes":  917385,
+        "sourceDimensionsMillimetres":  [
+                                            166.28039628267288,
+                                            126.3512596487999,
+                                            274.4927511084825
+                                        ]
+    },
+    {
+        "asset":  "multi_cleaner_bottle",
+        "path":  "multi_cleaner_bottle/multi_cleaner_bottle.fbx",
+        "source":  "https://dl.polyhaven.org/file/ph-assets/Models/fbx/1k/multi_cleaner_bottle/multi_cleaner_bottle_1k.fbx",
+        "creator":  "James Ray Cock",
+        "license":  "CC0-1.0",
+        "sha256":  "5A78256E6F6052DB6D5F330E77610BE51B1F2DECDFCF48F49EA18467AEC9E4B9",
+        "bytes":  209628,
+        "sourceDimensionsMillimetres":  [
+                                            88.47218751907349,
+                                            89.751485735178,
+                                            228.56293622158105
+                                        ]
+    },
+    {
+        "asset":  "multi_cleaner_bottle",
+        "path":  "multi_cleaner_bottle/textures/multi_cleaner_bottle_nor_gl_1k.exr",
+        "source":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/multi_cleaner_bottle/multi_cleaner_bottle_nor_gl_1k.exr",
+        "creator":  "James Ray Cock",
+        "license":  "CC0-1.0",
+        "sha256":  "FEE2B77E7CF709482E070C14DA0701A964A8FC6805F9ADF6B7019746BD620872",
+        "bytes":  592035,
+        "sourceDimensionsMillimetres":  [
+                                            88.47218751907349,
+                                            89.751485735178,
+                                            228.56293622158105
+                                        ]
+    },
+    {
+        "asset":  "multi_cleaner_bottle",
+        "path":  "multi_cleaner_bottle/textures/multi_cleaner_bottle_rough_1k.exr",
+        "source":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/multi_cleaner_bottle/multi_cleaner_bottle_rough_1k.exr",
+        "creator":  "James Ray Cock",
+        "license":  "CC0-1.0",
+        "sha256":  "5766252FBF31B8E1FFF3FE8AFD5C5142A1164B8583656A8EC0108ED3AE44B090",
+        "bytes":  944989,
+        "sourceDimensionsMillimetres":  [
+                                            88.47218751907349,
+                                            89.751485735178,
+                                            228.56293622158105
+                                        ]
+    },
+    {
+        "asset":  "multi_cleaner_bottle",
+        "path":  "multi_cleaner_bottle/textures/multi_cleaner_bottle_diff_1k.jpg",
+        "source":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/multi_cleaner_bottle/multi_cleaner_bottle_diff_1k.jpg",
+        "creator":  "James Ray Cock",
+        "license":  "CC0-1.0",
+        "sha256":  "FCDC4F5F56C3CCC20B76BD9128A7E19A92F421BFB2B1C9C650CE949E930EFF4F",
+        "bytes":  376440,
+        "sourceDimensionsMillimetres":  [
+                                            88.47218751907349,
+                                            89.751485735178,
+                                            228.56293622158105
+                                        ]
+    },
+    {
+        "asset":  "cleaner_tin_01",
+        "path":  "cleaner_tin_01/cleaner_tin_01.fbx",
+        "source":  "https://dl.polyhaven.org/file/ph-assets/Models/fbx/1k/cleaner_tin_01/cleaner_tin_01_1k.fbx",
+        "creator":  "Tom Phillips",
+        "license":  "CC0-1.0",
+        "sha256":  "818069B1409E05296BC2B7871E72E02375EBD20E659EA875517E157630AC8146",
+        "bytes":  116444,
+        "sourceDimensionsMillimetres":  [
+                                            87.5563956797123,
+                                            87.54613995552063,
+                                            130.41614861867856
+                                        ]
+    },
+    {
+        "asset":  "cleaner_tin_01",
+        "path":  "cleaner_tin_01/textures/cleaner_tin_01_metal_1k.exr",
+        "source":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/cleaner_tin_01/cleaner_tin_01_metal_1k.exr",
+        "creator":  "Tom Phillips",
+        "license":  "CC0-1.0",
+        "sha256":  "8D5E0128DC7741F98B7D7F6F331279834B56C1FDC183AB7041F37663529AD277",
+        "bytes":  776312,
+        "sourceDimensionsMillimetres":  [
+                                            87.5563956797123,
+                                            87.54613995552063,
+                                            130.41614861867856
+                                        ]
+    },
+    {
+        "asset":  "cleaner_tin_01",
+        "path":  "cleaner_tin_01/textures/cleaner_tin_01_nor_gl_1k.exr",
+        "source":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/cleaner_tin_01/cleaner_tin_01_nor_gl_1k.exr",
+        "creator":  "Tom Phillips",
+        "license":  "CC0-1.0",
+        "sha256":  "4376DDDC5D2BA72CC26CCA07C3FFA40607C9356D8444C9713B7C2B8DB69A0D63",
+        "bytes":  536463,
+        "sourceDimensionsMillimetres":  [
+                                            87.5563956797123,
+                                            87.54613995552063,
+                                            130.41614861867856
+                                        ]
+    },
+    {
+        "asset":  "cleaner_tin_01",
+        "path":  "cleaner_tin_01/textures/cleaner_tin_01_rough_1k.exr",
+        "source":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/cleaner_tin_01/cleaner_tin_01_rough_1k.exr",
+        "creator":  "Tom Phillips",
+        "license":  "CC0-1.0",
+        "sha256":  "1B356D9C2001860FD2DB97C233AE8A595D73DDD6C49C095DAC1F7D0C5B32DA23",
+        "bytes":  963846,
+        "sourceDimensionsMillimetres":  [
+                                            87.5563956797123,
+                                            87.54613995552063,
+                                            130.41614861867856
+                                        ]
+    },
+    {
+        "asset":  "cleaner_tin_01",
+        "path":  "cleaner_tin_01/textures/cleaner_tin_01_diff_1k.jpg",
+        "source":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/cleaner_tin_01/cleaner_tin_01_diff_1k.jpg",
+        "creator":  "Tom Phillips",
+        "license":  "CC0-1.0",
+        "sha256":  "28693B8EEF4DD9E484F55DC633468672BC3DA5EF82B16E38C3AF03AEE1023CF1",
+        "bytes":  758954,
+        "sourceDimensionsMillimetres":  [
+                                            87.5563956797123,
+                                            87.54613995552063,
+                                            130.41614861867856
+                                        ]
+    },
+    {
+        "asset":  "trashbag",
+        "path":  "trashbag/trashbag.fbx",
+        "source":  "https://dl.polyhaven.org/file/ph-assets/Models/fbx/1k/trashbag/trashbag_1k.fbx",
+        "creator":  "Benny Weimer",
+        "license":  "CC0-1.0",
+        "sha256":  "C4255CA3EE1B586A00A85CF57813B1701B642358DFE49119E5575841D6C77F7F",
+        "bytes":  151148,
+        "sourceDimensionsMillimetres":  [
+                                            528.0700623989105,
+                                            462.893009185791,
+                                            574.9993845820427
+                                        ]
+    },
+    {
+        "asset":  "trashbag",
+        "path":  "trashbag/textures/trashbag_diff_1k.jpg",
+        "source":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/trashbag/trashbag_diff_1k.jpg",
+        "creator":  "Benny Weimer",
+        "license":  "CC0-1.0",
+        "sha256":  "676E01CBEEF39B51C9ECD67315C952A605C8DB9C11544FBE11E14DCBD00BE27F",
+        "bytes":  332301,
+        "sourceDimensionsMillimetres":  [
+                                            528.0700623989105,
+                                            462.893009185791,
+                                            574.9993845820427
+                                        ]
+    },
+    {
+        "asset":  "trashbag",
+        "path":  "trashbag/textures/trashbag_nor_gl_1k.exr",
+        "source":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/trashbag/trashbag_nor_gl_1k.exr",
+        "creator":  "Benny Weimer",
+        "license":  "CC0-1.0",
+        "sha256":  "7E1D20E5672BC55030F3A6D2D56CBA702768C98A879DE5B5D636B54F3C55D121",
+        "bytes":  1159600,
+        "sourceDimensionsMillimetres":  [
+                                            528.0700623989105,
+                                            462.893009185791,
+                                            574.9993845820427
+                                        ]
+    },
+    {
+        "asset":  "trashbag",
+        "path":  "trashbag/textures/trashbag_rough_1k.exr",
+        "source":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/trashbag/trashbag_rough_1k.exr",
+        "creator":  "Benny Weimer",
+        "license":  "CC0-1.0",
+        "sha256":  "708C1216062F01166A4A167FA9C6829ADE2E459B43921504C39B5FB3C76D0F53",
+        "bytes":  694395,
+        "sourceDimensionsMillimetres":  [
+                                            528.0700623989105,
+                                            462.893009185791,
+                                            574.9993845820427
+                                        ]
+    },
+    {
+        "asset":  "BarramundiFish",
+        "path":  "BarramundiFish/BarramundiFish.glb",
+        "source":  "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/BarramundiFish/glTF-Binary/BarramundiFish.glb",
+        "creator":  "Microsoft",
+        "license":  "CC0-1.0",
+        "sha256":  "ECC3BAFB6B00F2C8B810863C388E3768A7B7EA0D0335E8CB8C574C266E571F4A",
+        "bytes":  12488144
+    },
+    {
+        "asset":  "BarramundiFish",
+        "path":  "BarramundiFish/BarramundiFish.fbx",
+        "source":  "Derived from BarramundiFish.glb by Tools/Assets/convert_fish.py",
+        "creator":  "Microsoft",
+        "license":  "CC0-1.0",
+        "sha256":  "2F44450D55E14A24A83C08B2A9158F98A50E7306B760DD3491C2378F075166A9",
+        "bytes":  142620
+    },
+    {
+        "asset":  "BarramundiFish",
+        "path":  "BarramundiFish/BaseColor.png",
+        "source":  "Derived from BarramundiFish.glb by Tools/Assets/convert_fish.py",
+        "creator":  "Microsoft",
+        "license":  "CC0-1.0",
+        "sha256":  "BE6583A5671FCE4AF58B2A5DB5856272FC48BEA20A273E44B6C2594AFFCC0587",
+        "bytes":  1263281
+    },
+    {
+        "asset":  "BarramundiFish",
+        "path":  "BarramundiFish/MetallicRoughness.png",
+        "source":  "Derived from BarramundiFish.glb by Tools/Assets/convert_fish.py",
+        "creator":  "Microsoft",
+        "license":  "CC0-1.0",
+        "sha256":  "3E52DAC508CC7545BA5D01CC83474D72353A54DA947119CDA7668BC618BF3164",
+        "bytes":  1059650
+    },
+    {
+        "asset":  "BarramundiFish",
+        "path":  "BarramundiFish/Normal.png",
+        "source":  "Derived from BarramundiFish.glb by Tools/Assets/convert_fish.py",
+        "creator":  "Microsoft",
+        "license":  "CC0-1.0",
+        "sha256":  "6DB16A63105944CEC1331B83F3505D8B9218D24F523EDA0F8324558EBB80C5DD",
+        "bytes":  1005854
+    },
+    {
+        "asset":  "marus_boat",
+        "path":  "Assets/Models/marus_boat/marus_boat_model.fbx",
+        "source":  "https://github.com/MARUSimulator/marus2-example",
+        "creator":  "MARUSimulator repository contributors",
+        "license":  "Apache-2.0 (repository LICENSE; no asset-specific override found)",
+        "sha256":  "1967299595B57DEB89A02113067D9CD806A3C2F74C79F28A290836B44512D5D1",
+        "bytes":  149516
+    },
+    {
+        "asset":  "marus_boat",
+        "path":  "Assets/Models/marus_boat/marus_boat_texture.png",
+        "source":  "https://github.com/MARUSimulator/marus2-example",
+        "creator":  "MARUSimulator repository contributors",
+        "license":  "Apache-2.0 (repository LICENSE; no asset-specific override found)",
+        "sha256":  "25EB6F9221B183978C13060EDADEDFFE37C1EFFC71BB24E891533E8F16993192",
+        "bytes":  58024
+    },
+    {
+        "asset":  "marus_boat",
+        "path":  "marus_boat/marus_boat_texture.png",
+        "source":  "https://github.com/MARUSimulator/marus2-example/blob/main/Assets/Models/marus_boat/marus_boat_texture.png",
+        "creator":  "MARUSimulator repository contributors (individual artist not identified in source repository)",
+        "license":  "Apache-2.0 (MARUSimulator/marus2-example repository LICENSE; no model-specific override found)",
+        "sha256":  "25EB6F9221B183978C13060EDADEDFFE37C1EFFC71BB24E891533E8F16993192",
+        "bytes":  58024
+    }
+]

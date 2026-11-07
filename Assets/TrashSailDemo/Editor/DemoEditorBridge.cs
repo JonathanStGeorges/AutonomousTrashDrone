@@ -44,16 +44,31 @@ namespace TrashSailDemo.Editor
             {
                 if (request.command == "baseline") Write(request.command, "PASS", "Custom assembly loaded; no compilation failure prevented domain load");
                 else if(request.command=="status")Write(request.command,"PASS","isPlaying="+EditorApplication.isPlaying+"; scene="+SceneManager.GetActiveScene().path);
+                else if(request.command=="capture")
+                {var evaluation=UnityEngine.Object.FindFirstObjectByType<DemoEvaluation>();if(evaluation==null)throw new InvalidOperationException("Run the demo first");evaluation.Capture(string.IsNullOrEmpty(request.argument)?"inspection":request.argument);Write(request.command,"PASS",evaluation.OutputDirectory);}
+                else if(request.command=="startmission" || request.command=="stopmission" || request.command=="view")
+                {
+                    var runtime=UnityEngine.Object.FindFirstObjectByType<DemoRuntime>();if(runtime==null)throw new InvalidOperationException("Run the demo first");
+                    if(request.command=="startmission")runtime.StartMission();
+                    else if(request.command=="stopmission")runtime.StopMission();
+                    else runtime.Presentation.Maximize(int.Parse(request.argument));
+                    Write(request.command,"PASS","mode="+runtime.Presentation.ViewMode+"; onboard="+runtime.CameraPerception.SensorCamera.GetEntityId()+"; FOV="+runtime.CameraPerception.SensorCamera.fieldOfView+"; mount="+runtime.CameraPerception.SensorCamera.transform.localPosition+"; profile="+runtime.CameraPerception.ActiveProfile+"; dimensions="+runtime.Config.CameraWidth+"x"+runtime.Config.CameraHeight);
+                }
+                else if(request.command=="probe")
+                {
+                    var runtime=UnityEngine.Object.FindFirstObjectByType<DemoRuntime>();if(runtime==null)throw new InvalidOperationException("Demo runtime unavailable");
+                    Write(request.command,"PASS","phase="+runtime.Mission.Status.Phase+"; reason="+runtime.Mission.Status.Reason+"; model="+runtime.CameraPerception.ServiceStatus+"; camera="+runtime.CameraPerception.IsHealthy+"; sonar="+runtime.SonarPerception.IsHealthy+"; tracks="+runtime.CameraPerception.Tracks.Count+"; pose="+runtime.Vessel.transform.position+"; captures="+runtime.Vessel.Collector.CaptureCount+"; fps="+runtime.RenderingFps);
+                }
                 else if (request.command == "preserve") Preserve();
-                else if (request.command == "setup" || request.command == "build")
+                else if (request.command == "setup" || request.command == "ocean" || request.command == "build")
                 {
                     if (EditorApplication.isPlaying) { Write(request.command, "BLOCKED", "Stop Play Mode before asset operations"); return; }
                     var builder = Type.GetType("TrashSailDemo.Editor.DemoSceneBuilder, TrashSailDemo.Editor");
                     if (builder == null) throw new InvalidOperationException("Scene builder not compiled yet");
-                    builder.GetMethod(request.command == "setup" ? "CreateOrUpdate" : "Build", BindingFlags.Public|BindingFlags.Static).Invoke(null, null);
+                    builder.GetMethod(request.command=="ocean"?"CreateOcean":request.command == "setup" ? "CreateOrUpdate" : "Build", BindingFlags.Public|BindingFlags.Static).Invoke(null, null);
                     Write(request.command, "PASS", "Completed");
                 }
-                else if (request.command == "play") { EditorApplication.isPlaying = true; Write(request.command,"PASS","Entering Play Mode"); }
+                else if (request.command == "play") {var game=EditorWindow.GetWindow(typeof(UnityEditor.Editor).Assembly.GetType("UnityEditor.GameView"));game.maximized=true; EditorApplication.isPlaying = true; Write(request.command,"PASS","Entering Play Mode"); }
                 else if (request.command == "suite") { PlayerPrefs.SetInt("TrashSailDemo.RunSuite",1); PlayerPrefs.SetString("TrashSailDemo.Scenarios",request.argument ?? ""); var game=EditorWindow.GetWindow(typeof(UnityEditor.Editor).Assembly.GetType("UnityEditor.GameView")); game.maximized=true; EditorApplication.isPlaying = true; Write(request.command,"PASS","Entering rendered acceptance suite"); }
                 else if (request.command == "stop") { EditorApplication.isPlaying = false; Write(request.command,"PASS","Leaving Play Mode"); }
                 else if (request.command == "tests") RunTests();
@@ -97,3 +112,4 @@ namespace TrashSailDemo.Editor
         }
     }
 }
+

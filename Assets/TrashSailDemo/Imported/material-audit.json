@@ -1,0 +1,195 @@
+{
+    "materials": [
+        {
+            "asset": "plastic_bottle_gallon",
+            "shader": "HDRP/Lit",
+            "baseColorMap": "Assets/TrashSailDemo/Imported/plastic_bottle_gallon/textures/plastic_bottle_gallon_diff_1k.jpg",
+            "normalMap": "Assets/TrashSailDemo/Imported/plastic_bottle_gallon/textures/plastic_bottle_gallon_nor_gl_1k.exr",
+            "maskMap": "Assets/TrashSailDemo/Imported/plastic_bottle_gallon/plastic_bottle_gallon_HDRPMask.png",
+            "keywords": [
+                "_DISABLE_SSR_TRANSPARENT",
+                "_MASKMAP",
+                "_NORMALMAP",
+                "_NORMALMAP_TANGENT_SPACE"
+            ],
+            "meshes": [
+                "plastic_bottle_gallon: 7227 vertices; UV0=True"
+            ],
+            "baseColor": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "emissiveColor": {
+                "r": 0.0,
+                "g": 0.0,
+                "b": 0.0,
+                "a": 1.0
+            },
+            "validated": true,
+            "baseColorSrgb": true,
+            "allMeshesHaveUv0": true,
+            "renderQueue": 2225
+        },
+        {
+            "asset": "multi_cleaner_bottle",
+            "shader": "HDRP/Lit",
+            "baseColorMap": "Assets/TrashSailDemo/Imported/multi_cleaner_bottle/textures/multi_cleaner_bottle_diff_1k.jpg",
+            "normalMap": "Assets/TrashSailDemo/Imported/multi_cleaner_bottle/textures/multi_cleaner_bottle_nor_gl_1k.exr",
+            "maskMap": "Assets/TrashSailDemo/Imported/multi_cleaner_bottle/multi_cleaner_bottle_HDRPMask.png",
+            "keywords": [
+                "_DISABLE_SSR_TRANSPARENT",
+                "_MASKMAP",
+                "_NORMALMAP",
+                "_NORMALMAP_TANGENT_SPACE"
+            ],
+            "meshes": [
+                "multi_cleaner_bottle: 3209 vertices; UV0=True",
+                "multi_cleaner_bottle_sticker: 794 vertices; UV0=True"
+            ],
+            "baseColor": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "emissiveColor": {
+                "r": 0.0,
+                "g": 0.0,
+                "b": 0.0,
+                "a": 1.0
+            },
+            "validated": true,
+            "baseColorSrgb": true,
+            "allMeshesHaveUv0": true,
+            "renderQueue": 2225
+        },
+        {
+            "asset": "cleaner_tin_01",
+            "shader": "HDRP/Lit",
+            "baseColorMap": "Assets/TrashSailDemo/Imported/cleaner_tin_01/textures/cleaner_tin_01_diff_1k.jpg",
+            "normalMap": "Assets/TrashSailDemo/Imported/cleaner_tin_01/textures/cleaner_tin_01_nor_gl_1k.exr",
+            "maskMap": "Assets/TrashSailDemo/Imported/cleaner_tin_01/cleaner_tin_01_HDRPMask.png",
+            "keywords": [
+                "_DISABLE_SSR_TRANSPARENT",
+                "_MASKMAP",
+                "_NORMALMAP",
+                "_NORMALMAP_TANGENT_SPACE"
+            ],
+            "meshes": [
+                "cleaner_tin_01: 1894 vertices; UV0=True"
+            ],
+            "baseColor": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "emissiveColor": {
+                "r": 0.0,
+                "g": 0.0,
+                "b": 0.0,
+                "a": 1.0
+            },
+            "validated": true,
+            "baseColorSrgb": true,
+            "allMeshesHaveUv0": true,
+            "renderQueue": 2225
+        },
+        {
+            "asset": "trashbag",
+            "shader": "HDRP/Lit",
+            "baseColorMap": "Assets/TrashSailDemo/Imported/trashbag/textures/trashbag_diff_1k.jpg",
+            "normalMap": "Assets/TrashSailDemo/Imported/trashbag/textures/trashbag_nor_gl_1k.exr",
+            "maskMap": "Assets/TrashSailDemo/Imported/trashbag/trashbag_HDRPMask.png",
+            "keywords": [
+                "_DISABLE_SSR_TRANSPARENT",
+                "_MASKMAP",
+                "_NORMALMAP",
+                "_NORMALMAP_TANGENT_SPACE"
+            ],
+            "meshes": [
+                "trashbag: 2482 vertices; UV0=True"
+            ],
+            "baseColor": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "emissiveColor": {
+                "r": 0.0,
+                "g": 0.0,
+                "b": 0.0,
+                "a": 1.0
+            },
+            "validated": true,
+            "baseColorSrgb": true,
+            "allMeshesHaveUv0": true,
+            "renderQueue": 2225
+        },
+        {
+            "asset": "BarramundiFish",
+            "shader": "HDRP/Lit",
+            "baseColorMap": "Assets/TrashSailDemo/Imported/BarramundiFish/BaseColor.png",
+            "normalMap": "Assets/TrashSailDemo/Imported/BarramundiFish/Normal.png",
+            "maskMap": "Assets/TrashSailDemo/Imported/BarramundiFish/BarramundiFish_HDRPMask.png",
+            "keywords": [
+                "_DISABLE_SSR_TRANSPARENT",
+                "_MASKMAP",
+                "_NORMALMAP",
+                "_NORMALMAP_TANGENT_SPACE"
+            ],
+            "meshes": [
+                "BarramundiFish: 2188 vertices; UV0=True"
+            ],
+            "baseColor": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "emissiveColor": {
+                "r": 0.0,
+                "g": 0.0,
+                "b": 0.0,
+                "a": 1.0
+            },
+            "validated": true,
+            "baseColorSrgb": true,
+            "allMeshesHaveUv0": true,
+            "renderQueue": 2225
+        },
+        {
+            "asset": "marus_boat",
+            "shader": "HDRP/Lit",
+            "baseColorMap": "Assets/TrashSailDemo/Imported/marus_boat/marus_boat_texture.png",
+            "normalMap": "",
+            "maskMap": "",
+            "keywords": [
+                "_DISABLE_SSR_TRANSPARENT",
+                "_NORMALMAP_TANGENT_SPACE"
+            ],
+            "meshes": [
+                "marus_boat_mesh: 2544 vertices; UV0=True"
+            ],
+            "baseColor": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "emissiveColor": {
+                "r": 0.0,
+                "g": 0.0,
+                "b": 0.0,
+                "a": 1.0
+            },
+            "validated": true,
+            "baseColorSrgb": true,
+            "allMeshesHaveUv0": true,
+            "renderQueue": 2225
+        }
+    ]
+}

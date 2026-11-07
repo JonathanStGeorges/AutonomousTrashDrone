@@ -1,0 +1,62 @@
+[
+  {
+    "sessionId": "benchmark-not-Unity",
+    "cameraId": "onboard",
+    "sequence": 1,
+    "captureTime": 0,
+    "width": 320,
+    "height": 192,
+    "profile": "combined",
+    "ok": true,
+    "empty": true,
+    "detections": [],
+    "models": [
+      "YOLOE",
+      "TRASH"
+    ],
+    "device": "cpu",
+    "wallInferenceMs": 137.45980000021518,
+    "wallCompleted": 1794054518.732571,
+    "imageSha256": "a0bd529fd18993899abcf766ffe71a1eba01e91ebcf3399552e2865e10ba83b8"
+  },
+  {
+    "sessionId": "benchmark-not-Unity",
+    "cameraId": "onboard",
+    "sequence": 2,
+    "captureTime": 0,
+    "width": 320,
+    "height": 192,
+    "profile": "combined",
+    "ok": true,
+    "empty": true,
+    "detections": [],
+    "models": [
+      "YOLOE",
+      "TRASH"
+    ],
+    "device": "cpu",
+    "wallInferenceMs": 128.2893999996304,
+    "wallCompleted": 1794054518.862496,
+    "imageSha256": "a0bd529fd18993899abcf766ffe71a1eba01e91ebcf3399552e2865e10ba83b8"
+  },
+  {
+    "sessionId": "benchmark-not-Unity",
+    "cameraId": "onboard",
+    "sequence": 3,
+    "captureTime": 0,
+    "width": 320,
+    "height": 192,
+    "profile": "combined",
+    "ok": true,
+    "empty": true,
+    "detections": [],
+    "models": [
+      "YOLOE",
+      "TRASH"
+    ],
+    "device": "cpu",
+    "wallInferenceMs": 123.54150000010122,
+    "wallCompleted": 1794054518.9876919,
+    "imageSha256": "a0bd529fd18993899abcf766ffe71a1eba01e91ebcf3399552e2865e10ba83b8"
+  }
+]

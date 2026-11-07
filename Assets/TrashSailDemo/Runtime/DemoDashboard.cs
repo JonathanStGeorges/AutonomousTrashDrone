@@ -1,218 +1,150 @@
 using System;
 using UnityEngine;
-
 namespace TrashSailDemo
 {
     public sealed class DemoDashboard : MonoBehaviour
     {
         public DemoRuntime Runtime;
-        [Tooltip("Evaluator-only score display; never read by mission control.")]
-        public int RubbishCaptured = -1, Bycatch = -1, CollisionCount = -1;
-        public bool CameraOverlays = true, SonarOverlays = true, MapOverlays = true;
-        string seedText = "17";
+        [Tooltip("Evaluator-only scoring, never an autonomy input")]
+        public int RubbishCaptured=-1,Bycatch=-1,CollisionCount=-1;
+        public bool CameraOverlays=true,SonarOverlays=true,MapOverlays=true;
+        string seedText="17";
         DemoScenario selectedScenario;
         bool initialized;
-        GUIStyle title, section, body, small, status, button;
-        static readonly Color Navy = new Color(0.025f, 0.055f, 0.085f, 0.97f);
-        static readonly Color Panel = new Color(0.055f, 0.095f, 0.13f, 0.96f);
-        static readonly Color Accent = new Color(0.22f, 0.85f, 0.83f);
-
-        void Styles()
-        {
-            if (title != null) return;
-            title = new GUIStyle(GUI.skin.label) { fontSize = 24, fontStyle = FontStyle.Bold };
-            section = new GUIStyle(GUI.skin.label) { fontSize = 17, fontStyle = FontStyle.Bold };
-            body = new GUIStyle(GUI.skin.label) { fontSize = 15, wordWrap = true };
-            small = new GUIStyle(GUI.skin.label) { fontSize = 12, wordWrap = true };
-            status = new GUIStyle(GUI.skin.label) { fontSize = 18, fontStyle = FontStyle.Bold, wordWrap = true };
-            button = new GUIStyle(GUI.skin.button) { fontSize = 14 };
-            foreach (GUIStyle style in new[] { title, section, body, small, status }) style.normal.textColor = Color.white;
-        }
-
+        GUIStyle title,body,small;
+        DemoPresentation presentation;
+        static readonly Color Navy=new Color(.025f,.055f,.085f,.98f),Panel=new Color(.055f,.095f,.13f,.97f),Accent=new Color(.22f,.85f,.83f);
         void OnGUI()
         {
-            if (Runtime == null || Runtime.Config == null || Runtime.Mission == null || Runtime.OwnState == null) return;
-            Styles();
-            if (!initialized) { seedText = Runtime.Config.Seed.ToString(); selectedScenario = Runtime.Config.Scenario; initialized = true; }
-            // Ground-truth labels are display-only evaluator output; these values
-            // are never passed back into Runtime.Mission or the sensor pipeline.
-            var evaluation = Runtime.GetComponent<DemoEvaluation>();
-            if (evaluation != null)
+            if(Runtime==null || Runtime.Config==null || Runtime.Mission==null || Runtime.Vessel==null || Runtime.OwnState==null)return;
+            if(title==null)
             {
-                RubbishCaptured = evaluation.CorrectCaptures;
-                Bycatch = evaluation.Bycatch;
-                CollisionCount = evaluation.CollisionEvents;
+                title=new GUIStyle(GUI.skin.label){fontSize=20,fontStyle=FontStyle.Bold};
+                body=new GUIStyle(GUI.skin.label){fontSize=14,wordWrap=true};
+                small=new GUIStyle(GUI.skin.label){fontSize=12,wordWrap=true};
+                foreach(var style in new[]{title,body,small})style.normal.textColor=Color.white;
             }
-            var acceptance = Runtime.GetComponent<DemoAcceptance>();
-            Matrix4x4 before = GUI.matrix;
-            GUI.matrix = Matrix4x4.TRS(Vector3.zero, Quaternion.identity, new Vector3(Screen.width / 1600f, Screen.height / 900f, 1));
-            GUI.color = Color.white;
-            Fill(new Rect(0, 0, 1600, 56), Navy);
-            GUI.Label(new Rect(16, 7, 600, 38), "TRASH SAIL / MARUS engineering demo", title);
-            bool motor = Runtime.Config.MotorAssistance;
-            Label(new Rect(730, 14, 310, 30), motor ? "MOTOR ASSIST ENABLED" : "SAIL ONLY / MOTOR DISABLED", motor ? new Color(1, .73f, .25f) : Accent, section);
-            GUI.Label(new Rect(1230, 16, 350, 28), $"seed {Runtime.Config.Seed}  •  {Runtime.Config.Scenario}", body);
-
-            Fill(new Rect(12, 66, 1006, 100), new Color(.025f, .055f, .085f, .88f));
-            GUI.Label(new Rect(24, 73, 980, 29), Runtime.Mission.Status.Phase.ToString().Replace('_', ' '), status);
-            GUI.Label(new Rect(24, 104, 980, 34), Runtime.Mission.Status.Reason, body);
-            if (acceptance != null) Label(new Rect(24, 143, 980, 21), acceptance.SuiteStatus, Accent, small);
-            if (Runtime.Paused) Label(new Rect(350, 270, 460, 60), "SIMULATION PAUSED", Color.yellow, title);
-
-            DrawSensors();
-            DrawControls();
-            DrawMap(new Rect(12, 662, 400, 226));
-            DrawTelemetry(new Rect(424, 662, 594, 226));
-            GUI.matrix = before;
-            GUI.color = Color.white;
+            if(!initialized){seedText=Runtime.Config.Seed.ToString();selectedScenario=Runtime.Config.Scenario;initialized=true;}
+            if(presentation==null)presentation=Runtime.GetComponent<DemoPresentation>();
+            Matrix4x4 saved=GUI.matrix;GUI.matrix=Matrix4x4.Scale(new Vector3(Screen.width/1600f,Screen.height/900f,1));
+            Fill(new Rect(0,0,1600,900),Navy);
+            GUI.Label(new Rect(16,8,700,30),"MARUS / autonomous surface collection",title);
+            GUI.Label(new Rect(760,12,810,24),"PRIMARY TWIN THRUSTERS  |  provisional actuator layout  |  seed "+Runtime.Config.Seed,body);
+            GUI.Label(new Rect(16,45,1550,30),Runtime.Mission.Status.Phase+" — "+Runtime.Mission.Status.Reason,body);
+            DrawViewButtons();
+            int mode=presentation!=null?presentation.ViewMode:0;
+            if(mode==0)
+            {
+                if(presentation!=null)presentation.DrawViews(new Rect(12,116,496,374),new Rect(518,116,496,374));
+                DrawCamera(new Rect(1026,116,562,292));DrawSonar(new Rect(1026,420,562,326));
+            }
+            else if(mode==1 || mode==2)
+            {
+                if(presentation!=null)presentation.DrawViews(mode==1?new Rect(12,116,1576,630):Rect.zero,mode==2?new Rect(12,116,1576,630):Rect.zero);
+            }
+            else if(mode==3)DrawCamera(new Rect(12,116,1576,630));
+            else DrawSonar(new Rect(12,116,1576,630));
+            if(mode==0){DrawControls(new Rect(12,502,1002,110));DrawTelemetry(new Rect(12,622,1002,124));}
+            else {DrawControls(new Rect(12,758,1002,130));DrawTelemetry(new Rect(1026,758,562,130));}
+            if(mode==0)
+            {
+                DrawControlsLegend(new Rect(12,758,1002,130));
+                var acceptance=Runtime.GetComponent<DemoAcceptance>();
+                if(acceptance!=null)GUI.Label(new Rect(1038,764,540,110),acceptance.SuiteStatus,body);
+            }
+            if(Runtime.Paused){Fill(new Rect(600,370,400,50),Panel);GUI.Label(new Rect(620,380,380,35),"SIMULATION PAUSED — feeds frozen",title);}
+            GUI.matrix=saved;GUI.color=Color.white;
         }
-
-        void DrawSensors()
+        void DrawViewButtons()
         {
-            Fill(new Rect(1030, 64, 558, 350), Panel);
-            GUI.Label(new Rect(1042, 71, 540, 25), "ONBOARD RGB  •  synthetic-demo colour heuristic", section);
-            var camera = Runtime.CameraPerception;
-            Rect image = new Rect(1042, 102, 534, 270);
-            if (camera != null)
+            string[] names={"Split overview + chase","Overview","Chase","Onboard RGB","Sonar"};
+            for(int i=0;i<names.Length;i++)if(GUI.Button(new Rect(12+i*166,80,158,29),names[i]) && presentation!=null)presentation.Maximize(i);
+            if(GUI.Button(new Rect(852,80,110,29),"Reset views") && presentation!=null)presentation.ResetView();
+            if(presentation!=null)
             {
-                if (CameraOverlays) camera.DrawOverlay(image);
-                else if (camera.PreviewTexture != null) GUI.DrawTexture(image, camera.PreviewTexture, ScaleMode.StretchToFill, false);
-                else GUI.Label(image, "Waiting for actual rendered image", body);
-                Label(new Rect(1042, 377, 534, 32), camera.Health + $"  |  {camera.ProcessingHz:0.0} sim Hz", camera.IsHealthy ? Accent : Color.yellow, small);
-            }
-            Fill(new Rect(1030, 424, 558, 464), Panel);
-            GUI.Label(new Rect(1042, 432, 534, 26), "SUBMERGED SONAR  •  measured range / bearing", section);
-            Rect sonarPanel = new Rect(1042, 465, 534, 365);
-            var sonar = Runtime.SonarPerception;
-            if (sonar != null)
-            {
-                if (SonarOverlays) sonar.DrawOverlay(sonarPanel);
-                else if (sonar.PreviewTexture != null) GUI.DrawTexture(sonarPanel, sonar.PreviewTexture, ScaleMode.StretchToFill, false);
-                else GUI.Label(sonarPanel, "Waiting for measured sonar image", body);
-                string age = double.IsInfinity(sonar.FrameAge) ? "none" : $"{sonar.FrameAge:0.00}s";
-                string health=sonar.FreezeFeed?"FROZEN / STALE":Runtime.Paused?"PAUSED / FROZEN":sonar.IsHealthy?"LIVE":"STALE";
-                Label(new Rect(1042, 838, 534, 22), $"{health}  •  age {age}  •  {sonar.ProcessingHz:0.0} sim Hz", sonar.IsHealthy ? Accent : Color.yellow, body);
-                GUI.Label(new Rect(1042, 862, 534, 23), "H = unknown contact hazard. No fish classifier or truth labels.", small);
+                presentation.FollowOverview=GUI.Toggle(new Rect(978,85,140,25),presentation.FollowOverview,"Follow overview");
+                presentation.ShowWorldTruth=GUI.Toggle(new Rect(1124,85,230,25),presentation.ShowWorldTruth,"Observer truth markers (GT)");
+                presentation.ShowObservedTracks=GUI.Toggle(new Rect(1360,85,220,25),presentation.ShowObservedTracks,"Observed tracks T / H");
             }
         }
-
-        void DrawControls()
+        void DrawCamera(Rect panel)
         {
-            Fill(new Rect(12, 548, 1006, 103), Navy);
-            if (GUI.Button(new Rect(22, 557, 107, 33), "Start mission", button)) Runtime.StartMission();
-            if (GUI.Button(new Rect(137, 557, 107, 33), "Stop mission", button)) Runtime.StopMission();
-            if (GUI.Button(new Rect(252, 557, 105, 33), Runtime.Paused ? "Resume time" : "Pause time", button)) Runtime.SetPaused(!Runtime.Paused);
-            if (GUI.Button(new Rect(365, 557, 116, 33), Runtime.Mission.Manual ? "Autonomous" : "Manual W/A/D", button))
+            Fill(panel,Panel);var camera=Runtime.CameraPerception;if(camera==null)return;
+            int bearingOnly=0,conflicts=0;
+            foreach(var track in camera.Tracks)
             {
-                if (Runtime.Mission.Manual) Runtime.StartMission();
-                else { Runtime.StopMission(); Runtime.Mission.Manual = true; }
+                if(track.Age(Time.timeAsDouble)>Runtime.Config.CameraMaxAge)continue;
+                if(!track.RangeValid)bearingOnly++;
+                if(track.Conflict)conflicts++;
             }
-            if (GUI.Button(new Rect(489, 557, 102, 33), "Switch view", button)) Runtime.ViewMode = (Runtime.ViewMode + 1) % 2;
-            if (GUI.Button(new Rect(599, 557, 30, 33), "<", button)) ChangeScenario(-1);
-            GUI.Label(new Rect(635, 564, 171, 26), selectedScenario.ToString(), small);
-            if (GUI.Button(new Rect(805, 557, 30, 33), ">", button)) ChangeScenario(1);
-            seedText = GUI.TextField(new Rect(842, 558, 60, 31), seedText, 9);
-            if (GUI.Button(new Rect(910, 557, 97, 33), "Reset seed", button))
-            {
-                int seed = int.TryParse(seedText, out int parsed) ? parsed : Runtime.Config.Seed;
-                Runtime.ResetScenario(selectedScenario, seed, false);
-            }
-            bool motor = GUI.Toggle(new Rect(22, 603, 126, 25), Runtime.Config.MotorAssistance, "Motor assist");
-            if (motor != Runtime.Config.MotorAssistance) Runtime.Config.MotorAssistance = motor;
-            CameraOverlays = GUI.Toggle(new Rect(156, 603, 120, 25), CameraOverlays, "RGB overlays");
-            SonarOverlays = GUI.Toggle(new Rect(279, 603, 124, 25), SonarOverlays, "Sonar overlays");
-            MapOverlays = GUI.Toggle(new Rect(410, 603, 95, 25), MapOverlays, "Local map");
-            if (Runtime.CameraPerception != null) Runtime.CameraPerception.FreezeFeed = GUI.Toggle(new Rect(510, 603, 123, 25), Runtime.CameraPerception.FreezeFeed, "Freeze camera");
-            if (Runtime.SonarPerception != null) Runtime.SonarPerception.FreezeFeed = GUI.Toggle(new Rect(640, 603, 119, 25), Runtime.SonarPerception.FreezeFeed, "Freeze sonar");
-            GUI.Label(new Rect(770, 595, 230, 22), $"Sonar noise {Runtime.Config.SonarNoise:0.000}", small);
-            Runtime.Config.SonarNoise = GUI.HorizontalSlider(new Rect(770, 623, 228, 18), Runtime.Config.SonarNoise, 0, 0.15f);
+            GUI.Label(new Rect(panel.x+10,panel.y+7,panel.width-20,24),"ONBOARD RGB — actual rendered neural inference",body);
+            Rect image=new Rect(panel.x+10,panel.y+36,panel.width-20,panel.height-122);
+            if(camera.LatestFrame!=null)image=FitImage(image,camera.LatestFrame.Width/(float)Mathf.Max(1,camera.LatestFrame.Height));
+            if(CameraOverlays)camera.DrawOverlay(image);
+            else if(camera.PreviewTexture!=null)GUI.DrawTexture(image,camera.PreviewTexture,ScaleMode.ScaleToFit,false);
+            GUI.Label(new Rect(panel.x+10,panel.yMax-83,panel.width-20,78),$"{camera.Health}\nActive profile: {camera.ActiveProfile}; display only: {camera.DisplayFilter}\n{camera.ModelStatus}\nAll models: {bearingOnly} bearing-only / unknown range; {conflicts} conflicts",small);
         }
-
-        void ChangeScenario(int change)
+        void DrawSonar(Rect panel)
         {
-            int count = Enum.GetValues(typeof(DemoScenario)).Length;
-            selectedScenario = (DemoScenario)(((int)selectedScenario + count + change) % count);
+            Fill(panel,Panel);var sonar=Runtime.SonarPerception;if(sonar==null)return;
+            GUI.Label(new Rect(panel.x+10,panel.y+7,panel.width-20,24),"SUBMERGED SONAR — measured echoes / unknown hazards",body);
+            Rect image=new Rect(panel.x+10,panel.y+34,panel.width-20,panel.height-81);
+            if(SonarOverlays)sonar.DrawOverlay(image);
+            else if(sonar.PreviewTexture!=null)GUI.DrawTexture(image,sonar.PreviewTexture,ScaleMode.StretchToFill,false);
+            string health=Runtime.Paused?"PAUSED / FROZEN":sonar.FreezeFeed?"FROZEN / STALE":sonar.IsHealthy?"LIVE":"STALE";
+            GUI.Label(new Rect(panel.x+10,panel.yMax-43,panel.width-20,40),$"{health} | age {sonar.FrameAge:0.00}s | {sonar.ProcessingHz:0.0} sim Hz\nUnknown contacts remain hazards; no privileged fish classification.",small);
         }
-
+        void DrawControls(Rect panel)
+        {
+            Fill(panel,Panel);float x=panel.x+10,y=panel.y+8;
+            if(GUI.Button(new Rect(x,y,105,28),"Start mission"))Runtime.StartMission();
+            if(GUI.Button(new Rect(x+112,y,105,28),"Stop mission"))Runtime.StopMission();
+            if(GUI.Button(new Rect(x+224,y,105,28),Runtime.Paused?"Resume time":"Pause time"))Runtime.SetPaused(!Runtime.Paused);
+            if(GUI.Button(new Rect(x+336,y,125,28),Runtime.Mission.Manual?"Autonomous":"Manual W/A/D"))
+            {if(Runtime.Mission.Manual)Runtime.StartMission();else{Runtime.StopMission();Runtime.Mission.Manual=true;}}
+            if(GUI.Button(new Rect(x+470,y,28,28),"<"))ChangeScenario(-1);
+            GUI.Label(new Rect(x+503,y+4,165,24),selectedScenario.ToString(),small);
+            if(GUI.Button(new Rect(x+673,y,28,28),">"))ChangeScenario(1);
+            seedText=GUI.TextField(new Rect(x+710,y,70,28),seedText,9);
+            if(GUI.Button(new Rect(x+790,y,110,28),"Reset seed"))Runtime.ResetScenario(selectedScenario,int.TryParse(seedText,out int parsed)?parsed:Runtime.Config.Seed,false);
+            CameraOverlays=GUI.Toggle(new Rect(x,y+39,125,24),CameraOverlays,"RGB overlays");
+            SonarOverlays=GUI.Toggle(new Rect(x+130,y+39,135,24),SonarOverlays,"Sonar overlays");
+            if(presentation!=null)presentation.ShowRoutes=GUI.Toggle(new Rect(x+270,y+39,135,24),presentation.ShowRoutes,"Coverage routes");
+            if(Runtime.CameraPerception!=null)Runtime.CameraPerception.FreezeFeed=GUI.Toggle(new Rect(x+410,y+39,140,24),Runtime.CameraPerception.FreezeFeed,"Freeze camera");
+            if(Runtime.SonarPerception!=null)Runtime.SonarPerception.FreezeFeed=GUI.Toggle(new Rect(x+555,y+39,130,24),Runtime.SonarPerception.FreezeFeed,"Freeze sonar");
+            GUI.Label(new Rect(x,y+70,240,23),"RGB display filter (autonomy unchanged):",small);
+            string[] filters={"combined","YOLOE","TRASH"};
+            for(int i=0;i<3;i++)if(GUI.Button(new Rect(x+245+i*95,y+68,88,25),filters[i]) && Runtime.CameraPerception!=null)Runtime.CameraPerception.DisplayFilter=filters[i];
+            GUI.Label(new Rect(x+550,y+70,170,22),$"Sonar noise {Runtime.Config.SonarNoise:0.000}",small);
+            Runtime.Config.SonarNoise=GUI.HorizontalSlider(new Rect(x+722,y+77,220,20),Runtime.Config.SonarNoise,0,.15f);
+        }
+        void ChangeScenario(int delta)
+        {int count=Enum.GetValues(typeof(DemoScenario)).Length;selectedScenario=(DemoScenario)(((int)selectedScenario+delta+count)%count);}
         void DrawTelemetry(Rect panel)
         {
-            Fill(panel, Panel);
-            var state = Runtime.OwnState.State;
-            var command = Runtime.Vessel.LastCommand;
-            var target = Runtime.Mission.SelectedTarget;
-            var collector = Runtime.Vessel.Collector;
-            GUI.Label(new Rect(panel.x + 12, panel.y + 8, panel.width - 20, 26), "VEHICLE / DECISION TELEMETRY", section);
-            string targetText = target == null ? "none" : $"#{target.Id} {target.Label} H={target.Score:0.00} age={target.Age(Time.timeAsDouble):0.00}s";
-            string clearance = float.IsInfinity(Runtime.Mission.Status.ClosestClearance) ? "no contact" : $"{Runtime.Mission.Status.ClosestClearance:0.00} m";
-            string scoring = RubbishCaptured < 0 ? "Evaluator score pending" : $"Rubbish {RubbishCaptured} / bycatch {Bycatch} / collisions {CollisionCount}";
-            GUI.Label(new Rect(panel.x + 12, panel.y + 39, panel.width - 24, 178),
-                $"Target: {targetText}\n" +
-                $"Speed {DemoMath.Flat(state.Velocity).magnitude:0.00} m/s   Heading {DemoMath.Heading(state.Forward):0}°   Wind {state.WindTo.magnitude:0.0} m/s to {DemoMath.Heading(state.WindTo):0}°\n" +
-                $"Rudder {command.Rudder:+0.00;-0.00;0.00}   Sail {command.SailTrim:0.00}   Motor {command.Motor:0.00}   {(Runtime.Mission.Status.Tacking ? "TACKING" : "")}\n" +
-                $"Intake {(collector.Active ? "OPEN" : "CLOSED")}   Storage {collector.CaptureCount}/{Runtime.Config.Capacity:0} ({collector.Fill * 100:0}%)   Clearance {clearance}\n" +
-                $"{scoring}\n" +
-                $"Render {Runtime.RenderingFps:0.0} FPS   RGB inference {Runtime.CameraPerception.InferenceMilliseconds:0.00} ms\n" +
-                $"Own-state: {(state.Ideal ? "IDEAL (declared)" : "NOISY / DELAYED")}  •  Stop depowers; Pause freezes physics.", body);
+            Fill(panel,Panel);var state=Runtime.OwnState.State;var command=Runtime.Vessel.LastCommand;var target=Runtime.Mission.SelectedTarget;
+            var evaluation=Runtime.GetComponent<DemoEvaluation>();
+            if(evaluation!=null){RubbishCaptured=evaluation.CorrectCaptures;Bycatch=evaluation.Bycatch;CollisionCount=evaluation.CollisionEvents;}
+            var coverage=Runtime.GetComponent<CoveragePlanner>();
+            string route=coverage==null?"not initialized":$"{coverage.WaypointIndex}/{coverage.Route.Count} {(coverage.Suspended?"SUSPENDED":coverage.Complete?"COMPLETE":"ACTIVE")}";
+            GUI.Label(new Rect(panel.x+10,panel.y+7,panel.width-20,panel.height-10),
+                $"Speed {DemoMath.Flat(state.Velocity).magnitude:0.00} m/s | heading {DemoMath.Heading(state.Forward):0} deg | requested {command.RequestedSpeed:0.00} m/s @ {command.RequestedHeading:0} deg\n"+
+                $"Port {Runtime.Vessel.PortCommand:+0.00;-0.00;0.00} ({Runtime.Vessel.PortAppliedForce:0.0} N) / starboard {Runtime.Vessel.StarboardCommand:+0.00;-0.00;0.00} ({Runtime.Vessel.StarboardAppliedForce:0.0} N) | {(Runtime.Vessel.ActuatorHealthy?"ACTUATORS OK":"ACTUATOR FAULT/STALE")} | intake {(Runtime.Vessel.Collector.Active?"OPEN":"CLOSED")} | fill {Runtime.Vessel.Collector.CaptureCount}/{Runtime.Config.Capacity:0}\n"+
+                $"Target {(target==null?"none":"#"+target.Id+" "+target.Label+" score="+target.Score.ToString("0.00"))} | coverage {route}\n"+
+                $"Evaluator: rubbish {RubbishCaptured}, bycatch {Bycatch}, collisions {CollisionCount} | {Runtime.RenderingFps:0.0} FPS | inference {Runtime.CameraPerception.InferenceMilliseconds:0.0} ms",small);
         }
-
-        void DrawMap(Rect panel)
+        void DrawControlsLegend(Rect panel)
         {
-            Fill(panel, Panel);
-            GUI.Label(new Rect(panel.x + 10, panel.y + 7, panel.width - 20, 25), "ESTIMATED LOCAL MAP  •  metres", section);
-            if (!MapOverlays) { GUI.Label(new Rect(panel.x + 10, panel.y + 60, 300, 25), "Map overlay disabled", body); return; }
-            Rect plot = new Rect(panel.x + 40, panel.y + 37, panel.width - 75, panel.height - 66);
-            float half = Runtime.Config.BoundaryHalfWidth, length = Runtime.Config.BoundaryLength;
-            Vector2 Map(Vector3 world) => new Vector2(plot.x + Mathf.Clamp01((world.x + half) / (2 * half)) * plot.width,
-                plot.yMax - Mathf.Clamp01((world.z + 6) / (length + 6)) * plot.height);
-            Border(plot, new Color(.35f, .5f, .6f));
-            Vector2 vessel = Map(Runtime.OwnState.State.Position);
-            if (Runtime.SonarPerception != null && Runtime.SonarPerception.LatestFrame != null)
-            {
-                SonarFrame frame = Runtime.SonarPerception.LatestFrame;
-                Vector2 origin = Map(frame.Origin);
-                foreach (float bearing in new[] { -frame.HorizontalFov / 2, frame.HorizontalFov / 2 })
-                    Line(origin, Map(frame.Origin + frame.Rotation * (Quaternion.Euler(0, bearing, 0) * Vector3.forward) * frame.MaxRange), new Color(.15f, .45f, .5f), 1);
-                foreach (ContactTrack contact in Runtime.SonarPerception.Tracks)
-                {
-                    Vector2 p = Map(contact.Position);
-                    Label(new Rect(p.x - 7, p.y - 9, 35, 19), "H" + contact.Id, Color.yellow, small);
-                }
-            }
-            if (Runtime.CameraPerception != null)
-                foreach (VisualTrack track in Runtime.CameraPerception.Tracks)
-                {
-                    if (!track.RangeValid) continue;
-                    Vector2 p = Map(track.Position);
-                    Label(new Rect(p.x - 7, p.y - 9, 40, 20), "T" + track.Id, track.Id == Runtime.Mission.Status.TargetId ? Color.yellow : Accent, small);
-                }
-            Vector2 goal = Map(Runtime.Mission.Status.Goal);
-            Line(vessel, goal, Accent, 1);
-            Fill(new Rect(goal.x - 3, goal.y - 3, 6, 6), Accent);
-            Vector2 nose = Map(Runtime.OwnState.State.Position + Runtime.OwnState.State.Forward * 2.5f);
-            Line(vessel, nose, Color.white, 3);
-            Fill(new Rect(vessel.x - 3, vessel.y - 3, 6, 6), Color.white);
-            GUI.Label(new Rect(panel.x + 10, panel.yMax - 23, panel.width - 20, 20), "T = RGB track   H = sonar unknown   line = active goal", small);
+            Fill(panel,Panel);var coverage=Runtime.GetComponent<CoveragePlanner>();
+            GUI.Label(new Rect(panel.x+10,panel.y+8,panel.width-20,panel.height-16),
+                "Observer views are independent of the onboard sensing camera. Drag overview to pan; wheel to zoom. Drag chase to orbit.\n"+
+                "Ground-truth world dots are observer-only. T = RGB estimate, H = sonar contact. Display filtering never changes inference or safety decisions.\n"+
+                "Blue = planned coverage; cyan = actual travelled route, including diversions. Travelled route does not establish full area observed.\n"+
+                $"Coverage spacing {Runtime.Config.LaneSpacing:0.0} m; assumed useful detection range {Runtime.Config.UsefulDetectionRange:0.0} m. "+
+                "Stop closes intake and commands physical stop; Pause freezes the simulation.",body);
         }
-
-        static void Fill(Rect rect, Color color)
-        {
-            Color before = GUI.color; GUI.color = color; GUI.DrawTexture(rect, Texture2D.whiteTexture); GUI.color = before;
-        }
-        static void Label(Rect rect, string text, Color color, GUIStyle style)
-        {
-            Color before = GUI.color; GUI.color = color; GUI.Label(rect, text, style); GUI.color = before;
-        }
-        static void Border(Rect rect, Color color)
-        {
-            Fill(new Rect(rect.x, rect.y, rect.width, 1), color); Fill(new Rect(rect.x, rect.yMax, rect.width, 1), color);
-            Fill(new Rect(rect.x, rect.y, 1, rect.height), color); Fill(new Rect(rect.xMax, rect.y, 1, rect.height), color);
-        }
-        static void Line(Vector2 from, Vector2 to, Color color, float thickness)
-        {
-            Matrix4x4 before = GUI.matrix;
-            GUIUtility.RotateAroundPivot(Mathf.Atan2(to.y - from.y, to.x - from.x) * Mathf.Rad2Deg, from);
-            Fill(new Rect(from.x, from.y - thickness / 2, Vector2.Distance(from, to), thickness), color);
-            GUI.matrix = before;
-        }
+        static Rect FitImage(Rect available,float aspect)
+        {float width=Mathf.Min(available.width,available.height*aspect),height=width/aspect;return new Rect(available.center.x-width*.5f,available.center.y-height*.5f,width,height);}
+        static void Fill(Rect rect,Color color){Color saved=GUI.color;GUI.color=color;GUI.DrawTexture(rect,Texture2D.whiteTexture);GUI.color=saved;}
     }
 }

@@ -1,3 +1,24 @@
+# Autonomous Trash Drone
+
+MARUS-based Unity engineering demonstration with provisional physical twin thrusters, imported marine/debris assets, a persistent 1 km ocean, coverage search, rendered-camera pretrained inference, sonar hazards and physical intake capture.
+
+**Development checkpoint:** 36 Unity Edit Mode tests pass. Rendered thruster, lane-turn, underwater-hazard and sensor-failure tests pass. The requested pretrained models currently miss or misclassify the rendered rubbish; successful autonomous neural collection is **not yet demonstrated**. Safety interlocks remain enabled. See [current documentation and launch instructions](Assets/TrashSailDemo/Documentation/README.md), [model evidence](Inference/fixture-evaluation-complete/RESULTS.md) and [phase gates](Assets/TrashSailDemo/Documentation/GATES.md).
+
+Clone with submodules and Git LFS, then open in **Unity 6000.5.11f1 / HDRP 17.5**. The sonar fix is published on this repository's `vendor/marus2-sensors` branch; other modules retain their official MARUS sources.
+
+```powershell
+git clone --recurse-submodules https://github.com/JonathanStGeorges/AutonomousTrashDrone.git
+cd AutonomousTrashDrone
+git lfs pull
+powershell -File Inference/setup.ps1
+# With this project open in Unity:
+powershell -File Tools/Start-TrashOceanDemo.ps1
+```
+
+Inference setup reuses the explicitly configured Python environment by default; [setup details](Inference/SETUP.md) explain isolated installation and pinned model downloads. Model weights, downloaded tools, local scene-preservation copies and unrelated working changes are not included in this source checkpoint. Imported assets retain their [licence/provenance manifest](Assets/TrashSailDemo/Imported/asset-manifest.json).
+
+The upstream project description follows for module and networking reference.
+
 # MARUS 2.0 Example Project
 
 The **MARUS 2.0 Example Project** (`marus2-example`) is a reference implementation and test environment for the **MArine Robotics Unity Simulator (MARUS)** 2.0. It demonstrates autonomous surface vessel (ASV) and autonomous underwater vehicle (AUV) simulation with realistic buoyancy hydrodynamics, sensor streaming (LiDAR, IMU, GNSS, DVL), and actuation control interfaced with ROS 2 via high-throughput gRPC.

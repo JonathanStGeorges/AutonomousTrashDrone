@@ -1,0 +1,42 @@
+{
+    "command":  "view",
+    "status":  "PASS",
+    "detail":  "mode=0; onboard=568105589213630970; FOV=68; mount=(0.00, 1.65, 1.35); profile=combined; dimensions=640x384",
+    "id":  "b39a9616cc8b49bd98233215698ca63a",
+    "unity":  "6000.5.11f1"
+}
+{
+    "command":  "view",
+    "status":  "PASS",
+    "detail":  "mode=1; onboard=568105589213630970; FOV=68; mount=(0.00, 1.65, 1.35); profile=combined; dimensions=640x384",
+    "id":  "963e57aecca749fe879852eafc01ccbd",
+    "unity":  "6000.5.11f1"
+}
+{
+    "command":  "view",
+    "status":  "PASS",
+    "detail":  "mode=2; onboard=568105589213630970; FOV=68; mount=(0.00, 1.65, 1.35); profile=combined; dimensions=640x384",
+    "id":  "b9d3dc98d81c48cdb1d175015c0cbfe4",
+    "unity":  "6000.5.11f1"
+}
+{
+    "command":  "view",
+    "status":  "PASS",
+    "detail":  "mode=3; onboard=568105589213630970; FOV=68; mount=(0.00, 1.65, 1.35); profile=combined; dimensions=640x384",
+    "id":  "4db2a04d7df044a98544c81399ffcd9b",
+    "unity":  "6000.5.11f1"
+}
+{
+    "command":  "view",
+    "status":  "PASS",
+    "detail":  "mode=4; onboard=568105589213630970; FOV=68; mount=(0.00, 1.65, 1.35); profile=combined; dimensions=640x384",
+    "id":  "c6b0f27835aa4625993f81a1cbdc9f92",
+    "unity":  "6000.5.11f1"
+}
+{
+    "command":  "view",
+    "status":  "PASS",
+    "detail":  "mode=0; onboard=568105589213630970; FOV=68; mount=(0.00, 1.65, 1.35); profile=combined; dimensions=640x384",
+    "id":  "9291f3906c3f4cf9b449ab073833c21c",
+    "unity":  "6000.5.11f1"
+}

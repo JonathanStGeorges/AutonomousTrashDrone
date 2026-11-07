@@ -20,16 +20,16 @@ MonoBehaviour:
   CentreOfMass: {x: 0, y: -0.15, z: 0}
   IntakeWidth: 1.6
   Capacity: 8
-  MotorAssistance: 1
+  MotorAssistance: 0
   MaxMotorForce: 110
   MaxSailForce: 90
   RudderTorque: 100
   WindTo: {x: 5, y: 0, z: 0}
   NoGoAngle: 40
   CommandTimeout: 0.5
-  CameraWidth: 320
-  CameraHeight: 192
-  CameraHz: 10
+  CameraWidth: 640
+  CameraHeight: 384
+  CameraHz: 3
   CameraLatency: 0.04
   CameraDropout: 0
   SonarHz: 8
@@ -52,5 +52,35 @@ MonoBehaviour:
   BoundaryLength: 40
   SafeMargin: 1.2
   ClearancePeriod: 2
-  MaxCollectionSpeed: 1.3
+  MaxCollectionSpeed: 0.65
   TimeBudget: 300
+  InferenceUrl: http://127.0.0.1:8765/infer
+  InferenceProfile: combined
+  InferenceWallMaxAge: 3
+  InferenceRequestHz: 3
+  ModelScoreThreshold: 0.25
+  PortThrusterPosition: {x: -0.85, y: -0.2, z: -1.1}
+  StarboardThrusterPosition: {x: 0.85, y: -0.2, z: -1.1}
+  PortThrusterEuler: {x: 0, y: 0, z: 0}
+  StarboardThrusterEuler: {x: 0, y: 0, z: 0}
+  MaxThrusterForce: 80
+  ThrusterResponseRate: 2
+  MaxSearchSpeed: 0.55
+  ApproachSpeed: 0.25
+  TurnRateDegrees: 28
+  ReverseThrustEnabled: 1
+  CurrentVelocity: {x: 0, y: 0, z: 0}
+  LargeOcean: 0
+  MissionWidth: 1000
+  MissionLength: 1000
+  LaneSpacing: 6
+  UsefulDetectionRange: 5
+  StreamingRadius: 100
+  OceanRubbishCount: 350
+  OceanFishCount: 16
+  OceanBoatCount: 5
+  StopAfterCaptures: 0
+  ReachableDemoSeed: 1
+  CoverageTurnRadius: 3
+  WaypointArrivalRadius: 1
+  WindDisturbanceCoefficient: 0

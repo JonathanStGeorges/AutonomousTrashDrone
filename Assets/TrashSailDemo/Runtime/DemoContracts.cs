@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TrashSailDemo
 {
-    // Contract v1. Unity metres, seconds, +Y up, +Z vessel forward, +X starboard.
+    // Contract v2. Unity metres, seconds, +Y up, +Z vessel forward, +X starboard.
     // All timestamps use Time.timeAsDouble (simulation seconds). Owned arrays remain
     // immutable until a later frame replaces the reference; no asynchronous work queues.
     [Serializable] public sealed class CameraFrame
@@ -36,6 +36,11 @@ namespace TrashSailDemo
         public Rect PixelRect;
         public Vector3 Position, Velocity;
         public bool RangeValid;
+        public CanonicalCategory Category=CanonicalCategory.Unknown;
+        public bool Eligible, Conflict;
+        public string Provenance="", Profile="combined";
+        public ModelEvidence[] Evidence=Array.Empty<ModelEvidence>();
+        public double ResultWallTime;
         public double LastSeen;
         public double Age(double now) => Math.Max(0, now - LastSeen);
     }
@@ -49,7 +54,7 @@ namespace TrashSailDemo
     }
     [Serializable] public struct VehicleState
     {
-        public Vector3 Position, Velocity, WindTo;
+        public Vector3 Position, Velocity, WindTo,AngularVelocity;
         public Quaternion Rotation;
         public double Timestamp;
         public float WaterLevel;
@@ -58,6 +63,8 @@ namespace TrashSailDemo
     }
     [Serializable] public struct ActuatorCommand
     {
+        public float PortThrust,StarboardThrust; // [-1,1]; reverse only if configured.
+        public float RequestedSpeed,RequestedHeading; // m/s, world clockwise degrees from +Z.
         public float Rudder; // [-1,1], positive turns starboard.
         public float SailTrim; // [0,1], zero depowers.
         public float Motor; // [0,1], ignored unless explicitly enabled.
@@ -69,7 +76,7 @@ namespace TrashSailDemo
     public interface IOwnStateSource { VehicleState State { get; } }
     public interface ICameraFrameSource { CameraFrame LatestFrame { get; } }
     public interface ISonarFrameSource { SonarFrame LatestFrame { get; } }
-    public enum DemoScenario { ClearCollection, CrossingFish, UnderwaterHazard, OccludedTarget, CameraFailure, SonarFailure, Upwind, LowWind, MetadataVariant, AmbiguousAssociation }
+    public enum DemoScenario { ClearCollection, CrossingFish, UnderwaterHazard, OccludedTarget, CameraFailure, SonarFailure, ThrusterCalibration, NoWind, MetadataVariant, AmbiguousAssociation }
     public enum MissionPhase { IDLE, SEARCH, TRACK_CANDIDATE, ASSESS_APPROACH, APPROACH, FINAL_CHECK, COLLECT, VERIFY, AVOID_OR_REPLAN, SENSOR_DEGRADED, RETURN_HOME, MISSION_COMPLETE, MANUAL }
     [Serializable] public sealed class MissionStatus
     {
@@ -99,7 +106,36 @@ namespace TrashSailDemo
             command.Rudder = Mathf.Clamp(command.Rudder, -1, 1);
             command.SailTrim = Mathf.Clamp01(command.SailTrim);
             command.Motor = Mathf.Clamp01(command.Motor);
+            command.PortThrust=Mathf.Clamp(command.PortThrust,-1,1);
+            command.StarboardThrust=Mathf.Clamp(command.StarboardThrust,-1,1);
             return command;
         }
+    }
+    public enum CanonicalCategory { Unknown, CollectableRubbish, OtherRubbish, Wildlife, Obstacle }
+    [Serializable] public sealed class ModelEvidence
+    {
+        public string model,label,category;
+        public int classId;
+        public float score;
+        public float[] box; // original image xyxy, top-left pixels.
+        public float[] polygon; // flattened xy pairs, original top-left pixels.
+        public bool eligible,conflict;
+    }
+    [Serializable] public sealed class InferenceRequest
+    {
+        public string sessionId,cameraId="onboard",profile="combined",imageBase64;
+        public long sequence;
+        public double captureTime;
+        public int width,height;
+    }
+    [Serializable] public sealed class InferenceResult
+    {
+        public bool ok,empty;
+        public string error,sessionId,cameraId,profile,device;
+        public long sequence;
+        public double captureTime,wallInferenceMs,wallCompleted;
+        public int width,height;
+        public ModelEvidence[] detections;
+        public string[] models;
     }
 }

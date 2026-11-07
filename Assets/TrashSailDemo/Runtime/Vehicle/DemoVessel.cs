@@ -1,119 +1,138 @@
-using Marus.Ocean;
+﻿using Marus.Ocean;
 using UnityEngine;
 
 namespace TrashSailDemo
 {
+    // Adapted from MARUS Thruster's AddForceAtPosition model, with explicit mounts,
+    // bounded response, local watchdog and no ROS/logger dependency.
     [RequireComponent(typeof(Rigidbody))]
     public sealed class DemoVessel : MonoBehaviour, IVehicleActuator
     {
         public DemoConfig Config;
-        public Transform CameraMount, SonarMount, VisualRoot, SailVisual, RudderVisual;
+        public Transform CameraMount,SonarMount,VisualRoot,SailVisual,RudderVisual;
+        public Transform PortMount,StarboardMount;
         public DemoCollector Collector;
         public Rigidbody Body;
         public WaterHeightSampler WaterSampler;
         public ActuatorCommand LastCommand;
-        public float ForwardSpeed { get; private set; }
-        public float SailDrive { get; private set; }
-        public float MotorDrive { get; private set; }
-        public float MotorUseSeconds { get; private set; }
-        public int CollisionCount { get; private set; }
+        public float ForwardSpeed {get;private set;}
+        public float PortCommand=>LastCommand.PortThrust;
+        public float StarboardCommand=>LastCommand.StarboardThrust;
+        public float PortAppliedForce {get;private set;}
+        public float StarboardAppliedForce {get;private set;}
+        public bool ActuatorHealthy {get;private set;}
+        public bool LayoutValid {get;private set;}=true;
+        public float ThrusterUseSeconds {get;private set;}
+        // Prototype serialization migration only; no sail propulsion is applied.
+        public float MotorUseSeconds=>ThrusterUseSeconds;
+        public float MotorDrive=>PortAppliedForce+StarboardAppliedForce;
+        public float SailDrive=>0;
+        public int CollisionCount {get;private set;}
         public event System.Action<Collision> Collided;
-
-        void Awake()
-        {
-            if (Body == null) Body = GetComponent<Rigidbody>();
-            ConfigureBody();
-            LastCommand = ActuatorCommand.Safe(Time.timeAsDouble);
-        }
-
+        double receivedAt;
+        float portApplied,starboardApplied;
+        void Awake(){Body=GetComponent<Rigidbody>();ConfigureBody();LastCommand=ActuatorCommand.Safe(Time.timeAsDouble);receivedAt=Time.timeAsDouble;}
+        void Start(){ConfigureBody();ConfigureThrusters();}
         public void ConfigureBody()
         {
-            if (Body == null) Body = GetComponent<Rigidbody>();
-            if (Config == null) return;
-            Body.mass = Mathf.Max(1, Config.VesselMass);
-            Body.centerOfMass = Config.CentreOfMass;
-            Body.useGravity = true;
-            Body.linearDamping = 0;
-            Body.angularDamping = 0.3f;
-            Body.interpolation = RigidbodyInterpolation.Interpolate;
-            Body.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
-            Body.maxAngularVelocity = 1.2f;
+            if(Body==null)Body=GetComponent<Rigidbody>();if(Config==null)return;
+            Body.mass=Mathf.Max(1,Config.VesselMass);Body.centerOfMass=Config.CentreOfMass;Body.useGravity=true;
+            Body.linearDamping=0;Body.angularDamping=.3f;Body.interpolation=RigidbodyInterpolation.Interpolate;
+            Body.collisionDetectionMode=CollisionDetectionMode.ContinuousDynamic;Body.maxAngularVelocity=1.2f;
         }
-
+        public void ConfigureThrusters()
+        {
+            if(Config==null)return;
+            if(PortMount==null)PortMount=Mount("Port thruster force mount");
+            if(StarboardMount==null)StarboardMount=Mount("Starboard thruster force mount");
+            PortMount.localPosition=Config.PortThrusterPosition;PortMount.localRotation=Quaternion.Euler(Config.PortThrusterEuler);
+            StarboardMount.localPosition=Config.StarboardThrusterPosition;StarboardMount.localRotation=Quaternion.Euler(Config.StarboardThrusterEuler);
+            // Force authority is evaluated in the vessel frame.
+            Vector3 p=PortMount.localRotation*Vector3.forward,s=StarboardMount.localRotation*Vector3.forward;
+            float c=Vector3.Cross(Config.PortThrusterPosition-Config.CentreOfMass,p).y,d=Vector3.Cross(Config.StarboardThrusterPosition-Config.CentreOfMass,s).y;
+            LayoutValid=Mathf.Abs(p.z*d-s.z*c)>=.001f;
+        }
+        Transform Mount(string label)
+        {
+            Transform mount=new GameObject(label).transform;mount.SetParent(transform,false);mount.gameObject.layer=8;
+            GameObject housing=GameObject.CreatePrimitive(PrimitiveType.Cylinder);housing.name="Thruster housing (visual only)";housing.layer=8;
+            housing.transform.SetParent(mount,false);housing.transform.localRotation=Quaternion.Euler(90,0,0);housing.transform.localScale=new Vector3(.22f,.18f,.22f);
+            var collider=housing.GetComponent<Collider>();collider.enabled=false;if(Application.isPlaying)Destroy(collider);else DestroyImmediate(collider);
+            housing.GetComponent<Renderer>().sharedMaterial=DemoWorld.MakeMaterial("Thruster housing",new Color(.12f,.16f,.19f));
+            return mount;
+        }
         public void ApplyCommand(ActuatorCommand command)
         {
-            LastCommand = DemoMath.ClampCommand(command, Time.timeAsDouble, Config != null ? Config.CommandTimeout : 0.5f);
-            if (Config != null && !Config.MotorAssistance) LastCommand.Motor = 0;
-            if (Collector != null && !LastCommand.CollectorEnabled) Collector.Active = false;
+            LastCommand=DemoMath.ClampCommand(command,Time.timeAsDouble,Config!=null?Config.CommandTimeout:.5f);
+            if(Config!=null && !Config.ReverseThrustEnabled){LastCommand.PortThrust=Mathf.Max(0,LastCommand.PortThrust);LastCommand.StarboardThrust=Mathf.Max(0,LastCommand.StarboardThrust);}
+            receivedAt=command.IssuedAt;if(Collector!=null && !LastCommand.CollectorEnabled)Collector.Active=false;
         }
-
-        // A dimensionless, intentionally approximate true-wind polar. No forward
-        // drive in the upwind cone. Reach is strongest; running is weaker.
-        public static float SailPolar(float angleFromUpwindDegrees, float noGoDegrees)
+        public static ActuatorCommand Allocate(float surge,float yaw,bool reverse,double now)
         {
-            float angle = Mathf.Abs(Mathf.DeltaAngle(0, angleFromUpwindDegrees));
-            if (angle <= noGoDegrees) return 0;
-            float exit = Mathf.SmoothStep(0, 1, Mathf.InverseLerp(noGoDegrees, noGoDegrees + 18, angle));
-            float reach = 0.55f + 0.45f * Mathf.Sin(angle * Mathf.Deg2Rad);
-            return exit * reach;
+            float minimum=reverse?-1:0;
+            return new ActuatorCommand{PortThrust=Mathf.Clamp(surge+yaw,minimum,1),StarboardThrust=Mathf.Clamp(surge-yaw,minimum,1),IssuedAt=now};
         }
-
+        public static ActuatorCommand AllocateConfigured(float surge,float yaw,DemoConfig config,double now)
+        {
+            Vector3 p=Quaternion.Euler(config.PortThrusterEuler)*Vector3.forward,s=Quaternion.Euler(config.StarboardThrusterEuler)*Vector3.forward;
+            float a=p.z,b=s.z,c=Vector3.Cross(config.PortThrusterPosition-config.CentreOfMass,p).y,d=Vector3.Cross(config.StarboardThrusterPosition-config.CentreOfMass,s).y;
+            float determinant=a*d-b*c;
+            if(Mathf.Abs(determinant)<.001f)return ActuatorCommand.Safe(now); // layout cannot independently command surge and yaw
+            float force=surge*(Mathf.Abs(a)+Mathf.Abs(b)),torque=yaw*(Mathf.Abs(c)+Mathf.Abs(d));
+            float port=(force*d-b*torque)/determinant,starboard=(a*torque-force*c)/determinant;
+            float scale=Mathf.Max(1,Mathf.Max(Mathf.Abs(port),Mathf.Abs(starboard)));
+            float minimum=config.ReverseThrustEnabled?-1:0;
+            return new ActuatorCommand{PortThrust=Mathf.Clamp(port/scale,minimum,1),StarboardThrust=Mathf.Clamp(starboard/scale,minimum,1),IssuedAt=now};
+        }
+        public static ActuatorCommand Control(VehicleState state,float desiredSpeed,float desiredHeading,DemoConfig config,double now)
+        {
+            float error=Mathf.DeltaAngle(DemoMath.Heading(state.Forward),desiredHeading);
+            float turnRate=Mathf.Clamp(error*.035f,-config.TurnRateDegrees*Mathf.Deg2Rad,config.TurnRateDegrees*Mathf.Deg2Rad);
+            float speedGoal=desiredSpeed*Mathf.Clamp01(1-Mathf.Abs(error)/75);
+            float forward=Vector3.Dot(DemoMath.Flat(state.Velocity),state.Forward);
+            float feed=speedGoal*(18+24*Mathf.Abs(speedGoal))/Mathf.Max(1,2*config.MaxThrusterForce);
+            float surge=(speedGoal-forward)*.85f+feed;
+            float yaw=Mathf.Clamp((turnRate-state.AngularVelocity.y)*.9f,-.65f,.65f);
+            var result=AllocateConfigured(surge,yaw,config,now);result.RequestedSpeed=desiredSpeed;result.RequestedHeading=desiredHeading;return result;
+        }
         void FixedUpdate()
         {
-            if (Config == null || Body == null) return;
-            LastCommand = DemoMath.ClampCommand(LastCommand, Time.timeAsDouble, Config.CommandTimeout);
-            if (!Config.MotorAssistance) LastCommand.Motor = 0;
-            float halfWidth = Config.VesselWidth * 0.37f;
-            float halfLength = Config.VesselLength * 0.35f;
-            for (int side = -1; side <= 1; side += 2)
-                for (int end = -1; end <= 1; end += 2)
-                {
-                    Vector3 point = transform.TransformPoint(new Vector3(side * halfWidth, 0, end * halfLength));
-                    float surface = WaterSampler != null ? WaterSampler.GetWaterLevel(point) : 0;
-                    float weight = Body.mass * Physics.gravity.magnitude / 4;
-                    float force = weight + (surface - point.y) * weight * 5 - Body.GetPointVelocity(point).y * Body.mass * 0.65f;
-                    Body.AddForceAtPosition(Vector3.up * Mathf.Clamp(force, 0, weight * 3), point, ForceMode.Force);
-                }
-            Vector3 localVelocity = transform.InverseTransformDirection(Body.linearVelocity);
-            ForwardSpeed = localVelocity.z;
-            Vector3 drag = new Vector3(-localVelocity.x * (95 + 40 * Mathf.Abs(localVelocity.x)),
-                -localVelocity.y * 15, -localVelocity.z * (18 + 24 * Mathf.Abs(localVelocity.z)));
-            Body.AddRelativeForce(drag, ForceMode.Force);
-            Body.AddTorque(Vector3.up * (-Body.angularVelocity.y * (110 + 50 * Mathf.Abs(Body.angularVelocity.y))), ForceMode.Force);
-            Vector3 wind = DemoMath.Flat(Config.WindTo);
-            float windSpeed = wind.magnitude;
-            float upwindAngle = windSpeed > 0.001f ? Vector3.Angle(DemoMath.Flat(transform.forward), -wind) : 0;
-            SailDrive = windSpeed < 0.5f ? 0 : Config.MaxSailForce * SailPolar(upwindAngle, Config.NoGoAngle)
-                * Mathf.Clamp(windSpeed * windSpeed / 25f, 0, 2) * LastCommand.SailTrim;
-            MotorDrive = Config.MotorAssistance ? Config.MaxMotorForce * LastCommand.Motor : 0;
-            Body.AddForce(DemoMath.Flat(transform.forward).normalized * (SailDrive + MotorDrive), ForceMode.Force);
-            // Rudder effectiveness scales with actual water speed. The small sail-
-            // induced floor represents flow across the control surface, not heading teleportation.
-            float rudderAuthority = Mathf.Clamp(Mathf.Abs(ForwardSpeed) / 0.7f, 0, 1.2f);
-            Body.AddTorque(Vector3.up * Config.RudderTorque * LastCommand.Rudder * rudderAuthority, ForceMode.Force);
-            if (MotorDrive > 0.01f) MotorUseSeconds += Time.fixedDeltaTime;
-            if (Collector != null) Collector.Active = LastCommand.CollectorEnabled && DemoMath.Flat(Body.linearVelocity).magnitude <= Config.MaxCollectionSpeed;
-            if (SailVisual != null) SailVisual.localRotation = Quaternion.Euler(0, 10 + (1 - LastCommand.SailTrim) * 70, 0);
-            if (RudderVisual != null) RudderVisual.localRotation = Quaternion.Euler(0, LastCommand.Rudder * 30, 0);
+            if(Config==null || Body==null)return;
+            if(PortMount==null || StarboardMount==null)ConfigureThrusters();
+            ActuatorHealthy=LayoutValid && Time.timeAsDouble-receivedAt<=Config.CommandTimeout && Time.timeAsDouble>=receivedAt;
+            if(!ActuatorHealthy)LastCommand=ActuatorCommand.Safe(Time.timeAsDouble);
+            float minimum=Config.ReverseThrustEnabled?-1:0;
+            float p=Mathf.Clamp(LastCommand.PortThrust,minimum,1),s=Mathf.Clamp(LastCommand.StarboardThrust,minimum,1);
+            portApplied=Mathf.MoveTowards(portApplied,p,Config.ThrusterResponseRate*Time.fixedDeltaTime);
+            starboardApplied=Mathf.MoveTowards(starboardApplied,s,Config.ThrusterResponseRate*Time.fixedDeltaTime);
+            PortAppliedForce=portApplied*Config.MaxThrusterForce;StarboardAppliedForce=starboardApplied*Config.MaxThrusterForce;
+            Body.AddForceAtPosition(PortMount.forward*PortAppliedForce,PortMount.position,ForceMode.Force);
+            Body.AddForceAtPosition(StarboardMount.forward*StarboardAppliedForce,StarboardMount.position,ForceMode.Force);
+            if(Mathf.Abs(PortAppliedForce)+Mathf.Abs(StarboardAppliedForce)>.01f)ThrusterUseSeconds+=Time.fixedDeltaTime;
+            float halfWidth=Config.VesselWidth*.37f,halfLength=Config.VesselLength*.35f;
+            for(int side=-1;side<=1;side+=2)for(int end=-1;end<=1;end+=2)
+            {
+                Vector3 point=transform.TransformPoint(new Vector3(side*halfWidth,0,end*halfLength));
+                float surface=WaterSampler!=null?WaterSampler.GetWaterLevel(point):0,weight=Body.mass*Physics.gravity.magnitude/4;
+                float force=weight+(surface-point.y)*weight*5-Body.GetPointVelocity(point).y*Body.mass*.65f;
+                Body.AddForceAtPosition(Vector3.up*Mathf.Clamp(force,0,weight*3),point,ForceMode.Force);
+            }
+            Vector3 local=transform.InverseTransformDirection(Body.linearVelocity-Config.CurrentVelocity);ForwardSpeed=Vector3.Dot(Body.linearVelocity,transform.forward);
+            Body.AddRelativeForce(new Vector3(-local.x*(95+40*Mathf.Abs(local.x)),-local.y*15,-local.z*(18+24*Mathf.Abs(local.z))),ForceMode.Force);
+            Body.AddTorque(Vector3.up*(-Body.angularVelocity.y*(110+50*Mathf.Abs(Body.angularVelocity.y))),ForceMode.Force);
+            Body.AddForce(DemoMath.Flat(Config.WindTo)*Config.WindTo.magnitude*Config.WindDisturbanceCoefficient,ForceMode.Force);
+            if(Collector!=null)Collector.Active=LastCommand.CollectorEnabled && ActuatorHealthy && DemoMath.Flat(Body.linearVelocity).magnitude<=Config.MaxCollectionSpeed;
         }
-
-        public void ResetPose(Vector3 position, Quaternion rotation)
+        public void ResetPose(Vector3 position,Quaternion rotation)
         {
-            if (Body == null) Body = GetComponent<Rigidbody>();
-            Body.position = position;
-            Body.rotation = rotation;
-            Body.linearVelocity = Vector3.zero;
-            Body.angularVelocity = Vector3.zero;
-            LastCommand = ActuatorCommand.Safe(Time.timeAsDouble);
-            ForwardSpeed = SailDrive = MotorDrive = MotorUseSeconds = 0;
-            CollisionCount = 0;
-            if (Collector != null) Collector.ResetCollector();
+            if(Body==null)Body=GetComponent<Rigidbody>();Body.position=position;Body.rotation=rotation;
+            // Explicit scenario reset synchronizes the pose immediately for streaming
+            // and capture-time calibration, even before the next interpolated step.
+            transform.SetPositionAndRotation(position,rotation);Physics.SyncTransforms();
+            Body.linearVelocity=Vector3.zero;Body.angularVelocity=Vector3.zero;
+            LastCommand=ActuatorCommand.Safe(Time.timeAsDouble);receivedAt=Time.timeAsDouble;portApplied=starboardApplied=PortAppliedForce=StarboardAppliedForce=0;
+            ForwardSpeed=ThrusterUseSeconds=0;CollisionCount=0;if(Collector!=null)Collector.ResetCollector();
         }
-
-        void OnCollisionEnter(Collision collision)
-        {
-            CollisionCount++;
-            Collided?.Invoke(collision);
-        }
+        void OnCollisionEnter(Collision collision){CollisionCount++;Collided?.Invoke(collision);}
     }
 }

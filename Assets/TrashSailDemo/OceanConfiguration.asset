@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95b1be3fc3b8e8c44b4875fa4216d564, type: 3}
+  m_Name: OceanConfiguration
+  m_EditorClassIdentifier: TrashSailDemo.Runtime::TrashSailDemo.DemoConfig
+  Seed: 17
+  Scenario: 0
+  VesselLength: 3
+  VesselWidth: 2.2
+  VesselMass: 110
+  CentreOfMass: {x: 0, y: -0.15, z: 0}
+  IntakeWidth: 1.6
+  Capacity: 30
+  MotorAssistance: 0
+  MaxMotorForce: 110
+  MaxSailForce: 90
+  RudderTorque: 100
+  WindTo: {x: 5, y: 0, z: 0}
+  NoGoAngle: 40
+  CommandTimeout: 0.5
+  CameraWidth: 640
+  CameraHeight: 384
+  CameraHz: 3
+  CameraLatency: 0.04
+  CameraDropout: 0
+  SonarHz: 8
+  SonarMinRange: 0.18
+  SonarMaxRange: 16
+  SonarFov: 110
+  SonarVerticalFov: 35
+  SonarBearings: 96
+  SonarVerticalRays: 9
+  SonarRangeBins: 128
+  SonarNoise: 0.01
+  SonarDropout: 0.02
+  SonarLatency: 0.08
+  CameraMaxAge: 0.8
+  SonarMaxAge: 0.7
+  TrackMemory: 8
+  StateNoise: 0
+  StateLatency: 0
+  BoundaryHalfWidth: 18
+  BoundaryLength: 40
+  SafeMargin: 1.2
+  ClearancePeriod: 2
+  MaxCollectionSpeed: 0.65
+  TimeBudget: 3600
+  InferenceUrl: http://127.0.0.1:8765/infer
+  InferenceProfile: combined
+  InferenceWallMaxAge: 3
+  InferenceRequestHz: 3
+  ModelScoreThreshold: 0.25
+  PortThrusterPosition: {x: -0.85, y: -0.2, z: -1.1}
+  StarboardThrusterPosition: {x: 0.85, y: -0.2, z: -1.1}
+  PortThrusterEuler: {x: 0, y: 0, z: 0}
+  StarboardThrusterEuler: {x: 0, y: 0, z: 0}
+  MaxThrusterForce: 80
+  ThrusterResponseRate: 2
+  MaxSearchSpeed: 0.55
+  ApproachSpeed: 0.25
+  TurnRateDegrees: 28
+  ReverseThrustEnabled: 1
+  CurrentVelocity: {x: 0, y: 0, z: 0}
+  LargeOcean: 1
+  MissionWidth: 1000
+  MissionLength: 1000
+  LaneSpacing: 6
+  UsefulDetectionRange: 5
+  StreamingRadius: 100
+  OceanRubbishCount: 350
+  OceanFishCount: 16
+  OceanBoatCount: 5
+  StopAfterCaptures: 0
+  ReachableDemoSeed: 1
+  CoverageTurnRadius: 3
+  WaypointArrivalRadius: 1
+  WindDisturbanceCoefficient: 0

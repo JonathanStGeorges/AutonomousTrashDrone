@@ -1,3 +1,9 @@
+# ARCHIVED: prototype contracts v1
+
+This document is retained only as historical implementation evidence for checkpoint 7b2f197. **Do not use it as the current operational specification.** Current contracts are [PRODUCTION_CONTRACTS.md](PRODUCTION_CONTRACTS.md): primary twin thrusters, pretrained-only image inference, provenance/conflict-aware tracks and explicitly separated observer world truth. Camera settings/underwater visibility are described in CAMERA.md. The v1 colour-heuristic and sail/motor statements below are historical and superseded.
+
+---
+
 # Operational contracts v1
 
 Unity metres/seconds. World +Y up; vessel +Z forward/+X starboard. Bearings are degrees clockwise/starboard from sensor forward; XZ estimates discard unobserved vertical position. WindTo is the direction air travels; upwind is its negative. Timestamp clock is simulation `Time.timeAsDouble`; health compares capture time, never a generic hasData flag. Display wall-clock age separately while paused.

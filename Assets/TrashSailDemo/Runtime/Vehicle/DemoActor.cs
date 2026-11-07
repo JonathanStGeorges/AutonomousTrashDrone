@@ -7,6 +7,8 @@ namespace TrashSailDemo
     public sealed class DemoActor : MonoBehaviour
     {
         public string Kind = "trash";
+        public string AssetKey;
+        public int WorldRecordId = -1;
         public bool Captured;
         public Vector3 InitialPosition;
         public Rigidbody Body;
@@ -39,6 +41,8 @@ namespace TrashSailDemo
                 Body.AddForce(Vector3.up * verticalForce, ForceMode.Force);
                 Body.AddForce((DriftVelocity - DemoMath.Flat(Body.linearVelocity)) * Body.mass * 2, ForceMode.Force);
             }
+            else if (Body.isKinematic && DriftVelocity.sqrMagnitude > 0)
+                Body.MovePosition(Body.position + DriftVelocity * Time.fixedDeltaTime);
         }
     }
 }

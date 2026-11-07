@@ -1,0 +1,904 @@
+{
+    "Diffuse":  {
+                    "8k":  {
+                               "jpg":  {
+                                           "size":  9781874,
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/8k/plastic_bottle_gallon/plastic_bottle_gallon_diff_8k.jpg",
+                                           "md5":  "d524fe5782302d4650b827cbb3b385dd"
+                                       },
+                               "png":  {
+                                           "size":  64526933,
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/8k/plastic_bottle_gallon/plastic_bottle_gallon_diff_8k.png",
+                                           "md5":  "b5efaaf34bd99e14a7d1241859bd1395"
+                                       },
+                               "exr":  {
+                                           "size":  15786449,
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/8k/plastic_bottle_gallon/plastic_bottle_gallon_diff_8k.exr",
+                                           "md5":  "38005c1dc437bff5e6cefda555252218"
+                                       }
+                           },
+                    "4k":  {
+                               "jpg":  {
+                                           "size":  3228899,
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/plastic_bottle_gallon/plastic_bottle_gallon_diff_4k.jpg",
+                                           "md5":  "9dd3be115546aa779ccd184d13536675"
+                                       },
+                               "png":  {
+                                           "size":  35836762,
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/4k/plastic_bottle_gallon/plastic_bottle_gallon_diff_4k.png",
+                                           "md5":  "ee86c678dfb6687b79292017a9224cb2"
+                                       },
+                               "exr":  {
+                                           "size":  5049696,
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/4k/plastic_bottle_gallon/plastic_bottle_gallon_diff_4k.exr",
+                                           "md5":  "3dfbdeb51862f650b5fd4acb1eb619da"
+                                       }
+                           },
+                    "2k":  {
+                               "jpg":  {
+                                           "size":  1041743,
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/plastic_bottle_gallon/plastic_bottle_gallon_diff_2k.jpg",
+                                           "md5":  "212f5a30039a0b9d6fd6d2b4e7846782"
+                                       },
+                               "png":  {
+                                           "size":  13040735,
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/plastic_bottle_gallon/plastic_bottle_gallon_diff_2k.png",
+                                           "md5":  "c3f3c7b570b7d1e243a4a591e96064ba"
+                                       },
+                               "exr":  {
+                                           "size":  1655648,
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/plastic_bottle_gallon/plastic_bottle_gallon_diff_2k.exr",
+                                           "md5":  "343922714c77f7fa6ab490d675a5225c"
+                                       }
+                           },
+                    "1k":  {
+                               "jpg":  {
+                                           "size":  317396,
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/plastic_bottle_gallon/plastic_bottle_gallon_diff_1k.jpg",
+                                           "md5":  "e3655eb80c6bce520865a4f4a2b37bd9"
+                                       },
+                               "png":  {
+                                           "size":  3822426,
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/plastic_bottle_gallon/plastic_bottle_gallon_diff_1k.png",
+                                           "md5":  "e3a3d0f9c367c72617c196a7fb5f9ffa"
+                                       },
+                               "exr":  {
+                                           "size":  531973,
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/plastic_bottle_gallon/plastic_bottle_gallon_diff_1k.exr",
+                                           "md5":  "72c14a13dbf5d70b7b937d277f74a91f"
+                                       }
+                           }
+                },
+    "nor_dx":  {
+                   "8k":  {
+                              "jpg":  {
+                                          "size":  39548124,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/8k/plastic_bottle_gallon/plastic_bottle_gallon_nor_dx_8k.jpg",
+                                          "md5":  "7dcc2fafe08be4d3d8929dd523e792d7"
+                                      },
+                              "png":  {
+                                          "size":  210641920,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/8k/plastic_bottle_gallon/plastic_bottle_gallon_nor_dx_8k.png",
+                                          "md5":  "1ababc6a96aa144885018ef2eb0b7678"
+                                      },
+                              "exr":  {
+                                          "size":  85882473,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/8k/plastic_bottle_gallon/plastic_bottle_gallon_nor_dx_8k.exr",
+                                          "md5":  "f34c2e020bdf8f8c417781c9ab1353ba"
+                                      }
+                          },
+                   "4k":  {
+                              "jpg":  {
+                                          "size":  9186601,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/plastic_bottle_gallon/plastic_bottle_gallon_nor_dx_4k.jpg",
+                                          "md5":  "e06874a87146a71105f7fd1900ee3a10"
+                                      },
+                              "png":  {
+                                          "size":  61723845,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/4k/plastic_bottle_gallon/plastic_bottle_gallon_nor_dx_4k.png",
+                                          "md5":  "ec10775deca77b33a96ef09cff6382c2"
+                                      },
+                              "exr":  {
+                                          "size":  21324082,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/4k/plastic_bottle_gallon/plastic_bottle_gallon_nor_dx_4k.exr",
+                                          "md5":  "0bc0c1fbd428436184a5a00f320c930e"
+                                      }
+                          },
+                   "2k":  {
+                              "jpg":  {
+                                          "size":  1912910,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/plastic_bottle_gallon/plastic_bottle_gallon_nor_dx_2k.jpg",
+                                          "md5":  "1af802c4d779c64a8c364d5848ca0446"
+                                      },
+                              "png":  {
+                                          "size":  16173483,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/plastic_bottle_gallon/plastic_bottle_gallon_nor_dx_2k.png",
+                                          "md5":  "80730817b2e0b29f4f6079be67e4d985"
+                                      },
+                              "exr":  {
+                                          "size":  4822541,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/plastic_bottle_gallon/plastic_bottle_gallon_nor_dx_2k.exr",
+                                          "md5":  "4caa0cf56f99895e6809ba647b2c58fb"
+                                      }
+                          },
+                   "1k":  {
+                              "jpg":  {
+                                          "size":  407119,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/plastic_bottle_gallon/plastic_bottle_gallon_nor_dx_1k.jpg",
+                                          "md5":  "f8b098516ade4c17496b28103838adad"
+                                      },
+                              "png":  {
+                                          "size":  4045296,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/plastic_bottle_gallon/plastic_bottle_gallon_nor_dx_1k.png",
+                                          "md5":  "d93ee57fa720310adae74da4e7430334"
+                                      },
+                              "exr":  {
+                                          "size":  916120,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/plastic_bottle_gallon/plastic_bottle_gallon_nor_dx_1k.exr",
+                                          "md5":  "abb8a3e841ec73c4e6fc0f77fc398d5a"
+                                      }
+                          }
+               },
+    "nor_gl":  {
+                   "8k":  {
+                              "jpg":  {
+                                          "size":  39524201,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/8k/plastic_bottle_gallon/plastic_bottle_gallon_nor_gl_8k.jpg",
+                                          "md5":  "f9cc21552f8ae69ed047d3a633f8e340"
+                                      },
+                              "png":  {
+                                          "size":  210945501,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/8k/plastic_bottle_gallon/plastic_bottle_gallon_nor_gl_8k.png",
+                                          "md5":  "320a938d9badaf958e22baa3ee09ca3c"
+                                      },
+                              "exr":  {
+                                          "size":  85810605,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/8k/plastic_bottle_gallon/plastic_bottle_gallon_nor_gl_8k.exr",
+                                          "md5":  "2fc93829b834065ba1462d00220e2120"
+                                      }
+                          },
+                   "4k":  {
+                              "jpg":  {
+                                          "size":  9191198,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/plastic_bottle_gallon/plastic_bottle_gallon_nor_gl_4k.jpg",
+                                          "md5":  "5cf357cbb8a9d482512024ec4f7b752c"
+                                      },
+                              "png":  {
+                                          "size":  61712338,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/4k/plastic_bottle_gallon/plastic_bottle_gallon_nor_gl_4k.png",
+                                          "md5":  "77f10437abc96980b6d5ed32f4787cc1"
+                                      },
+                              "exr":  {
+                                          "size":  21327825,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/4k/plastic_bottle_gallon/plastic_bottle_gallon_nor_gl_4k.exr",
+                                          "md5":  "1bbe7f9eb391163279f462670dd25da9"
+                                      }
+                          },
+                   "2k":  {
+                              "jpg":  {
+                                          "size":  1914678,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/plastic_bottle_gallon/plastic_bottle_gallon_nor_gl_2k.jpg",
+                                          "md5":  "b7bebfde39977d842ffe866861a8757e"
+                                      },
+                              "png":  {
+                                          "size":  16174776,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/plastic_bottle_gallon/plastic_bottle_gallon_nor_gl_2k.png",
+                                          "md5":  "6177f4d6d561968b4318e405ff2dd8ff"
+                                      },
+                              "exr":  {
+                                          "size":  4823870,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/plastic_bottle_gallon/plastic_bottle_gallon_nor_gl_2k.exr",
+                                          "md5":  "dcdbd183f636bab5acf8893c45e164bf"
+                                      }
+                          },
+                   "1k":  {
+                              "jpg":  {
+                                          "size":  407414,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/plastic_bottle_gallon/plastic_bottle_gallon_nor_gl_1k.jpg",
+                                          "md5":  "9c8b20cae8a297d617ba3ec64ddb6209"
+                                      },
+                              "png":  {
+                                          "size":  4045248,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/plastic_bottle_gallon/plastic_bottle_gallon_nor_gl_1k.png",
+                                          "md5":  "5699cd29bf5b9c940584f3bec362d602"
+                                      },
+                              "exr":  {
+                                          "size":  917385,
+                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/plastic_bottle_gallon/plastic_bottle_gallon_nor_gl_1k.exr",
+                                          "md5":  "b9aeae72e9de4458cfb93a4d37e011bc"
+                                      }
+                          }
+               },
+    "blend":  {
+                  "8k":  {
+                             "blend":  {
+                                           "include":  {
+                                                           "textures/plastic_bottle_gallon_rough_8k.exr":  {
+                                                                                                               "size":  15068786,
+                                                                                                               "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/8k/plastic_bottle_gallon/plastic_bottle_gallon_rough_8k.exr",
+                                                                                                               "md5":  "a27ad5ceab26122f52681ca7b7958772"
+                                                                                                           },
+                                                           "textures/plastic_bottle_gallon_diff_8k.jpg":  {
+                                                                                                              "size":  9781874,
+                                                                                                              "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/8k/plastic_bottle_gallon/plastic_bottle_gallon_diff_8k.jpg",
+                                                                                                              "md5":  "d524fe5782302d4650b827cbb3b385dd"
+                                                                                                          },
+                                                           "textures/plastic_bottle_gallon_nor_gl_8k.exr":  {
+                                                                                                                "size":  85810605,
+                                                                                                                "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/8k/plastic_bottle_gallon/plastic_bottle_gallon_nor_gl_8k.exr",
+                                                                                                                "md5":  "2fc93829b834065ba1462d00220e2120"
+                                                                                                            }
+                                                       },
+                                           "size":  431946,
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/blend/8k/plastic_bottle_gallon/plastic_bottle_gallon_8k.blend",
+                                           "md5":  "01fb87b8b61533fa645250627fe7d6c5"
+                                       }
+                         },
+                  "4k":  {
+                             "blend":  {
+                                           "include":  {
+                                                           "textures/plastic_bottle_gallon_nor_gl_4k.exr":  {
+                                                                                                                "size":  21327825,
+                                                                                                                "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/4k/plastic_bottle_gallon/plastic_bottle_gallon_nor_gl_4k.exr",
+                                                                                                                "md5":  "1bbe7f9eb391163279f462670dd25da9"
+                                                                                                            },
+                                                           "textures/plastic_bottle_gallon_diff_4k.jpg":  {
+                                                                                                              "size":  3228899,
+                                                                                                              "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/plastic_bottle_gallon/plastic_bottle_gallon_diff_4k.jpg",
+                                                                                                              "md5":  "9dd3be115546aa779ccd184d13536675"
+                                                                                                          },
+                                                           "textures/plastic_bottle_gallon_rough_4k.exr":  {
+                                                                                                               "size":  7202427,
+                                                                                                               "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/4k/plastic_bottle_gallon/plastic_bottle_gallon_rough_4k.exr",
+                                                                                                               "md5":  "cb2c28222290c90ad807fbe9a20b1102"
+                                                                                                           }
+                                                       },
+                                           "size":  431943,
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/blend/4k/plastic_bottle_gallon/plastic_bottle_gallon_4k.blend",
+                                           "md5":  "a0ced9b30de7ed437bb8eb980c2509cf"
+                                       }
+                         },
+                  "2k":  {
+                             "blend":  {
+                                           "include":  {
+                                                           "textures/plastic_bottle_gallon_nor_gl_2k.exr":  {
+                                                                                                                "size":  4823870,
+                                                                                                                "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/plastic_bottle_gallon/plastic_bottle_gallon_nor_gl_2k.exr",
+                                                                                                                "md5":  "dcdbd183f636bab5acf8893c45e164bf"
+                                                                                                            },
+                                                           "textures/plastic_bottle_gallon_rough_2k.exr":  {
+                                                                                                               "size":  2513508,
+                                                                                                               "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/plastic_bottle_gallon/plastic_bottle_gallon_rough_2k.exr",
+                                                                                                               "md5":  "a53e1429f6d4e2b37c98d5c0727fd6a2"
+                                                                                                           },
+                                                           "textures/plastic_bottle_gallon_diff_2k.jpg":  {
+                                                                                                              "size":  1041743,
+                                                                                                              "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/plastic_bottle_gallon/plastic_bottle_gallon_diff_2k.jpg",
+                                                                                                              "md5":  "212f5a30039a0b9d6fd6d2b4e7846782"
+                                                                                                          }
+                                                       },
+                                           "size":  432056,
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/blend/2k/plastic_bottle_gallon/plastic_bottle_gallon_2k.blend",
+                                           "md5":  "52cbca5d4af8b4f5c7bd88214f12d148"
+                                       }
+                         },
+                  "1k":  {
+                             "blend":  {
+                                           "include":  {
+                                                           "textures/plastic_bottle_gallon_rough_1k.exr":  {
+                                                                                                               "size":  731791,
+                                                                                                               "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/plastic_bottle_gallon/plastic_bottle_gallon_rough_1k.exr",
+                                                                                                               "md5":  "dc101a4e75d0021bd7d04e106d133fd8"
+                                                                                                           },
+                                                           "textures/plastic_bottle_gallon_diff_1k.jpg":  {
+                                                                                                              "size":  317396,
+                                                                                                              "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/plastic_bottle_gallon/plastic_bottle_gallon_diff_1k.jpg",
+                                                                                                              "md5":  "e3655eb80c6bce520865a4f4a2b37bd9"
+                                                                                                          },
+                                                           "textures/plastic_bottle_gallon_nor_gl_1k.exr":  {
+                                                                                                                "size":  917385,
+                                                                                                                "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/plastic_bottle_gallon/plastic_bottle_gallon_nor_gl_1k.exr",
+                                                                                                                "md5":  "b9aeae72e9de4458cfb93a4d37e011bc"
+                                                                                                            }
+                                                       },
+                                           "size":  431843,
+                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/blend/1k/plastic_bottle_gallon/plastic_bottle_gallon_1k.blend",
+                                           "md5":  "b6cc0ffc4c604398d34f4870c7475f7b"
+                                       }
+                         }
+              },
+    "gltf":  {
+                 "8k":  {
+                            "gltf":  {
+                                         "include":  {
+                                                         "textures/plastic_bottle_gallon_diff_8k.jpg":  {
+                                                                                                            "size":  9781874,
+                                                                                                            "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/8k/plastic_bottle_gallon/plastic_bottle_gallon_diff_8k.jpg",
+                                                                                                            "md5":  "d524fe5782302d4650b827cbb3b385dd"
+                                                                                                        },
+                                                         "plastic_bottle_gallon.bin":  {
+                                                                                           "size":  313632,
+                                                                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/gltf/8k/plastic_bottle_gallon/plastic_bottle_gallon.bin",
+                                                                                           "md5":  "6c2ca21c091dade524b0ea318ce0a8da"
+                                                                                       },
+                                                         "textures/plastic_bottle_gallon_nor_gl_8k.jpg":  {
+                                                                                                              "size":  39524201,
+                                                                                                              "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/8k/plastic_bottle_gallon/plastic_bottle_gallon_nor_gl_8k.jpg",
+                                                                                                              "md5":  "f9cc21552f8ae69ed047d3a633f8e340"
+                                                                                                          },
+                                                         "textures/plastic_bottle_gallon_arm_8k.jpg":  {
+                                                                                                           "size":  11628582,
+                                                                                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/8k/plastic_bottle_gallon/plastic_bottle_gallon_arm_8k.jpg",
+                                                                                                           "md5":  "a22305d28eebe753b35ffdfdc3ba6347"
+                                                                                                       }
+                                                     },
+                                         "size":  2868,
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/gltf/8k/plastic_bottle_gallon/plastic_bottle_gallon_8k.gltf",
+                                         "md5":  "25f5223df4ac273aa3380e5dca87dd3e"
+                                     }
+                        },
+                 "4k":  {
+                            "gltf":  {
+                                         "include":  {
+                                                         "textures/plastic_bottle_gallon_nor_gl_4k.jpg":  {
+                                                                                                              "size":  9191198,
+                                                                                                              "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/plastic_bottle_gallon/plastic_bottle_gallon_nor_gl_4k.jpg",
+                                                                                                              "md5":  "5cf357cbb8a9d482512024ec4f7b752c"
+                                                                                                          },
+                                                         "textures/plastic_bottle_gallon_diff_4k.jpg":  {
+                                                                                                            "size":  3228899,
+                                                                                                            "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/plastic_bottle_gallon/plastic_bottle_gallon_diff_4k.jpg",
+                                                                                                            "md5":  "9dd3be115546aa779ccd184d13536675"
+                                                                                                        },
+                                                         "plastic_bottle_gallon.bin":  {
+                                                                                           "size":  313632,
+                                                                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/gltf/8k/plastic_bottle_gallon/plastic_bottle_gallon.bin",
+                                                                                           "md5":  "6c2ca21c091dade524b0ea318ce0a8da"
+                                                                                       },
+                                                         "textures/plastic_bottle_gallon_arm_4k.jpg":  {
+                                                                                                           "size":  3558160,
+                                                                                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/plastic_bottle_gallon/plastic_bottle_gallon_arm_4k.jpg",
+                                                                                                           "md5":  "c992a4d8c77f0a5ca4e4ff05913e9620"
+                                                                                                       }
+                                                     },
+                                         "size":  2868,
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/gltf/4k/plastic_bottle_gallon/plastic_bottle_gallon_4k.gltf",
+                                         "md5":  "1fc7dee27ccc626a181cf97e4382d7b5"
+                                     }
+                        },
+                 "2k":  {
+                            "gltf":  {
+                                         "include":  {
+                                                         "textures/plastic_bottle_gallon_nor_gl_2k.jpg":  {
+                                                                                                              "size":  1914678,
+                                                                                                              "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/plastic_bottle_gallon/plastic_bottle_gallon_nor_gl_2k.jpg",
+                                                                                                              "md5":  "b7bebfde39977d842ffe866861a8757e"
+                                                                                                          },
+                                                         "textures/plastic_bottle_gallon_arm_2k.jpg":  {
+                                                                                                           "size":  1122154,
+                                                                                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/plastic_bottle_gallon/plastic_bottle_gallon_arm_2k.jpg",
+                                                                                                           "md5":  "e367f8d8ac132f7b34a09f39eef16ac8"
+                                                                                                       },
+                                                         "plastic_bottle_gallon.bin":  {
+                                                                                           "size":  313632,
+                                                                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/gltf/8k/plastic_bottle_gallon/plastic_bottle_gallon.bin",
+                                                                                           "md5":  "6c2ca21c091dade524b0ea318ce0a8da"
+                                                                                       },
+                                                         "textures/plastic_bottle_gallon_diff_2k.jpg":  {
+                                                                                                            "size":  1041743,
+                                                                                                            "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/plastic_bottle_gallon/plastic_bottle_gallon_diff_2k.jpg",
+                                                                                                            "md5":  "212f5a30039a0b9d6fd6d2b4e7846782"
+                                                                                                        }
+                                                     },
+                                         "size":  2868,
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/gltf/2k/plastic_bottle_gallon/plastic_bottle_gallon_2k.gltf",
+                                         "md5":  "e0846703a17a0154b7383a898d230a23"
+                                     }
+                        },
+                 "1k":  {
+                            "gltf":  {
+                                         "include":  {
+                                                         "textures/plastic_bottle_gallon_arm_1k.jpg":  {
+                                                                                                           "size":  343990,
+                                                                                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/plastic_bottle_gallon/plastic_bottle_gallon_arm_1k.jpg",
+                                                                                                           "md5":  "8d1149d4c332907ccaf2fda0a4d343c0"
+                                                                                                       },
+                                                         "textures/plastic_bottle_gallon_diff_1k.jpg":  {
+                                                                                                            "size":  317396,
+                                                                                                            "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/plastic_bottle_gallon/plastic_bottle_gallon_diff_1k.jpg",
+                                                                                                            "md5":  "e3655eb80c6bce520865a4f4a2b37bd9"
+                                                                                                        },
+                                                         "textures/plastic_bottle_gallon_nor_gl_1k.jpg":  {
+                                                                                                              "size":  407414,
+                                                                                                              "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/plastic_bottle_gallon/plastic_bottle_gallon_nor_gl_1k.jpg",
+                                                                                                              "md5":  "9c8b20cae8a297d617ba3ec64ddb6209"
+                                                                                                          },
+                                                         "plastic_bottle_gallon.bin":  {
+                                                                                           "size":  313632,
+                                                                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/gltf/8k/plastic_bottle_gallon/plastic_bottle_gallon.bin",
+                                                                                           "md5":  "6c2ca21c091dade524b0ea318ce0a8da"
+                                                                                       }
+                                                     },
+                                         "size":  2868,
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/gltf/1k/plastic_bottle_gallon/plastic_bottle_gallon_1k.gltf",
+                                         "md5":  "a420cbcc75b865e4a0c4f5ee1e4ce684"
+                                     }
+                        }
+             },
+    "usd":  {
+                "8k":  {
+                           "usd":  {
+                                       "include":  {
+                                                       "textures/plastic_bottle_gallon_rough_8k.exr":  {
+                                                                                                           "size":  15068786,
+                                                                                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/8k/plastic_bottle_gallon/plastic_bottle_gallon_rough_8k.exr",
+                                                                                                           "md5":  "a27ad5ceab26122f52681ca7b7958772"
+                                                                                                       },
+                                                       "textures/plastic_bottle_gallon_diff_8k.jpg":  {
+                                                                                                          "size":  9781874,
+                                                                                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/8k/plastic_bottle_gallon/plastic_bottle_gallon_diff_8k.jpg",
+                                                                                                          "md5":  "d524fe5782302d4650b827cbb3b385dd"
+                                                                                                      },
+                                                       "textures/plastic_bottle_gallon_nor_gl_8k.exr":  {
+                                                                                                            "size":  85810605,
+                                                                                                            "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/8k/plastic_bottle_gallon/plastic_bottle_gallon_nor_gl_8k.exr",
+                                                                                                            "md5":  "2fc93829b834065ba1462d00220e2120"
+                                                                                                        }
+                                                   },
+                                       "size":  688107,
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/usd/8k/plastic_bottle_gallon/plastic_bottle_gallon_8k.usdc",
+                                       "md5":  "ff13cf621e6c7ce30f6e602f03b13dba"
+                                   }
+                       },
+                "4k":  {
+                           "usd":  {
+                                       "include":  {
+                                                       "textures/plastic_bottle_gallon_nor_gl_4k.exr":  {
+                                                                                                            "size":  21327825,
+                                                                                                            "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/4k/plastic_bottle_gallon/plastic_bottle_gallon_nor_gl_4k.exr",
+                                                                                                            "md5":  "1bbe7f9eb391163279f462670dd25da9"
+                                                                                                        },
+                                                       "textures/plastic_bottle_gallon_diff_4k.jpg":  {
+                                                                                                          "size":  3228899,
+                                                                                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/plastic_bottle_gallon/plastic_bottle_gallon_diff_4k.jpg",
+                                                                                                          "md5":  "9dd3be115546aa779ccd184d13536675"
+                                                                                                      },
+                                                       "textures/plastic_bottle_gallon_rough_4k.exr":  {
+                                                                                                           "size":  7202427,
+                                                                                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/4k/plastic_bottle_gallon/plastic_bottle_gallon_rough_4k.exr",
+                                                                                                           "md5":  "cb2c28222290c90ad807fbe9a20b1102"
+                                                                                                       }
+                                                   },
+                                       "size":  688107,
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/usd/4k/plastic_bottle_gallon/plastic_bottle_gallon_4k.usdc",
+                                       "md5":  "8707c099bce135e19056feb5ef822acd"
+                                   }
+                       },
+                "2k":  {
+                           "usd":  {
+                                       "include":  {
+                                                       "textures/plastic_bottle_gallon_nor_gl_2k.exr":  {
+                                                                                                            "size":  4823870,
+                                                                                                            "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/plastic_bottle_gallon/plastic_bottle_gallon_nor_gl_2k.exr",
+                                                                                                            "md5":  "dcdbd183f636bab5acf8893c45e164bf"
+                                                                                                        },
+                                                       "textures/plastic_bottle_gallon_rough_2k.exr":  {
+                                                                                                           "size":  2513508,
+                                                                                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/plastic_bottle_gallon/plastic_bottle_gallon_rough_2k.exr",
+                                                                                                           "md5":  "a53e1429f6d4e2b37c98d5c0727fd6a2"
+                                                                                                       },
+                                                       "textures/plastic_bottle_gallon_diff_2k.jpg":  {
+                                                                                                          "size":  1041743,
+                                                                                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/plastic_bottle_gallon/plastic_bottle_gallon_diff_2k.jpg",
+                                                                                                          "md5":  "212f5a30039a0b9d6fd6d2b4e7846782"
+                                                                                                      }
+                                                   },
+                                       "size":  688107,
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/usd/2k/plastic_bottle_gallon/plastic_bottle_gallon_2k.usdc",
+                                       "md5":  "2957c96369fda730da670909f6cc1940"
+                                   }
+                       },
+                "1k":  {
+                           "usd":  {
+                                       "include":  {
+                                                       "textures/plastic_bottle_gallon_rough_1k.exr":  {
+                                                                                                           "size":  731791,
+                                                                                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/plastic_bottle_gallon/plastic_bottle_gallon_rough_1k.exr",
+                                                                                                           "md5":  "dc101a4e75d0021bd7d04e106d133fd8"
+                                                                                                       },
+                                                       "textures/plastic_bottle_gallon_diff_1k.jpg":  {
+                                                                                                          "size":  317396,
+                                                                                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/plastic_bottle_gallon/plastic_bottle_gallon_diff_1k.jpg",
+                                                                                                          "md5":  "e3655eb80c6bce520865a4f4a2b37bd9"
+                                                                                                      },
+                                                       "textures/plastic_bottle_gallon_nor_gl_1k.exr":  {
+                                                                                                            "size":  917385,
+                                                                                                            "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/plastic_bottle_gallon/plastic_bottle_gallon_nor_gl_1k.exr",
+                                                                                                            "md5":  "b9aeae72e9de4458cfb93a4d37e011bc"
+                                                                                                        }
+                                                   },
+                                       "size":  688128,
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/usd/1k/plastic_bottle_gallon/plastic_bottle_gallon_1k.usdc",
+                                       "md5":  "8d16a40fd1ef2066fc83d5b1a41dff34"
+                                   }
+                       }
+            },
+    "Metal":  {
+                  "8k":  {
+                             "jpg":  {
+                                         "size":  786830,
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/8k/plastic_bottle_gallon/plastic_bottle_gallon_metal_8k.jpg",
+                                         "md5":  "a616a778e71eb5a0429077c626282b4f"
+                                     },
+                             "png":  {
+                                         "size":  130732,
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/8k/plastic_bottle_gallon/plastic_bottle_gallon_metal_8k.png",
+                                         "md5":  "000d871f6e52179ea8541ed5ebbb5e7a"
+                                     },
+                             "exr":  {
+                                         "size":  150384,
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/8k/plastic_bottle_gallon/plastic_bottle_gallon_metal_8k.exr",
+                                         "md5":  "ef883ea4aa2755131ea0babae99b87d0"
+                                     }
+                         },
+                  "4k":  {
+                             "jpg":  {
+                                         "size":  197006,
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/plastic_bottle_gallon/plastic_bottle_gallon_metal_4k.jpg",
+                                         "md5":  "672591b42c64e5042e82d8e39f6d8922"
+                                     },
+                             "png":  {
+                                         "size":  32763,
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/4k/plastic_bottle_gallon/plastic_bottle_gallon_metal_4k.png",
+                                         "md5":  "261834d04201f95d9188ee9c24a90bff"
+                                     },
+                             "exr":  {
+                                         "size":  42864,
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/4k/plastic_bottle_gallon/plastic_bottle_gallon_metal_4k.exr",
+                                         "md5":  "d00a5aae85648ea2686ce514d110ecfc"
+                                     }
+                         },
+                  "2k":  {
+                             "jpg":  {
+                                         "size":  49550,
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/plastic_bottle_gallon/plastic_bottle_gallon_metal_2k.jpg",
+                                         "md5":  "4ef1e5c3958eea6901d85dbd005b7617"
+                                     },
+                             "png":  {
+                                         "size":  8264,
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/plastic_bottle_gallon/plastic_bottle_gallon_metal_2k.png",
+                                         "md5":  "d1b4236811cde253fe1d58c79386c101"
+                                     },
+                             "exr":  {
+                                         "size":  13296,
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/plastic_bottle_gallon/plastic_bottle_gallon_metal_2k.exr",
+                                         "md5":  "9b01890f4bcd8a469332b76312ca4a2d"
+                                     }
+                         },
+                  "1k":  {
+                             "jpg":  {
+                                         "size":  12686,
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/plastic_bottle_gallon/plastic_bottle_gallon_metal_1k.jpg",
+                                         "md5":  "2586d4417893b6ac021b0359155fdd49"
+                                     },
+                             "png":  {
+                                         "size":  2155,
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/plastic_bottle_gallon/plastic_bottle_gallon_metal_1k.png",
+                                         "md5":  "3984ebd3e0aff11d149c2c40985d22f3"
+                                     },
+                             "exr":  {
+                                         "size":  4784,
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/plastic_bottle_gallon/plastic_bottle_gallon_metal_1k.exr",
+                                         "md5":  "b32bb563ee462e6eb844c4dbd4f01a46"
+                                     }
+                         }
+              },
+    "fbx":  {
+                "8k":  {
+                           "fbx":  {
+                                       "include":  {
+                                                       "textures/plastic_bottle_gallon_rough_8k.exr":  {
+                                                                                                           "size":  15068786,
+                                                                                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/8k/plastic_bottle_gallon/plastic_bottle_gallon_rough_8k.exr",
+                                                                                                           "md5":  "a27ad5ceab26122f52681ca7b7958772"
+                                                                                                       },
+                                                       "textures/plastic_bottle_gallon_diff_8k.jpg":  {
+                                                                                                          "size":  9781874,
+                                                                                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/8k/plastic_bottle_gallon/plastic_bottle_gallon_diff_8k.jpg",
+                                                                                                          "md5":  "d524fe5782302d4650b827cbb3b385dd"
+                                                                                                      },
+                                                       "textures/plastic_bottle_gallon_nor_gl_8k.exr":  {
+                                                                                                            "size":  85810605,
+                                                                                                            "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/8k/plastic_bottle_gallon/plastic_bottle_gallon_nor_gl_8k.exr",
+                                                                                                            "md5":  "2fc93829b834065ba1462d00220e2120"
+                                                                                                        }
+                                                   },
+                                       "size":  457116,
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/fbx/8k/plastic_bottle_gallon/plastic_bottle_gallon_8k.fbx",
+                                       "md5":  "abdd643923daa8ffdbf490fc7ae216cf"
+                                   }
+                       },
+                "4k":  {
+                           "fbx":  {
+                                       "include":  {
+                                                       "textures/plastic_bottle_gallon_nor_gl_4k.exr":  {
+                                                                                                            "size":  21327825,
+                                                                                                            "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/4k/plastic_bottle_gallon/plastic_bottle_gallon_nor_gl_4k.exr",
+                                                                                                            "md5":  "1bbe7f9eb391163279f462670dd25da9"
+                                                                                                        },
+                                                       "textures/plastic_bottle_gallon_rough_4k.exr":  {
+                                                                                                           "size":  7202427,
+                                                                                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/4k/plastic_bottle_gallon/plastic_bottle_gallon_rough_4k.exr",
+                                                                                                           "md5":  "cb2c28222290c90ad807fbe9a20b1102"
+                                                                                                       },
+                                                       "textures/plastic_bottle_gallon_diff_4k.jpg":  {
+                                                                                                          "size":  3228899,
+                                                                                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/plastic_bottle_gallon/plastic_bottle_gallon_diff_4k.jpg",
+                                                                                                          "md5":  "9dd3be115546aa779ccd184d13536675"
+                                                                                                      }
+                                                   },
+                                       "size":  457132,
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/fbx/4k/plastic_bottle_gallon/plastic_bottle_gallon_4k.fbx",
+                                       "md5":  "f3a14e2d9baa8d697b9a38af5e7d7784"
+                                   }
+                       },
+                "2k":  {
+                           "fbx":  {
+                                       "include":  {
+                                                       "textures/plastic_bottle_gallon_nor_gl_2k.exr":  {
+                                                                                                            "size":  4823870,
+                                                                                                            "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/plastic_bottle_gallon/plastic_bottle_gallon_nor_gl_2k.exr",
+                                                                                                            "md5":  "dcdbd183f636bab5acf8893c45e164bf"
+                                                                                                        },
+                                                       "textures/plastic_bottle_gallon_rough_2k.exr":  {
+                                                                                                           "size":  2513508,
+                                                                                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/plastic_bottle_gallon/plastic_bottle_gallon_rough_2k.exr",
+                                                                                                           "md5":  "a53e1429f6d4e2b37c98d5c0727fd6a2"
+                                                                                                       },
+                                                       "textures/plastic_bottle_gallon_diff_2k.jpg":  {
+                                                                                                          "size":  1041743,
+                                                                                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/plastic_bottle_gallon/plastic_bottle_gallon_diff_2k.jpg",
+                                                                                                          "md5":  "212f5a30039a0b9d6fd6d2b4e7846782"
+                                                                                                      }
+                                                   },
+                                       "size":  457116,
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/fbx/2k/plastic_bottle_gallon/plastic_bottle_gallon_2k.fbx",
+                                       "md5":  "7ce61965a54db5e5c154b5a89e414849"
+                                   }
+                       },
+                "1k":  {
+                           "fbx":  {
+                                       "include":  {
+                                                       "textures/plastic_bottle_gallon_rough_1k.exr":  {
+                                                                                                           "size":  731791,
+                                                                                                           "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/plastic_bottle_gallon/plastic_bottle_gallon_rough_1k.exr",
+                                                                                                           "md5":  "dc101a4e75d0021bd7d04e106d133fd8"
+                                                                                                       },
+                                                       "textures/plastic_bottle_gallon_diff_1k.jpg":  {
+                                                                                                          "size":  317396,
+                                                                                                          "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/plastic_bottle_gallon/plastic_bottle_gallon_diff_1k.jpg",
+                                                                                                          "md5":  "e3655eb80c6bce520865a4f4a2b37bd9"
+                                                                                                      },
+                                                       "textures/plastic_bottle_gallon_nor_gl_1k.exr":  {
+                                                                                                            "size":  917385,
+                                                                                                            "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/plastic_bottle_gallon/plastic_bottle_gallon_nor_gl_1k.exr",
+                                                                                                            "md5":  "b9aeae72e9de4458cfb93a4d37e011bc"
+                                                                                                        }
+                                                   },
+                                       "size":  457116,
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/fbx/1k/plastic_bottle_gallon/plastic_bottle_gallon_1k.fbx",
+                                       "md5":  "f15d5be5af797e2cbf3b2320ad7cfd27"
+                                   }
+                       }
+            },
+    "arm":  {
+                "8k":  {
+                           "jpg":  {
+                                       "size":  11628582,
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/8k/plastic_bottle_gallon/plastic_bottle_gallon_arm_8k.jpg",
+                                       "md5":  "a22305d28eebe753b35ffdfdc3ba6347"
+                                   },
+                           "png":  {
+                                       "size":  28600405,
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/8k/plastic_bottle_gallon/plastic_bottle_gallon_arm_8k.png",
+                                       "md5":  "9c4144d6f18bb164b87705defc8f94eb"
+                                   },
+                           "exr":  {
+                                       "size":  18386729,
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/8k/plastic_bottle_gallon/plastic_bottle_gallon_arm_8k.exr",
+                                       "md5":  "59a54ec8eb037fe1375b7f81ef3d3cab"
+                                   }
+                       },
+                "4k":  {
+                           "jpg":  {
+                                       "size":  3558160,
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/plastic_bottle_gallon/plastic_bottle_gallon_arm_4k.jpg",
+                                       "md5":  "c992a4d8c77f0a5ca4e4ff05913e9620"
+                                   },
+                           "png":  {
+                                       "size":  17814613,
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/4k/plastic_bottle_gallon/plastic_bottle_gallon_arm_4k.png",
+                                       "md5":  "c17300eb6eec02c85501d6488756861d"
+                                   },
+                           "exr":  {
+                                       "size":  5732311,
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/4k/plastic_bottle_gallon/plastic_bottle_gallon_arm_4k.exr",
+                                       "md5":  "27c757e808693f73452881278b508aa6"
+                                   }
+                       },
+                "2k":  {
+                           "jpg":  {
+                                       "size":  1122154,
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/plastic_bottle_gallon/plastic_bottle_gallon_arm_2k.jpg",
+                                       "md5":  "e367f8d8ac132f7b34a09f39eef16ac8"
+                                   },
+                           "png":  {
+                                       "size":  6917656,
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/plastic_bottle_gallon/plastic_bottle_gallon_arm_2k.png",
+                                       "md5":  "1c4e7be4fef52ce2cf20d528b5ceeccd"
+                                   },
+                           "exr":  {
+                                       "size":  1876927,
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/plastic_bottle_gallon/plastic_bottle_gallon_arm_2k.exr",
+                                       "md5":  "233c47051afd28fa4add60bee940f897"
+                                   }
+                       },
+                "1k":  {
+                           "jpg":  {
+                                       "size":  343990,
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/plastic_bottle_gallon/plastic_bottle_gallon_arm_1k.jpg",
+                                       "md5":  "8d1149d4c332907ccaf2fda0a4d343c0"
+                                   },
+                           "png":  {
+                                       "size":  2331211,
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/plastic_bottle_gallon/plastic_bottle_gallon_arm_1k.png",
+                                       "md5":  "0d8e9b784642ea0d10c92ce7b46181f1"
+                                   },
+                           "exr":  {
+                                       "size":  608392,
+                                       "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/plastic_bottle_gallon/plastic_bottle_gallon_arm_1k.exr",
+                                       "md5":  "7df42b049a6c1c0c0937b344cf81330d"
+                                   }
+                       }
+            },
+    "AO":  {
+               "8k":  {
+                          "jpg":  {
+                                      "size":  6038996,
+                                      "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/8k/plastic_bottle_gallon/plastic_bottle_gallon_ao_8k.jpg",
+                                      "md5":  "632b88c911f8dc431bbe437c93ffd407"
+                                  },
+                          "png":  {
+                                      "size":  8522893,
+                                      "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/8k/plastic_bottle_gallon/plastic_bottle_gallon_ao_8k.png",
+                                      "md5":  "a83490356cd42112ac88333bd391753f"
+                                  },
+                          "exr":  {
+                                      "size":  9875529,
+                                      "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/8k/plastic_bottle_gallon/plastic_bottle_gallon_ao_8k.exr",
+                                      "md5":  "59f43fd4cae74a0fd803e6dbf14eb432"
+                                  }
+                      },
+               "4k":  {
+                          "jpg":  {
+                                      "size":  1174532,
+                                      "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/plastic_bottle_gallon/plastic_bottle_gallon_ao_4k.jpg",
+                                      "md5":  "c1edafc4b5da4b99d81dfd074ba991da"
+                                  },
+                          "png":  {
+                                      "size":  4610787,
+                                      "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/4k/plastic_bottle_gallon/plastic_bottle_gallon_ao_4k.png",
+                                      "md5":  "47fc92c7af8bbccbf5bed18e51970fb3"
+                                  },
+                          "exr":  {
+                                      "size":  3575497,
+                                      "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/4k/plastic_bottle_gallon/plastic_bottle_gallon_ao_4k.exr",
+                                      "md5":  "ff8184079650a2487e4ea12af2cae089"
+                                  }
+                      },
+               "2k":  {
+                          "jpg":  {
+                                      "size":  282647,
+                                      "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/plastic_bottle_gallon/plastic_bottle_gallon_ao_2k.jpg",
+                                      "md5":  "230825b67d64362912ba37e018996b46"
+                                  },
+                          "png":  {
+                                      "size":  1580449,
+                                      "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/plastic_bottle_gallon/plastic_bottle_gallon_ao_2k.png",
+                                      "md5":  "f2b48d944437dc5c61359d577e5dfcca"
+                                  },
+                          "exr":  {
+                                      "size":  1053233,
+                                      "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/plastic_bottle_gallon/plastic_bottle_gallon_ao_2k.exr",
+                                      "md5":  "8ed00eaebcfce498499c943e6acd8535"
+                                  }
+                      },
+               "1k":  {
+                          "jpg":  {
+                                      "size":  87155,
+                                      "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/plastic_bottle_gallon/plastic_bottle_gallon_ao_1k.jpg",
+                                      "md5":  "9df6e402575844544f10a2b6dec36954"
+                                  },
+                          "png":  {
+                                      "size":  573947,
+                                      "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/plastic_bottle_gallon/plastic_bottle_gallon_ao_1k.png",
+                                      "md5":  "3562066ff5a47447de26c13e0a744dae"
+                                  },
+                          "exr":  {
+                                      "size":  301251,
+                                      "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/plastic_bottle_gallon/plastic_bottle_gallon_ao_1k.exr",
+                                      "md5":  "10c386bfab2ef06cd0254f2b0b352ae3"
+                                  }
+                      }
+           },
+    "Rough":  {
+                  "8k":  {
+                             "jpg":  {
+                                         "size":  11182129,
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/8k/plastic_bottle_gallon/plastic_bottle_gallon_rough_8k.jpg",
+                                         "md5":  "5d9b81f4c8204f8f6d73778a0e645532"
+                                     },
+                             "png":  {
+                                         "size":  14058222,
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/8k/plastic_bottle_gallon/plastic_bottle_gallon_rough_8k.png",
+                                         "md5":  "7a3122a8700bb5c2573d34c278b8e539"
+                                     },
+                             "exr":  {
+                                         "size":  15068786,
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/8k/plastic_bottle_gallon/plastic_bottle_gallon_rough_8k.exr",
+                                         "md5":  "a27ad5ceab26122f52681ca7b7958772"
+                                     }
+                         },
+                  "4k":  {
+                             "jpg":  {
+                                         "size":  3330819,
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/plastic_bottle_gallon/plastic_bottle_gallon_rough_4k.jpg",
+                                         "md5":  "33331286e66ad4fc44c8e9343b90db39"
+                                     },
+                             "png":  {
+                                         "size":  9851046,
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/4k/plastic_bottle_gallon/plastic_bottle_gallon_rough_4k.png",
+                                         "md5":  "a10962544a794cc6a64ef003cdd50547"
+                                     },
+                             "exr":  {
+                                         "size":  7202427,
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/4k/plastic_bottle_gallon/plastic_bottle_gallon_rough_4k.exr",
+                                         "md5":  "cb2c28222290c90ad807fbe9a20b1102"
+                                     }
+                         },
+                  "2k":  {
+                             "jpg":  {
+                                         "size":  1037856,
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/plastic_bottle_gallon/plastic_bottle_gallon_rough_2k.jpg",
+                                         "md5":  "e857d921c8598061de677daa2ad2cad7"
+                                     },
+                             "png":  {
+                                         "size":  4079847,
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/plastic_bottle_gallon/plastic_bottle_gallon_rough_2k.png",
+                                         "md5":  "6b5a718b3fbaf5c6ec28e5fa7ba8505f"
+                                     },
+                             "exr":  {
+                                         "size":  2513508,
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/plastic_bottle_gallon/plastic_bottle_gallon_rough_2k.exr",
+                                         "md5":  "a53e1429f6d4e2b37c98d5c0727fd6a2"
+                                     }
+                         },
+                  "1k":  {
+                             "jpg":  {
+                                         "size":  310889,
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/plastic_bottle_gallon/plastic_bottle_gallon_rough_1k.jpg",
+                                         "md5":  "6677ea56bf7347d9f59b4ca14487a507"
+                                     },
+                             "png":  {
+                                         "size":  1319015,
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/plastic_bottle_gallon/plastic_bottle_gallon_rough_1k.png",
+                                         "md5":  "416a074476aac5ea91089b11313b4f51"
+                                     },
+                             "exr":  {
+                                         "size":  731791,
+                                         "url":  "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/plastic_bottle_gallon/plastic_bottle_gallon_rough_1k.exr",
+                                         "md5":  "dc101a4e75d0021bd7d04e106d133fd8"
+                                     }
+                         }
+              }
+}

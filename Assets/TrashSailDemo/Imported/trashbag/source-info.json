@@ -1,0 +1,58 @@
+{
+    "type":  2,
+    "name":  "Trashbag",
+    "categories":  [
+                       "collection: project_lighthouse",
+                       "props"
+                   ],
+    "tags":  [
+                 "garbage bag",
+                 "refuse",
+                 "street waste",
+                 "trash",
+                 "street",
+                 "scrapyard",
+                 "junkyard",
+                 "garbage",
+                 "bin",
+                 "dumpster",
+                 "disposal",
+                 "litter",
+                 "rubbish"
+             ],
+    "description":  "Free 8K model of a shiny black trash bag, crumpled and heavy with visible packaging under stretched plastic, rich folds, sharp creases, and grimy wear.",
+    "authors":  {
+                    "Benny Weimer":  "All"
+                },
+    "donated":  true,
+    "max_resolution":  [
+                           8192,
+                           8192
+                       ],
+    "polycount":  4482,
+    "texel_density":  6746.215197693091,
+    "dimensions":  [
+                       528.0700623989105,
+                       462.893009185791,
+                       574.9993845820427
+                   ],
+    "date_published":  1780963200,
+    "staging":  null,
+    "files_hash":  "d291da0b535dffda7f7262b5e9210c93892576f7",
+    "category_id":  "bd37d762-aa43-518f-bfac-f5d41da2223d",
+    "category":  "Containers \u0026 Storage/Bags/Waste Bags",
+    "collections":  [
+                        "project_lighthouse"
+                    ],
+    "attributes":  {
+                       "condition":  [
+                                         "worn"
+                                     ],
+                       "material":  [
+                                        "plastic"
+                                    ]
+                   },
+    "img_version":  "f70df19b",
+    "download_count":  2820,
+    "thumbnail_url":  "https://cdn.polyhaven.com/asset_img/thumbs/trashbag.png?width=256\u0026height=256\u0026format=webp\u0026v=f70df19b"
+}

@@ -1,4 +1,10 @@
-﻿# Independent vehicle-agent integration review
+# ARCHIVED: vehicle-agent prototype review
+
+The findings below are preserved verbatim as historical review evidence; their repair statuses reflect that earlier snapshot, not the current production worktree. Current primary-thruster/pretrained-inference contracts are in PRODUCTION_CONTRACTS.md. Production integration outcomes belong to GATES.md and the lead's latest timestamped evidence. The lead subsequently reported 36 Unity Edit Mode tests passing; no final rendered acceptance claim is made by this archive header.
+
+---
+
+# Independent vehicle-agent integration review
 
 Reviewed camera, sonar, mission, runtime reset and evaluation source on 2026-11-07. This is source-level evidence; rendered acceptance and Unity test execution belong to the lead. No claim of rendered correctness follows from this review.
 

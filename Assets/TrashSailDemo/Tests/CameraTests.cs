@@ -15,29 +15,6 @@ namespace TrashSailDemo.Tests
             };
         }
 
-        [Test] public void PixelDetectorFindsSeparatedOrangeComponentsAndRejectsBlue()
-        {
-            var pixels = new Color32[40 * 24];
-            for (int i = 0; i < pixels.Length; i++) pixels[i] = new Color32(10, 70, 120, 255);
-            Paint(pixels, 40, 5, 4, 4, 5, new Color32(255, 55, 10, 255));
-            Paint(pixels, 40, 25, 12, 5, 4, new Color32(245, 30, 15, 255));
-            var found = new DemoImageDetector().Detect(pixels, 40, 24);
-            Assert.That(found.Count, Is.EqualTo(2));
-            Assert.That(found[0].Label, Is.EqualTo("rubbish"));
-            Assert.That(found[0].WaterContactPixel.y, Is.LessThan(found[0].Bounds.center.y));
-            Assert.That(found[0].Bounds.xMin, Is.EqualTo(5));
-        }
-
-        [Test] public void MutedCandidateRemainsUnknown()
-        {
-            var pixels = new Color32[20 * 20];
-            Paint(pixels, 20, 6, 6, 6, 6, new Color32(180, 140, 110, 255));
-            var found = new DemoImageDetector().Detect(pixels, 20, 20);
-            Assert.That(found.Count, Is.EqualTo(1));
-            Assert.That(found[0].Label, Is.EqualTo("unknown"));
-            Assert.That(found[0].Score, Is.LessThan(0.72f));
-        }
-
         [Test] public void WaterProjectionUsesCameraAttitudeAndContactPixel()
         {
             CameraFrame frame = Fixture();
@@ -61,10 +38,10 @@ namespace TrashSailDemo.Tests
         [Test] public void TrackerMaintainsIdAndExpiresWithoutNewObservations()
         {
             var tracker = new DemoVisualTracker();
-            var detection = new PixelDetection { Bounds = new Rect(48, 45, 5, 8), WaterContactPixel = new Vector2(50, 45), Label = "rubbish", Score = 0.9f };
-            tracker.Update(Fixture(1), new[] { detection }, 0, 3);
+            var result = new InferenceResult { profile="combined", detections=new[] { new ModelEvidence { model="YOLOE", classId=0, label="plastic bottle", category="CollectableRubbish", eligible=true, box=new[]{48f,47f,53f,55f}, score=.9f } } };
+            tracker.UpdateModels(Fixture(1), result, 0, 3, 1);
             int firstId = tracker.Tracks[0].Id;
-            tracker.Update(Fixture(1.1), new[] { detection }, 0, 3);
+            tracker.UpdateModels(Fixture(1.1), result, 0, 3, 1.1);
             Assert.That(tracker.Tracks.Count, Is.EqualTo(1));
             Assert.That(tracker.Tracks[0].Id, Is.EqualTo(firstId));
             Assert.That(tracker.Tracks[0].Hits, Is.EqualTo(2));
@@ -88,19 +65,40 @@ namespace TrashSailDemo.Tests
         [Test] public void ResetDropsPriorTracksAndRestartsPerceptionIds()
         {
             var tracker = new DemoVisualTracker();
-            var detection = new PixelDetection { Bounds = new Rect(48, 45, 5, 8), WaterContactPixel = new Vector2(50, 45), Label = "rubbish", Score = 0.9f };
-            tracker.Update(Fixture(), new[] { detection }, 0, 3);
+            var result = new InferenceResult { profile="combined", detections=new[] { new ModelEvidence { model="YOLOE", classId=0, label="plastic bottle", category="CollectableRubbish", eligible=true, box=new[]{48f,47f,53f,55f}, score=.9f } } };
+            tracker.UpdateModels(Fixture(), result, 0, 3, 1);
             tracker.Reset();
             Assert.That(tracker.Tracks.Count, Is.Zero);
-            tracker.Update(Fixture(10), new[] { detection }, 0, 3);
+            tracker.UpdateModels(Fixture(10), result, 0, 3, 10);
             Assert.That(tracker.Tracks[0].Id, Is.EqualTo(1));
             Assert.That(tracker.Tracks[0].Hits, Is.EqualTo(1));
         }
 
-        static void Paint(Color32[] pixels, int width, int x, int y, int w, int h, Color32 color)
+        [Test] public void ProtocolRejectsOldSessionAndWrongFrameButAcceptsEmptySuccess()
         {
-            for (int row = y; row < y + h; row++)
-                for (int col = x; col < x + w; col++) pixels[row * width + col] = color;
+            CameraFrame frame=Fixture();frame.Sequence=7;
+            var result=new InferenceResult {ok=true,empty=true,sessionId="reset-A",cameraId="onboard",sequence=7,captureTime=1,width=100,height=100,profile="combined",detections=System.Array.Empty<ModelEvidence>()};
+            Assert.That(DemoInferenceProtocol.Matches(result,"reset-A",frame,"combined"),Is.True);
+            Assert.That(DemoInferenceProtocol.Matches(result,"reset-B",frame,"combined"),Is.False);
+            result.sequence=6;
+            Assert.That(DemoInferenceProtocol.Matches(result,"reset-A",frame,"combined"),Is.False);
+            result.sequence=7;result.ok=false;
+            Assert.That(DemoInferenceProtocol.Matches(result,"reset-A",frame,"combined"),Is.False);
         }
+        [Test] public void ModelCoordinatesAndConflictRemainDistinct()
+        {
+            var a=new ModelEvidence {model="YOLOE",classId=0,label="plastic bottle",category="CollectableRubbish",eligible=false,conflict=true,score=.8f,box=new[]{45f,40f,55f,60f}};
+            var b=new ModelEvidence {model="TRASH",classId=2,label="animal_fish",category="Wildlife",eligible=false,conflict=true,score=.6f,box=new[]{45f,40f,55f,60f}};
+            Rect box=DemoInferenceProtocol.BottomLeftBox(a,100,100);
+            Assert.That(box.yMin,Is.EqualTo(40));
+            var tracker=new DemoVisualTracker();
+            tracker.UpdateModels(Fixture(),new InferenceResult {profile="combined",detections=new[]{a,b}},0,3,10);
+            Assert.That(tracker.Tracks.Count,Is.EqualTo(2));
+            Assert.That(tracker.Tracks[0].Eligible,Is.False);
+            Assert.That(tracker.Tracks[1].RangeValid,Is.False,"Never water-plane range a wildlife observation");
+            Assert.That(tracker.Tracks[1].Evidence[0].classId,Is.EqualTo(2));
+            Assert.That(tracker.Tracks[0].Conflict,Is.True);
+        }
+
     }
 }

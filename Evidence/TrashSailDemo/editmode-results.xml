@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="36" result="Passed" total="36" passed="36" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-11-07 13:19:07Z" end-time="2026-11-07 13:19:08Z" duration="1.0983343">
+  <test-suite type="TestSuite" id="1000" name="marus2-example" fullname="marus2-example" runstate="Runnable" testcasecount="36" result="Passed" start-time="2026-11-07 13:19:07Z" end-time="2026-11-07 13:19:08Z" duration="1.098334" total="36" passed="36" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1045" name="TrashSailDemo.Tests.dll" fullname="C:/Users/jonat/Documents/projects/marus2-example/Library/ScriptAssemblies/TrashSailDemo.Tests.dll" runstate="Runnable" testcasecount="36" result="Passed" start-time="2026-11-07 13:19:07Z" end-time="2026-11-07 13:19:08Z" duration="0.991584" total="36" passed="36" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="2588" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1046" name="TrashSailDemo" fullname="TrashSailDemo" runstate="Runnable" testcasecount="36" result="Passed" start-time="2026-11-07 13:19:07Z" end-time="2026-11-07 13:19:08Z" duration="0.905487" total="36" passed="36" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1047" name="Tests" fullname="TrashSailDemo.Tests" runstate="Runnable" testcasecount="36" result="Passed" start-time="2026-11-07 13:19:07Z" end-time="2026-11-07 13:19:08Z" duration="0.806111" total="36" passed="36" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestFixture" id="1002" name="CameraTests" fullname="TrashSailDemo.Tests.CameraTests" classname="TrashSailDemo.Tests.CameraTests" runstate="Runnable" testcasecount="7" result="Passed" start-time="2026-11-07 13:19:07Z" end-time="2026-11-07 13:19:07Z" duration="0.154139" total="7" passed="7" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1004" name="HorizonAndCroppedWaterContactDoNotGenerateRange" fullname="TrashSailDemo.Tests.CameraTests.HorizonAndCroppedWaterContactDoNotGenerateRange" methodname="HorizonAndCroppedWaterContactDoNotGenerateRange" classname="TrashSailDemo.Tests.CameraTests" runstate="Runnable" seed="558326167" result="Passed" start-time="2026-11-07 13:19:07Z" end-time="2026-11-07 13:19:07Z" duration="0.022260" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1009" name="ModelCoordinatesAndConflictRemainDistinct" fullname="TrashSailDemo.Tests.CameraTests.ModelCoordinatesAndConflictRemainDistinct" methodname="ModelCoordinatesAndConflictRemainDistinct" classname="TrashSailDemo.Tests.CameraTests" runstate="Runnable" seed="1608942651" result="Passed" start-time="2026-11-07 13:19:07Z" end-time="2026-11-07 13:19:07Z" duration="0.012515" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1006" name="OverlayUsesSameBottomLeftPixelCoordinates" fullname="TrashSailDemo.Tests.CameraTests.OverlayUsesSameBottomLeftPixelCoordinates" methodname="OverlayUsesSameBottomLeftPixelCoordinates" classname="TrashSailDemo.Tests.CameraTests" runstate="Runnable" seed="737979362" result="Passed" start-time="2026-11-07 13:19:07Z" end-time="2026-11-07 13:19:07Z" duration="0.000984" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1008" name="ProtocolRejectsOldSessionAndWrongFrameButAcceptsEmptySuccess" fullname="TrashSailDemo.Tests.CameraTests.ProtocolRejectsOldSessionAndWrongFrameButAcceptsEmptySuccess" methodname="ProtocolRejectsOldSessionAndWrongFrameButAcceptsEmptySuccess" classname="TrashSailDemo.Tests.CameraTests" runstate="Runnable" seed="982567563" result="Passed" start-time="2026-11-07 13:19:07Z" end-time="2026-11-07 13:19:07Z" duration="0.000496" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1007" name="ResetDropsPriorTracksAndRestartsPerceptionIds" fullname="TrashSailDemo.Tests.CameraTests.ResetDropsPriorTracksAndRestartsPerceptionIds" methodname="ResetDropsPriorTracksAndRestartsPerceptionIds" classname="TrashSailDemo.Tests.CameraTests" runstate="Runnable" seed="453682879" result="Passed" start-time="2026-11-07 13:19:07Z" end-time="2026-11-07 13:19:07Z" duration="0.000573" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1005" name="TrackerMaintainsIdAndExpiresWithoutNewObservations" fullname="TrashSailDemo.Tests.CameraTests.TrackerMaintainsIdAndExpiresWithoutNewObservations" methodname="TrackerMaintainsIdAndExpiresWithoutNewObservations" classname="TrashSailDemo.Tests.CameraTests" runstate="Runnable" seed="1191960572" result="Passed" start-time="2026-11-07 13:19:07Z" end-time="2026-11-07 13:19:07Z" duration="0.004886" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1003" name="WaterProjectionUsesCameraAttitudeAndContactPixel" fullname="TrashSailDemo.Tests.CameraTests.WaterProjectionUsesCameraAttitudeAndContactPixel" methodname="WaterProjectionUsesCameraAttitudeAndContactPixel" classname="TrashSailDemo.Tests.CameraTests" runstate="Runnable" seed="731890157" result="Passed" start-time="2026-11-07 13:19:07Z" end-time="2026-11-07 13:19:07Z" duration="0.000603" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1010" name="CoverageTests" fullname="TrashSailDemo.Tests.CoverageTests" classname="TrashSailDemo.Tests.CoverageTests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-11-07 13:19:07Z" end-time="2026-11-07 13:19:07Z" duration="0.155337" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1012" name="DiversionPreservesWaypointAndResetClearsTravelHistory" fullname="TrashSailDemo.Tests.CoverageTests.DiversionPreservesWaypointAndResetClearsTravelHistory" methodname="DiversionPreservesWaypointAndResetClearsTravelHistory" classname="TrashSailDemo.Tests.CoverageTests" runstate="Runnable" seed="1083914153" result="Passed" start-time="2026-11-07 13:19:07Z" end-time="2026-11-07 13:19:07Z" duration="0.009345" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1011" name="FirstLaneRunsNorthAndAllWaypointsStayInsideBoundary" fullname="TrashSailDemo.Tests.CoverageTests.FirstLaneRunsNorthAndAllWaypointsStayInsideBoundary" methodname="FirstLaneRunsNorthAndAllWaypointsStayInsideBoundary" classname="TrashSailDemo.Tests.CoverageTests" runstate="Runnable" seed="1723454520" result="Passed" start-time="2026-11-07 13:19:07Z" end-time="2026-11-07 13:19:07Z" duration="0.007598" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1013" name="SeedAndScenarioDoNotProvidePrivilegedRouteInputs" fullname="TrashSailDemo.Tests.CoverageTests.SeedAndScenarioDoNotProvidePrivilegedRouteInputs" methodname="SeedAndScenarioDoNotProvidePrivilegedRouteInputs" classname="TrashSailDemo.Tests.CoverageTests" runstate="Runnable" seed="1588498549" result="Passed" start-time="2026-11-07 13:19:07Z" end-time="2026-11-07 13:19:07Z" duration="0.002257" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-suite type="ParameterizedMethod" id="1016" name="TurnsRemainInsideMissionBoundaryInterlock" fullname="TrashSailDemo.Tests.CoverageTests.TurnsRemainInsideMissionBoundaryInterlock" classname="TrashSailDemo.Tests.CoverageTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-11-07 13:19:07Z" end-time="2026-11-07 13:19:07Z" duration="0.090708" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1014" name="TurnsRemainInsideMissionBoundaryInterlock(False)" fullname="TrashSailDemo.Tests.CoverageTests.TurnsRemainInsideMissionBoundaryInterlock(False)" methodname="TurnsRemainInsideMissionBoundaryInterlock" classname="TrashSailDemo.Tests.CoverageTests" runstate="Runnable" seed="1392584525" result="Passed" start-time="2026-11-07 13:19:07Z" end-time="2026-11-07 13:19:07Z" duration="0.002090" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1015" name="TurnsRemainInsideMissionBoundaryInterlock(True)" fullname="TrashSailDemo.Tests.CoverageTests.TurnsRemainInsideMissionBoundaryInterlock(True)" methodname="TurnsRemainInsideMissionBoundaryInterlock" classname="TrashSailDemo.Tests.CoverageTests" runstate="Runnable" seed="1423832139" result="Passed" start-time="2026-11-07 13:19:07Z" end-time="2026-11-07 13:19:07Z" duration="0.008889" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+          </test-suite>
+          <test-suite type="TestFixture" id="1017" name="DemoContractTests" fullname="TrashSailDemo.Tests.DemoContractTests" classname="TrashSailDemo.Tests.DemoContractTests" runstate="Runnable" testcasecount="6" result="Passed" start-time="2026-11-07 13:19:07Z" end-time="2026-11-07 13:19:08Z" duration="0.094253" total="6" passed="6" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1019" name="ActuatorsAreClamped" fullname="TrashSailDemo.Tests.DemoContractTests.ActuatorsAreClamped" methodname="ActuatorsAreClamped" classname="TrashSailDemo.Tests.DemoContractTests" runstate="Runnable" seed="308522055" result="Passed" start-time="2026-11-07 13:19:08Z" end-time="2026-11-07 13:19:08Z" duration="0.001023" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1023" name="BearingConventionIsStarboardPositive" fullname="TrashSailDemo.Tests.DemoContractTests.BearingConventionIsStarboardPositive" methodname="BearingConventionIsStarboardPositive" classname="TrashSailDemo.Tests.DemoContractTests" runstate="Runnable" seed="1315241222" result="Passed" start-time="2026-11-07 13:19:08Z" end-time="2026-11-07 13:19:08Z" duration="0.000958" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1021" name="CollectorRequiresPositiveFreshAlignedTrack" fullname="TrashSailDemo.Tests.DemoContractTests.CollectorRequiresPositiveFreshAlignedTrack" methodname="CollectorRequiresPositiveFreshAlignedTrack" classname="TrashSailDemo.Tests.DemoContractTests" runstate="Runnable" seed="1189755651" result="Passed" start-time="2026-11-07 13:19:08Z" end-time="2026-11-07 13:19:08Z" duration="0.000561" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1020" name="StaleAssociationIsRejected" fullname="TrashSailDemo.Tests.DemoContractTests.StaleAssociationIsRejected" methodname="StaleAssociationIsRejected" classname="TrashSailDemo.Tests.DemoContractTests" runstate="Runnable" seed="82361484" result="Passed" start-time="2026-11-07 13:19:08Z" end-time="2026-11-07 13:19:08Z" duration="0.000590" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1018" name="StaleOrFutureCommandsDepowerAndCloseCollector" fullname="TrashSailDemo.Tests.DemoContractTests.StaleOrFutureCommandsDepowerAndCloseCollector" methodname="StaleOrFutureCommandsDepowerAndCloseCollector" classname="TrashSailDemo.Tests.DemoContractTests" runstate="Runnable" seed="1290126119" result="Passed" start-time="2026-11-07 13:19:08Z" end-time="2026-11-07 13:19:08Z" duration="0.000369" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1022" name="ThrusterControlWorksWithoutWindAndTurnsAtRest" fullname="TrashSailDemo.Tests.DemoContractTests.ThrusterControlWorksWithoutWindAndTurnsAtRest" methodname="ThrusterControlWorksWithoutWindAndTurnsAtRest" classname="TrashSailDemo.Tests.DemoContractTests" runstate="Runnable" seed="1143393471" result="Passed" start-time="2026-11-07 13:19:08Z" end-time="2026-11-07 13:19:08Z" duration="0.001728" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1024" name="OceanTests" fullname="TrashSailDemo.Tests.OceanTests" classname="TrashSailDemo.Tests.OceanTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-11-07 13:19:08Z" end-time="2026-11-07 13:19:08Z" duration="0.177454" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1027" name="ImportedFishEnteringOpenIntakeIsCapturedAndPersistedAsBycatchTruth" fullname="TrashSailDemo.Tests.OceanTests.ImportedFishEnteringOpenIntakeIsCapturedAndPersistedAsBycatchTruth" methodname="ImportedFishEnteringOpenIntakeIsCapturedAndPersistedAsBycatchTruth" classname="TrashSailDemo.Tests.OceanTests" runstate="Runnable" seed="1118330970" result="Passed" start-time="2026-11-07 13:19:08Z" end-time="2026-11-07 13:19:08Z" duration="0.067471" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1026" name="PhysicalCaptureNeverRespawnsDuringStreamingAndSeededResetRestoresOneCallback" fullname="TrashSailDemo.Tests.OceanTests.PhysicalCaptureNeverRespawnsDuringStreamingAndSeededResetRestoresOneCallback" methodname="PhysicalCaptureNeverRespawnsDuringStreamingAndSeededResetRestoresOneCallback" classname="TrashSailDemo.Tests.OceanTests" runstate="Runnable" seed="928210731" result="Passed" start-time="2026-11-07 13:19:08Z" end-time="2026-11-07 13:19:08Z" duration="0.008818" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1025" name="UnloadedRecordDriftsAndReloadsAtPersistedPositionWithImportedMesh" fullname="TrashSailDemo.Tests.OceanTests.UnloadedRecordDriftsAndReloadsAtPersistedPositionWithImportedMesh" methodname="UnloadedRecordDriftsAndReloadsAtPersistedPositionWithImportedMesh" classname="TrashSailDemo.Tests.OceanTests" runstate="Runnable" seed="224100136" result="Passed" start-time="2026-11-07 13:19:08Z" end-time="2026-11-07 13:19:08Z" duration="0.006408" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1028" name="SonarTests" fullname="TrashSailDemo.Tests.SonarTests" classname="TrashSailDemo.Tests.SonarTests" runstate="Runnable" testcasecount="9" result="Passed" start-time="2026-11-07 13:19:08Z" end-time="2026-11-07 13:19:08Z" duration="0.029034" total="9" passed="9" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1029" name="BeamEndsAndRangeBinCentresMatchDeclaredCoverage" fullname="TrashSailDemo.Tests.SonarTests.BeamEndsAndRangeBinCentresMatchDeclaredCoverage" methodname="BeamEndsAndRangeBinCentresMatchDeclaredCoverage" classname="TrashSailDemo.Tests.SonarTests" runstate="Runnable" seed="940533259" result="Passed" start-time="2026-11-07 13:19:08Z" end-time="2026-11-07 13:19:08Z" duration="0.000504" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1030" name="BearingProjectionUsesSensorYawAndDoesNotInventElevation" fullname="TrashSailDemo.Tests.SonarTests.BearingProjectionUsesSensorYawAndDoesNotInventElevation" methodname="BearingProjectionUsesSensorYawAndDoesNotInventElevation" classname="TrashSailDemo.Tests.SonarTests" runstate="Runnable" seed="636972935" result="Passed" start-time="2026-11-07 13:19:08Z" end-time="2026-11-07 13:19:08Z" duration="0.000706" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1033" name="ExtendedEchoCarriesGreaterUncertaintyThanPointEcho" fullname="TrashSailDemo.Tests.SonarTests.ExtendedEchoCarriesGreaterUncertaintyThanPointEcho" methodname="ExtendedEchoCarriesGreaterUncertaintyThanPointEcho" classname="TrashSailDemo.Tests.SonarTests" runstate="Runnable" seed="556684191" result="Passed" start-time="2026-11-07 13:19:08Z" end-time="2026-11-07 13:19:08Z" duration="0.001654" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1032" name="ExtractionUsesIntensityAndKeepsSeparatedReturnsDistinct" fullname="TrashSailDemo.Tests.SonarTests.ExtractionUsesIntensityAndKeepsSeparatedReturnsDistinct" methodname="ExtractionUsesIntensityAndKeepsSeparatedReturnsDistinct" classname="TrashSailDemo.Tests.SonarTests" runstate="Runnable" seed="1754920969" result="Passed" start-time="2026-11-07 13:19:08Z" end-time="2026-11-07 13:19:08Z" duration="0.000414" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1034" name="LostContactPersistsWithGrowingUncertaintyUntilMemoryExpires" fullname="TrashSailDemo.Tests.SonarTests.LostContactPersistsWithGrowingUncertaintyUntilMemoryExpires" methodname="LostContactPersistsWithGrowingUncertaintyUntilMemoryExpires" classname="TrashSailDemo.Tests.SonarTests" runstate="Runnable" seed="893142941" result="Passed" start-time="2026-11-07 13:19:08Z" end-time="2026-11-07 13:19:08Z" duration="0.004622" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1036" name="MeasuredExtentSurvivesTrackingWithoutGrowingWhenOnlyUncertaintyAges" fullname="TrashSailDemo.Tests.SonarTests.MeasuredExtentSurvivesTrackingWithoutGrowingWhenOnlyUncertaintyAges" methodname="MeasuredExtentSurvivesTrackingWithoutGrowingWhenOnlyUncertaintyAges" classname="TrashSailDemo.Tests.SonarTests" runstate="Runnable" seed="514147731" result="Passed" start-time="2026-11-07 13:19:08Z" end-time="2026-11-07 13:19:08Z" duration="0.000465" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1031" name="NoiseIsSeededAndPreviewEncodesTheSameOperationalIntensity" fullname="TrashSailDemo.Tests.SonarTests.NoiseIsSeededAndPreviewEncodesTheSameOperationalIntensity" methodname="NoiseIsSeededAndPreviewEncodesTheSameOperationalIntensity" classname="TrashSailDemo.Tests.SonarTests" runstate="Runnable" seed="1670793778" result="Passed" start-time="2026-11-07 13:19:08Z" end-time="2026-11-07 13:19:08Z" duration="0.001120" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1037" name="OneMissingRangeBinJoinsFragmentsAndPreservesCombinedExtent" fullname="TrashSailDemo.Tests.SonarTests.OneMissingRangeBinJoinsFragmentsAndPreservesCombinedExtent" methodname="OneMissingRangeBinJoinsFragmentsAndPreservesCombinedExtent" classname="TrashSailDemo.Tests.SonarTests" runstate="Runnable" seed="770591692" result="Passed" start-time="2026-11-07 13:19:08Z" end-time="2026-11-07 13:19:08Z" duration="0.001089" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1035" name="ResetClearsContactMemoryAndRestartsPerceptionIds" fullname="TrashSailDemo.Tests.SonarTests.ResetClearsContactMemoryAndRestartsPerceptionIds" methodname="ResetClearsContactMemoryAndRestartsPerceptionIds" classname="TrashSailDemo.Tests.SonarTests" runstate="Runnable" seed="1534594649" result="Passed" start-time="2026-11-07 13:19:08Z" end-time="2026-11-07 13:19:08Z" duration="0.000707" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1038" name="VehicleTests" fullname="TrashSailDemo.Tests.VehicleTests" classname="TrashSailDemo.Tests.VehicleTests" runstate="Runnable" testcasecount="6" result="Passed" start-time="2026-11-07 13:19:08Z" end-time="2026-11-07 13:19:08Z" duration="0.092980" total="6" passed="6" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1042" name="ActuatorBoundsAndExpiryDepowerCollectorAndPropulsion" fullname="TrashSailDemo.Tests.VehicleTests.ActuatorBoundsAndExpiryDepowerCollectorAndPropulsion" methodname="ActuatorBoundsAndExpiryDepowerCollectorAndPropulsion" classname="TrashSailDemo.Tests.VehicleTests" runstate="Runnable" seed="779466451" result="Passed" start-time="2026-11-07 13:19:08Z" end-time="2026-11-07 13:19:08Z" duration="0.000494" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1040" name="ConfiguredMixerAccountsForReversedMountAndRejectsSingularLayout" fullname="TrashSailDemo.Tests.VehicleTests.ConfiguredMixerAccountsForReversedMountAndRejectsSingularLayout" methodname="ConfiguredMixerAccountsForReversedMountAndRejectsSingularLayout" classname="TrashSailDemo.Tests.VehicleTests" runstate="Runnable" seed="549717746" result="Passed" start-time="2026-11-07 13:19:08Z" end-time="2026-11-07 13:19:08Z" duration="0.000530" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1044" name="FastFishEnteringActiveIntakeIsRecordedRatherThanSilentlyIgnored" fullname="TrashSailDemo.Tests.VehicleTests.FastFishEnteringActiveIntakeIsRecordedRatherThanSilentlyIgnored" methodname="FastFishEnteringActiveIntakeIsRecordedRatherThanSilentlyIgnored" classname="TrashSailDemo.Tests.VehicleTests" runstate="Runnable" seed="949936" result="Passed" start-time="2026-11-07 13:19:08Z" end-time="2026-11-07 13:19:08Z" duration="0.001481" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1043" name="IntakeCanCaptureFishOnceAndResetClearsCount" fullname="TrashSailDemo.Tests.VehicleTests.IntakeCanCaptureFishOnceAndResetClearsCount" methodname="IntakeCanCaptureFishOnceAndResetClearsCount" classname="TrashSailDemo.Tests.VehicleTests" runstate="Runnable" seed="1112218752" result="Passed" start-time="2026-11-07 13:19:08Z" end-time="2026-11-07 13:19:08Z" duration="0.001399" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1041" name="PhysicalCaptureRequiresActiveVolumeCapacityAndSafeSpeed" fullname="TrashSailDemo.Tests.VehicleTests.PhysicalCaptureRequiresActiveVolumeCapacityAndSafeSpeed" methodname="PhysicalCaptureRequiresActiveVolumeCapacityAndSafeSpeed" classname="TrashSailDemo.Tests.VehicleTests" runstate="Runnable" seed="1014746919" result="Passed" start-time="2026-11-07 13:19:08Z" end-time="2026-11-07 13:19:08Z" duration="0.000440" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1039" name="TwinThrustersUsePhysicalSteeringSignsAndConfiguredReverse" fullname="TrashSailDemo.Tests.VehicleTests.TwinThrustersUsePhysicalSteeringSignsAndConfiguredReverse" methodname="TwinThrustersUsePhysicalSteeringSignsAndConfiguredReverse" classname="TrashSailDemo.Tests.VehicleTests" runstate="Runnable" seed="575834293" result="Passed" start-time="2026-11-07 13:19:08Z" end-time="2026-11-07 13:19:08Z" duration="0.000667" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[Saving results to: C:/Users/jonat/AppData/LocalLow/LABUST/marus2-example\TestResults.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

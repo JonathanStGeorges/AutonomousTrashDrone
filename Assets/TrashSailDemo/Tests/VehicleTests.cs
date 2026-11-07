@@ -6,13 +6,29 @@ namespace TrashSailDemo.Tests
     public sealed class VehicleTests
     {
         [Test]
-        public void SailingHasNoGoConeAndWeakerDownwindDrive()
+        public void TwinThrustersUsePhysicalSteeringSignsAndConfiguredReverse()
         {
-            Assert.That(DemoVessel.SailPolar(0, 40), Is.Zero);
-            Assert.That(DemoVessel.SailPolar(39, 40), Is.Zero);
-            Assert.That(DemoVessel.SailPolar(55, 40), Is.GreaterThan(0));
-            Assert.That(DemoVessel.SailPolar(90, 40), Is.GreaterThan(DemoVessel.SailPolar(180, 40)));
-            Assert.That(DemoVessel.SailPolar(-55, 40), Is.EqualTo(DemoVessel.SailPolar(55, 40)).Within(0.0001f));
+            var forward=DemoVessel.Allocate(.4f,0,true,0);Assert.AreEqual(forward.PortThrust,forward.StarboardThrust);Assert.Greater(forward.PortThrust,0);
+            var right=DemoVessel.Allocate(0,.5f,true,0);Assert.Greater(right.PortThrust,right.StarboardThrust);
+            float torque=Vector3.Cross(new Vector3(-.85f,0,0),Vector3.forward*right.PortThrust).y+Vector3.Cross(new Vector3(.85f,0,0),Vector3.forward*right.StarboardThrust).y;
+            Assert.Greater(torque,0);var left=DemoVessel.Allocate(0,-.5f,true,0);Assert.Less(left.PortThrust,left.StarboardThrust);
+            var noReverse=DemoVessel.Allocate(-1,0,false,0);Assert.AreEqual(0,noReverse.PortThrust);Assert.AreEqual(0,noReverse.StarboardThrust);
+        }
+
+        [Test]
+        public void ConfiguredMixerAccountsForReversedMountAndRejectsSingularLayout()
+        {
+            var config=ScriptableObject.CreateInstance<DemoConfig>();
+            try
+            {
+                config.PortThrusterEuler=new Vector3(0,180,0);
+                var forward=DemoVessel.AllocateConfigured(.4f,0,config,0);
+                Assert.Less(forward.PortThrust,0);Assert.Greater(forward.StarboardThrust,0);
+                config.PortThrusterPosition=config.StarboardThrusterPosition;
+                var singular=DemoVessel.AllocateConfigured(1,1,config,0);
+                Assert.AreEqual(0,singular.PortThrust);Assert.AreEqual(0,singular.StarboardThrust);
+            }
+            finally{Object.DestroyImmediate(config);}
         }
 
         [Test]
