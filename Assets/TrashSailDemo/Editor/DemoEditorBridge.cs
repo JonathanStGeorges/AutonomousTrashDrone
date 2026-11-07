@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Reflection;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEditor.TestTools.TestRunner.Api;
@@ -46,6 +47,23 @@ namespace TrashSailDemo.Editor
                 else if(request.command=="status")Write(request.command,"PASS","isPlaying="+EditorApplication.isPlaying+"; scene="+SceneManager.GetActiveScene().path);
                 else if(request.command=="capture")
                 {var evaluation=UnityEngine.Object.FindFirstObjectByType<DemoEvaluation>();if(evaluation==null)throw new InvalidOperationException("Run the demo first");evaluation.Capture(string.IsNullOrEmpty(request.argument)?"inspection":request.argument);Write(request.command,"PASS",evaluation.OutputDirectory);}
+                else if(request.command=="performance" || request.command=="worldreset")
+                {
+                    var runtime=UnityEngine.Object.FindFirstObjectByType<DemoRuntime>();
+                    if(!EditorApplication.isPlaying || runtime==null)throw new InvalidOperationException("Run the ocean scene first");
+                    runtime.Config.LargeOcean=true;runtime.ResetScenario(DemoScenario.ClearCollection,17,true);
+                    if(request.command=="performance")
+                    {
+                        // Evaluator-only initial conditions, never targets supplied to autonomy.
+                        // The other 369 world records retain their seeded distribution.
+                        PlacePerformanceActor(runtime,"fish",new Vector3(6,-.7f,12),new Vector3(-.12f,0,0));
+                        PlacePerformanceActor(runtime,"boat",new Vector3(20,0,40),Vector3.zero);
+                        runtime.GetComponent<DemoAcceptance>().SuiteStatus="Large performance fixture: seed17 + configured near-field fish/boat";
+                        runtime.GetComponent<DemoEvaluation>().RecordEvent("performance_fixture","Observer/evaluator setup: first fish=(6,-.7,12), velocity=(-.12,0,0); first boat=(20,0,40); other seeded records unchanged; no truth to planner");
+                    }
+                    else runtime.GetComponent<DemoAcceptance>().SuiteStatus="Interactive production demonstration";
+                    Write(request.command,"PASS","Large ocean reset; "+request.command+"; sensors reset and mission starts only after fresh observations");
+                }
                 else if(request.command=="startmission" || request.command=="stopmission" || request.command=="view")
                 {
                     var runtime=UnityEngine.Object.FindFirstObjectByType<DemoRuntime>();if(runtime==null)throw new InvalidOperationException("Run the demo first");
@@ -57,7 +75,8 @@ namespace TrashSailDemo.Editor
                 else if(request.command=="probe")
                 {
                     var runtime=UnityEngine.Object.FindFirstObjectByType<DemoRuntime>();if(runtime==null)throw new InvalidOperationException("Demo runtime unavailable");
-                    Write(request.command,"PASS","phase="+runtime.Mission.Status.Phase+"; reason="+runtime.Mission.Status.Reason+"; model="+runtime.CameraPerception.ServiceStatus+"; camera="+runtime.CameraPerception.IsHealthy+"; sonar="+runtime.SonarPerception.IsHealthy+"; tracks="+runtime.CameraPerception.Tracks.Count+"; pose="+runtime.Vessel.transform.position+"; captures="+runtime.Vessel.Collector.CaptureCount+"; fps="+runtime.RenderingFps);
+                    var acceptance=runtime.GetComponent<DemoAcceptance>();
+                    Write(request.command,"PASS","phase="+runtime.Mission.Status.Phase+"; reason="+runtime.Mission.Status.Reason+"; model="+runtime.CameraPerception.ServiceStatus+"; camera="+runtime.CameraPerception.IsHealthy+"; sonar="+runtime.SonarPerception.IsHealthy+"; tracks="+runtime.CameraPerception.Tracks.Count+"; pose="+runtime.Vessel.transform.position+"; captures="+runtime.Vessel.Collector.CaptureCount+"; fps="+runtime.RenderingFps+"; activeFish="+runtime.Population.ActiveActors.Count(a=>a.Kind=="fish")+"; activeBoats="+runtime.Population.ActiveActors.Count(a=>a.Kind=="boat")+"; suite="+(acceptance!=null?acceptance.SuiteStatus:"none"));
                 }
                 else if (request.command == "preserve") Preserve();
                 else if (request.command == "setup" || request.command == "ocean" || request.command == "build")
@@ -75,6 +94,16 @@ namespace TrashSailDemo.Editor
                 else Write(request.command,"FAIL","Unknown command");
             }
             catch(Exception ex) { Debug.LogException(ex); Write(request.command,"FAIL",ex.ToString()); busy=false; }
+        }
+        static void PlacePerformanceActor(DemoRuntime runtime,string kind,Vector3 position,Vector3 velocity)
+        {
+            var record=runtime.Population.Records.First(r=>r.Kind==kind);
+            record.Position=record.InitialPosition=position;record.Velocity=velocity;record.Rotation=Quaternion.identity;
+            var actor=runtime.Population.ActiveActors.FirstOrDefault(a=>a.WorldRecordId==record.Id);
+            if(actor==null)return; // normal streaming activates the new initial record before sensor range
+            actor.transform.SetPositionAndRotation(position,Quaternion.identity);actor.Body.position=position;actor.Body.rotation=Quaternion.identity;
+            actor.InitialPosition=position;actor.DriftVelocity=velocity;actor.SpawnTime=Time.timeAsDouble;
+            Physics.SyncTransforms();
         }
         static void Preserve()
         {

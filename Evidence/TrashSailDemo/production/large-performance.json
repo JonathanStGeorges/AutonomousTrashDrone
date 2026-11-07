@@ -15,5 +15,7 @@
     "frameSpikes50ms":  4,
     "maxUnityAllocatedMB":  1126.0512742996216,
     "activeActors":  13,
-    "actualDistanceAtEnd":  25.55528450012207
+    "actualDistanceAtEnd":  25.55528450012207,
+    "sonarVerticalRays":  9,
+    "note":  "Baseline geometry. Cumulative startup maximum3144.6ms includes pipeline/shader warmup; final denser-sonar profile needs a separate measurement."
 }

@@ -1,0 +1,21 @@
+{
+    "scope": "Standalone technical smoke, not collection acceptance",
+    "revision": "MARUS2 + TrashOcean v2 source sha256=ba5dbd3c69e43d4e3a54d49e769622ad00852778874ee04c9a21a8920bf0b92a",
+    "profile": "combined",
+    "mode": "Twin thrusters",
+    "ok": true,
+    "cameraHealthy": true,
+    "sonarHealthy": true,
+    "width": 640,
+    "height": 384,
+    "tracks": 0,
+    "sequence": 28,
+    "fps": 82.5202407836914,
+    "inferenceMilliseconds": 137.7852020263672,
+    "speed": 0.5499991178512573,
+    "position": {
+        "x": 3.816386928701121e-10,
+        "y": 2.086162567138672e-7,
+        "z": 4.594269275665283
+    }
+}

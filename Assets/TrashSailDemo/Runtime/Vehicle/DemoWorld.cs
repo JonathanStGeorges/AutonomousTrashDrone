@@ -54,7 +54,7 @@ namespace TrashSailDemo
 
         public static DemoVessel BuildVessel(DemoConfig config, Transform parent = null)
         {
-            GameObject root = new GameObject("Trash Sail Drone Ã¢â‚¬â€ physics root");
+            GameObject root = new GameObject("Trash Sail Drone ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â physics root");
             root.layer = 8;
             root.transform.SetParent(parent, false);
             Rigidbody body = root.AddComponent<Rigidbody>();
@@ -62,7 +62,7 @@ namespace TrashSailDemo
             vessel.Config = config;
             vessel.Body = body;
             vessel.ConfigureBody();
-            Transform visual = Mount("Visual Model Ã¢â‚¬â€ replace with CAD", root.transform, Vector3.zero);
+            Transform visual = Mount("Visual Model ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â replace with CAD", root.transform, Vector3.zero);
             vessel.VisualRoot = visual;
             Transform collisionRoot = Mount("Collision Geometry", root.transform, Vector3.zero);
             float length = config.VesselLength;
@@ -105,7 +105,7 @@ namespace TrashSailDemo
             collector.GateVisual = gate;
             vessel.CameraMount = Mount("Camera Mount", root.transform, new Vector3(0, 1.65f, length * 0.45f));
             vessel.CameraMount.localRotation = Quaternion.Euler(32, 0, 0);
-            vessel.SonarMount = Mount("Submerged Sonar Mount", root.transform, new Vector3(0, -0.38f, length * 0.5f + 0.15f));
+            vessel.SonarMount = Mount("Submerged Sonar Mount", root.transform, config.SonarMountPosition);
             Primitive("Camera Housing", PrimitiveType.Cube, visual, vessel.CameraMount.localPosition - Vector3.up * 0.1f, new Vector3(0.2f, 0.12f, 0.15f), dark, 8, false);
             Primitive("Sonar Housing", PrimitiveType.Cube, visual, vessel.SonarMount.localPosition, new Vector3(0.2f, 0.16f, 0.12f), dark, 8, false);
             DemoOwnState state = root.AddComponent<DemoOwnState>();
@@ -123,7 +123,7 @@ namespace TrashSailDemo
             Config.WindTo = scenario == DemoScenario.ThrusterCalibration || scenario == DemoScenario.NoWind ? Vector3.zero : initialWind;
             Config.MotorAssistance = initialMotor;
             ClearWorld();
-            if (actorRoot == null) actorRoot = Mount("Scenario Actors Ã¢â‚¬â€ truth only", transform, Vector3.zero);
+            if (actorRoot == null) actorRoot = Mount("Scenario Actors ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â truth only", transform, Vector3.zero);
             if (Vessel != null)
             {
                 Vessel.ResetPose(Vector3.zero, Quaternion.identity);
@@ -217,4 +217,3 @@ namespace TrashSailDemo
         }
     }
 }
-

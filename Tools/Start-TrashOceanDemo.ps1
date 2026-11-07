@@ -8,7 +8,7 @@ try {
         $executable=Join-Path $demoRoot 'Builds/TrashOceanDemo/TrashOceanDemo.exe'
         if(!(Test-Path -LiteralPath $executable)){throw 'Build the Windows player using Trash Sail Demo / Build Windows Player first.'}
         $existing=Get-Process -Name TrashOceanDemo -ErrorAction SilentlyContinue | Where-Object {$_.Path -eq $executable}
-        if(!$existing){Start-Process -FilePath $executable -WorkingDirectory $demoRoot -ArgumentList @('-logFile',('"'+(Join-Path $demoRoot 'Evidence/TrashSailDemo/player.log')+'"'))}
+        if(!$existing){Start-Process -FilePath $executable -WorkingDirectory $demoRoot -ArgumentList @('-force-d3d11','-logFile',('"'+(Join-Path $demoRoot 'Evidence/TrashSailDemo/player.log')+'"'))}
     } else {
         $bridge=Join-Path $PSScriptRoot 'Invoke-TrashSailDemo.ps1'
         & $bridge -Command status

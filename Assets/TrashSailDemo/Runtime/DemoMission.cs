@@ -28,6 +28,8 @@ namespace TrashSailDemo
         double associationHoldStarted=-1;
         bool pendingAssociation;
         readonly List<ContactTrack> avoidanceContacts=new List<ContactTrack>();
+        readonly List<int> blockingSonarContactIds=new List<int>();
+        public IReadOnlyList<int> BlockingSonarContactIds=>blockingSonarContactIds; // perception-generated IDs, diagnostic/evaluation output only
         Vector3 previousAvoidDirection;
         bool sensorFailureLatched;
         public double MissionDuration => Math.Max(0, Time.timeAsDouble - missionStarted);
@@ -41,6 +43,7 @@ namespace TrashSailDemo
             associationHoldStarted=-1;
             previousAvoidDirection=Vector3.zero;
             sensorFailureLatched=false;
+            blockingSonarContactIds.Clear();
             Coverage?.ResetCoverage();
         }
         public void StartMission() { sensorFailureLatched=false; Running=true; Manual=false; missionStarted=Time.timeAsDouble; Transition(MissionPhase.SEARCH,"Mission started: bounded coverage using sensor observations"); }
@@ -178,6 +181,7 @@ namespace TrashSailDemo
         bool FindHazard(VehicleState state,Vector3 direction,float goalDistance,double now,out Vector3 avoid,out string reason)
         {
             avoid=direction;reason="";Status.ClosestClearance=float.PositiveInfinity;pendingAssociation=false;Status.AssociationGate="No echo match";
+            blockingSonarContactIds.Clear();
             float speed=DemoMath.Flat(state.Velocity).magnitude;
             float horizon=Mathf.Max(6f,speed*5f+Config.VesselLength);
             horizon=Mathf.Min(horizon,goalDistance+0.4f);
@@ -214,6 +218,7 @@ namespace TrashSailDemo
                 if((ahead>rear && ahead<horizon+1.8f && Mathf.Abs(side)<envelope) || actualThreat)
                 {
                     hazard=true;
+                    blockingSonarContactIds.Add(contact.Id);
                     avoid=Quaternion.AngleAxis(side>=0?-65:65,Vector3.up)*direction;
                     reason=matches>1?"Ambiguous target/contact association":"Unknown sonar contact intersects predicted hull/intake envelope";
                     if(geometric && matches==1 && contact.Hits<3 && ahead>4.5f)

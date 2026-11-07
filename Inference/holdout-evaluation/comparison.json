@@ -1,0 +1,4684 @@
+{
+  "fixtures": "C:\\Users\\jonat\\Documents\\projects\\marus2-example\\Evidence\\TrashSailDemo\\production\\perception-holdout-20261107-132246",
+  "purpose": "fixed-profile holdout; presence counts are not box IoU accuracy",
+  "fml": {
+    "source": "https://drive.google.com/file/d/1gXY9K_txdq5PqqGNlP9yNqeY9QwAY9y8/view",
+    "sha256": "bd7a544ce5536ed7130bb540f5e70f7b95a625c23539d472de46d862136af11b",
+    "classes": {
+      "0": "garbage"
+    },
+    "licence": "unverified checkpoint terms; local-only comparison, no redistribution"
+  },
+  "runs": [
+    {
+      "model": "YOLOE-original",
+      "imgsz": 416,
+      "confidence": 0.25,
+      "medianMs": 81.15209999959916,
+      "trashDetected": 0,
+      "trashEligible": 0,
+      "fishDetected": 0,
+      "boatDetected": 0,
+      "emptyDetections": 0,
+      "frames": [
+        {
+          "fixture": "00-plastic_bottle_gallon-2.5m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 85.84739999969315,
+          "detections": [
+            {
+              "model": "YOLOE-original",
+              "label": "jellyfish",
+              "classId": 11,
+              "score": 0.33714428544044495,
+              "box": [
+                284.18670654296875,
+                239.3389892578125,
+                349.6484069824219,
+                302.7695617675781
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  316.9175567626953,
+                  302.7695617675781
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "YOLOE-original",
+              "label": "jellyfish",
+              "classId": 11,
+              "score": 0.33714428544044495,
+              "box": [
+                284.18670654296875,
+                239.3389892578125,
+                349.6484069824219,
+                302.7695617675781
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "01-plastic_bottle_gallon-2.5m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 88.80950000093435,
+          "detections": [
+            {
+              "model": "YOLOE-original",
+              "label": "jellyfish",
+              "classId": 11,
+              "score": 0.47300034761428833,
+              "box": [
+                286.11834716796875,
+                233.82821655273438,
+                356.6813049316406,
+                294.2717590332031
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  321.3998260498047,
+                  294.2717590332031
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "YOLOE-original",
+              "label": "jellyfish",
+              "classId": 11,
+              "score": 0.47300034761428833,
+              "box": [
+                286.11834716796875,
+                233.82821655273438,
+                356.6813049316406,
+                294.2717590332031
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "02-plastic_bottle_gallon-4m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 92.53159999934724,
+          "detections": [
+            {
+              "model": "YOLOE-original",
+              "label": "jellyfish",
+              "classId": 11,
+              "score": 0.3619964122772217,
+              "box": [
+                297.7870788574219,
+                137.92529296875,
+                338.6153564453125,
+                166.79434204101562
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  318.2012176513672,
+                  166.79434204101562
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "YOLOE-original",
+              "label": "jellyfish",
+              "classId": 11,
+              "score": 0.3619964122772217,
+              "box": [
+                297.7870788574219,
+                137.92529296875,
+                338.6153564453125,
+                166.79434204101562
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "03-plastic_bottle_gallon-4m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 86.5947000002052,
+          "detections": [
+            {
+              "model": "YOLOE-original",
+              "label": "bird",
+              "classId": 15,
+              "score": 0.3428671360015869,
+              "box": [
+                298.1344909667969,
+                134.7098846435547,
+                341.610595703125,
+                161.27572631835938
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  319.87254333496094,
+                  161.27572631835938
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "YOLOE-original",
+              "label": "bird",
+              "classId": 15,
+              "score": 0.3428671360015869,
+              "box": [
+                298.1344909667969,
+                134.7098846435547,
+                341.610595703125,
+                161.27572631835938
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "04-plastic_bottle_gallon-7m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 85.24869999928342,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "05-plastic_bottle_gallon-7m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 82.2982999998203,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "06-multi_cleaner_bottle-2.5m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 91.43229999972391,
+          "detections": [
+            {
+              "model": "YOLOE-original",
+              "label": "bird",
+              "classId": 15,
+              "score": 0.5112800598144531,
+              "box": [
+                306.9622802734375,
+                240.77117919921875,
+                333.4984130859375,
+                296.0644226074219
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  320.2303466796875,
+                  296.0644226074219
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "YOLOE-original",
+              "label": "bird",
+              "classId": 15,
+              "score": 0.5112800598144531,
+              "box": [
+                306.9622802734375,
+                240.77117919921875,
+                333.4984130859375,
+                296.0644226074219
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "07-multi_cleaner_bottle-2.5m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 78.7822000002052,
+          "detections": [
+            {
+              "model": "YOLOE-original",
+              "label": "jellyfish",
+              "classId": 11,
+              "score": 0.44868242740631104,
+              "box": [
+                307.0148620605469,
+                240.64405822753906,
+                333.75286865234375,
+                296.2469787597656
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  320.3838653564453,
+                  296.2469787597656
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "YOLOE-original",
+              "label": "jellyfish",
+              "classId": 11,
+              "score": 0.44868242740631104,
+              "box": [
+                307.0148620605469,
+                240.64405822753906,
+                333.75286865234375,
+                296.2469787597656
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "08-multi_cleaner_bottle-4m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 81.83260000078008,
+          "detections": [
+            {
+              "model": "YOLOE-original",
+              "label": "bird",
+              "classId": 15,
+              "score": 0.25156474113464355,
+              "box": [
+                311.6893310546875,
+                130.13197326660156,
+                328.0599060058594,
+                171.0064239501953
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  319.87461853027344,
+                  171.0064239501953
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "YOLOE-original",
+              "label": "bird",
+              "classId": 15,
+              "score": 0.25156474113464355,
+              "box": [
+                311.6893310546875,
+                130.13197326660156,
+                328.0599060058594,
+                171.0064239501953
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "09-multi_cleaner_bottle-4m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 77.64959999985876,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "10-multi_cleaner_bottle-7m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 74.70500000090396,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "11-multi_cleaner_bottle-7m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 75.4360999999335,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "12-cleaner_tin_01-2.5m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 77.86489999853075,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "13-cleaner_tin_01-2.5m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 78.18050000059884,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "14-cleaner_tin_01-4m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 78.26650000060908,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "15-cleaner_tin_01-4m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 76.94450000053621,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "16-cleaner_tin_01-7m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 80.08960000006482,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "17-cleaner_tin_01-7m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 79.20139999987441,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "18-trashbag-2.5m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 76.89030000074126,
+          "detections": [
+            {
+              "model": "YOLOE-original",
+              "label": "jellyfish",
+              "classId": 11,
+              "score": 0.9119669795036316,
+              "box": [
+                264.3157958984375,
+                231.6442413330078,
+                349.6105041503906,
+                319.0627746582031
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  306.96315002441406,
+                  319.0627746582031
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "YOLOE-original",
+              "label": "jellyfish",
+              "classId": 11,
+              "score": 0.9119669795036316,
+              "box": [
+                264.3157958984375,
+                231.6442413330078,
+                349.6105041503906,
+                319.0627746582031
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "19-trashbag-2.5m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 84.04709999922488,
+          "detections": [
+            {
+              "model": "YOLOE-original",
+              "label": "jellyfish",
+              "classId": 11,
+              "score": 0.9398127794265747,
+              "box": [
+                266.12738037109375,
+                221.43838500976562,
+                358.8088073730469,
+                298.7042236328125
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  312.4680938720703,
+                  298.7042236328125
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "YOLOE-original",
+              "label": "jellyfish",
+              "classId": 11,
+              "score": 0.9398127794265747,
+              "box": [
+                266.12738037109375,
+                221.43838500976562,
+                358.8088073730469,
+                298.7042236328125
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "20-trashbag-4m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 81.15209999959916,
+          "detections": [
+            {
+              "model": "YOLOE-original",
+              "label": "jellyfish",
+              "classId": 11,
+              "score": 0.9348210096359253,
+              "box": [
+                286.3794860839844,
+                129.15603637695312,
+                338.26629638671875,
+                176.8887176513672
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  312.32289123535156,
+                  176.8887176513672
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "YOLOE-original",
+              "label": "jellyfish",
+              "classId": 11,
+              "score": 0.9348210096359253,
+              "box": [
+                286.3794860839844,
+                129.15603637695312,
+                338.26629638671875,
+                176.8887176513672
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "21-trashbag-4m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 78.0032000002393,
+          "detections": [
+            {
+              "model": "YOLOE-original",
+              "label": "jellyfish",
+              "classId": 11,
+              "score": 0.9394036531448364,
+              "box": [
+                287.6902160644531,
+                124.14508056640625,
+                343.4870300292969,
+                167.6398468017578
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  315.588623046875,
+                  167.6398468017578
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "YOLOE-original",
+              "label": "jellyfish",
+              "classId": 11,
+              "score": 0.9394036531448364,
+              "box": [
+                287.6902160644531,
+                124.14508056640625,
+                343.4870300292969,
+                167.6398468017578
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "22-trashbag-7m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 82.40339999974822,
+          "detections": [
+            {
+              "model": "YOLOE-original",
+              "label": "jellyfish",
+              "classId": 11,
+              "score": 0.6455431580543518,
+              "box": [
+                300.996337890625,
+                58.24345016479492,
+                330.185791015625,
+                83.20279693603516
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  315.591064453125,
+                  83.20279693603516
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "YOLOE-original",
+              "label": "jellyfish",
+              "classId": 11,
+              "score": 0.6455431580543518,
+              "box": [
+                300.996337890625,
+                58.24345016479492,
+                330.185791015625,
+                83.20279693603516
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "23-trashbag-7m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 80.66910000161442,
+          "detections": [
+            {
+              "model": "YOLOE-original",
+              "label": "jellyfish",
+              "classId": 11,
+              "score": 0.7893919944763184,
+              "box": [
+                303.05023193359375,
+                56.77591323852539,
+                332.20721435546875,
+                80.06320190429688
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  317.62872314453125,
+                  80.06320190429688
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "YOLOE-original",
+              "label": "jellyfish",
+              "classId": 11,
+              "score": 0.7893919944763184,
+              "box": [
+                303.05023193359375,
+                56.77591323852539,
+                332.20721435546875,
+                80.06320190429688
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "24-BarramundiFish-3m-0deg",
+          "expectedKind": "fish",
+          "wallMs": 78.04310000028636,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "25-marus_boat-5m-0deg",
+          "expectedKind": "boat",
+          "wallMs": 84.209099999498,
+          "detections": [
+            {
+              "model": "YOLOE-original",
+              "label": "styrofoam",
+              "classId": 8,
+              "score": 0.2981015145778656,
+              "box": [
+                233.24313354492188,
+                57.04490280151367,
+                406.3228454589844,
+                201.79872131347656
+              ],
+              "category": "OtherRubbish",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  319.7829895019531,
+                  201.79872131347656
+                ],
+                "position": [
+                  -0.0019569666383857545,
+                  0.0,
+                  3.3183778910159214
+                ],
+                "reason": "estimated water contact (not truth)"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "YOLOE-original",
+              "label": "styrofoam",
+              "classId": 8,
+              "score": 0.2981015145778656,
+              "box": [
+                233.24313354492188,
+                57.04490280151367,
+                406.3228454589844,
+                201.79872131347656
+              ],
+              "category": "OtherRubbish",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "26-plastic_bottle_gallon-5m-0deg-occluded",
+          "expectedKind": "occludedtrash",
+          "wallMs": 94.79759999885573,
+          "detections": [
+            {
+              "model": "YOLOE-original",
+              "label": "styrofoam",
+              "classId": 8,
+              "score": 0.258299320936203,
+              "box": [
+                150.04592895507812,
+                0.0,
+                492.1771545410156,
+                266.9926452636719
+              ],
+              "category": "OtherRubbish",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  321.1115417480469,
+                  266.9926452636719
+                ],
+                "position": [
+                  0.007826285863583146,
+                  0.0,
+                  2.6042605509982573
+                ],
+                "reason": "estimated water contact (not truth)"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "YOLOE-original",
+              "label": "styrofoam",
+              "classId": 8,
+              "score": 0.258299320936203,
+              "box": [
+                150.04592895507812,
+                0.0,
+                492.1771545410156,
+                266.9926452636719
+              ],
+              "category": "OtherRubbish",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "27-cleaner_tin_01-3m-0deg-glare",
+          "expectedKind": "trash",
+          "wallMs": 91.63310000076308,
+          "detections": [
+            {
+              "model": "YOLOE-original",
+              "label": "buoy",
+              "classId": 18,
+              "score": 0.3992385268211365,
+              "box": [
+                304.9698181152344,
+                192.3383331298828,
+                335.4300231933594,
+                240.31321716308594
+              ],
+              "category": "Obstacle",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  320.1999206542969,
+                  240.31321716308594
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "YOLOE-original",
+              "label": "buoy",
+              "classId": 18,
+              "score": 0.3992385268211365,
+              "box": [
+                304.9698181152344,
+                192.3383331298828,
+                335.4300231933594,
+                240.31321716308594
+              ],
+              "category": "Obstacle",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "28-empty-0m-0deg",
+          "expectedKind": "empty",
+          "wallMs": 88.15110000068671,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        }
+      ]
+    },
+    {
+      "model": "YOLOE-original",
+      "imgsz": 640,
+      "confidence": 0.25,
+      "medianMs": 153.9052999996784,
+      "trashDetected": 1,
+      "trashEligible": 0,
+      "fishDetected": 1,
+      "boatDetected": 0,
+      "emptyDetections": 0,
+      "frames": [
+        {
+          "fixture": "00-plastic_bottle_gallon-2.5m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 192.59369999963383,
+          "detections": [
+            {
+              "model": "YOLOE-original",
+              "label": "jellyfish",
+              "classId": 11,
+              "score": 0.3208969533443451,
+              "box": [
+                284.6416320800781,
+                240.3583526611328,
+                348.6588439941406,
+                302.77972412109375
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  316.6502380371094,
+                  302.77972412109375
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "YOLOE-original",
+              "label": "jellyfish",
+              "classId": 11,
+              "score": 0.3208969533443451,
+              "box": [
+                284.6416320800781,
+                240.3583526611328,
+                348.6588439941406,
+                302.77972412109375
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "01-plastic_bottle_gallon-2.5m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 187.55500000042957,
+          "detections": [
+            {
+              "model": "YOLOE-original",
+              "label": "styrofoam",
+              "classId": 8,
+              "score": 0.4039291441440582,
+              "box": [
+                286.4923400878906,
+                234.61361694335938,
+                355.4058532714844,
+                294.4259948730469
+              ],
+              "category": "OtherRubbish",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  320.9490966796875,
+                  294.4259948730469
+                ],
+                "position": [
+                  0.006118135931313821,
+                  0.0,
+                  2.38945411739607
+                ],
+                "reason": "estimated water contact (not truth)"
+              }
+            }
+          ],
+          "expectedCategoryPresent": true,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "02-plastic_bottle_gallon-4m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 177.1305999991455,
+          "detections": [
+            {
+              "model": "YOLOE-original",
+              "label": "jellyfish",
+              "classId": 11,
+              "score": 0.36329585313796997,
+              "box": [
+                298.23492431640625,
+                138.67254638671875,
+                337.84930419921875,
+                166.606689453125
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  318.0421142578125,
+                  166.606689453125
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "YOLOE-original",
+              "label": "jellyfish",
+              "classId": 11,
+              "score": 0.36329585313796997,
+              "box": [
+                298.23492431640625,
+                138.67254638671875,
+                337.84930419921875,
+                166.606689453125
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "03-plastic_bottle_gallon-4m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 154.81809999982943,
+          "detections": [
+            {
+              "model": "YOLOE-original",
+              "label": "bird",
+              "classId": 15,
+              "score": 0.43956759572029114,
+              "box": [
+                298.8359680175781,
+                134.6591796875,
+                341.9178161621094,
+                161.70013427734375
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  320.37689208984375,
+                  161.70013427734375
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "YOLOE-original",
+              "label": "bird",
+              "classId": 15,
+              "score": 0.43956759572029114,
+              "box": [
+                298.8359680175781,
+                134.6591796875,
+                341.9178161621094,
+                161.70013427734375
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "04-plastic_bottle_gallon-7m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 157.78800000043702,
+          "detections": [
+            {
+              "model": "YOLOE-original",
+              "label": "jellyfish",
+              "classId": 11,
+              "score": 0.2710762321949005,
+              "box": [
+                307.97967529296875,
+                64.97021484375,
+                329.91925048828125,
+                78.47856140136719
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  318.949462890625,
+                  78.47856140136719
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "YOLOE-original",
+              "label": "jellyfish",
+              "classId": 11,
+              "score": 0.2710762321949005,
+              "box": [
+                307.97967529296875,
+                64.97021484375,
+                329.91925048828125,
+                78.47856140136719
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "05-plastic_bottle_gallon-7m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 263.7235000001965,
+          "detections": [
+            {
+              "model": "YOLOE-original",
+              "label": "jellyfish",
+              "classId": 11,
+              "score": 0.5261654257774353,
+              "box": [
+                307.91986083984375,
+                63.187870025634766,
+                331.84393310546875,
+                76.50961303710938
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  319.88189697265625,
+                  76.50961303710938
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "YOLOE-original",
+              "label": "jellyfish",
+              "classId": 11,
+              "score": 0.5261654257774353,
+              "box": [
+                307.91986083984375,
+                63.187870025634766,
+                331.84393310546875,
+                76.50961303710938
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "06-multi_cleaner_bottle-2.5m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 207.12920000005397,
+          "detections": [
+            {
+              "model": "YOLOE-original",
+              "label": "jellyfish",
+              "classId": 11,
+              "score": 0.6892500519752502,
+              "box": [
+                307.31866455078125,
+                241.05335998535156,
+                332.92095947265625,
+                296.002197265625
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  320.11981201171875,
+                  296.002197265625
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "YOLOE-original",
+              "label": "jellyfish",
+              "classId": 11,
+              "score": 0.6892500519752502,
+              "box": [
+                307.31866455078125,
+                241.05335998535156,
+                332.92095947265625,
+                296.002197265625
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "07-multi_cleaner_bottle-2.5m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 178.93019999974058,
+          "detections": [
+            {
+              "model": "YOLOE-original",
+              "label": "jellyfish",
+              "classId": 11,
+              "score": 0.3970417380332947,
+              "box": [
+                307.34942626953125,
+                241.0521697998047,
+                333.02532958984375,
+                295.90972900390625
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  320.1873779296875,
+                  295.90972900390625
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "YOLOE-original",
+              "label": "jellyfish",
+              "classId": 11,
+              "score": 0.3970417380332947,
+              "box": [
+                307.34942626953125,
+                241.0521697998047,
+                333.02532958984375,
+                295.90972900390625
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "08-multi_cleaner_bottle-4m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 211.81700000124692,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "09-multi_cleaner_bottle-4m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 153.9052999996784,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "10-multi_cleaner_bottle-7m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 187.28789999840956,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "11-multi_cleaner_bottle-7m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 163.00000000046566,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "12-cleaner_tin_01-2.5m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 162.4138999995921,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "13-cleaner_tin_01-2.5m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 151.0573999985354,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "14-cleaner_tin_01-4m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 144.64650000081747,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "15-cleaner_tin_01-4m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 156.6638000003877,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "16-cleaner_tin_01-7m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 147.49469999878784,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "17-cleaner_tin_01-7m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 162.0720999999321,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "18-trashbag-2.5m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 134.8904999995284,
+          "detections": [
+            {
+              "model": "YOLOE-original",
+              "label": "jellyfish",
+              "classId": 11,
+              "score": 0.4663013219833374,
+              "box": [
+                264.78961181640625,
+                232.7129364013672,
+                349.12152099609375,
+                319.55560302734375
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  306.95556640625,
+                  319.55560302734375
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "YOLOE-original",
+              "label": "jellyfish",
+              "classId": 11,
+              "score": 0.4663013219833374,
+              "box": [
+                264.78961181640625,
+                232.7129364013672,
+                349.12152099609375,
+                319.55560302734375
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "19-trashbag-2.5m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 140.62379999995755,
+          "detections": [
+            {
+              "model": "YOLOE-original",
+              "label": "jellyfish",
+              "classId": 11,
+              "score": 0.8172874450683594,
+              "box": [
+                266.39874267578125,
+                221.81874084472656,
+                358.11077880859375,
+                298.153564453125
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  312.2547607421875,
+                  298.153564453125
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "YOLOE-original",
+              "label": "jellyfish",
+              "classId": 11,
+              "score": 0.8172874450683594,
+              "box": [
+                266.39874267578125,
+                221.81874084472656,
+                358.11077880859375,
+                298.153564453125
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "20-trashbag-4m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 137.88249999925029,
+          "detections": [
+            {
+              "model": "YOLOE-original",
+              "label": "jellyfish",
+              "classId": 11,
+              "score": 0.763056218624115,
+              "box": [
+                286.7049255371094,
+                129.37042236328125,
+                337.6742858886719,
+                177.08477783203125
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  312.1896057128906,
+                  177.08477783203125
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "YOLOE-original",
+              "label": "jellyfish",
+              "classId": 11,
+              "score": 0.763056218624115,
+              "box": [
+                286.7049255371094,
+                129.37042236328125,
+                337.6742858886719,
+                177.08477783203125
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "21-trashbag-4m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 135.28740000037942,
+          "detections": [
+            {
+              "model": "YOLOE-original",
+              "label": "jellyfish",
+              "classId": 11,
+              "score": 0.8095471262931824,
+              "box": [
+                287.4244384765625,
+                124.70907592773438,
+                342.90399169921875,
+                167.51406860351562
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  315.1642150878906,
+                  167.51406860351562
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "YOLOE-original",
+              "label": "jellyfish",
+              "classId": 11,
+              "score": 0.8095471262931824,
+              "box": [
+                287.4244384765625,
+                124.70907592773438,
+                342.90399169921875,
+                167.51406860351562
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "22-trashbag-7m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 146.40380000128062,
+          "detections": [
+            {
+              "model": "YOLOE-original",
+              "label": "jellyfish",
+              "classId": 11,
+              "score": 0.5388914942741394,
+              "box": [
+                301.07501220703125,
+                58.61505126953125,
+                329.94586181640625,
+                83.65548706054688
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  315.51043701171875,
+                  83.65548706054688
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "YOLOE-original",
+              "label": "jellyfish",
+              "classId": 11,
+              "score": 0.5388914942741394,
+              "box": [
+                301.07501220703125,
+                58.61505126953125,
+                329.94586181640625,
+                83.65548706054688
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "23-trashbag-7m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 141.10769999933837,
+          "detections": [
+            {
+              "model": "YOLOE-original",
+              "label": "jellyfish",
+              "classId": 11,
+              "score": 0.7535620927810669,
+              "box": [
+                302.1746826171875,
+                56.781822204589844,
+                332.492431640625,
+                80.64583587646484
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  317.33355712890625,
+                  80.64583587646484
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "YOLOE-original",
+              "label": "jellyfish",
+              "classId": 11,
+              "score": 0.7535620927810669,
+              "box": [
+                302.1746826171875,
+                56.781822204589844,
+                332.492431640625,
+                80.64583587646484
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "24-BarramundiFish-3m-0deg",
+          "expectedKind": "fish",
+          "wallMs": 142.59470000069996,
+          "detections": [
+            {
+              "model": "YOLOE-original",
+              "label": "fish",
+              "classId": 9,
+              "score": 0.3305266797542572,
+              "box": [
+                272.45037841796875,
+                223.73147583007812,
+                368.094482421875,
+                251.20541381835938
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  320.2724304199219,
+                  251.20541381835938
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": true,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "25-marus_boat-5m-0deg",
+          "expectedKind": "boat",
+          "wallMs": 150.4942999999912,
+          "detections": [
+            {
+              "model": "YOLOE-original",
+              "label": "styrofoam",
+              "classId": 8,
+              "score": 0.827431321144104,
+              "box": [
+                233.10617065429688,
+                57.098182678222656,
+                406.8207092285156,
+                202.30807495117188
+              ],
+              "category": "OtherRubbish",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  319.96343994140625,
+                  202.30807495117188
+                ],
+                "position": [
+                  -0.0003289712221509222,
+                  0.0,
+                  3.3112476704196903
+                ],
+                "reason": "estimated water contact (not truth)"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "YOLOE-original",
+              "label": "styrofoam",
+              "classId": 8,
+              "score": 0.827431321144104,
+              "box": [
+                233.10617065429688,
+                57.098182678222656,
+                406.8207092285156,
+                202.30807495117188
+              ],
+              "category": "OtherRubbish",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "26-plastic_bottle_gallon-5m-0deg-occluded",
+          "expectedKind": "occludedtrash",
+          "wallMs": 152.6704999996582,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "27-cleaner_tin_01-3m-0deg-glare",
+          "expectedKind": "trash",
+          "wallMs": 141.5073999996821,
+          "detections": [
+            {
+              "model": "YOLOE-original",
+              "label": "jellyfish",
+              "classId": 11,
+              "score": 0.35148343443870544,
+              "box": [
+                305.85369873046875,
+                193.15261840820312,
+                334.9599609375,
+                239.28347778320312
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  320.4068298339844,
+                  239.28347778320312
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "YOLOE-original",
+              "label": "jellyfish",
+              "classId": 11,
+              "score": 0.35148343443870544,
+              "box": [
+                305.85369873046875,
+                193.15261840820312,
+                334.9599609375,
+                239.28347778320312
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "28-empty-0m-0deg",
+          "expectedKind": "empty",
+          "wallMs": 137.68940000045404,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        }
+      ]
+    },
+    {
+      "model": "TRASH",
+      "imgsz": 416,
+      "confidence": 0.3,
+      "medianMs": 147.39109999936773,
+      "trashDetected": 6,
+      "trashEligible": 0,
+      "fishDetected": 1,
+      "boatDetected": 0,
+      "emptyDetections": 0,
+      "frames": [
+        {
+          "fixture": "00-plastic_bottle_gallon-2.5m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 148.1554000001779,
+          "detections": [
+            {
+              "model": "TRASH",
+              "label": "trash_plastic",
+              "classId": 13,
+              "score": 0.5723869204521179,
+              "box": [
+                284.44561767578125,
+                240.8131866455078,
+                349.7218933105469,
+                302.4500427246094
+              ],
+              "category": "OtherRubbish",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  317.08375549316406,
+                  302.4500427246094
+                ],
+                "position": [
+                  -0.01834571223339476,
+                  0.0,
+                  2.3333179612413018
+                ],
+                "reason": "estimated water contact (not truth)"
+              }
+            },
+            {
+              "model": "TRASH",
+              "label": "animal_shells",
+              "classId": 4,
+              "score": 0.5359545350074768,
+              "box": [
+                285.06915283203125,
+                240.4654083251953,
+                349.6003112792969,
+                303.09918212890625
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  317.33473205566406,
+                  303.09918212890625
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": true,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "TRASH",
+              "label": "animal_shells",
+              "classId": 4,
+              "score": 0.5359545350074768,
+              "box": [
+                285.06915283203125,
+                240.4654083251953,
+                349.6003112792969,
+                303.09918212890625
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "01-plastic_bottle_gallon-2.5m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 148.00219999960973,
+          "detections": [
+            {
+              "model": "TRASH",
+              "label": "trash_etc",
+              "classId": 8,
+              "score": 0.361969530582428,
+              "box": [
+                286.5684814453125,
+                233.5937957763672,
+                355.02276611328125,
+                294.6676940917969
+              ],
+              "category": "OtherRubbish",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  320.7956237792969,
+                  294.6676940917969
+                ],
+                "position": [
+                  0.005124994261514792,
+                  0.0,
+                  2.387722709499807
+                ],
+                "reason": "estimated water contact (not truth)"
+              }
+            }
+          ],
+          "expectedCategoryPresent": true,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "02-plastic_bottle_gallon-4m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 141.15959999980987,
+          "detections": [
+            {
+              "model": "TRASH",
+              "label": "animal_shells",
+              "classId": 4,
+              "score": 0.6603242754936218,
+              "box": [
+                299.0625305175781,
+                139.42918395996094,
+                337.3002014160156,
+                165.7562713623047
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  318.1813659667969,
+                  165.7562713623047
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            },
+            {
+              "model": "TRASH",
+              "label": "animal_fish",
+              "classId": 2,
+              "score": 0.3666205108165741,
+              "box": [
+                4.63059663772583,
+                0.0,
+                635.8858032226562,
+                352.47698974609375
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  320.25819993019104,
+                  352.47698974609375
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "TRASH",
+              "label": "animal_shells",
+              "classId": 4,
+              "score": 0.6603242754936218,
+              "box": [
+                299.0625305175781,
+                139.42918395996094,
+                337.3002014160156,
+                165.7562713623047
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            },
+            {
+              "model": "TRASH",
+              "label": "animal_fish",
+              "classId": 2,
+              "score": 0.3666205108165741,
+              "box": [
+                4.63059663772583,
+                0.0,
+                635.8858032226562,
+                352.47698974609375
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "03-plastic_bottle_gallon-4m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 143.79279999957362,
+          "detections": [
+            {
+              "model": "TRASH",
+              "label": "animal_shells",
+              "classId": 4,
+              "score": 0.6660342812538147,
+              "box": [
+                299.39556884765625,
+                135.89837646484375,
+                339.8259582519531,
+                161.33087158203125
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  319.6107635498047,
+                  161.33087158203125
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            },
+            {
+              "model": "TRASH",
+              "label": "animal_fish",
+              "classId": 2,
+              "score": 0.30085358023643494,
+              "box": [
+                4.856520652770996,
+                0.0,
+                635.7093505859375,
+                336.2255554199219
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  320.28293561935425,
+                  336.2255554199219
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "TRASH",
+              "label": "animal_shells",
+              "classId": 4,
+              "score": 0.6660342812538147,
+              "box": [
+                299.39556884765625,
+                135.89837646484375,
+                339.8259582519531,
+                161.33087158203125
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            },
+            {
+              "model": "TRASH",
+              "label": "animal_fish",
+              "classId": 2,
+              "score": 0.30085358023643494,
+              "box": [
+                4.856520652770996,
+                0.0,
+                635.7093505859375,
+                336.2255554199219
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "04-plastic_bottle_gallon-7m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 148.28010000019276,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "05-plastic_bottle_gallon-7m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 140.28639999924053,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "06-multi_cleaner_bottle-2.5m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 169.95159999896714,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "07-multi_cleaner_bottle-2.5m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 147.39109999936773,
+          "detections": [
+            {
+              "model": "TRASH",
+              "label": "trash_metal",
+              "classId": 11,
+              "score": 0.3682142198085785,
+              "box": [
+                306.51885986328125,
+                241.27879333496094,
+                332.9683532714844,
+                296.22186279296875
+              ],
+              "category": "OtherRubbish",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  319.7436065673828,
+                  296.22186279296875
+                ],
+                "position": [
+                  -0.0016436942969041222,
+                  0.0,
+                  2.3766506658410966
+                ],
+                "reason": "estimated water contact (not truth)"
+              }
+            }
+          ],
+          "expectedCategoryPresent": true,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "08-multi_cleaner_bottle-4m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 149.8578999999154,
+          "detections": [
+            {
+              "model": "TRASH",
+              "label": "animal_fish",
+              "classId": 2,
+              "score": 0.43227118253707886,
+              "box": [
+                4.315373420715332,
+                0.0,
+                636.11865234375,
+                358.685302734375
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  320.21701288223267,
+                  358.685302734375
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            },
+            {
+              "model": "TRASH",
+              "label": "trash_etc",
+              "classId": 8,
+              "score": 0.3463013768196106,
+              "box": [
+                312.4013366699219,
+                130.6815185546875,
+                327.8495788574219,
+                170.3634490966797
+              ],
+              "category": "OtherRubbish",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  320.1254577636719,
+                  170.3634490966797
+                ],
+                "position": [
+                  0.0013085100857083121,
+                  0.0,
+                  3.828447310962614
+                ],
+                "reason": "estimated water contact (not truth)"
+              }
+            }
+          ],
+          "expectedCategoryPresent": true,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "TRASH",
+              "label": "animal_fish",
+              "classId": 2,
+              "score": 0.43227118253707886,
+              "box": [
+                4.315373420715332,
+                0.0,
+                636.11865234375,
+                358.685302734375
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "09-multi_cleaner_bottle-4m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 140.93350000075588,
+          "detections": [
+            {
+              "model": "TRASH",
+              "label": "animal_fish",
+              "classId": 2,
+              "score": 0.4876802861690521,
+              "box": [
+                4.315889835357666,
+                0.0,
+                636.0723876953125,
+                373.0816955566406
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  320.1941387653351,
+                  373.0816955566406
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            },
+            {
+              "model": "TRASH",
+              "label": "trash_etc",
+              "classId": 8,
+              "score": 0.3054506480693817,
+              "box": [
+                312.4348449707031,
+                130.69908142089844,
+                327.83184814453125,
+                170.54701232910156
+              ],
+              "category": "OtherRubbish",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  320.1333465576172,
+                  170.54701232910156
+                ],
+                "position": [
+                  0.0013895187923806697,
+                  0.0,
+                  3.8250055738412017
+                ],
+                "reason": "estimated water contact (not truth)"
+              }
+            }
+          ],
+          "expectedCategoryPresent": true,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "TRASH",
+              "label": "animal_fish",
+              "classId": 2,
+              "score": 0.4876802861690521,
+              "box": [
+                4.315889835357666,
+                0.0,
+                636.0723876953125,
+                373.0816955566406
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "10-multi_cleaner_bottle-7m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 141.65159999902244,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "11-multi_cleaner_bottle-7m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 141.30420000037702,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "12-cleaner_tin_01-2.5m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 146.30310000029567,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "13-cleaner_tin_01-2.5m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 135.41970000005676,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "14-cleaner_tin_01-4m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 144.4136999998591,
+          "detections": [
+            {
+              "model": "TRASH",
+              "label": "animal_shells",
+              "classId": 4,
+              "score": 0.38870933651924133,
+              "box": [
+                302.47467041015625,
+                137.42132568359375,
+                335.82763671875,
+                163.78240966796875
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  319.1511535644531,
+                  163.78240966796875
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            },
+            {
+              "model": "TRASH",
+              "label": "animal_fish",
+              "classId": 2,
+              "score": 0.3418026864528656,
+              "box": [
+                4.7314453125,
+                0.0,
+                635.85986328125,
+                350.63153076171875
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  320.295654296875,
+                  350.63153076171875
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "TRASH",
+              "label": "animal_shells",
+              "classId": 4,
+              "score": 0.38870933651924133,
+              "box": [
+                302.47467041015625,
+                137.42132568359375,
+                335.82763671875,
+                163.78240966796875
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            },
+            {
+              "model": "TRASH",
+              "label": "animal_fish",
+              "classId": 2,
+              "score": 0.3418026864528656,
+              "box": [
+                4.7314453125,
+                0.0,
+                635.85986328125,
+                350.63153076171875
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "15-cleaner_tin_01-4m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 144.20499999869207,
+          "detections": [
+            {
+              "model": "TRASH",
+              "label": "animal_fish",
+              "classId": 2,
+              "score": 0.3648698031902313,
+              "box": [
+                4.860370635986328,
+                0.0,
+                636.0773315429688,
+                350.084716796875
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  320.46885108947754,
+                  350.084716796875
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "TRASH",
+              "label": "animal_fish",
+              "classId": 2,
+              "score": 0.3648698031902313,
+              "box": [
+                4.860370635986328,
+                0.0,
+                636.0773315429688,
+                350.084716796875
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "16-cleaner_tin_01-7m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 143.71839999876102,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "17-cleaner_tin_01-7m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 144.40540000032343,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "18-trashbag-2.5m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 179.3863999992027,
+          "detections": [
+            {
+              "model": "TRASH",
+              "label": "animal_shells",
+              "classId": 4,
+              "score": 0.8199502229690552,
+              "box": [
+                264.36224365234375,
+                232.11749267578125,
+                349.5089111328125,
+                319.9447021484375
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  306.9355773925781,
+                  319.9447021484375
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "TRASH",
+              "label": "animal_shells",
+              "classId": 4,
+              "score": 0.8199502229690552,
+              "box": [
+                264.36224365234375,
+                232.11749267578125,
+                349.5089111328125,
+                319.9447021484375
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "19-trashbag-2.5m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 162.0325000003504,
+          "detections": [
+            {
+              "model": "TRASH",
+              "label": "animal_shells",
+              "classId": 4,
+              "score": 0.8068757653236389,
+              "box": [
+                267.2110900878906,
+                222.24435424804688,
+                357.913818359375,
+                299.5936279296875
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  312.5624542236328,
+                  299.5936279296875
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "TRASH",
+              "label": "animal_shells",
+              "classId": 4,
+              "score": 0.8068757653236389,
+              "box": [
+                267.2110900878906,
+                222.24435424804688,
+                357.913818359375,
+                299.5936279296875
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "20-trashbag-4m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 159.25810000044294,
+          "detections": [
+            {
+              "model": "TRASH",
+              "label": "trash_etc",
+              "classId": 8,
+              "score": 0.4867880344390869,
+              "box": [
+                287.2887878417969,
+                130.0477752685547,
+                336.7068786621094,
+                176.4407501220703
+              ],
+              "category": "OtherRubbish",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  311.9978332519531,
+                  176.4407501220703
+                ],
+                "position": [
+                  -0.0810093801812558,
+                  0.0,
+                  3.7177472539922785
+                ],
+                "reason": "estimated water contact (not truth)"
+              }
+            }
+          ],
+          "expectedCategoryPresent": true,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "21-trashbag-4m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 154.72410000074888,
+          "detections": [
+            {
+              "model": "TRASH",
+              "label": "animal_fish",
+              "classId": 2,
+              "score": 0.3699457347393036,
+              "box": [
+                4.700552463531494,
+                0.0,
+                635.9340209960938,
+                369.2378845214844
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  320.3172867298126,
+                  369.2378845214844
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "TRASH",
+              "label": "animal_fish",
+              "classId": 2,
+              "score": 0.3699457347393036,
+              "box": [
+                4.700552463531494,
+                0.0,
+                635.9340209960938,
+                369.2378845214844
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "22-trashbag-7m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 147.7684000001318,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "23-trashbag-7m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 147.04680000068038,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "24-BarramundiFish-3m-0deg",
+          "expectedKind": "fish",
+          "wallMs": 148.98820000053092,
+          "detections": [
+            {
+              "model": "TRASH",
+              "label": "animal_fish",
+              "classId": 2,
+              "score": 0.49817562103271484,
+              "box": [
+                271.28546142578125,
+                225.2911376953125,
+                367.3228759765625,
+                250.26707458496094
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  319.3041687011719,
+                  250.26707458496094
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            },
+            {
+              "model": "TRASH",
+              "label": "animal_eel",
+              "classId": 6,
+              "score": 0.3120572865009308,
+              "box": [
+                271.2528991699219,
+                226.1241912841797,
+                367.7538146972656,
+                249.97804260253906
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  319.50335693359375,
+                  249.97804260253906
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": true,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "25-marus_boat-5m-0deg",
+          "expectedKind": "boat",
+          "wallMs": 160.28540000115754,
+          "detections": [
+            {
+              "model": "TRASH",
+              "label": "trash_plastic",
+              "classId": 13,
+              "score": 0.6886694431304932,
+              "box": [
+                232.7593536376953,
+                57.02959442138672,
+                405.966796875,
+                203.0934600830078
+              ],
+              "category": "OtherRubbish",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  319.36307525634766,
+                  203.0934600830078
+                ],
+                "position": [
+                  -0.005711837491486133,
+                  0.0,
+                  3.300314370216064
+                ],
+                "reason": "estimated water contact (not truth)"
+              }
+            },
+            {
+              "model": "TRASH",
+              "label": "trash_etc",
+              "classId": 8,
+              "score": 0.54881352186203,
+              "box": [
+                232.83575439453125,
+                56.94203567504883,
+                405.9781799316406,
+                202.9271240234375
+              ],
+              "category": "OtherRubbish",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  319.40696716308594,
+                  202.9271240234375
+                ],
+                "position": [
+                  -0.005322013400540907,
+                  2.220446049250313e-16,
+                  3.3026237810764747
+                ],
+                "reason": "estimated water contact (not truth)"
+              }
+            },
+            {
+              "model": "TRASH",
+              "label": "animal_fish",
+              "classId": 2,
+              "score": 0.4804537892341614,
+              "box": [
+                6.614145278930664,
+                0.0,
+                637.0814208984375,
+                319.8617858886719
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  321.8477830886841,
+                  319.8617858886719
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "TRASH",
+              "label": "trash_plastic",
+              "classId": 13,
+              "score": 0.6886694431304932,
+              "box": [
+                232.7593536376953,
+                57.02959442138672,
+                405.966796875,
+                203.0934600830078
+              ],
+              "category": "OtherRubbish",
+              "eligible": false
+            },
+            {
+              "model": "TRASH",
+              "label": "trash_etc",
+              "classId": 8,
+              "score": 0.54881352186203,
+              "box": [
+                232.83575439453125,
+                56.94203567504883,
+                405.9781799316406,
+                202.9271240234375
+              ],
+              "category": "OtherRubbish",
+              "eligible": false
+            },
+            {
+              "model": "TRASH",
+              "label": "animal_fish",
+              "classId": 2,
+              "score": 0.4804537892341614,
+              "box": [
+                6.614145278930664,
+                0.0,
+                637.0814208984375,
+                319.8617858886719
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "26-plastic_bottle_gallon-5m-0deg-occluded",
+          "expectedKind": "occludedtrash",
+          "wallMs": 149.69720000044617,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "27-cleaner_tin_01-3m-0deg-glare",
+          "expectedKind": "trash",
+          "wallMs": 147.4519000003056,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "28-empty-0m-0deg",
+          "expectedKind": "empty",
+          "wallMs": 144.92740000059712,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        }
+      ]
+    },
+    {
+      "model": "TRASH",
+      "imgsz": 640,
+      "confidence": 0.3,
+      "medianMs": 293.1642000003194,
+      "trashDetected": 6,
+      "trashEligible": 0,
+      "fishDetected": 0,
+      "boatDetected": 0,
+      "emptyDetections": 0,
+      "frames": [
+        {
+          "fixture": "00-plastic_bottle_gallon-2.5m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 297.27120000097784,
+          "detections": [
+            {
+              "model": "TRASH",
+              "label": "trash_metal",
+              "classId": 11,
+              "score": 0.6144785284996033,
+              "box": [
+                284.30267333984375,
+                240.5344696044922,
+                348.9332275390625,
+                303.19586181640625
+              ],
+              "category": "OtherRubbish",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  316.6179504394531,
+                  303.19586181640625
+                ],
+                "position": [
+                  -0.021228463252465992,
+                  0.0,
+                  2.32823738960611
+                ],
+                "reason": "estimated water contact (not truth)"
+              }
+            }
+          ],
+          "expectedCategoryPresent": true,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "01-plastic_bottle_gallon-2.5m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 334.3680999987555,
+          "detections": [
+            {
+              "model": "TRASH",
+              "label": "trash_metal",
+              "classId": 11,
+              "score": 0.6154804229736328,
+              "box": [
+                286.04498291015625,
+                234.71897888183594,
+                355.64019775390625,
+                294.8525390625
+              ],
+              "category": "OtherRubbish",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  320.84259033203125,
+                  294.8525390625
+                ],
+                "position": [
+                  0.005424443763309763,
+                  0.0,
+                  2.386400312492894
+                ],
+                "reason": "estimated water contact (not truth)"
+              }
+            }
+          ],
+          "expectedCategoryPresent": true,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "02-plastic_bottle_gallon-4m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 307.54009999873233,
+          "detections": [
+            {
+              "model": "TRASH",
+              "label": "animal_shells",
+              "classId": 4,
+              "score": 0.7900858521461487,
+              "box": [
+                298.88677978515625,
+                139.12461853027344,
+                337.56207275390625,
+                166.1238250732422
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  318.22442626953125,
+                  166.1238250732422
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            },
+            {
+              "model": "TRASH",
+              "label": "animal_fish",
+              "classId": 2,
+              "score": 0.4349633753299713,
+              "box": [
+                4.02581787109375,
+                1.6199798583984375,
+                636.0593872070312,
+                221.86080932617188
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  320.0426025390625,
+                  221.86080932617188
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "TRASH",
+              "label": "animal_shells",
+              "classId": 4,
+              "score": 0.7900858521461487,
+              "box": [
+                298.88677978515625,
+                139.12461853027344,
+                337.56207275390625,
+                166.1238250732422
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            },
+            {
+              "model": "TRASH",
+              "label": "animal_fish",
+              "classId": 2,
+              "score": 0.4349633753299713,
+              "box": [
+                4.02581787109375,
+                1.6199798583984375,
+                636.0593872070312,
+                221.86080932617188
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "03-plastic_bottle_gallon-4m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 291.48500000155764,
+          "detections": [
+            {
+              "model": "TRASH",
+              "label": "animal_shells",
+              "classId": 4,
+              "score": 0.5162906050682068,
+              "box": [
+                299.12615966796875,
+                135.425048828125,
+                340.6884765625,
+                160.73858642578125
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  319.9073181152344,
+                  160.73858642578125
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            },
+            {
+              "model": "TRASH",
+              "label": "animal_fish",
+              "classId": 2,
+              "score": 0.41676801443099976,
+              "box": [
+                4.021240234375,
+                1.545074462890625,
+                635.687744140625,
+                223.50067138671875
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  319.8544921875,
+                  223.50067138671875
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "TRASH",
+              "label": "animal_shells",
+              "classId": 4,
+              "score": 0.5162906050682068,
+              "box": [
+                299.12615966796875,
+                135.425048828125,
+                340.6884765625,
+                160.73858642578125
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            },
+            {
+              "model": "TRASH",
+              "label": "animal_fish",
+              "classId": 2,
+              "score": 0.41676801443099976,
+              "box": [
+                4.021240234375,
+                1.545074462890625,
+                635.687744140625,
+                223.50067138671875
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "04-plastic_bottle_gallon-7m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 295.9305000003951,
+          "detections": [
+            {
+              "model": "TRASH",
+              "label": "animal_shells",
+              "classId": 4,
+              "score": 0.5486399531364441,
+              "box": [
+                308.17041015625,
+                65.08365631103516,
+                329.258056640625,
+                78.19918060302734
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  318.7142333984375,
+                  78.19918060302734
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "TRASH",
+              "label": "animal_shells",
+              "classId": 4,
+              "score": 0.5486399531364441,
+              "box": [
+                308.17041015625,
+                65.08365631103516,
+                329.258056640625,
+                78.19918060302734
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "05-plastic_bottle_gallon-7m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 291.959099999076,
+          "detections": [
+            {
+              "model": "TRASH",
+              "label": "animal_shells",
+              "classId": 4,
+              "score": 0.5059472918510437,
+              "box": [
+                308.2099914550781,
+                63.26320266723633,
+                331.5276184082031,
+                76.66136169433594
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  319.8688049316406,
+                  76.66136169433594
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "TRASH",
+              "label": "animal_shells",
+              "classId": 4,
+              "score": 0.5059472918510437,
+              "box": [
+                308.2099914550781,
+                63.26320266723633,
+                331.5276184082031,
+                76.66136169433594
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "06-multi_cleaner_bottle-2.5m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 293.1698000011238,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "07-multi_cleaner_bottle-2.5m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 301.80609999843,
+          "detections": [
+            {
+              "model": "TRASH",
+              "label": "rov",
+              "classId": 0,
+              "score": 0.5194434523582458,
+              "box": [
+                307.4005126953125,
+                240.69332885742188,
+                332.7418212890625,
+                295.7137756347656
+              ],
+              "category": "Obstacle",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  320.0711669921875,
+                  295.7137756347656
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "TRASH",
+              "label": "rov",
+              "classId": 0,
+              "score": 0.5194434523582458,
+              "box": [
+                307.4005126953125,
+                240.69332885742188,
+                332.7418212890625,
+                295.7137756347656
+              ],
+              "category": "Obstacle",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "08-multi_cleaner_bottle-4m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 290.782300000501,
+          "detections": [
+            {
+              "model": "TRASH",
+              "label": "animal_fish",
+              "classId": 2,
+              "score": 0.36872684955596924,
+              "box": [
+                4.4068603515625,
+                1.6334228515625,
+                636.0244140625,
+                223.86810302734375
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  320.21563720703125,
+                  223.86810302734375
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "TRASH",
+              "label": "animal_fish",
+              "classId": 2,
+              "score": 0.36872684955596924,
+              "box": [
+                4.4068603515625,
+                1.6334228515625,
+                636.0244140625,
+                223.86810302734375
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "09-multi_cleaner_bottle-4m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 302.3740999997244,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "10-multi_cleaner_bottle-7m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 293.1642000003194,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "11-multi_cleaner_bottle-7m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 297.69590000069,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "12-cleaner_tin_01-2.5m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 290.0855000007141,
+          "detections": [
+            {
+              "model": "TRASH",
+              "label": "trash_metal",
+              "classId": 11,
+              "score": 0.3796676695346832,
+              "box": [
+                290.18804931640625,
+                242.3895263671875,
+                345.24530029296875,
+                295.531005859375
+              ],
+              "category": "OtherRubbish",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  317.7166748046875,
+                  295.531005859375
+                ],
+                "position": [
+                  -0.014669033859110002,
+                  0.0,
+                  2.381559358769829
+                ],
+                "reason": "estimated water contact (not truth)"
+              }
+            },
+            {
+              "model": "TRASH",
+              "label": "trash_plastic",
+              "classId": 13,
+              "score": 0.3460335433483124,
+              "box": [
+                290.19683837890625,
+                242.12796020507812,
+                345.19970703125,
+                295.4775085449219
+              ],
+              "category": "OtherRubbish",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  317.6982727050781,
+                  295.4775085449219
+                ],
+                "position": [
+                  -0.014789684202019026,
+                  0.0,
+                  2.3819403373920816
+                ],
+                "reason": "estimated water contact (not truth)"
+              }
+            }
+          ],
+          "expectedCategoryPresent": true,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "13-cleaner_tin_01-2.5m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 287.8853000001982,
+          "detections": [
+            {
+              "model": "TRASH",
+              "label": "trash_metal",
+              "classId": 11,
+              "score": 0.6844267249107361,
+              "box": [
+                291.05572509765625,
+                239.54393005371094,
+                347.49456787109375,
+                293.959716796875
+              ],
+              "category": "OtherRubbish",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  319.275146484375,
+                  293.959716796875
+                ],
+                "position": [
+                  -0.004679320508906366,
+                  0.0,
+                  2.392801582496062
+                ],
+                "reason": "estimated water contact (not truth)"
+              }
+            }
+          ],
+          "expectedCategoryPresent": true,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "14-cleaner_tin_01-4m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 288.4162999998807,
+          "detections": [
+            {
+              "model": "TRASH",
+              "label": "animal_shells",
+              "classId": 4,
+              "score": 0.4608322083950043,
+              "box": [
+                303.0533447265625,
+                137.499267578125,
+                335.8284912109375,
+                164.582275390625
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  319.44091796875,
+                  164.582275390625
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            },
+            {
+              "model": "TRASH",
+              "label": "animal_fish",
+              "classId": 2,
+              "score": 0.4117434024810791,
+              "box": [
+                3.9736328125,
+                1.609588623046875,
+                635.8544921875,
+                224.72653198242188
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  319.9140625,
+                  224.72653198242188
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "TRASH",
+              "label": "animal_shells",
+              "classId": 4,
+              "score": 0.4608322083950043,
+              "box": [
+                303.0533447265625,
+                137.499267578125,
+                335.8284912109375,
+                164.582275390625
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            },
+            {
+              "model": "TRASH",
+              "label": "animal_fish",
+              "classId": 2,
+              "score": 0.4117434024810791,
+              "box": [
+                3.9736328125,
+                1.609588623046875,
+                635.8544921875,
+                224.72653198242188
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "15-cleaner_tin_01-4m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 277.2033000001102,
+          "detections": [
+            {
+              "model": "TRASH",
+              "label": "animal_fish",
+              "classId": 2,
+              "score": 0.3250209391117096,
+              "box": [
+                4.52044677734375,
+                1.484130859375,
+                635.916259765625,
+                223.85067749023438
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  320.2183532714844,
+                  223.85067749023438
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            },
+            {
+              "model": "TRASH",
+              "label": "animal_shells",
+              "classId": 4,
+              "score": 0.3077552616596222,
+              "box": [
+                302.8939208984375,
+                136.1647186279297,
+                336.3765869140625,
+                163.9175262451172
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  319.63525390625,
+                  163.9175262451172
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "TRASH",
+              "label": "animal_fish",
+              "classId": 2,
+              "score": 0.3250209391117096,
+              "box": [
+                4.52044677734375,
+                1.484130859375,
+                635.916259765625,
+                223.85067749023438
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            },
+            {
+              "model": "TRASH",
+              "label": "animal_shells",
+              "classId": 4,
+              "score": 0.3077552616596222,
+              "box": [
+                302.8939208984375,
+                136.1647186279297,
+                336.3765869140625,
+                163.9175262451172
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "16-cleaner_tin_01-7m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 284.8969999995461,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "17-cleaner_tin_01-7m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 274.21529999992345,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "18-trashbag-2.5m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 287.0788000000175,
+          "detections": [
+            {
+              "model": "TRASH",
+              "label": "animal_shells",
+              "classId": 4,
+              "score": 0.4552960693836212,
+              "box": [
+                265.2752685546875,
+                232.2997589111328,
+                349.111083984375,
+                319.37139892578125
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  307.19317626953125,
+                  319.37139892578125
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            },
+            {
+              "model": "TRASH",
+              "label": "rov",
+              "classId": 0,
+              "score": 0.425073504447937,
+              "box": [
+                265.228515625,
+                232.42257690429688,
+                349.07989501953125,
+                319.3415222167969
+              ],
+              "category": "Obstacle",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  307.1542053222656,
+                  319.3415222167969
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "TRASH",
+              "label": "animal_shells",
+              "classId": 4,
+              "score": 0.4552960693836212,
+              "box": [
+                265.2752685546875,
+                232.2997589111328,
+                349.111083984375,
+                319.37139892578125
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            },
+            {
+              "model": "TRASH",
+              "label": "rov",
+              "classId": 0,
+              "score": 0.425073504447937,
+              "box": [
+                265.228515625,
+                232.42257690429688,
+                349.07989501953125,
+                319.3415222167969
+              ],
+              "category": "Obstacle",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "19-trashbag-2.5m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 285.0964999997814,
+          "detections": [
+            {
+              "model": "TRASH",
+              "label": "animal_shells",
+              "classId": 4,
+              "score": 0.649448812007904,
+              "box": [
+                267.104736328125,
+                221.74148559570312,
+                358.1876220703125,
+                298.7509460449219
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  312.64617919921875,
+                  298.7509460449219
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "TRASH",
+              "label": "animal_shells",
+              "classId": 4,
+              "score": 0.649448812007904,
+              "box": [
+                267.104736328125,
+                221.74148559570312,
+                358.1876220703125,
+                298.7509460449219
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "20-trashbag-4m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 280.83500000138883,
+          "detections": [
+            {
+              "model": "TRASH",
+              "label": "rov",
+              "classId": 0,
+              "score": 0.488660603761673,
+              "box": [
+                287.3971862792969,
+                129.64102172851562,
+                337.6542053222656,
+                177.44412231445312
+              ],
+              "category": "Obstacle",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  312.52569580078125,
+                  177.44412231445312
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            },
+            {
+              "model": "TRASH",
+              "label": "animal_fish",
+              "classId": 2,
+              "score": 0.30329564213752747,
+              "box": [
+                4.072265625,
+                1.4534759521484375,
+                637.2322998046875,
+                226.15525817871094
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  320.65228271484375,
+                  226.15525817871094
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "TRASH",
+              "label": "rov",
+              "classId": 0,
+              "score": 0.488660603761673,
+              "box": [
+                287.3971862792969,
+                129.64102172851562,
+                337.6542053222656,
+                177.44412231445312
+              ],
+              "category": "Obstacle",
+              "eligible": false
+            },
+            {
+              "model": "TRASH",
+              "label": "animal_fish",
+              "classId": 2,
+              "score": 0.30329564213752747,
+              "box": [
+                4.072265625,
+                1.4534759521484375,
+                637.2322998046875,
+                226.15525817871094
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "21-trashbag-4m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 278.915800001414,
+          "detections": [
+            {
+              "model": "TRASH",
+              "label": "animal_shells",
+              "classId": 4,
+              "score": 0.492300420999527,
+              "box": [
+                288.0989990234375,
+                125.87364196777344,
+                342.66845703125,
+                167.53260803222656
+              ],
+              "category": "Wildlife",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  315.38372802734375,
+                  167.53260803222656
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            },
+            {
+              "model": "TRASH",
+              "label": "rov",
+              "classId": 0,
+              "score": 0.4427153170108795,
+              "box": [
+                288.0510559082031,
+                125.86868286132812,
+                342.8368835449219,
+                167.45755004882812
+              ],
+              "category": "Obstacle",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  315.4439697265625,
+                  167.45755004882812
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "TRASH",
+              "label": "animal_shells",
+              "classId": 4,
+              "score": 0.492300420999527,
+              "box": [
+                288.0989990234375,
+                125.87364196777344,
+                342.66845703125,
+                167.53260803222656
+              ],
+              "category": "Wildlife",
+              "eligible": false
+            },
+            {
+              "model": "TRASH",
+              "label": "rov",
+              "classId": 0,
+              "score": 0.4427153170108795,
+              "box": [
+                288.0510559082031,
+                125.86868286132812,
+                342.8368835449219,
+                167.45755004882812
+              ],
+              "category": "Obstacle",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "22-trashbag-7m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 289.12429999945743,
+          "detections": [
+            {
+              "model": "TRASH",
+              "label": "trash_etc",
+              "classId": 8,
+              "score": 0.3917926549911499,
+              "box": [
+                301.722900390625,
+                59.399559020996094,
+                329.07879638671875,
+                83.61016082763672
+              ],
+              "category": "OtherRubbish",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  315.4008483886719,
+                  83.61016082763672
+                ],
+                "position": [
+                  -0.08447102889763981,
+                  0.0,
+                  6.695432083046993
+                ],
+                "reason": "estimated water contact (not truth)"
+              }
+            }
+          ],
+          "expectedCategoryPresent": true,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "23-trashbag-7m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 296.27720000098634,
+          "detections": [
+            {
+              "model": "TRASH",
+              "label": "plant",
+              "classId": 1,
+              "score": 0.3159082531929016,
+              "box": [
+                302.98333740234375,
+                57.958438873291016,
+                332.12945556640625,
+                80.40719604492188
+              ],
+              "category": "Unknown",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  317.556396484375,
+                  80.40719604492188
+                ],
+                "position": null,
+                "reason": "range unknown"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "TRASH",
+              "label": "plant",
+              "classId": 1,
+              "score": 0.3159082531929016,
+              "box": [
+                302.98333740234375,
+                57.958438873291016,
+                332.12945556640625,
+                80.40719604492188
+              ],
+              "category": "Unknown",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "24-BarramundiFish-3m-0deg",
+          "expectedKind": "fish",
+          "wallMs": 300.701800000752,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "25-marus_boat-5m-0deg",
+          "expectedKind": "boat",
+          "wallMs": 346.41999999985273,
+          "detections": [
+            {
+              "model": "TRASH",
+              "label": "trash_etc",
+              "classId": 8,
+              "score": 0.5788632035255432,
+              "box": [
+                233.1796875,
+                56.91325378417969,
+                407.45458984375,
+                203.02455139160156
+              ],
+              "category": "OtherRubbish",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  320.317138671875,
+                  203.02455139160156
+                ],
+                "position": [
+                  0.0028448876249922844,
+                  0.0,
+                  3.3012706995738865
+                ],
+                "reason": "estimated water contact (not truth)"
+              }
+            }
+          ],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": [
+            {
+              "model": "TRASH",
+              "label": "trash_etc",
+              "classId": 8,
+              "score": 0.5788632035255432,
+              "box": [
+                233.1796875,
+                56.91325378417969,
+                407.45458984375,
+                203.02455139160156
+              ],
+              "category": "OtherRubbish",
+              "eligible": false
+            }
+          ]
+        },
+        {
+          "fixture": "26-plastic_bottle_gallon-5m-0deg-occluded",
+          "expectedKind": "occludedtrash",
+          "wallMs": 296.6385999989143,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "27-cleaner_tin_01-3m-0deg-glare",
+          "expectedKind": "trash",
+          "wallMs": 295.2165000006062,
+          "detections": [
+            {
+              "model": "TRASH",
+              "label": "trash_metal",
+              "classId": 11,
+              "score": 0.5480064749717712,
+              "box": [
+                305.66522216796875,
+                193.34146118164062,
+                335.25067138671875,
+                241.18350219726562
+              ],
+              "category": "OtherRubbish",
+              "eligible": false,
+              "contactEstimate": {
+                "pixel": [
+                  320.45794677734375,
+                  241.18350219726562
+                ],
+                "position": [
+                  0.0035307955466157325,
+                  0.0,
+                  2.845968496415818
+                ],
+                "reason": "estimated water contact (not truth)"
+              }
+            }
+          ],
+          "expectedCategoryPresent": true,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "28-empty-0m-0deg",
+          "expectedKind": "empty",
+          "wallMs": 311.38129999999364,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        }
+      ]
+    },
+    {
+      "model": "FML",
+      "imgsz": 416,
+      "confidence": 0.25,
+      "medianMs": 54.96539999876404,
+      "trashDetected": 0,
+      "trashEligible": 0,
+      "fishDetected": 0,
+      "boatDetected": 0,
+      "emptyDetections": 0,
+      "frames": [
+        {
+          "fixture": "00-plastic_bottle_gallon-2.5m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 59.457699999256874,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "01-plastic_bottle_gallon-2.5m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 59.02769999920565,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "02-plastic_bottle_gallon-4m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 69.97609999962151,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "03-plastic_bottle_gallon-4m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 56.53419999907783,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "04-plastic_bottle_gallon-7m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 53.31870000009076,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "05-plastic_bottle_gallon-7m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 63.80480000007083,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "06-multi_cleaner_bottle-2.5m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 55.9214000004431,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "07-multi_cleaner_bottle-2.5m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 56.06919999991078,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "08-multi_cleaner_bottle-4m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 54.66280000109691,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "09-multi_cleaner_bottle-4m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 54.0391999984422,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "10-multi_cleaner_bottle-7m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 54.96539999876404,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "11-multi_cleaner_bottle-7m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 55.60920000061742,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "12-cleaner_tin_01-2.5m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 54.180299999643466,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "13-cleaner_tin_01-2.5m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 61.77480000042124,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "14-cleaner_tin_01-4m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 59.64820000008331,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "15-cleaner_tin_01-4m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 52.45669999931124,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "16-cleaner_tin_01-7m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 54.07829999967362,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "17-cleaner_tin_01-7m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 51.719700000830926,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "18-trashbag-2.5m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 56.133399999453104,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "19-trashbag-2.5m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 53.46140000074229,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "20-trashbag-4m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 54.41359999895212,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "21-trashbag-4m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 56.5876999989996,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "22-trashbag-7m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 54.4608000000153,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "23-trashbag-7m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 51.85900000105903,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "24-BarramundiFish-3m-0deg",
+          "expectedKind": "fish",
+          "wallMs": 54.460900000776746,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "25-marus_boat-5m-0deg",
+          "expectedKind": "boat",
+          "wallMs": 53.289999999833526,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "26-plastic_bottle_gallon-5m-0deg-occluded",
+          "expectedKind": "occludedtrash",
+          "wallMs": 53.486199998587836,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "27-cleaner_tin_01-3m-0deg-glare",
+          "expectedKind": "trash",
+          "wallMs": 57.224400001359754,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "28-empty-0m-0deg",
+          "expectedKind": "empty",
+          "wallMs": 55.40110000038112,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        }
+      ]
+    },
+    {
+      "model": "FML",
+      "imgsz": 640,
+      "confidence": 0.25,
+      "medianMs": 97.30390000004263,
+      "trashDetected": 0,
+      "trashEligible": 0,
+      "fishDetected": 0,
+      "boatDetected": 0,
+      "emptyDetections": 0,
+      "frames": [
+        {
+          "fixture": "00-plastic_bottle_gallon-2.5m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 97.97990000151913,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "01-plastic_bottle_gallon-2.5m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 97.11240000069665,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "02-plastic_bottle_gallon-4m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 94.01250000155414,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "03-plastic_bottle_gallon-4m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 93.65629999956582,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "04-plastic_bottle_gallon-7m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 98.02619999936724,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "05-plastic_bottle_gallon-7m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 92.37799999937124,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "06-multi_cleaner_bottle-2.5m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 95.79510000003211,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "07-multi_cleaner_bottle-2.5m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 93.89950000149838,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "08-multi_cleaner_bottle-4m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 111.9483999991644,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "09-multi_cleaner_bottle-4m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 94.96340000077907,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "10-multi_cleaner_bottle-7m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 102.29470000012952,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "11-multi_cleaner_bottle-7m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 99.02630000033241,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "12-cleaner_tin_01-2.5m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 100.51559999919846,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "13-cleaner_tin_01-2.5m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 100.72989999935089,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "14-cleaner_tin_01-4m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 97.30390000004263,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "15-cleaner_tin_01-4m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 95.37710000040533,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "16-cleaner_tin_01-7m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 101.3941999990493,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "17-cleaner_tin_01-7m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 93.34789999957138,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "18-trashbag-2.5m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 94.24839999883261,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "19-trashbag-2.5m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 97.9059999990568,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "20-trashbag-4m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 98.76509999958216,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "21-trashbag-4m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 91.84600000116916,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "22-trashbag-7m-45deg",
+          "expectedKind": "trash",
+          "wallMs": 96.00679999857675,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "23-trashbag-7m-135deg",
+          "expectedKind": "trash",
+          "wallMs": 102.6397999994515,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "24-BarramundiFish-3m-0deg",
+          "expectedKind": "fish",
+          "wallMs": 131.4500999997108,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "25-marus_boat-5m-0deg",
+          "expectedKind": "boat",
+          "wallMs": 101.28790000089793,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "26-plastic_bottle_gallon-5m-0deg-occluded",
+          "expectedKind": "occludedtrash",
+          "wallMs": 91.89429999969434,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "27-cleaner_tin_01-3m-0deg-glare",
+          "expectedKind": "trash",
+          "wallMs": 96.1289000006218,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        },
+        {
+          "fixture": "28-empty-0m-0deg",
+          "expectedKind": "empty",
+          "wallMs": 97.87080000023707,
+          "detections": [],
+          "expectedCategoryPresent": false,
+          "eligiblePresent": false,
+          "unexpectedCategories": []
+        }
+      ]
+    }
+  ]
+}

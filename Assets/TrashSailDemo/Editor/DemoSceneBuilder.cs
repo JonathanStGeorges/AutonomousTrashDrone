@@ -35,6 +35,8 @@ namespace TrashSailDemo.Editor
             if(config==null){config=ScriptableObject.CreateInstance<DemoConfig>();AssetDatabase.CreateAsset(config,configPath);}
             config.LargeOcean=large;config.CameraWidth=640;config.CameraHeight=384;config.CameraHz=3;config.InferenceRequestHz=3;
             config.MotorAssistance=false;config.StopAfterCaptures=0;config.MaxSearchSpeed=.55f;config.ApproachSpeed=.25f;
+            config.CameraMaxAge=1.2f; // measured combined CPU age occasionally exceeds .8s; intake retains its stricter .8s gate
+            config.SonarVerticalRays=33;config.SonarMountPosition=new Vector3(0,-.15f,config.VesselLength*.5f+.15f);
             config.MaxCollectionSpeed=.65f;config.TimeBudget=large?3600:300;config.Capacity=large?30:8;
             EditorUtility.SetDirty(config);AssetDatabase.SaveAssets();
             var scene=EditorSceneManager.NewScene(NewSceneSetup.EmptyScene,NewSceneMode.Single);
@@ -81,6 +83,8 @@ namespace TrashSailDemo.Editor
                 pipeline=UnityEngine.Object.Instantiate(source);pipeline.name="Trash Ocean HDRP (isolated clone)";AssetDatabase.CreateAsset(pipeline,pipelinePath);
             }
             var settings=pipeline.currentPlatformRenderPipelineSettings;settings.supportWater=true;settings.waterSimulationResolution=WaterSimulationResolution.Medium128;pipeline.currentPlatformRenderPipelineSettings=settings;EditorUtility.SetDirty(pipeline);
+            settings.supportVolumetrics=false;settings.supportVolumetricClouds=false;settings.supportRayTracing=false;
+            pipeline.currentPlatformRenderPipelineSettings=settings;
             const string volumePath="Assets/TrashSailDemo/Generated/TrashOceanVolume.asset";
             var profile=AssetDatabase.LoadAssetAtPath<VolumeProfile>(volumePath);
             if(profile==null){profile=ScriptableObject.CreateInstance<VolumeProfile>();AssetDatabase.CreateAsset(profile,volumePath);}
@@ -135,14 +139,44 @@ namespace TrashSailDemo.Editor
         {
             if(!File.Exists(OceanScenePath))throw new FileNotFoundException("Generate production ocean first.");
             Directory.CreateDirectory("Builds/TrashOceanDemo");
-            var previous=QualitySettings.renderPipeline;
+            var pipeline=AssetDatabase.LoadAssetAtPath<HDRenderPipelineAsset>("Assets/TrashSailDemo/Generated/TrashOceanHDRP.asset");
+            var previous=GraphicsSettings.defaultRenderPipeline;int quality=QualitySettings.GetQualityLevel();
+            var qualities=new RenderPipelineAsset[QualitySettings.names.Length];
+            for(int i=0;i<qualities.Length;i++)qualities[i]=QualitySettings.GetRenderPipelineAssetAt(i);
+            byte[] graphics=File.ReadAllBytes("ProjectSettings/GraphicsSettings.asset"),qualityFile=File.ReadAllBytes("ProjectSettings/QualitySettings.asset");
+            bool moved=false;
             try
             {
-                QualitySettings.renderPipeline=AssetDatabase.LoadAssetAtPath<HDRenderPipelineAsset>("Assets/TrashSailDemo/Generated/TrashOceanHDRP.asset");
+                // Strip this isolated calm-water pipeline, including every quality
+                // tier. Original project pipelines/settings are restored verbatim.
+                GraphicsSettings.defaultRenderPipeline=pipeline;
+                for(int i=0;i<qualities.Length;i++){QualitySettings.SetQualityLevel(i,false);QualitySettings.renderPipeline=pipeline;}
+                QualitySettings.SetQualityLevel(quality,false);
+                MoveBuildPresets(true);moved=true;
                 var result=BuildPipeline.BuildPlayer(new[]{OceanScenePath},"Builds/TrashOceanDemo/TrashOceanDemo.exe",BuildTarget.StandaloneWindows64,BuildOptions.Development);
                 if(result.summary.result!=UnityEditor.Build.Reporting.BuildResult.Succeeded)throw new Exception("Build failed: "+result.summary.result);
             }
-            finally{QualitySettings.renderPipeline=previous;}
+            finally
+            {
+                if(moved)MoveBuildPresets(false);
+                GraphicsSettings.defaultRenderPipeline=previous;
+                for(int i=0;i<qualities.Length;i++){QualitySettings.SetQualityLevel(i,false);QualitySettings.renderPipeline=qualities[i];}
+                QualitySettings.SetQualityLevel(quality,false);
+                File.WriteAllBytes("ProjectSettings/GraphicsSettings.asset",graphics);File.WriteAllBytes("ProjectSettings/QualitySettings.asset",qualityFile);
+                AssetDatabase.Refresh();
+            }
         }
+        const string Presets="Assets/marus2-modules/marus2-core/Resources/Datasheets/Editor",BuildPresets="Assets/TrashSailDemo/Editor/BuildPresets";
+        static void MoveBuildPresets(bool exclude)
+        {
+            string from=exclude?Presets:BuildPresets,to=exclude?BuildPresets:Presets;
+            string root=Path.GetFullPath(".")+Path.DirectorySeparatorChar;
+            foreach(string path in new[]{from,to})if(!Path.GetFullPath(path).StartsWith(root,StringComparison.OrdinalIgnoreCase))throw new InvalidOperationException("Build preset path outside project");
+            if(!AssetDatabase.IsValidFolder(from) || AssetDatabase.IsValidFolder(to))throw new InvalidOperationException("Preset move requires existing source and absent destination: "+from+" -> "+to);
+            if(Directory.GetFiles(from,"*.cs",SearchOption.AllDirectories).Length>0)throw new InvalidOperationException("Editor preset folder unexpectedly contains scripts");
+            string error=AssetDatabase.MoveAsset(from,to);if(!string.IsNullOrEmpty(error))throw new IOException(error);
+        }
+        [MenuItem("Trash Sail Demo/Restore Build Presets After Interrupted Build")]
+        public static void RestoreBuildPresets(){if(AssetDatabase.IsValidFolder(BuildPresets) && !AssetDatabase.IsValidFolder(Presets))MoveBuildPresets(false);}
     }
 }

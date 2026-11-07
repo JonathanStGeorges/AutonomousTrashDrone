@@ -1,0 +1,7 @@
+{
+    "command": "build",
+    "status": "FAIL",
+    "detail": "System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.Exception: Build failed: Failed\r\n  at TrashSailDemo.Editor.DemoSceneBuilder.Build () [0x00064] in C:\\Users\\jonat\\Documents\\projects\\marus2-example\\Assets\\TrashSailDemo\\Editor\\DemoSceneBuilder.cs:145 \r\n  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)\r\n  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <ee034d2b335a4869bde47687e6ac9c30>:0 \r\n   --- End of inner exception stack trace ---\r\n  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00083] in <ee034d2b335a4869bde47687e6ac9c30>:0 \r\n  at System.Reflection.MethodBase.Invoke (System.Object obj, System.Object[] parameters) [0x00000] in <ee034d2b335a4869bde47687e6ac9c30>:0 \r\n  at TrashSailDemo.Editor.DemoEditorBridge.Tick () [0x00565] in C:\\Users\\jonat\\Documents\\projects\\marus2-example\\Assets\\TrashSailDemo\\Editor\\DemoEditorBridge.cs:69 ",
+    "id": "19721129f8384e4da7a851b462b815a0",
+    "unity": "6000.5.11f1"
+}

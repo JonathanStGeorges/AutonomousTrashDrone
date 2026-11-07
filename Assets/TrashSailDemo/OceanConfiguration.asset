@@ -38,12 +38,13 @@ MonoBehaviour:
   SonarFov: 110
   SonarVerticalFov: 35
   SonarBearings: 96
-  SonarVerticalRays: 9
+  SonarVerticalRays: 33
   SonarRangeBins: 128
+  SonarMountPosition: {x: 0, y: -0.15, z: 1.65}
   SonarNoise: 0.01
   SonarDropout: 0.02
   SonarLatency: 0.08
-  CameraMaxAge: 0.8
+  CameraMaxAge: 1.2
   SonarMaxAge: 0.7
   TrackMemory: 8
   StateNoise: 0

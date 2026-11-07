@@ -105,9 +105,12 @@ namespace TrashSailDemo
                     Physics.SyncTransforms();Runtime.OwnState.ResetState(cfg.Seed);
                     Runtime.CameraPerception.ResetSensor(cfg.Seed+Cases);Runtime.SonarPerception.ResetSensor(cfg.Seed+Cases);
                     double start=Time.timeAsDouble,wall=Time.realtimeSinceStartupAsDouble;
-                    while(Time.timeAsDouble-start<2 && Time.realtimeSinceStartupAsDouble-wall<6)
+                    while(Time.realtimeSinceStartupAsDouble-wall<6)
                     {
-                        Runtime.Vessel.ApplyCommand(ActuatorCommand.Safe(Time.timeAsDouble));yield return null;
+                        Runtime.Vessel.ApplyCommand(ActuatorCommand.Safe(Time.timeAsDouble));
+                        CameraFrame candidate=Runtime.CameraPerception.LatestFrame;
+                        if(candidate!=null && candidate.CaptureTime>=start+1 && Runtime.CameraPerception.IsHealthy)break;
+                        yield return null;
                     }
                     CameraFrame frame=Runtime.CameraPerception.LatestFrame;
                     var result=new FixtureResult{fixture=Cases.ToString("D2")+"-"+(test.Key==""?"empty":test.Key)+"-"+test.Range+"m-"+test.Yaw+"deg"+(test.Occluded?"-occluded":test.Glare?"-glare":""),assetKey=test.Key,expectedKind=test.Occluded?"occludedtrash":test.Kind,

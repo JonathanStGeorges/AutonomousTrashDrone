@@ -1,11 +1,11 @@
 param(
-    [ValidateSet('status','baseline','preserve','setup','ocean','tests','play','stop','suite','build','capture','probe','startmission','stopmission','view')][string]$Command='status',
+    [ValidateSet('status','baseline','preserve','setup','ocean','tests','play','stop','suite','build','capture','probe','startmission','stopmission','view','performance','worldreset')][string]$Command='status',
     [string]$Scenarios='',
     [int]$TimeoutSeconds=1800
 )
 $ErrorActionPreference='Stop'
 $projectRoot=Split-Path -Parent $PSScriptRoot
-Add-Type -TypeDefinition @'
+if(-not ('TrashSailMenu' -as [type])){Add-Type -TypeDefinition @'
 using System;
 using System.Text;
 using System.Runtime.InteropServices;
@@ -18,8 +18,14 @@ public static class TrashSailMenu {
  [DllImport("user32.dll")] public static extern bool PostMessage(IntPtr w,uint m,IntPtr p,IntPtr l);
 }
 '@
-$editor=Get-Process -Name Unity | Where-Object { $_.MainWindowHandle -ne 0 -and $_.MainWindowTitle -like '*marus2-example*' } | Select-Object -First 1
-if(-not $editor){throw 'Open the marus2-example project in Unity6000.5.11f1 first.'}
+}
+$projectLabel=Split-Path $projectRoot -Leaf
+$windowDeadline=[DateTime]::UtcNow.AddSeconds(15)
+do {
+    $editor=Get-Process -Name Unity -ErrorAction SilentlyContinue | Where-Object { $_.MainWindowHandle -ne 0 -and $_.MainWindowTitle.IndexOf($projectLabel,[StringComparison]::OrdinalIgnoreCase) -ge 0 } | Select-Object -First 1
+    if(-not $editor){Start-Sleep -Milliseconds 300}
+} while(-not $editor -and [DateTime]::UtcNow -lt $windowDeadline)
+if(-not $editor){throw "Open '$projectRoot' in Unity6000.5.11f1 first."}
 # Discover and invoke the actual Assets/Refresh command; no foreground keyboard injection.
 $menu=[TrashSailMenu]::GetMenu($editor.MainWindowHandle)
 for($i=0;$i -lt [TrashSailMenu]::GetMenuItemCount($menu);$i++){

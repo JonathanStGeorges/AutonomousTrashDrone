@@ -17,9 +17,10 @@ namespace TrashSailDemo
         public int CameraWidth = 320, CameraHeight = 192;
         public float CameraHz = 10, CameraLatency = 0.04f, CameraDropout;
         public float SonarHz = 8, SonarMinRange = 0.18f, SonarMaxRange = 16, SonarFov = 110, SonarVerticalFov = 35;
-        public int SonarBearings = 96, SonarVerticalRays = 9, SonarRangeBins = 128;
+        public int SonarBearings = 96, SonarVerticalRays = 33, SonarRangeBins = 128;
+        public Vector3 SonarMountPosition=new Vector3(0,-.15f,1.65f);
         public float SonarNoise = 0.01f, SonarDropout = 0.02f, SonarLatency = 0.08f;
-        public float CameraMaxAge = 0.8f, SonarMaxAge = 0.7f, TrackMemory = 8f;
+        public float CameraMaxAge = 1.2f, SonarMaxAge = 0.7f, TrackMemory = 8f;
         public float StateNoise = 0, StateLatency = 0;
         public float BoundaryHalfWidth = 18, BoundaryLength = 40;
         public float SafeMargin = 1.2f, ClearancePeriod = 2f, MaxCollectionSpeed = 1.3f;

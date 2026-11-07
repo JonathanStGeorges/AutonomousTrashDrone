@@ -18,11 +18,16 @@ namespace TrashSailDemo
             public int seed,trash,bycatch,collisions,fishCollisions,avoidances,duplicates,frameSpikes50ms;
             public float duration,minimumHazardSeparation,thrusterSeconds,meanFps,meanCameraHz,meanSonarHz,maxFrameMilliseconds;
             public bool cameraLive,sonarLive,neuralDetection,unsafeCollection,resetClean,traceEquivalent=true;
+            public bool confirmedTarget,confirmedApproach,hazardDuringApproach,ambiguousTargetBlock,fishCorrelatedSonarAvoidance;
+            public bool sonarFishBlockingObserved;public int fishBlockingSonarId;
+            public int fishCorrelatedSonarId;public float fishCorrelationDistance;
             public float stoppingDistance,endSpeed,measuredTurnDegrees; public int coverageWaypoint;
             public List<string> decisions;
             public List<float> captureTimes,captureInitialZ;
         }
-        [Serializable] public sealed class SuiteReport { public string revision,unity;public List<Result> results=new List<Result>(); }
+        [Serializable] public sealed class SuiteReport { public string revision,unity,runId,status,startedUtc,completedUtc,selection,activeScenario;public List<Result> results=new List<Result>(); }
+        SuiteReport activeReport;
+        string reportDirectory;
         IEnumerator Start()
         {
             bool requested=PlayerPrefs.GetInt("TrashSailDemo.RunSuite",0)==1;
@@ -35,17 +40,29 @@ namespace TrashSailDemo
         IEnumerator RunSuite(string selected)
         {
             SuiteRunning=true;Time.timeScale=1;
-            var report=new SuiteReport{unity=Application.unityVersion,revision=Runtime.SoftwareRevision+"; production contract v2"};
+            var report=new SuiteReport{unity=Application.unityVersion,revision=Runtime.SoftwareRevision+"; production contract v2",runId=DateTime.UtcNow.ToString("yyyyMMdd-HHmmssfff")+"-"+Guid.NewGuid().ToString("N").Substring(0,6),status="RUNNING",startedUtc=DateTime.UtcNow.ToString("O"),selection=selected};
+            activeReport=report;reportDirectory=Evaluation.OutputDirectory;
+            string previous=Path.Combine(reportDirectory,"production-acceptance-results.json");
+            if(File.Exists(previous))File.Copy(previous,Path.Combine(reportDirectory,"production-acceptance-before-"+report.runId+".json"));
+            File.WriteAllText(Path.Combine(reportDirectory,"production-suite-complete.txt"),"RUNNING "+report.runId+" | "+report.revision);
+            Save(report);
             string[] names=string.IsNullOrWhiteSpace(selected)?new[]{"ThrusterBench","ClearCollection","CrossingFish","UnderwaterHazard","OccludedTarget","AmbiguousAssociation","CameraFailure","SonarFailure","MetadataVariant","ClearCollection"}:selected.Split(',');
             bool wasLarge=Runtime.Config.LargeOcean;Runtime.Config.LargeOcean=false;
             foreach(string raw in names)
             {
-                string name=raw.Trim();SuiteStatus="RUNNING "+name;
+                string name=raw.Trim();SuiteStatus="RUNNING "+name;report.activeScenario=name;Save(report);
                 if(name=="PerceptionFixtures" || name=="PerceptionHoldout")
                 {
                     var fixture=GetComponent<DemoPerceptionFixtures>();if(fixture==null)fixture=gameObject.AddComponent<DemoPerceptionFixtures>();
                     fixture.Runtime=Runtime;fixture.Evaluation=Evaluation;yield return fixture.Run(name=="PerceptionHoldout");
                     report.results.Add(new Result{scenario=name,status=fixture.HealthyCases==fixture.Cases && fixture.Cases>0?"PASS":"BLOCKED",detail="Acquisition only: "+fixture.FramesSaved+"/"+fixture.Cases+" real frames; "+fixture.ExpectedCategoryCases+" expected canonical category observations; inspect per-model evidence in "+fixture.ReportPath});
+                }
+                else if(name=="IntakeSonarCoverage")
+                {
+                    var fixture=GetComponent<DemoIntakeSonarFixture>();if(fixture==null)fixture=gameObject.AddComponent<DemoIntakeSonarFixture>();
+                    fixture.Runtime=Runtime;fixture.Evaluation=Evaluation;yield return fixture.Run();
+                    report.results.Add(new Result{scenario=name,status=fixture.Blocked>0?"BLOCKED":fixture.Passed==fixture.Cases && fixture.Cases>0?"PASS":"FAIL",
+                        detail=fixture.Passed+"/"+fixture.Cases+" static imported gallon ranges have fresh measured sonar return within0.45mXZ; "+fixture.ReportPath});
                 }
                 else if(name=="CoverageTurns")yield return CoverageTurns(report);
                 else if(name=="ThrusterBench" || name=="ThrusterCalibration")yield return ThrusterBench(report);
@@ -55,9 +72,23 @@ namespace TrashSailDemo
             }
             Runtime.StopMission();Runtime.Config.LargeOcean=wasLarge;Time.timeScale=1;SuiteRunning=false;
             SuiteStatus="COMPLETE: "+report.results.FindAll(r=>r.status=="PASS").Count+"/"+report.results.Count+" passed; "+report.results.FindAll(r=>r.status=="BLOCKED").Count+" blocked";
-            File.WriteAllText(Path.Combine(Evaluation.OutputDirectory,"production-suite-complete.txt"),SuiteStatus);Debug.Log("[TrashSailDemo] "+SuiteStatus);
+            report.status="COMPLETE";report.completedUtc=DateTime.UtcNow.ToString("O");report.activeScenario="";Save(report);
+            File.WriteAllText(Path.Combine(Evaluation.OutputDirectory,"production-suite-complete.txt"),report.runId+" | "+report.revision+" | "+SuiteStatus);Debug.Log("[TrashSailDemo] "+SuiteStatus);
         }
-        void Save(SuiteReport report)=>File.WriteAllText(Path.Combine(Evaluation.OutputDirectory,"production-acceptance-results.json"),JsonUtility.ToJson(report,true));
+        void Save(SuiteReport report)
+        {
+            string json=JsonUtility.ToJson(report,true);
+            File.WriteAllText(Path.Combine(reportDirectory,"production-acceptance-results.json"),json);
+            File.WriteAllText(Path.Combine(reportDirectory,"production-acceptance-"+report.runId+".json"),json);
+        }
+        void OnDisable()
+        {
+            if(SuiteRunning && activeReport!=null && !string.IsNullOrEmpty(reportDirectory))
+            {
+                activeReport.status="INTERRUPTED";activeReport.completedUtc=DateTime.UtcNow.ToString("O");Save(activeReport);
+                File.WriteAllText(Path.Combine(reportDirectory,"production-suite-complete.txt"),"INTERRUPTED "+activeReport.runId+" at "+activeReport.activeScenario);
+            }
+        }
         IEnumerator ThrusterBench(SuiteReport report)
         {
             Runtime.ResetScenario(DemoScenario.ThrusterCalibration,17,false);Runtime.StopMission();
@@ -171,8 +202,11 @@ namespace TrashSailDemo
                 yield return null;
             }
             Runtime.CameraPerception.FreezeFeed=false;Runtime.SonarPerception.FreezeFeed=false;Runtime.StopMission();
-            yield return new WaitForEndOfFrame();Evaluation.Capture("production-final");
+            Evaluation.Capture("production-final"); // Asynchronous request; summary must not depend on Game View focus.
+            yield return null;
             var r=new Result{scenario=scenario.ToString(),seed=17,trash=Evaluation.CorrectCaptures,bycatch=Evaluation.Bycatch,collisions=Evaluation.CollisionEvents,fishCollisions=Evaluation.FishCollisions,duplicates=Evaluation.Duplicates,
+                confirmedTarget=Evaluation.SawConfirmedTarget,confirmedApproach=Evaluation.SawConfirmedApproach,hazardDuringApproach=Evaluation.SawHazardDuringApproach,ambiguousTargetBlock=Evaluation.SawAmbiguousTargetBlock,
+                sonarFishBlockingObserved=Evaluation.SonarFishBlockingObserved,fishBlockingSonarId=Evaluation.FishBlockingSonarId,fishCorrelatedSonarAvoidance=Evaluation.SawFishCorrelatedSonarAvoidance,fishCorrelatedSonarId=Evaluation.FishCorrelatedSonarId,fishCorrelationDistance=Evaluation.FishCorrelationDistance,
                 avoidances=Runtime.Mission.Status.AvoidanceCount,duration=(float)(Time.timeAsDouble-began),minimumHazardSeparation=float.IsInfinity(Evaluation.MinimumHazardSeparation)?999:Evaluation.MinimumHazardSeparation,
                 thrusterSeconds=Runtime.Vessel.ThrusterUseSeconds,cameraLive=Evaluation.SawFreshCamera,sonarLive=Evaluation.SawFreshSonar,neuralDetection=Evaluation.SawNeuralDetection,unsafeCollection=Evaluation.UnsafeCollection,resetClean=clean,
                 meanFps=Evaluation.FpsSum/Mathf.Max(1,Evaluation.MetricSamples),meanCameraHz=Evaluation.CameraHzSum/Mathf.Max(1,Evaluation.MetricSamples),meanSonarHz=Evaluation.SonarHzSum/Mathf.Max(1,Evaluation.MetricSamples),maxFrameMilliseconds=Evaluation.MaxFrameMilliseconds,frameSpikes50ms=Evaluation.FrameSpikes50ms,
@@ -181,14 +215,16 @@ namespace TrashSailDemo
             switch(scenario)
             {
                 case DemoScenario.ClearCollection:case DemoScenario.MetadataVariant:pass=common && r.neuralDetection && r.trash==3 && r.bycatch==0 && r.collisions==0;r.detail="Three neural-pixel detections and physical captures within300simsec at timescale1";break;
-                case DemoScenario.CrossingFish:pass=common && r.neuralDetection && Evaluation.SawAvoidance && Evaluation.SawCollectorDisabledOnHazard && r.bycatch==0 && r.fishCollisions==0 && r.minimumHazardSeparation>0 && r.trash>0;r.detail="Independent crossing, sensor avoidance, collector closed, positive envelope clearance and resumed capture";break;
-                case DemoScenario.UnderwaterHazard:pass=common && Evaluation.SawAvoidance && r.bycatch==0 && r.fishCollisions==0 && r.minimumHazardSeparation>0;r.detail="Unknown submerged sonar contact changes navigation; no fish classification assumption";break;
+                case DemoScenario.CrossingFish:pass=common && r.confirmedApproach && r.hazardDuringApproach && r.sonarFishBlockingObserved && Evaluation.SawAvoidance && Evaluation.SawCollectorDisabledOnHazard && r.bycatch==0 && r.fishCollisions==0 && r.minimumHazardSeparation>0 && r.trash>0;r.detail="Independent crossing, sensor avoidance, collector closed, positive envelope clearance and resumed capture";break;
+                case DemoScenario.UnderwaterHazard:pass=common && r.sonarFishBlockingObserved && Evaluation.SawAvoidance && r.bycatch==0 && r.fishCollisions==0 && r.minimumHazardSeparation>0;r.detail="Unknown-sonar avoidance with collector closed; evaluator correlates fresh track to submerged fish and verifies its ID was among actual planner-blocking contacts";break;
                 case DemoScenario.OccludedTarget:r.status="BLOCKED";r.detail="Occlusion observation="+(!occlusionLeak)+"; old uncertain fixture differs only by truth label, so it cannot establish neural uncertainty handling. Requires controlled conflicting/uncertain neural evidence fixture.";break;
-                case DemoScenario.AmbiguousAssociation:pass=common && r.neuralDetection && r.trash==0 && r.bycatch==0 && Evaluation.SawAvoidance;r.detail="Neural candidate with ambiguous sonar association blocks pickup";break;
-                case DemoScenario.CameraFailure:case DemoScenario.SonarFailure:pass=common && degraded && r.collisions==0;r.detail="Freeze8â€“16simsec after warmup; stale feed degrades, closes collector; no collision";break;
+                case DemoScenario.AmbiguousAssociation:pass=common && r.confirmedTarget && r.ambiguousTargetBlock && r.trash==0 && r.bycatch==0 && Evaluation.SawAvoidance;r.detail="Neural candidate with ambiguous sonar association blocks pickup";break;
+                case DemoScenario.CameraFailure:case DemoScenario.SonarFailure:pass=common && degraded && r.collisions==0;r.detail="Freeze8ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã¢â‚¬Å“16simsec after warmup; stale feed degrades, closes collector; no collision";break;
                 case DemoScenario.NoWind:pass=common && Runtime.Vessel.Body.position.z>2 && Runtime.Vessel.ThrusterUseSeconds>0;r.detail="No-wind twin-thruster navigation; no sail prerequisite";break;
                 default:r.status="BLOCKED";r.detail="No production acceptance criterion for this selector";break;
             }
+            if((scenario==DemoScenario.CrossingFish && !r.confirmedApproach) || (scenario==DemoScenario.AmbiguousAssociation && !r.confirmedTarget))
+            {r.status="BLOCKED";r.detail+="; eligible neural target/approach dependency was not exercised; generic sonar avoidance is logged separately and is not a PASS";}
             if(!r.cameraLive || !r.sonarLive){r.status="BLOCKED";r.detail+="; required rendered/inference sensor unavailable: "+Runtime.CameraPerception.ServiceStatus;}
             if(r.status==null)r.status=pass?"PASS":"FAIL";
             if(r.cameraLive && !r.neuralDetection)r.detail+="; inference successfully delivered but no neural detections (not a service blocker)";

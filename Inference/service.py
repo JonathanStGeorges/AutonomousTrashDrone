@@ -7,7 +7,7 @@ import os
 from pathlib import Path
 import threading
 import time
-from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+from http.server import BaseHTTPRequestHandler, HTTPServer
 
 REVISION = 'a77dc9ce0e8ce6640b0c3800ec03cde9daa39fd3'
 PROMPTS = ['plastic bottle', 'plastic bag', 'drink can', 'food container', 'paper cup', 'cardboard', 'fishing net', 'rope', 'styrofoam', 'fish', 'sea turtle', 'jellyfish', 'dolphin', 'shark', 'crab', 'bird', 'boat', 'person', 'buoy']
@@ -117,7 +117,10 @@ def main():
                 self.respond(engine.infer(request))
             except Exception as exc:
                 self.respond(dict(ok=False,empty=False,error=str(exc),**{k:request[k] for k in ('sessionId','cameraId','sequence','captureTime') if k in request}),400)
-    server=ThreadingHTTPServer(('127.0.0.1',args.port),Handler)
+    # Unity permits only one outstanding frame. Reuse this OS thread for every
+    # prediction: per-request threads can retain large native Torch allocator pools.
+    # Health requests may wait for the current (~300 ms) inference to complete.
+    server=HTTPServer(('127.0.0.1',args.port),Handler)
     print(json.dumps(dict(status='READY',**engine.manifest)),flush=True)
     server.serve_forever()
 

@@ -1,4 +1,4 @@
-﻿# Production camera and pretrained neural perception
+# Production camera and pretrained neural perception
 
 The generated production scene configures an actual onboard HDRP camera at **640 x 384 pixels and 3 requested captures/inference requests per simulation second**, with 68-degree vertical FOV and a 38-degree downward mounting pitch. These scene-builder values override older default/prototype settings. Achieved rates depend on rendering and inference latency and must be measured. No colour detector or heuristic fallback supplies production detections.
 
@@ -23,3 +23,5 @@ Tracks retain model/class provenance, eligibility and conflicts; incompatible ev
 The lead reported **36 Unity Edit Mode tests passing in the current production run** (2026-11-07). This is lead-provided execution evidence, not a run by this document author. It does not establish rendered object detection, reliable fish recognition or physical collection acceptance. Raw actual source PNGs and corresponding model JSON are saved under Evidence/TrashSailDemo/sourceframes; use Inference/compare_frame.py for independent same-input service/direct comparison. See MODELS.md and final lead acceptance evidence for measured outcomes and limitations.
 
 For real deployment replace capture with calibrated timestamped sensor data, validate models on representative marine imagery and classes, measure precision/recall and uncertainty, synchronize own-state and preserve health/conflict interlocks. No simulator-only visibility assumption should silently become a hardware guarantee.
+
+Production navigation freshness defaults to 1.2 simulated seconds (Config.CameraMaxAge), allowing the measured roughly 0.804 s inference/capture jitter. This does not relax final pickup: DemoMission.MayCollect separately requires target capture age below 0.8 s, along with both required sensor-health checks. Excess wall-age rejection remains independent. Perception fixtures wait for a healthy result captured at least one second after fixture setup, with a six-second wall deadline; they do not alter these thresholds.

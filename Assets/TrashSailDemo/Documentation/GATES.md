@@ -1,22 +1,18 @@
-﻿# Verification gates - production v2
+# Production verification gates — 2026-11-07
 
-Status snapshot: documentation refresh during lead-owned Unity verification, 2026-11-07. This file deliberately does not manufacture new rendered acceptance results. Consult timestamped editor responses, test XML, scenario JSON/JSONL, source PNG/model JSON and screenshots under Evidence/TrashSailDemo, plus Inference records. The lead must append exact current-run outcomes after verification.
+This demonstration is runnable, but successful neural autonomous collection has failed acceptance. Healthy inference is not proof of correct recognition. Historical heuristic/sailing results at checkpoint 7b2f197 are excluded from production claims.
 
-| Gate | Status | Evidence / remaining requirement |
+| Phase | Status | Actual evidence |
 |---|---|---|
-| Existing host and v2 contracts | PASS (inspection) | Installed MARUS2/Unity6000.5.11f1/HDRP17.5; PRODUCTION_CONTRACTS.md and inspected local source. This does not establish current final build success. |
-| Coverage runtime and test-source compilation | PASS (source only) | Bundled Roslyn with installed Unity references compiled CoveragePlanner and CoverageTests after boundary-inset repair. Unity test execution is a separate gate. |
-| Pretrained service/fixtures | PROVISIONAL | Worker A records actual weights/classes/hashes and service fixtures in MODELS.md. Blank/timing fixtures are not positive Unity detection or collection evidence. |
-| Imported assets/persistent ocean | PROVISIONAL | Worker B provides local files/hashes/licences and code; native import, waterlines, materials and runtime streaming need integrated evidence. |
-| Primary-thruster sensor-to-physical-collection loop | NOT YET RECORDED | Requires actual neural detections from onboard frames, fresh sonar gating, actuator forces and physical intake events in the current configuration. |
-| Wildlife/unknown/occluded/conflicting hazards | NOT YET RECORDED | Requires collector closure, meaningful clearance against full envelope, no bycatch/collision, no invented optical range and safe resumption. |
-| Sensor/model faults and reset | NOT YET RECORDED | Requires stale/dropout/service-fault interlocks, successful empty-result distinction, no cross-session callbacks, reset counters/tracks/records and pause-stop semantics. |
-| Coverage and presentation | PROVISIONAL | Source provides saved coverage index, full-world labelled observer, separate render textures and display-only filters. Verify physical route following, turn margin and camera-frame continuity during view changes. |
-| Performance and reproducibility | NOT YET RECORDED | Measure actual rendering/inference/sonar rates and latency, seeds, interventions, duration and reset repetitions; no 30 FPS claim follows from compilation. |
-| Standalone build/current final delivery | NOT YET RECORDED | Lead-owned build, launch and evidence review remain required. |
+| 1 — Installation/contracts | PASS | Existing MARUS2 host preserved; Unity6000.5.11f1/HDRP17.5; contract v2 and coordinated ownership. |
+| 2 — Real inference | PASS technically; FAIL recognition | Both requested pretrained weights hashed and loaded; live unannotated onboard frames; exact nonempty direct/service comparison. Held-out images produced zero eligible rubbish targets. |
+| 3 — Imported assets | PASS | Fish, four debris models and MARUS boat proxy; rendered fixtures, material/UV audit, normalized bounds and 25 verified source hashes. |
+| 4 — Ocean/presentation | PASS | Seed17 1km square/350 rubbish/16 fish/5 boats; persistent records; independent observer/chase/RGB/sonar; camera identity/calibration/profile preserved through five view modes. |
+| 5 — Autonomous collection | FAIL | Actual 300.057s at timescale1: zero captures, zero bycatch/collisions, 15 avoidances. Search-to-diversion-to-capture-to-resume remains unverified. No target was fabricated. |
+| 6 — Safety/verification | PARTIAL | 36 Edit Mode tests pass. Seven physical thruster cases, physical coverage turn, no-wind navigation and sensor-failure checks pass. Fish-correlated sonar avoidance passes. Confirmed-target interruption and ambiguous association are BLOCKED by the absent eligible neural target. |
 
-No current gate is marked BLOCKED without a concrete failed command/blocker. 'Not yet recorded' means this documentation writer has no finalized current acceptance result, not that the lead's active run has failed. Preserve any actual failures and limitations in the final report; do not relax safety criteria to turn a run green.
+The original intake-sonar geometry failed four of five rendered near-field cases. The revised .15m submerged mount with33 vertical rays passed all five near-field cases. Windows build and a rendered Direct3D11 player smoke passed; the first attempt failed under system-memory pressure before the service-thread repair. Final large-world performance is measured in large-performance-final.json; manual control begins at31.97s, so autonomous and manual intervals are separated.
 
-## Historical prototype
+Evidence: Evidence/TrashSailDemo/production, Unity test XML/JSON, and Inference/holdout-evaluation. Run IDs distinguish COMPLETE from INTERRUPTED reports. The obsolete ambiguous-association PASS in acceptance-before-approach-audit.json had no confirmed target; use causal-hazard-acceptance-results.json and the tightened evaluator. Incomplete reports are not successful acceptance.
 
-Checkpoint 7b2f197 and older evidence contain colour-heuristic, motor-assisted and simplified sail experiments. They are useful historical regression/debugging records only. Their capture counts, tacking, timing and screenshots must not be relabelled as production pretrained-inference or twin-thruster validation. Retained v1 contracts and review documents are historical where they conflict with PRODUCTION_CONTRACTS.md.
+Read INDEPENDENT_REVIEW.md, MODELS.md and the final verification report. The next collection dependency is a detector validated on representative surface-camera imagery, including wildlife/boat negatives and held-out data. Relaxing conflict gates would not establish success.

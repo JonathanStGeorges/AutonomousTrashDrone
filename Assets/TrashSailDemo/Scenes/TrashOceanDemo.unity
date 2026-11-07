@@ -119,7 +119,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &806913092
+--- !u!1 &205443177
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,10 +127,54 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 806913096}
-  - component: {fileID: 806913095}
-  - component: {fileID: 806913094}
-  - component: {fileID: 806913093}
+  - component: {fileID: 205443179}
+  - component: {fileID: 205443178}
+  m_Layer: 0
+  m_Name: MARUS mean calm-water height adapter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &205443178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205443177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c8daa6e4a5ea0540aef55a8edf0e4c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Marus Core Assembly::Marus.Ocean.WaterHeightSampler
+--- !u!4 &205443179
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205443177}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &506022423
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 506022427}
+  - component: {fileID: 506022426}
+  - component: {fileID: 506022425}
+  - component: {fileID: 506022424}
   m_Layer: 0
   m_Name: Display background camera
   m_TagString: MainCamera
@@ -138,21 +182,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &806913093
+--- !u!81 &506022424
 AudioListener:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 806913092}
+  m_GameObject: {fileID: 506022423}
   m_Enabled: 1
---- !u!114 &806913094
+--- !u!114 &506022425
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 806913092}
+  m_GameObject: {fileID: 506022423}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 23c1ce4fb46143f46bc5cb5224c934f6, type: 3}
@@ -285,13 +329,13 @@ MonoBehaviour:
       data1: 0
       data2: 0
   defaultFrameSettings: 0
---- !u!20 &806913095
+--- !u!20 &506022426
 Camera:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 806913092}
+  m_GameObject: {fileID: 506022423}
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
@@ -336,13 +380,13 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!4 &806913096
+--- !u!4 &506022427
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 806913092}
+  m_GameObject: {fileID: 506022423}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -351,7 +395,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &877276180
+--- !u!1 &785062555
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -359,15 +403,64 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 877276189}
-  - component: {fileID: 877276188}
-  - component: {fileID: 877276187}
-  - component: {fileID: 877276186}
-  - component: {fileID: 877276185}
-  - component: {fileID: 877276184}
-  - component: {fileID: 877276183}
-  - component: {fileID: 877276182}
-  - component: {fileID: 877276181}
+  - component: {fileID: 785062557}
+  - component: {fileID: 785062556}
+  m_Layer: 0
+  m_Name: Ocean sky and water volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &785062556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 785062555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.Volume
+  m_IsGlobal: 1
+  priority: 10
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: aeef042975add7e45896b26a15e3cdd6, type: 2}
+--- !u!4 &785062557
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 785062555}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &788174856
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 788174865}
+  - component: {fileID: 788174864}
+  - component: {fileID: 788174863}
+  - component: {fileID: 788174862}
+  - component: {fileID: 788174861}
+  - component: {fileID: 788174860}
+  - component: {fileID: 788174859}
+  - component: {fileID: 788174858}
+  - component: {fileID: 788174857}
   m_Layer: 0
   m_Name: "Trash Ocean \u2014 integrated sensor-to-thruster system"
   m_TagString: Untagged
@@ -375,54 +468,54 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &877276181
+--- !u!114 &788174857
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 877276180}
+  m_GameObject: {fileID: 788174856}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9b6c286f9b1447b9ab16b748dc0a1c04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: TrashSailDemo.Runtime::TrashSailDemo.DemoDashboard
-  Runtime: {fileID: 877276188}
+  Runtime: {fileID: 788174864}
   RubbishCaptured: -1
   Bycatch: -1
   CollisionCount: -1
   CameraOverlays: 1
   SonarOverlays: 1
   MapOverlays: 1
---- !u!114 &877276182
+--- !u!114 &788174858
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 877276180}
+  m_GameObject: {fileID: 788174856}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3491692ed1a4d2741b602565710e735c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: TrashSailDemo.Runtime::TrashSailDemo.DemoAcceptance
-  Runtime: {fileID: 877276188}
-  Evaluation: {fileID: 877276183}
+  Runtime: {fileID: 788174864}
+  Evaluation: {fileID: 788174859}
   SuiteRunning: 0
   SuiteStatus: Interactive production demonstration
---- !u!114 &877276183
+--- !u!114 &788174859
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 877276180}
+  m_GameObject: {fileID: 788174856}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d80a32b69e87c2143a25df2140a1c16b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: TrashSailDemo.Runtime::TrashSailDemo.DemoEvaluation
-  Runtime: {fileID: 877276188}
+  Runtime: {fileID: 788174864}
   OutputDirectory: 
   CorrectCaptures: 0
   Bycatch: 0
@@ -444,23 +537,32 @@ MonoBehaviour:
   MetricSamples: 0
   RenderedFrames: 0
   FrameSpikes50ms: 0
+  SawConfirmedTarget: 0
+  SawConfirmedApproach: 0
+  SawHazardDuringApproach: 0
+  SawAmbiguousTargetBlock: 0
+  SawFishCorrelatedSonarAvoidance: 0
+  SonarFishBlockingObserved: 0
+  FishBlockingSonarId: -1
+  FishCorrelatedSonarId: -1
+  FishCorrelationDistance: -1
   Decisions: []
   CaptureTimes: []
   CaptureInitialZ: []
   Began: 0
---- !u!114 &877276184
+--- !u!114 &788174860
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 877276180}
+  m_GameObject: {fileID: 788174856}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 99e1868681594f348b9c5a6113410162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: TrashSailDemo.Runtime::TrashSailDemo.DemoPresentation
-  Runtime: {fileID: 877276188}
+  Runtime: {fileID: 788174864}
   OverviewCamera: {fileID: 0}
   ChaseCamera: {fileID: 0}
   ViewMode: 0
@@ -473,24 +575,24 @@ MonoBehaviour:
   ChaseYaw: -35
   ChaseElevation: 18
   OverviewCentre: {x: 0, y: 0, z: 0}
---- !u!114 &877276185
+--- !u!114 &788174861
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 877276180}
+  m_GameObject: {fileID: 788174856}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b92076bbc52f9d947ada576ea2d1c584, type: 3}
   m_Name: 
   m_EditorClassIdentifier: TrashSailDemo.Runtime::TrashSailDemo.DemoMission
   Config: {fileID: 11400000, guid: 231cd6840e9d2c1428d34e11b4e9329c, type: 2}
-  Vessel: {fileID: 7375273600939169180}
-  OwnState: {fileID: 7375273600939169179}
-  CameraPerception: {fileID: 7375273600939169182}
-  SonarPerception: {fileID: 7375273600939169181}
-  Coverage: {fileID: 877276187}
+  Vessel: {fileID: 8586311515761211922}
+  OwnState: {fileID: 8586311515761211921}
+  CameraPerception: {fileID: 8586311515761211924}
+  SonarPerception: {fileID: 8586311515761211923}
+  Coverage: {fileID: 788174863}
   Status:
     Phase: 0
     Reason: Ready
@@ -506,27 +608,27 @@ MonoBehaviour:
   Manual: 0
   TargetCaptures: 3
   DesiredSpeed: 0
---- !u!114 &877276186
+--- !u!114 &788174862
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 877276180}
+  m_GameObject: {fileID: 788174856}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f8c6a36ad3f49918cac6e9b52d16d12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: TrashSailDemo.Runtime::TrashSailDemo.OceanPopulation
   Config: {fileID: 11400000, guid: 231cd6840e9d2c1428d34e11b4e9329c, type: 2}
-  Vessel: {fileID: 7375273600939169180}
---- !u!114 &877276187
+  Vessel: {fileID: 8586311515761211922}
+--- !u!114 &788174863
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 877276180}
+  m_GameObject: {fileID: 788174856}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 505c1022907642fdb8d2af776d2d16b1, type: 3}
@@ -535,42 +637,42 @@ MonoBehaviour:
   Config: {fileID: 11400000, guid: 231cd6840e9d2c1428d34e11b4e9329c, type: 2}
   TurningRadius: 3
   ArrivalRadius: 1
---- !u!114 &877276188
+--- !u!114 &788174864
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 877276180}
+  m_GameObject: {fileID: 788174856}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 228c13d524698094d991fcceefa8c4f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: TrashSailDemo.Runtime::TrashSailDemo.DemoRuntime
   Config: {fileID: 11400000, guid: 231cd6840e9d2c1428d34e11b4e9329c, type: 2}
-  Vessel: {fileID: 7375273600939169180}
-  OwnState: {fileID: 7375273600939169179}
-  CameraPerception: {fileID: 7375273600939169182}
-  SonarPerception: {fileID: 7375273600939169181}
-  Mission: {fileID: 877276185}
-  World: {fileID: 1082436325}
-  Population: {fileID: 877276186}
-  Coverage: {fileID: 877276187}
-  Presentation: {fileID: 877276184}
+  Vessel: {fileID: 8586311515761211922}
+  OwnState: {fileID: 8586311515761211921}
+  CameraPerception: {fileID: 8586311515761211924}
+  SonarPerception: {fileID: 8586311515761211923}
+  Mission: {fileID: 788174861}
+  World: {fileID: 2060917944}
+  Population: {fileID: 788174862}
+  Coverage: {fileID: 788174863}
+  Presentation: {fileID: 788174860}
   ScenePipeline: {fileID: 11400000, guid: 92c95cb015abe674bac979af3924c5b7, type: 2}
-  MainCamera: {fileID: 806913095}
+  MainCamera: {fileID: 506022426}
   Paused: 0
   ViewMode: 0
   RenderingFps: 0
   AutoStart: 1
-  SoftwareRevision: MARUS2 + TrashOcean v2 source sha256=10f56a1cd9a5595d3429a98b99baa5b326682fad800458b410a38bc29c4fc414
---- !u!4 &877276189
+  SoftwareRevision: MARUS2 + TrashOcean v2 source sha256=ba5dbd3c69e43d4e3a54d49e769622ad00852778874ee04c9a21a8920bf0b92a
+--- !u!4 &788174865
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 877276180}
+  m_GameObject: {fileID: 788174856}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -579,7 +681,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1070711037
+--- !u!1 &1045259521
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -587,8 +689,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1070711039}
-  - component: {fileID: 1070711038}
+  - component: {fileID: 1045259523}
+  - component: {fileID: 1045259522}
   m_Layer: 0
   m_Name: "Open ocean \u2014 HDRP infinite water, near-mean waves"
   m_TagString: Untagged
@@ -596,13 +698,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1070711038
+--- !u!114 &1045259522
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1070711037}
+  m_GameObject: {fileID: 1045259521}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d8f6fd535518f5540b4bcc3099582f77, type: 3}
@@ -762,13 +864,13 @@ MonoBehaviour:
   underWaterRefraction: 0
   decalRegionSize: {x: 200, y: 200}
   decalRegionAnchor: {fileID: 0}
---- !u!4 &1070711039
+--- !u!4 &1045259523
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1070711037}
+  m_GameObject: {fileID: 1045259521}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -777,7 +879,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1082436324
+--- !u!1 &1502532404
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -785,36 +887,34 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1082436326}
-  - component: {fileID: 1082436325}
+  - component: {fileID: 1502532406}
+  - component: {fileID: 1502532405}
   m_Layer: 0
-  m_Name: "Compact scenario generator \u2014 evaluator truth"
+  m_Name: MARUS Sensor Sampler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1082436325
+--- !u!114 &1502532405
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1082436324}
+  m_GameObject: {fileID: 1502532404}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67df90a5469a209479728d04bd196f09, type: 3}
+  m_Script: {fileID: 11500000, guid: 0260f8c13c4e451f49538007ae639dbb, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: TrashSailDemo.Runtime::TrashSailDemo.DemoWorld
-  Config: {fileID: 11400000, guid: 231cd6840e9d2c1428d34e11b4e9329c, type: 2}
-  Vessel: {fileID: 7375273600939169180}
---- !u!4 &1082436326
+  m_EditorClassIdentifier: Marus Core Assembly::Marus.Core.SensorSampler
+--- !u!4 &1502532406
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1082436324}
+  m_GameObject: {fileID: 1502532404}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -823,7 +923,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1237738616
+--- !u!1 &1664391836
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -831,8 +931,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1237738618}
-  - component: {fileID: 1237738617}
+  - component: {fileID: 1664391838}
+  - component: {fileID: 1664391837}
   m_Layer: 0
   m_Name: Sun
   m_TagString: Untagged
@@ -840,13 +940,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!108 &1237738617
+--- !u!108 &1664391837
 Light:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1237738616}
+  m_GameObject: {fileID: 1664391836}
   m_Enabled: 1
   serializedVersion: 13
   m_Type: 1
@@ -905,13 +1005,13 @@ Light:
   m_LightUnit: 2
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
---- !u!4 &1237738618
+--- !u!4 &1664391838
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1237738616}
+  m_GameObject: {fileID: 1664391836}
   serializedVersion: 2
   m_LocalRotation: {x: 0.36964384, y: -0.23911762, z: 0.09904577, w: 0.89239913}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -920,7 +1020,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1250411419
+--- !u!1 &2060917943
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -928,34 +1028,36 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1250411421}
-  - component: {fileID: 1250411420}
+  - component: {fileID: 2060917945}
+  - component: {fileID: 2060917944}
   m_Layer: 0
-  m_Name: MARUS Sensor Sampler
+  m_Name: "Compact scenario generator \u2014 evaluator truth"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1250411420
+--- !u!114 &2060917944
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1250411419}
+  m_GameObject: {fileID: 2060917943}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0260f8c13c4e451f49538007ae639dbb, type: 3}
+  m_Script: {fileID: 11500000, guid: 67df90a5469a209479728d04bd196f09, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Marus Core Assembly::Marus.Core.SensorSampler
---- !u!4 &1250411421
+  m_EditorClassIdentifier: TrashSailDemo.Runtime::TrashSailDemo.DemoWorld
+  Config: {fileID: 11400000, guid: 231cd6840e9d2c1428d34e11b4e9329c, type: 2}
+  Vessel: {fileID: 8586311515761211922}
+--- !u!4 &2060917945
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1250411419}
+  m_GameObject: {fileID: 2060917943}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -964,100 +1066,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1403854424
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1403854426}
-  - component: {fileID: 1403854425}
-  m_Layer: 0
-  m_Name: Ocean sky and water volume
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1403854425
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1403854424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.Volume
-  m_IsGlobal: 1
-  priority: 10
-  blendDistance: 0
-  weight: 1
-  sharedProfile: {fileID: 11400000, guid: aeef042975add7e45896b26a15e3cdd6, type: 2}
---- !u!4 &1403854426
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1403854424}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2078290974
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2078290976}
-  - component: {fileID: 2078290975}
-  m_Layer: 0
-  m_Name: MARUS mean calm-water height adapter
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2078290975
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2078290974}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c8daa6e4a5ea0540aef55a8edf0e4c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Marus Core Assembly::Marus.Ocean.WaterHeightSampler
---- !u!4 &2078290976
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2078290974}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &7375273600939169178
+--- !u!1001 &8586311515761211920
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1067,12 +1076,13 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1876840531630841916, guid: 62c30a6bc17a189458fc28aae7532390, type: 3}
       propertyPath: m_Name
-      value: "Trash Sail Drone \xC3\xA2\xE2\u201A\xAC\xE2\u20AC\x9D physics root"
+      value: "Trash Sail Drone \xC3\u0192\xC2\xA2\xC3\xA2\xE2\u20AC\u0161\xC2\xAC\xC3\xA2\xE2\u201A\xAC\xC2\x9D
+        physics root"
       objectReference: {fileID: 0}
     - target: {fileID: 7961182372465367072, guid: 62c30a6bc17a189458fc28aae7532390, type: 3}
       propertyPath: WaterSampler
       value: 
-      objectReference: {fileID: 2078290975}
+      objectReference: {fileID: 205443178}
     - target: {fileID: 8284325621465152946, guid: 62c30a6bc17a189458fc28aae7532390, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1118,10 +1128,10 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62c30a6bc17a189458fc28aae7532390, type: 3}
---- !u!114 &7375273600939169179 stripped
+--- !u!114 &8586311515761211921 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9058917186342657401, guid: 62c30a6bc17a189458fc28aae7532390, type: 3}
-  m_PrefabInstance: {fileID: 7375273600939169178}
+  m_PrefabInstance: {fileID: 8586311515761211920}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -1129,10 +1139,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec18187bbd11f8642bee0817988d5246, type: 3}
   m_Name: 
   m_EditorClassIdentifier: TrashSailDemo.Runtime::TrashSailDemo.DemoOwnState
---- !u!114 &7375273600939169180 stripped
+--- !u!114 &8586311515761211922 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7961182372465367072, guid: 62c30a6bc17a189458fc28aae7532390, type: 3}
-  m_PrefabInstance: {fileID: 7375273600939169178}
+  m_PrefabInstance: {fileID: 8586311515761211920}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -1140,10 +1150,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e24553fcb13f7e24094a54d9d92df11c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: TrashSailDemo.Runtime::TrashSailDemo.DemoVessel
---- !u!114 &7375273600939169181 stripped
+--- !u!114 &8586311515761211923 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8822174378307773443, guid: 62c30a6bc17a189458fc28aae7532390, type: 3}
-  m_PrefabInstance: {fileID: 7375273600939169178}
+  m_PrefabInstance: {fileID: 8586311515761211920}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -1151,10 +1161,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2257652d84a7aca488f21642943ed748, type: 3}
   m_Name: 
   m_EditorClassIdentifier: TrashSailDemo.Runtime::TrashSailDemo.DemoSonarPerception
---- !u!114 &7375273600939169182 stripped
+--- !u!114 &8586311515761211924 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4086576155963098830, guid: 62c30a6bc17a189458fc28aae7532390, type: 3}
-  m_PrefabInstance: {fileID: 7375273600939169178}
+  m_PrefabInstance: {fileID: 8586311515761211920}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -1166,12 +1176,12 @@ MonoBehaviour:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 877276189}
-  - {fileID: 1082436326}
-  - {fileID: 7375273600939169178}
-  - {fileID: 2078290976}
-  - {fileID: 1250411421}
-  - {fileID: 806913096}
-  - {fileID: 1403854426}
-  - {fileID: 1070711039}
-  - {fileID: 1237738618}
+  - {fileID: 788174865}
+  - {fileID: 2060917945}
+  - {fileID: 8586311515761211920}
+  - {fileID: 205443179}
+  - {fileID: 1502532406}
+  - {fileID: 506022427}
+  - {fileID: 785062557}
+  - {fileID: 1045259523}
+  - {fileID: 1664391838}

@@ -1,0 +1,7 @@
+{
+    "command": "probe",
+    "status": "PASS",
+    "detail": "phase=SEARCH; reason=Bounded coverage: only pixel detections create rubbish targets; model=Inference pending: combined; camera=True; sonar=True; tracks=0; pose=(-1.35, 0.00, 45.44); captures=0; fps=83.95835; activeFish=1; activeBoats=1; suite=Large performance fixture: seed17 + configured near-field fish/boat",
+    "id": "a94a4af3c12f45249bffad076c5672c4",
+    "unity": "6000.5.11f1"
+}

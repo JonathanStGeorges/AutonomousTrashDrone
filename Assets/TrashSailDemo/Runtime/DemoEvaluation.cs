@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
@@ -16,6 +17,13 @@ namespace TrashSailDemo
         public bool UnsafeCollection,SawFreshCamera,SawFreshSonar,SawAvoidance,SawCollectorDisabledOnHazard,SawDegraded,SawNeuralDetection;
         public float CameraHzSum,SonarHzSum,FpsSum,MaxFrameMilliseconds;
         public int MetricSamples,RenderedFrames,FrameSpikes50ms;
+        public bool SawConfirmedTarget,SawConfirmedApproach,SawHazardDuringApproach,SawAmbiguousTargetBlock,SawFishCorrelatedSonarAvoidance;
+        public bool SonarFishBlockingObserved;
+        public int FishBlockingSonarId=-1;
+        public int FishCorrelatedSonarId=-1;
+        public float FishCorrelationDistance=-1;
+        int lastApproachTarget=-1;
+        double lastApproachAt=-1000;
         public List<string> Decisions=new List<string>();
         public List<float> CaptureTimes=new List<float>(),CaptureInitialZ=new List<float>();
         public double Began;
@@ -27,6 +35,9 @@ namespace TrashSailDemo
             public string kind,scenario,mode="TWIN THRUSTERS (provisional geometry)",state,reason,associationGate,revision,profile,serviceStatus;
             public int seed,captures,bycatch,collisions,visualTracks,sonarTracks,target,coverageWaypoint,coverageWaypoints,activeWorldActors,renderedFrames,frameSpikes50ms;
             public bool coverageSuspended,actuatorHealthy,cameraHealthy,sonarHealthy,largeOcean;
+            public bool confirmedTarget,confirmedApproach,hazardDuringApproach,ambiguousTargetBlock,fishCorrelatedSonarAvoidance;
+            public bool sonarFishBlockingObserved; public int fishBlockingSonarId;
+            public int fishCorrelatedSonarId;public float fishCorrelationDistance;
             public double time,wallTime,cameraAge,sonarAge;
             public long cameraSequence,sonarSequence,allocatedMemoryBytes,reservedMemoryBytes,managedMemoryBytes;
             public double cameraCapture,cameraComplete,sonarCapture,sonarComplete;
@@ -53,6 +64,29 @@ namespace TrashSailDemo
             Runtime.Vessel.Collector.Captured+=OnCaptured;Runtime.Vessel.Collided+=OnCollision;
             Runtime.Mission.Decision+=OnDecision;Runtime.ScenarioReset+=ResetEvaluation;
             ResetEvaluation();
+            foreach(string arg in args)if(arg=="-trashSmoke")StartCoroutine(PlayerSmoke());
+        }
+        [Serializable] sealed class SmokeResult
+        {
+            public string scope="Standalone technical smoke, not collection acceptance",revision,profile,mode="Twin thrusters";
+            public bool ok,cameraHealthy,sonarHealthy;
+            public int width,height,tracks;
+            public long sequence;
+            public float fps,inferenceMilliseconds,speed;
+            public Vector3 position;
+        }
+        IEnumerator PlayerSmoke()
+        {
+            yield return new WaitForSecondsRealtime(12);
+            var camera=Runtime.CameraPerception;var sonar=Runtime.SonarPerception;
+            var result=new SmokeResult{revision=Runtime.SoftwareRevision,profile=camera.ActiveProfile,cameraHealthy=camera.IsHealthy,sonarHealthy=sonar.IsHealthy,
+                width=camera.LatestFrame?.Width??0,height=camera.LatestFrame?.Height??0,sequence=camera.LatestFrame?.Sequence??0,tracks=camera.Tracks.Count,
+                fps=Runtime.RenderingFps,inferenceMilliseconds=camera.InferenceMilliseconds,speed=Runtime.Vessel.ForwardSpeed,position=Runtime.Vessel.transform.position};
+            result.ok=result.cameraHealthy && result.sonarHealthy && result.sequence>2 && result.speed>.05f && result.fps>15;
+            File.WriteAllText(Path.Combine(OutputDirectory,"player-smoke.json"),JsonUtility.ToJson(result,true));
+            Capture("player-smoke");RecordEvent("player_smoke",result.ok?"Technical sensor/render/travel PASS; semantic collection remains separate":"Technical smoke FAIL");
+            yield return new WaitForSecondsRealtime(1);
+            Application.Quit(result.ok?0:1);
         }
         public void ResetEvaluation()
         {
@@ -62,6 +96,8 @@ namespace TrashSailDemo
             writer=new StreamWriter(Path.Combine(OutputDirectory,name+".jsonl")){AutoFlush=true};
             CorrectCaptures=Bycatch=CollisionEvents=FishCollisions=Duplicates=0;captured.Clear();CaptureTimes.Clear();CaptureInitialZ.Clear();Decisions.Clear();
             MinimumHazardSeparation=float.PositiveInfinity;UnsafeCollection=false;
+            SawConfirmedTarget=SawConfirmedApproach=SawHazardDuringApproach=SawAmbiguousTargetBlock=SawFishCorrelatedSonarAvoidance=false;
+            SonarFishBlockingObserved=false;FishBlockingSonarId=-1;FishCorrelatedSonarId=-1;FishCorrelationDistance=-1;lastApproachTarget=-1;lastApproachAt=-1000;
             SawFreshCamera=SawFreshSonar=SawAvoidance=SawCollectorDisabledOnHazard=SawDegraded=SawNeuralDetection=false;
             CameraHzSum=SonarHzSum=FpsSum=MaxFrameMilliseconds=0;MetricSamples=RenderedFrames=FrameSpikes50ms=0;Began=Time.timeAsDouble;nextLog=0;
             Write("configuration",Runtime.SoftwareRevision+"; production contract v2; physics nondeterministic; seed="+Runtime.Config.Seed);
@@ -77,13 +113,66 @@ namespace TrashSailDemo
         }
         void OnCollision(Collision collision)
         {CollisionEvents++;var truth=collision.gameObject.GetComponentInParent<DemoActor>();if(truth!=null && truth.Kind=="fish")FishCollisions++;Write("collision",truth!=null?truth.Kind:"unlabelled collider");}
-        void OnDecision(string state,string reason){Decisions.Add(state);Write("state_change",reason);}
+        void OnDecision(string state,string reason)
+        {
+            Decisions.Add(state);
+            if(EligibleTarget(Time.timeAsDouble))
+            {
+                SawConfirmedTarget=true;
+            }
+            Write("state_change",reason);
+        }
+        bool EligibleTarget(double now)
+        {
+            var target=Runtime.Mission.SelectedTarget;
+            return target!=null && target.Eligible && !target.Conflict && target.RangeValid && target.Category==CanonicalCategory.CollectableRubbish
+                && target.Hits>=2 && target.Evidence!=null && target.Evidence.Length>0 && target.Age(now)<=Runtime.Config.CameraMaxAge;
+        }
+        void AuditApproachAndFish(double now)
+        {
+            var status=Runtime.Mission.Status;
+            if(EligibleTarget(now))
+            {
+                SawConfirmedTarget=true;
+                if(status.Phase==MissionPhase.APPROACH || status.Phase==MissionPhase.FINAL_CHECK || status.Phase==MissionPhase.COLLECT)
+                {
+                    SawConfirmedApproach=true;lastApproachAt=now;lastApproachTarget=Runtime.Mission.SelectedTarget.Id;
+                }
+                if(status.Phase==MissionPhase.AVOID_OR_REPLAN && status.AssociationGate=="Multiple conflicting echoes" && !Runtime.Vessel.Collector.Active)
+                    SawAmbiguousTargetBlock=true;
+            }
+            if(status.Phase!=MissionPhase.AVOID_OR_REPLAN || Runtime.Vessel.Collector.Active || !status.Reason.StartsWith("Unknown sonar contact",StringComparison.Ordinal))return;
+            // Ground truth is consumed only here for scoring; never sent to mission or tracker.
+            IEnumerable<DemoActor> actors=Runtime.Config.LargeOcean && Runtime.Population!=null?Runtime.Population.ActiveActors:Runtime.World.Actors;
+            foreach(var actor in actors)
+            {
+                if(actor==null || actor.Captured || actor.Kind!="fish")continue;
+                Collider collider=actor.GetComponent<Collider>();if(collider==null)continue;
+                float radius=new Vector2(collider.bounds.extents.x,collider.bounds.extents.z).magnitude;
+                foreach(var contact in Runtime.SonarPerception.Tracks)
+                {
+                    if(contact.Age(now)>Runtime.Config.SonarMaxAge)continue;
+                    float distance=DemoMath.Flat(contact.Position-collider.bounds.center).magnitude;
+                    if(distance<Mathf.Min(.8f,contact.Uncertainty)+radius)
+                    {
+                        SawFishCorrelatedSonarAvoidance=true;FishCorrelatedSonarId=contact.Id;FishCorrelationDistance=distance;
+                        if(System.Linq.Enumerable.Contains(Runtime.Mission.BlockingSonarContactIds,contact.Id))
+                        {
+                            SonarFishBlockingObserved=true;FishBlockingSonarId=contact.Id;
+                            if(EligibleTarget(now) && Runtime.Mission.SelectedTarget.Id==lastApproachTarget && now-lastApproachAt<=2)
+                                SawHazardDuringApproach=true;
+                        }
+                    }
+                }
+            }
+        }
         public void RecordEvent(string kind,string reason)=>Write(kind,reason);
         public void Capture(string label)=>ScreenCapture.CaptureScreenshot(Path.Combine(OutputDirectory,Runtime.Config.Scenario+"-"+Runtime.Config.Seed+"-"+label+"-"+DateTime.UtcNow.ToString("HHmmssfff")+".png"));
         void Update()
         {
             if(Runtime==null || Runtime.Config==null || writer==null)return;
             double now=Time.timeAsDouble;
+            AuditApproachAndFish(now);
             RenderedFrames++;float frameMs=Time.unscaledDeltaTime*1000;MaxFrameMilliseconds=Mathf.Max(MaxFrameMilliseconds,frameMs);if(frameMs>50)FrameSpikes50ms++;
             if(Runtime.Vessel.Collector.OverspeedCaptureCount>0)UnsafeCollection=true;
             SawFreshCamera|=Runtime.CameraPerception.IsHealthy;SawFreshSonar|=Runtime.SonarPerception.IsHealthy;
@@ -120,6 +209,8 @@ namespace TrashSailDemo
                 cameraSequence=camera.LatestFrame?.Sequence??0,sonarSequence=sonar.LatestFrame?.Sequence??0,
                 cameraCapture=camera.LatestFrame?.CaptureTime??-1,cameraComplete=camera.LatestFrame?.CompletionTime??-1,sonarCapture=sonar.LatestFrame?.CaptureTime??-1,sonarComplete=sonar.LatestFrame?.CompletionTime??-1,
                 cameraHealthy=camera.IsHealthy,sonarHealthy=sonar.IsHealthy,inferenceMilliseconds=camera.InferenceMilliseconds,
+                confirmedTarget=SawConfirmedTarget,confirmedApproach=SawConfirmedApproach,hazardDuringApproach=SawHazardDuringApproach,ambiguousTargetBlock=SawAmbiguousTargetBlock,
+                sonarFishBlockingObserved=SonarFishBlockingObserved,fishBlockingSonarId=FishBlockingSonarId,fishCorrelatedSonarAvoidance=SawFishCorrelatedSonarAvoidance,fishCorrelatedSonarId=FishCorrelatedSonarId,fishCorrelationDistance=FishCorrelationDistance,
                 clearance=float.IsInfinity(Runtime.Mission.Status.ClosestClearance)?999:Runtime.Mission.Status.ClosestClearance,evaluatorMinimumSeparation=float.IsInfinity(MinimumHazardSeparation)?999:MinimumHazardSeparation,
                 cameraHz=camera.ProcessingHz,sonarHz=sonar.ProcessingHz,fps=Runtime.RenderingFps,frameMilliseconds=Time.unscaledDeltaTime*1000,maxFrameMilliseconds=MaxFrameMilliseconds,renderedFrames=RenderedFrames,frameSpikes50ms=FrameSpikes50ms,
                 allocatedMemoryBytes=Profiler.GetTotalAllocatedMemoryLong(),reservedMemoryBytes=Profiler.GetTotalReservedMemoryLong(),managedMemoryBytes=GC.GetTotalMemory(false),
