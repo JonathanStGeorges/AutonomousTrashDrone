@@ -162,6 +162,7 @@ namespace Marus.Sensors
         RaycastJobHelper<SonarReading> _raycastHelper;
         Coroutine _coroutine;
         Vector3 sonarPosition;
+        Quaternion sonarRotation = Quaternion.identity;
         NativeArray<Vector3> directionsLocal;
 
         // Decoupled Annotation fields
@@ -219,6 +220,7 @@ namespace Marus.Sensors
         protected override void SampleSensor()
         {
             sonarPosition = transform.position;
+            sonarRotation = transform.rotation;
         }
 
         private void OnFinish(NativeArray<Vector3> points, NativeArray<SonarReading> sonarReadings)
@@ -352,7 +354,11 @@ namespace Marus.Sensors
                 sonarReading.Valid = true;
                 sonarReading.Distance = hit.distance;
 
-                double alpha = Math.PI - (Math.Acos(Vector3.Dot(direction, hit.normal)));
+                // RaycastJobHelper supplies a sensor-local ray while hit.normal is
+                // world-space. Compare in one frame so echoes survive vessel yaw.
+                // Cached on the main thread: this callback also executes in a job.
+                var worldDirection = (sonarRotation * direction).normalized;
+                double alpha = Math.PI - Math.Acos(Mathf.Clamp(Vector3.Dot(worldDirection, hit.normal), -1f, 1f));
                 intensity = (RayIntensity / 10) * (float)(Math.Cos(alpha) * Math.Cos(alpha));
 
                 sonarReading.Intensity = intensity;
