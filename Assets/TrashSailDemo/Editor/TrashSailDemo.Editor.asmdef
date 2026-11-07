@@ -1,0 +1,1 @@
+{"name":"TrashSailDemo.Editor","references":["TrashSailDemo.Runtime","Marus.Sensors","Marus Core Assembly","Unity.RenderPipelines.HighDefinition.Runtime","Unity.RenderPipelines.Core.Runtime","UnityEditor.TestRunner","UnityEngine.TestRunner"],"includePlatforms":["Editor"],"autoReferenced":true}

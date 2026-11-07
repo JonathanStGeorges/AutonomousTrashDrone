@@ -1,0 +1,1 @@
+{"name":"TrashSailDemo.Runtime","references":["Marus.Sensors","Marus Core Assembly","Unity.Collections","Unity.RenderPipelines.HighDefinition.Runtime","Unity.RenderPipelines.Core.Runtime"],"autoReferenced":true}
